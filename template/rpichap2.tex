@@ -6,17 +6,78 @@
  
 \chapter{Background} \label{sec:background}
 
-\section{Seam Carving}
+In this chapter, we provide a series of sections detailing background information on the algorithms from which this method was developed.
 
 \section{Convolutional Networks}
 
+In recent years, convolutional neural networks have provided state of the art results in several challenging computer vision tasks, including general image classification \cite{krizhevsky2012imagenet}, \cite{szegedy2015going}, image segmentation \cite{long2015fully}, \cite{chen2014semantic} and individual identification (specifically for human faces) \cite{fan2014learning}, \cite{schroff2015facenet}.
+
+The essential idea of a convolutional network is that it we can use the gradient of an error signal to learn hierarchies of convolution kernels separated by nonlinear activation functions, providing a meaningful prior to neural networks when applied to data with spatial invariances (e.g. image data).
+Convolutional networks have been around for a long time, but the current incarnation of these networks can be traced back to \cite{lecun1998gradient}.
+More recently however, convolutional networks have grown deeper and are often modeled after the architectural decisions made in \cite{simonyan2014very}, \cite{sermanet2013overfeat}, and \cite{krizhevsky2012imagenet}.
+These decisions are specifically the use of Rectified Linear Units (ReLUs) as activation functions, Dropout \cite{hinton2012improving} after fully connected layers for regularization, and small square kernels with "same" padding alternated with 2x downsampling layers (max pool).
+
+The convolutional networks used in this thesis use the above architectural decisions, and also use batch normalization \cite{ioffe2015batch} at every layer.
+
 \subsection{Facial Keypoint Prediction}
+
+Facial keypoints are used in a lot of identification pipelines, as well as in motion capture and expression recognition.
+There has been recent work in using convolutional networks for facial keypoint prediction \cite{sun2013deep}, \cite{nouri2014using}. 
+
+In this work, fluke keypoints are predicted using a very similar technique but with different underlying convolutional architectures.
+The essential idea is that the convolutional network predicts points (rather than classifications) in the form of $(x, y)$ coordinates, and is treated as a regression network (i.e. the RMSE loss is used). 
+This will be explained in more detail in the next chapter.
+
 
 \subsection{Fully Convolutional Networks}
 
-\subsection{Semantic Segmentation}
+Classically, convolutional networks for classification predict a single class for an image, ignoring the possibility of multiple objects of varying classes being present throughout the image.
+These classification networks usually have fully connected (or dense) layers towards the end, which forces the size of the network input to be fixed.
+However, this allows the network to make learned decisions over the entire input without any sort of spatial pooling.
+When dealing with arbitrarily sized images, it is typical to use networks that are 'fully convolutional', in which case the entire network consists of convolution kernels. 
+This technique can also be used for segmentation, as we can simply replace the dense part of the network with convolutional parts that can make class predictions on every pixel of their input.
+By upsampling and combining different stages of prediction, the authors in \cite{long2015fully} produce high quality image segmentations.
+
+In this work, fully convolutional networks are used for predicting the 'trailing edginess' of an image, which allows us to refine the trailing edge contour extraction. This is explained in greater detail in the next chapter.
+
+\section{Seam Carving}
+
+Seam carving is a technique that uses image saliency information to resize images without warping or distorting the objects shown in the image \cite{Avidan:2007:SCC:1276377.1276390}.
+This technique uses dynamic programming to find minimal salience paths through an image, where salience is often defined as the gradient.
+The motivation for this is that these minimal saliency paths are not important to the image, so they can be removed to reduce its size.
+
+While this method is not directly used in this work, the underlying algorithm for trailing edge extraction is based on a single iteration of the seam carving algorithm, using gradient information.
 
 \section{Curvature Measures}
+
+Contour curvature allows one to characterize the overall shape of an contour by looking at its edge.
+A lot of work has been done on using curvature information for detection \cite{monroy2011beyond}, classification \cite{fischer2014image}, and identification \cite{kumar2012leafsnap}.
+This curvature information can be broadly broken down into either integral or differential curvature, and is usually computed at multiple scales.
+
+\subsection{Differential Curvature}
+
+Differential curvature can generally be seen as measuring the measures the angle of the tangent normal of the gradient at each point in an image \cite{fischer2014image}.
+For our purposes, we can then take only those points that lie on the contour and use their curvature.
+While doing this directly can be fast to compute, it tends to be noise sensitive and we found that integral curvature (below) works better for our purposes.
+
+\subsection{Integral Curvature}
+
+Integral curvature works (conceptually) by sliding a circle of some radius $r$ along the contour \cite{pottmann2007integral}, and measuring how much of the circle is 'inside' the contour.
+This measurement is usually taken at multiple scales, and has the appealing property of being invariant to rotation and translation.
+In this work, we approximate the circular curvature with a square, which appears to perform just as well but can be computed faster.
+This is further explained in the next chapter.
+
+\section{Dynamic Time Warping}
+
+In deciding a sequence comparator, one criterion that is often important is ensuring that small shifts in the sequence do not balloon into large distances.
+Dynamic Time Warping (DTW) is a sequence comparison method that, roughly, finds the optimal matching between all sets of points in the two given sequences that minimizes the overall distance between the matched points, while keeping the locality of the points intact.
+This allows for shifts and some warps in the two sequences to be compensated for, and results in a nonlinear mapping of one sequence onto another.
+The algorithmic complexity of dynamic time warping can be limiting in large datasets, as it is quadratic in both space and time -- making a one-to-one comparison a bit daunting.
+
+There are several variants on DTW that give faster speeds \cite{salvador2007fastdtw} \cite{lemire2009faster}, however we only use the Sakoe-Chiba bound \cite{sakoe1978dynamic}, which both constrains the neighborhood in which points can be matched and gives a complexity of $O(nw)$, where $w$ is a user set parameter.
+
+Sequences of curvature measures have been used with DTW for signature verification \cite{munich1999continuous}, however this combination has not been used for matching trailing edges to our knowledge.
+
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: t

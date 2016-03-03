@@ -8,25 +8,51 @@
  
 \section{Humpback Whales}
 
+TODO: Put in something about the importance of identifying humpback whales, with citations and all
+
 \section{Current Identification Methods}
 
 Photo-identification of Humpback whale flukes thas been attempted since the early 90s \cite{mizroch1990computer} using computational aid.
 While early efforts mostly relied on a manual description of the fluke that would then be matched, later efforts have involved matching flukes based on automated analysis of both the patterns on the ventral side of the fluke.
 It is worth noting however that as shown in \cite{blackmer2000temporal}, the trailing edge changes less with age than surface patterns on the fluke, which means that it can (potentially) be a more reliable identifier over time.
 That said, trailing edges are hard to photograph well, requiring high resolution imagery and a consistent angle between fluke and photographer.
+\\\\
+Each of these annotation methods can be separated into three categories:
+
+\begin{itemize}
+	\item Manually annotated -- a human must manually annotate or catalogue features in the fluke
+	\item Semi-automated -- a human must guide an algorithm (e.g. by setting control points or highlighting interesting regions) that then automatically identifies the individual
+	\item Fully-automated -- the algorithm can identify individuals from raw images
+\end{itemize}
 
 \subsection{Based on Trailing Edge}
 
-In \cite{mizroch1990computer}, information about the trailing edge is catalogued and 
-While there is not a lot of literature on using trailing edge contours for identifying Humpback whales
-
+In \cite{mizroch1990computer}, information about the trailing edge and fluke patterns are manually catalogued and used to match individual whales. This falls under a manual annotation approach.
+In the I3S contour system \cite{i3scontour}, the user must input start and end points on the contour, which are then extracted and checked manually, giving a semi-automated system. 
+At the time of writing no published results on this system applied to Humpback whales could be found.
+Automatically identifying Humpback whales by their entire trailing edge contour is done experimentally in \cite{hughes2015automated}, using a technique that is originally designed for Great White Sharks. 
+However the results published on that technique are for a much smaller dataset than the one worked on in this thesis.
+While trailing edge matching has seen limited use in Humpback whale identification, it is a much more common technique in Sperm whale (P. macrocephalus) identification \cite{huele2000finding}, \cite{beekmans2005comparison} \cite{whitehead1990computer}, with varying levels of manual effort.
 
 \subsection{Based on general Fluke appearance}
 
+The primary method for identifying Humpback whale flukes is to use the ventral fluke pattern, as seen in \cite{mizroch1990computer}, \cite{carlson1990changes}, \cite{blackmer2000temporal}, \cite{friday2000measurement}, and (in an semi-automated fashion) \cite{kniest2010fluke}. 
 
-\section{Hotspotter}
+\subsubsection{Hotspotter}
+
+Hotspotter \cite{crall_hotspotter_2013} is an automated photo-identification algorithm based on SIFT features that has been used in identifying Grevy's Zebras, Plains Zebras, Giraffes, and Elephants \cite{parham2015photographic}. This work is the first to our knowledge of Hotspotter being applied to Humpback whale flukes, and the results are presented in chapter 4.
 
 \section{The Dataset}
+
+TODO: Get information from Jason (and Ted?) about how the dataset(s) I'm using were collected and sourced.
+
+\section{Method Overview}
+
+The method for trailing edge identification put forth in this thesis is fully automated, requiring no human annotation when used (although manual annotation is necessary for training the machine learning models used).
+On its own, it achieves decent results on a (relatively) large dataset, comparable with the fully automated method used in \cite{hughes2015automated}. 
+Ultimately we suggest that this method be used in combination with an automated pattern matching method (e.g. Hotspotter) to provide very high accuracy matches.
+We also explore alternative methods based on more recent advances in deep learning for identification, however it appears that the dataset is too small to properly train these methods.
+
 
 %%% Local Variables: 
 %%% mode: latex

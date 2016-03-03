@@ -242,6 +242,7 @@ INPUT rpiabs.tex
 INPUT rpichap1.tex
 INPUT rpichap1.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT rpichap2.tex
 INPUT rpichap2.tex
 INPUT rpichap3.tex
@@ -261,6 +262,7 @@ INPUT source_appendix.tex
 INPUT source_appendix.tex
 INPUT rpithesis.aux
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb

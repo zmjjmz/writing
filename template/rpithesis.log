@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.1)  2 MAR 2016 16:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.1)  3 MAR 2016 18:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -422,18 +422,18 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 ) (./rpithesis.aux)
 \openout1 = `rpithesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
  (/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count138
@@ -535,44 +535,66 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 CHAPTER 1.
-) (./rpichap2.tex [1
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 15--21
+
+ []
+
+[1
+
+] [2]) (./rpichap2.tex [3]
 CHAPTER 2.
-) (./rpichap3.tex [2
+[4
 
-]
+] [5] [6]
+
+Package natbib Warning: Citation `munich1999continuous' on page 7 undefined on input line 79.
+
+) (./rpichap3.tex [7]
 CHAPTER 3.
-) (./rpichap4.tex [3
+) (./rpichap4.tex [8
 
 ]
 CHAPTER 4.
-) (./rpichap5.tex [4
+) (./rpichap5.tex [9
 
 ]
 CHAPTER 5.
-) (./rpibib.tex (./rpithesis.bbl [5
+) (./rpibib.tex (./rpithesis.bbl [10
 
-] [6
+] [11
 
-])) (./rpiapp.tex (./source_appendix.tex [7
+] [12
 
-])) [8
+]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ” in font cmr12!
+ [13])) (./rpiapp.tex (./source_appendix.tex [14]))
 
-] (./rpithesis.aux) ) 
+Package natbib Warning: There were undefined citations.
+
+[15
+
+] (./rpithesis.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+) ) 
 Here is how much of TeX's memory you used:
- 15478 strings out of 493054
- 292626 string characters out of 6140587
- 352280 words of memory out of 5000000
- 18651 multiletter control sequences out of 15000+600000
- 9544 words of font info for 36 fonts, out of 8000000 for 9000
+ 15580 strings out of 493054
+ 295214 string characters out of 6140587
+ 352786 words of memory out of 5000000
+ 18752 multiletter control sequences out of 15000+600000
+ 9896 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,7n,54p,410b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on rpithesis.pdf (16 pages, 76007 bytes).
+ 55i,7n,54p,474b,366s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on rpithesis.pdf (23 pages, 110544 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
