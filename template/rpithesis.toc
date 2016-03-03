@@ -1,0 +1,47 @@
+\contentsline {chapter}{LIST OF TABLES}{v}
+\contentsline {chapter}{LIST OF FIGURES}{vi}
+\contentsline {chapter}{ACKNOWLEDGMENTS}{vii}
+\contentsline {chapter}{ABSTRACT}{vii}
+\contentsline {chapter}{\numberline {1.}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Humpback Whales}{1}
+\contentsline {section}{\numberline {1.2}Current Identification Methods}{1}
+\contentsline {subsection}{\numberline {1.2.1}Based on Trailing Edge}{1}
+\contentsline {subsection}{\numberline {1.2.2}Based on general Fluke appearance}{1}
+\contentsline {section}{\numberline {1.3}Hotspotter}{1}
+\contentsline {section}{\numberline {1.4}The Dataset}{1}
+\contentsline {chapter}{\numberline {2.}Background}{2}
+\contentsline {section}{\numberline {2.1}Seam Carving}{2}
+\contentsline {section}{\numberline {2.2}Convolutional Networks}{2}
+\contentsline {subsection}{\numberline {2.2.1}Facial Keypoint Prediction}{2}
+\contentsline {subsection}{\numberline {2.2.2}Fully Convolutional Networks}{2}
+\contentsline {subsection}{\numberline {2.2.3}Semantic Segmentation}{2}
+\contentsline {section}{\numberline {2.3}Curvature Measures}{2}
+\contentsline {chapter}{\numberline {3.}Methods}{3}
+\contentsline {section}{\numberline {3.1}Trailing Edge Extraction}{3}
+\contentsline {subsection}{\numberline {3.1.1}Gradient Information}{3}
+\contentsline {subsection}{\numberline {3.1.2}Keypoints}{3}
+\contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{3}
+\contentsline {section}{\numberline {3.2}Trailing Edge Matching}{3}
+\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{3}
+\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{3}
+\contentsline {section}{\numberline {3.3}Alternative Approaches}{3}
+\contentsline {subsection}{\numberline {3.3.1}Embedding via Convolutional Networks}{3}
+\contentsline {subsubsection}{\numberline {3.3.1.1}Raw Images}{3}
+\contentsline {subsubsection}{\numberline {3.3.1.2}Trailing Edges}{3}
+\contentsline {subsection}{\numberline {3.3.2}Aligning Trailing Edges}{3}
+\contentsline {subsubsection}{\numberline {3.3.2.1}Keypoint Alignment}{3}
+\contentsline {subsubsection}{\numberline {3.3.2.2}Dynamic Time Warping Alignment}{3}
+\contentsline {subsection}{\numberline {3.3.3}Histogram Matching}{3}
+\contentsline {chapter}{\numberline {4.}Results}{4}
+\contentsline {section}{\numberline {4.1}Main method}{4}
+\contentsline {subsection}{\numberline {4.1.1}Characterization of Success cases}{4}
+\contentsline {subsection}{\numberline {4.1.2}Characterization of Failure cases}{4}
+\contentsline {subsection}{\numberline {4.1.3}Variations}{4}
+\contentsline {section}{\numberline {4.2}In Combination with Hotspotter}{4}
+\contentsline {subsection}{\numberline {4.2.1}Failure cases}{4}
+\contentsline {chapter}{\numberline {5.}Discussion}{5}
+\contentsline {section}{\numberline {5.1}Issues with current method}{5}
+\contentsline {section}{\numberline {5.2}Future work}{5}
+\contentsline {section}{\numberline {5.3}Conclusion}{5}
+\contentsline {chapter}{REFERENCES}{6}
+\parindent 0pt\vskip 12pt APPENDIX

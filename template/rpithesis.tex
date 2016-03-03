@@ -1,0 +1,87 @@
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%                                                                 %
+%                            ROOT FILE                            %
+%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%
+%  Run LaTeX or pdfLaTeX on this file to produce your thesis.
+%  To produce the abstract title page followed by the abstract,
+%  see the file abstitle-phd.tex or abstitle-mas.tex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[chap]{thesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amssymb}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[numbers]{natbib}
+\usepackage[labelformat=simple]{subfig}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+%\usepackage{draftwatermark}
+%\SetWatermarkLightness{0.9}
+%\SetWatermarkScale{4.0}
+
+\newcommand*{\head}[1]{%
+	\textbf{#1}
+}
+\newcommand{\cnote}[1]{%
+	{\color{red}[#1]}
+}
+
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{0.99}
+\renewcommand{\topfraction}{0.99}
+\renewcommand{\bottomfraction}{0.99}
+\renewcommand{\dblfloatpagefraction}{0.99}
+\renewcommand{\dbltopfraction}{0.99}
+\renewcommand{\th}{$^{th}$}
+
+\newcommand{\conv}{\mathop{\scalebox{1.2}{\raisebox{-0.2ex}{$\ast_{x,y}$}}}}
+
+%\renewcommand{\subsubsection}[1]{%
+%	\subsection{#1}
+%}
+%\renewcommand{\subsection}[1]{%
+%	\section{#1}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Use the first command below if you want captions over 1 line indented. A side
+% effect of this is to remove the use of bold for captions (thesis default).
+% To restore bold, also include the second line below.
+%\usepackage[hang]{caption}      % to indent subsequent lines of captions
+%\renewcommand{\captionfont}{\bfseries} % bold caption (needed with caption 
+                                       % package to restore boldface.)
+\usepackage[labelfont=bf]{caption}
+%\includeonly{rpichap1}  % use \includeonly to process only
+                         % the file(s) listed inside the braces        
+               
+\begin{document}
+ 
+\input{rpititle-masters}   % titlepage material for Master's thesis or project DONE
+%\input{rpititle-phd}   % titlepage material for PhD thesis 
+\newpage
+\input{rpiack}  % include for acknowledgements DONE
+\input{rpiabs} % abstract
+\input{rpichap1} % chapter 1
+\input{rpichap2}  % chapter 2
+\input{rpichap3} % chapter 3
+\input{rpichap4} % chapter 4
+\input{rpichap5} % chapter 5
+\input{rpibib} % bibliography
+\input{rpiapp} % appendix
+ 
+\end{document}

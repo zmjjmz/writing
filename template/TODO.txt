@@ -1,0 +1,55 @@
+Title Page
+Chap 0 - Abstract
+Chap 1 - Introduction
+    Humpback Whales
+    Current identification methods
+        Trailing Edge based
+        Fluke pattern based
+    Hotspotter
+    Dataset
+        (Need to get this info from Jason)
+
+Chap 2 - Background
+    Seam Carving
+    Convolutional Networks
+        Facial Keypoint Prediction
+        Semantic Segmentation
+            Fully Convolutional Networks
+    Curvature
+    Dynamic Time Warping
+
+Chap 3 - Methods
+    Trailing Edge Extraction
+        Basic Trailing Edge Extraction
+        Keypoints
+        Trailing Edge Scoring
+    Trailing Edge Matching
+        Curvature Measure
+            Differential Curvature
+            Integral Curvature
+                Invariances
+        Sequence Matching
+    Alternative Approaches
+        Convolutional Networks for Embedding
+            Images of Flukes
+            Trailing Edges
+        Trailing Edge Matching
+            Alignment
+                Euclidean matching
+        Histogram matching
+Chap 4 - Results
+    Main method
+        Success cases
+        Failure cases
+    Combined with Hotspotter
+        Success cases
+        Failure cases
+Chap 5 - Discussion
+    Conclusion
+    Issues with current method
+    Future work
+
+
+QUESTIONS:
+    - Analogy of spatial verification
+    - Why does it fail?
