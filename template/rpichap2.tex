@@ -38,7 +38,18 @@ When dealing with arbitrarily sized images, it is typical to use networks that a
 This technique can also be used for segmentation, as we can simply replace the dense part of the network with convolutional parts that can make class predictions on every pixel of their input.
 By upsampling and combining different stages of prediction, the authors in \cite{long2015fully} produce high quality image segmentations.
 
-In this work, fully convolutional networks are used for predicting the 'trailing edginess' of an image, which allows us to refine the trailing edge contour extraction. This is explained in greater detail in the next chapter.
+In this work, fully convolutional networks are used for predicting the 'trailing edginess' of an image, which allows us to refine the trailing edge contour extraction. 
+This is explained in greater detail in the next chapter.
+
+\subsection{Embedding Networks}
+
+One major difference between the way that individual identification is done with convolutional networks and the standard classification architecture technique is the way that the error to the network is represented.
+When convolutional networks are used for classification tasks, the standard approach is to use a softmax output layer and the loss function is the cross-entropy loss.
+While a individual identification task could be expressed as a classification task, it becomes a major issue when a new individual is added to the dataset (which for our task is very common).
+A better notion for the loss function is to make it teach the network to 'embed' images into some $d$-dimensional vector (usually constrained to be unit norm), and group images of the same individual closer than those of different individuals.
+The most common approach to this is to use the contrastive loss \cite{fan2014learning} \cite{chopra2005learning}, although more recently the triplet loss has risen in popularity \cite{schroff2015facenet} \cite{parkhi2015deep}.
+
+These approaches will be explained in more detail in the next chapter.
 
 \section{Seam Carving}
 

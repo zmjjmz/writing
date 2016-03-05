@@ -14,37 +14,46 @@
 \contentsline {section}{\numberline {2.1}Convolutional Networks}{4}
 \contentsline {subsection}{\numberline {2.1.1}Facial Keypoint Prediction}{4}
 \contentsline {subsection}{\numberline {2.1.2}Fully Convolutional Networks}{5}
-\contentsline {section}{\numberline {2.2}Seam Carving}{5}
+\contentsline {subsection}{\numberline {2.1.3}Embedding Networks}{5}
+\contentsline {section}{\numberline {2.2}Seam Carving}{6}
 \contentsline {section}{\numberline {2.3}Curvature Measures}{6}
 \contentsline {subsection}{\numberline {2.3.1}Differential Curvature}{6}
-\contentsline {subsection}{\numberline {2.3.2}Integral Curvature}{6}
-\contentsline {section}{\numberline {2.4}Dynamic Time Warping}{6}
+\contentsline {subsection}{\numberline {2.3.2}Integral Curvature}{7}
+\contentsline {section}{\numberline {2.4}Dynamic Time Warping}{7}
 \contentsline {chapter}{\numberline {3.}Methods}{8}
 \contentsline {section}{\numberline {3.1}Trailing Edge Extraction}{8}
-\contentsline {subsection}{\numberline {3.1.1}Gradient Information}{8}
-\contentsline {subsection}{\numberline {3.1.2}Keypoints}{8}
-\contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{8}
-\contentsline {section}{\numberline {3.2}Trailing Edge Matching}{8}
-\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{8}
-\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{8}
-\contentsline {section}{\numberline {3.3}Alternative Approaches}{8}
-\contentsline {subsection}{\numberline {3.3.1}Embedding via Convolutional Networks}{8}
-\contentsline {subsubsection}{\numberline {3.3.1.1}Raw Images}{8}
-\contentsline {subsubsection}{\numberline {3.3.1.2}Trailing Edges}{8}
-\contentsline {subsection}{\numberline {3.3.2}Aligning Trailing Edges}{8}
-\contentsline {subsubsection}{\numberline {3.3.2.1}Keypoint Alignment}{8}
-\contentsline {subsubsection}{\numberline {3.3.2.2}Dynamic Time Warping Alignment}{8}
-\contentsline {subsection}{\numberline {3.3.3}Histogram Matching}{8}
-\contentsline {chapter}{\numberline {4.}Results}{9}
-\contentsline {section}{\numberline {4.1}Main method}{9}
-\contentsline {subsection}{\numberline {4.1.1}Characterization of Success cases}{9}
-\contentsline {subsection}{\numberline {4.1.2}Characterization of Failure cases}{9}
-\contentsline {subsection}{\numberline {4.1.3}Variations}{9}
-\contentsline {section}{\numberline {4.2}In Combination with Hotspotter}{9}
-\contentsline {subsection}{\numberline {4.2.1}Failure cases}{9}
-\contentsline {chapter}{\numberline {5.}Discussion}{10}
-\contentsline {section}{\numberline {5.1}Issues with current method}{10}
-\contentsline {section}{\numberline {5.2}Future work}{10}
-\contentsline {section}{\numberline {5.3}Conclusion}{10}
-\contentsline {chapter}{REFERENCES}{11}
+\contentsline {subsection}{\numberline {3.1.1}Basic Contour Extraction Algorithm}{8}
+\contentsline {subsection}{\numberline {3.1.2}Fluke keypoint prediction}{9}
+\contentsline {subsubsection}{\numberline {3.1.2.1}Network Design}{10}
+\contentsline {subsubsection}{\numberline {3.1.2.2}Training Details}{10}
+\contentsline {subsubsection}{\numberline {3.1.2.3}Evaluation}{11}
+\contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{11}
+\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{12}
+\contentsline {paragraph}{Simple}{12}
+\contentsline {paragraph}{Upsample}{12}
+\contentsline {paragraph}{Jet}{13}
+\contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{13}
+\contentsline {section}{\numberline {3.2}Trailing Edge Matching}{13}
+\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{14}
+\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{14}
+\contentsline {section}{\numberline {3.3}Alternative Approaches}{15}
+\contentsline {subsection}{\numberline {3.3.1}Embedding via Convolutional Networks}{15}
+\contentsline {subsubsection}{\numberline {3.3.1.1}Raw Images}{15}
+\contentsline {subsubsection}{\numberline {3.3.1.2}Trailing Edges}{15}
+\contentsline {subsection}{\numberline {3.3.2}Aligning Trailing Edges}{15}
+\contentsline {subsubsection}{\numberline {3.3.2.1}Keypoint Alignment}{15}
+\contentsline {subsubsection}{\numberline {3.3.2.2}Dynamic Time Warping Alignment}{15}
+\contentsline {subsection}{\numberline {3.3.3}Histogram Matching}{15}
+\contentsline {chapter}{\numberline {4.}Results}{16}
+\contentsline {section}{\numberline {4.1}Main method}{16}
+\contentsline {subsection}{\numberline {4.1.1}Characterization of Success cases}{16}
+\contentsline {subsection}{\numberline {4.1.2}Characterization of Failure cases}{16}
+\contentsline {subsection}{\numberline {4.1.3}Variations}{16}
+\contentsline {section}{\numberline {4.2}In Combination with Hotspotter}{16}
+\contentsline {subsection}{\numberline {4.2.1}Failure cases}{16}
+\contentsline {chapter}{\numberline {5.}Discussion}{17}
+\contentsline {section}{\numberline {5.1}Issues with current method}{17}
+\contentsline {section}{\numberline {5.2}Future work}{17}
+\contentsline {section}{\numberline {5.3}Conclusion}{17}
+\contentsline {chapter}{REFERENCES}{18}
 \parindent 0pt\vskip 12pt APPENDIX

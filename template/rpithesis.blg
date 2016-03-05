@@ -5,55 +5,55 @@ The style file: abbrv.bst
 Database file #1: references.bib
 Warning--entry type for "parham2015photographic" isn't style-file defined
 --line 131 of file references.bib
-Repeated entry---line 287 of file references.bib
+Repeated entry---line 299 of file references.bib
  : @inproceedings{long2015fully
  :                             ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "nouri2014using" isn't style-file defined
---line 364 of file references.bib
+--line 376 of file references.bib
 Warning--empty year in crall_hotspotter_2013
 Name 1 in "Xianghua Xie, Mark W. Jones, and Gary K. L. Tam" has a comma at the end for entry hughes2015automated
 while executing---line 1090 of file abbrv.bst
 Warning--empty journal in pottmann2007integral
-You've used 34 entries,
+You've used 37 entries,
             2118 wiz_defined-function locations,
-            687 strings with 10373 characters,
-and the built_in function-call counts, 13019 in all, are:
-= -- 1285
-> -- 666
-< -- 12
-+ -- 260
-- -- 226
-* -- 899
-:= -- 2100
-add.period$ -- 105
-call.type$ -- 34
-change.case$ -- 214
+            704 strings with 10869 characters,
+and the built_in function-call counts, 14120 in all, are:
+= -- 1399
+> -- 709
+< -- 14
++ -- 277
+- -- 240
+* -- 978
+:= -- 2274
+add.period$ -- 115
+call.type$ -- 37
+change.case$ -- 230
 chr.to.int$ -- 0
-cite$ -- 36
-duplicate$ -- 493
-empty$ -- 970
-format.name$ -- 226
-if$ -- 2760
+cite$ -- 39
+duplicate$ -- 538
+empty$ -- 1059
+format.name$ -- 240
+if$ -- 2998
 int.to.chr$ -- 0
-int.to.str$ -- 34
-missing$ -- 31
-newline$ -- 170
-num.names$ -- 70
-pop$ -- 238
+int.to.str$ -- 37
+missing$ -- 34
+newline$ -- 185
+num.names$ -- 76
+pop$ -- 252
 preamble$ -- 1
-purify$ -- 180
+purify$ -- 193
 quote$ -- 0
-skip$ -- 395
+skip$ -- 428
 stack$ -- 0
-substring$ -- 795
-swap$ -- 148
-text.length$ -- 12
+substring$ -- 870
+swap$ -- 162
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 136
+type$ -- 148
 warning$ -- 2
-while$ -- 122
-width$ -- 36
-write$ -- 363
+while$ -- 134
+width$ -- 39
+write$ -- 398
 (There were 2 error messages)
