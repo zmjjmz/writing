@@ -6,17 +6,173 @@
 
 \chapter{Results} \label{sec:results}
 
+In this chapter we present the results that this method achieves on the Flukebook dataset.
+The main results for the optimal method are given briefly, and then we discuss how different variations on the method affect accuracy.
+
 \section{Main method}
+
+%TODO: Figure out optimal method, put results here
 
 \subsection{Characterization of Success cases}
 
 \subsection{Characterization of Failure cases}
 
-\subsection{Variations}
+\section{Variations}
+
+\subsection{Keypoint Extraction}
+
+\subsubsection{Keypoint Extractor}
+
+In this section, we detail the training results of the fluke keypoint extractor, and note issues with it.
+We also show the variation in accuracy between keypoint extractors run on different sized inputs.
+
+\subsubsection{Manual versus Automatic}
+
+One interesting note is to see how the final keypoint extractor compares with the manual annotations provided for the dataset.
+It is worth noting that while some of these annotations made it into the keypoint extractor's training set, the vast majority of its training set comes from an external dataset.
+Additionally, we can see from its training results that the keypoint extractor generalizes well regardless.
+
+\subsubsection{Varying training image sizes}
+
+Intuitively, the bigger the image the better the prediction can be, but at the expense of requiring more parameters to handle the input.
+Resizing all images to $256 \times 256$ seems to strike a good balance.
+
+\subsubsection{STN} % Maybe?
+
+We also briefly experimented with an Spatial Transformer Network.
+This was largely motivated by the tendency of the keypoint extractor to do a terrible job of predicting fluke keypoints on flukes that did not 'fill' the image horizontally.
+Unfortunately, we could not get the STN to converge at a better accuracy than the standard keypoint extractor, even if we held its parameters fixed for a few training epochs.
+Usually, the STN would produce nonsensical transformations of the image.
+
+% TODO: Figure showing this
+
+\subsection{Image Preprocessing}
+
+\subsubsection{Cropping and Image Width}
+
+\paragraph{Cropping}
+
+One easy way to normalize the trailing edges somewhat is to make sure that they are all the same length.
+While, with dynamic time warping, we theoretically can match sequences of similar or different lengths, the distances are distorted by large differences in actual trailing edge length.
+Since we are only interested in the width of an image (assuming that the trailing edge is roughly horizontal in the image), we can get every trailing edge to have exactly some fixed length $w$ by the following process
+
+\begin{itemize}
+    \item Crop the image horizontally between the left and right columns found by the keypoint extraction process (or manually determined).
+    \item Resize the cropped image to some fixed width $w$, while preserving the aspect ratio.
+\end{itemize}
+
+In this way, we standardize the trailing edge length so that image scale does not affect detection accuracy too much.
+
+One major caveat with this process is of course that the keypoint extraction can fail if done automatically, however in practice we found that the keypoint extraction network's predictions were usually good enough to work with the above process.
+
+% TODO figure comparing crop and no crop no resize
+
+\paragraph{Trailing Edge Length}
+
+Determining what $w$ should be is not super obvious.
+One heuristic is to look at the minimal post-crop width, since increasing $w$ past that would introduce interpolation artifacts that could negatively affect matching when the image needs to be scaled up.
+Ideally, one would simply look at the mode / average post-crop width, and try to keep the fixed width around there.
+Regardless, we found that a post-crop width of 500 pixels gave us the best results. %TODO screw around and find a good reason for this
+
+\subsubsection{Histogram Equalization}
+
+When normalizing the gradient (i.e. going from $I_y$ to $N_y$), it's generally important to make sure that the overall contrast of the image is normalized.
+This is easy enough to do with histogram equalization.
+However, we found that using histogram equalization resulted in a significant drop in matching accuracy, due to a drop in trailing edge quality.
+This happened even with trailing edge scoring networks that are trained on histogram equalized images.
+
+% TODO figure comparing hist eq and no hist eq
+
+\subsection{Trailing Edge Extraction}
+
+There are a lot of variants on trailing edge scoring networks that were attempted, often with mixed results.
+One major result that we found was that, when using the averaging method to combine the trailing edge scores with $N_y$, having a robust trailing edge prediction wasn't as important as having a detailed trailing edge.
+
+\subsubsection{Trailing Edge Scorer}
+
+In this section, we detail the training results for the final chosen trailing edge scorer. % TODO whatever that may be...
+
+\subsubsection{Trailing Edge Scorer variations}
+
+The variations are detailed in the previous chapter, and here we go into the accuracies and trailing edges that we extracted from each.
+Overall, we were unable to get a significant improvement from any trailing edge scorer besides the 'simple' all convolutional scorer.
+We theorize that this is because it could correct some mistakes made by the gradient only method (although it made many of the same mistakes itself) while providing detailed trailing edges.
+More importantly, it appears that blocky trailing edge scores (such as those produced by any of the networks that are required to upsample their predictions) result in blocky trailing edges. % TODO figure showing this
+Understandably, the blockier trailing edges produce terrible accuracies when matching, as many of them are largely the same.
+
+\subsubsection{Using the notch}
+
+One minor issue to note is whether or not we use the notch when extracting the trailing edge.
+As explained in the previous chapter, we can use the notch as an additional control point, forcing the trailing edge to go through it.
+However, it appears that if the notch is inaccurate, this can lead to significant reductions in accuracy compared to simply ignoring it.
+A bad notch annotation is common with network extracted fluke keypoints, and thus in this case it makes sense to ignore it.
+However, manual annotations benefit (slightly) from using the notch as a control point.
+
+% TODO: Figure showing notch v no notch on manual v kpextracted
+
+\subsubsection{Combining $N_y$ and $T_y$}
+
+While the main method for combining the scores of the trailing edges and the normalized image gradient that is used throughout this work is the 'average' method, there were a few other variants that were briefly attempted.
+
+Additionally, the $\beta$ term does have an effect on accuracy for different networks, which we show here. % TODO this
+
+\subsubsection{Number of neighbors in the extraction}
+
+The number of neighbors $n$ effectively limits the slope of the trailing edge.
+We limit it to an odd number for convenience.
+On the one hand, a lower $n$ can cause the trailing edge to be limited in vertical breadth, but does prevent it from going way off course.
+Despite this, with trailing edge scoring in place, it might be beneficial to increase $n$ so as to avoid parts of the trailing edge that continually 'max out' the number of neighbors, i.e. parts of the trailing edge that require a higher slope than would be allowed.
+
+% TODO: Figure varying n_neighbors
+
+\subsection{Curvature Extraction}
+
+Curvature extraction is one of the least parameterized part of the process, however figuring out what the optimal scales to measure is somewhat unintuitive.
+
+\subsubsection{Different scales}
+
+We can look at each scale as measuring the curvature of some percentage of the trailing edge around the given point.
+While we default to measuring 1 through 4 percent of the trailing edge, we can see that increasing this further yields diminishing returns. % TODO: maybe. I think so.
+
+\subsection{Dynamic Time Warp Matching}
+
+We experimented with several different variants on the function $D(\cdot,\cdot)$ that makes the core decision function of DTW, and settled on using curvature.
+Originally we attempted to use Euclidean distance of the (aligned) trailing edges as well, but the performance was dismal, and so we do not present those results here.
+
+\subsubsection{Weighting the different scales}
+
+We use the curvature distance $CD_{cw}$ as outlined in equation 3.11.
+While we default to weighting each curvature scale equally (i.e. $cw = [1 \forall s \in scales]$), intuitively different scales might be more important for certain types of trailing edges.
+
+We explroe a few heuristics for generating $cw$ in this section, however a full exploration of the parameter space was not viable given time constraints.
+
+% TODO come up with these heuristics (e.g. larger scales -> less influence, vv)
+% TODO graph this shit
+
+\subsubsection{Window size}
+
+In this section, we vary the window size as a percentage of the (query) trailing edge length.
+We default this value to 10\%, below which we see a reduction in accuracy.
+While theoretically the boundary can prevent mismatches by only allowing a certain amount of translation in the correspondences generated, realistically we found that increasing the boundary did not affect match accuracy.
+Thus, the 10\% size is chosen to minimize computation time while maintaining the accuracy of the full dynamic time warp.
+
+% TODO: show this
+
+\subsubsection{Aggregating over multiple trailing edges per identity}
+
+Determining the identity of a given query image given distances to other images in the database is not entirely simple when there are multiple database images for a given individual.
+Essentially we need to transform these distances from query image to database image into distances from query to individual.
+To do so we evaluate two options given a group of distances for an individual -- either the average distance or the minimum distance.
+
+We find that the minimum distance version provides significantly better accuracy than the average distance. % TODO show this
+While this is a bit surprising given that most of the individuals in the dataset only have two images associated, there are still a significant amount of individuals for whom there are more than that.
+That said, the minimal distance version also is in line with the LNBNN decision criterion used by Hotspotter \cite{crall_hotspotter_2013}, and as such as theoretical backing. % TODO: lay out what this theoretical backing actually is
 
 \section{In Combination with Hotspotter}
 
 \subsection{Failure cases}
+
+\subsection{Characterization of when to use which method}
 
 
 %%% Local Variables: 

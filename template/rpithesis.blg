@@ -5,55 +5,51 @@ The style file: abbrv.bst
 Database file #1: references.bib
 Warning--entry type for "parham2015photographic" isn't style-file defined
 --line 131 of file references.bib
-Repeated entry---line 299 of file references.bib
- : @inproceedings{long2015fully
- :                             ,
-I'm skipping whatever remains of this entry
 Warning--entry type for "nouri2014using" isn't style-file defined
---line 376 of file references.bib
+--line 378 of file references.bib
 Warning--empty year in crall_hotspotter_2013
 Name 1 in "Xianghua Xie, Mark W. Jones, and Gary K. L. Tam" has a comma at the end for entry hughes2015automated
 while executing---line 1090 of file abbrv.bst
 Warning--empty journal in pottmann2007integral
-You've used 37 entries,
+You've used 38 entries,
             2118 wiz_defined-function locations,
-            704 strings with 10869 characters,
-and the built_in function-call counts, 14120 in all, are:
-= -- 1399
-> -- 709
-< -- 14
-+ -- 277
-- -- 240
-* -- 978
-:= -- 2274
-add.period$ -- 115
-call.type$ -- 37
-change.case$ -- 230
+            710 strings with 11093 characters,
+and the built_in function-call counts, 14596 in all, are:
+= -- 1452
+> -- 722
+< -- 16
++ -- 282
+- -- 244
+* -- 1006
+:= -- 2339
+add.period$ -- 119
+call.type$ -- 38
+change.case$ -- 235
 chr.to.int$ -- 0
-cite$ -- 39
-duplicate$ -- 538
-empty$ -- 1059
-format.name$ -- 240
-if$ -- 2998
+cite$ -- 40
+duplicate$ -- 561
+empty$ -- 1100
+format.name$ -- 244
+if$ -- 3111
 int.to.chr$ -- 0
-int.to.str$ -- 37
-missing$ -- 34
-newline$ -- 185
-num.names$ -- 76
-pop$ -- 252
+int.to.str$ -- 38
+missing$ -- 35
+newline$ -- 190
+num.names$ -- 78
+pop$ -- 259
 preamble$ -- 1
-purify$ -- 193
+purify$ -- 197
 quote$ -- 0
-skip$ -- 428
+skip$ -- 448
 stack$ -- 0
-substring$ -- 870
-swap$ -- 162
-text.length$ -- 14
+substring$ -- 907
+swap$ -- 174
+text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 148
+type$ -- 152
 warning$ -- 2
-while$ -- 134
-width$ -- 39
-write$ -- 398
-(There were 2 error messages)
+while$ -- 139
+width$ -- 40
+write$ -- 411
+(There was 1 error message)

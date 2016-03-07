@@ -202,9 +202,11 @@ We initialize this cost matrix by setting the first column and row to $\infty$, 
 Then, for each element in the cost matrix starting with $C(1,1)$, we use the following update rule
 
 \begin{align}
-D(c_1, c_2) &= \lVert c_1 - c_2 \rVert_2\\
-C(i,j) &= D(x_1(i),x_2(j)) + min(C(i-1,j), C(i,j-1), C(i-1, j-1))
+CD_{cw}(c_1, c_2) &= \lVert cw \odot (\vec{c_1} - \vec{c_2}) \rVert_2\\
+C(i,j) &= CD(x_1(i,\cdot),x_2(j,\cdot)) + min(C(i-1,j), C(i,j-1), C(i-1, j-1))
 \end{align}
+
+Where $cw$ is the weight given to each curvature scale.
 
 Additionally, we impose the Sakoe-Chiba \cite{sakoe1978dynamic} locality constraint $w$ so that for each element $i$ in $BC_1$, we only consider the range over elements $j$ in $BC_2$ of $j \in [min(i - w, 0), max(i + w, x_2)]$.
 
@@ -214,20 +216,41 @@ For most of these experiments $w$ is set to $50$, which appears to minimize the 
 
 In this section, we list and briefly describe alternative approaches that were tried, although they did not prove accurate enough to make it into the final system.
 
-\subsection{Embedding via Convolutional Networks}
-
-\subsubsection{Raw Images}
-
-\subsubsection{Trailing Edges}
-
 \subsection{Aligning Trailing Edges}
+
+One obvious pre-processing step that would make sense when comparing trailing edges is to make sure that they are aligned in image space.
+However, we found that doing so when comparing curvature was often unnecessary (due to the invariances to rotation and translation, scale was taken care of separately), and using the Euclidean distance between points on the (aligned) trailing edges did not give good accuracies.
 
 \subsubsection{Keypoint Alignment}
 
+As noted in the section on fluke keypoints, there are three points to predict -- left, notch and right.
+Originally the intention for recording these was to have three corresponding points with which to align images before extracting trailing edge.
+This was done by computing the inverse affine transform that maps the database image onto the query image, and then computing the curvature information.
+
+One major issue with aligning these trailing edges however is making the distance invariant to skew, which is unfortunately not something that can be easily fixed with an affine transformation.
+
 \subsubsection{Dynamic Time Warping Alignment}
+
+Taking after the AI-DTW approach laid out in \cite{qiao2006affine}, we ran an iterative alignment process that used the correspondences found by DTW (using either curvature distance or Euclidean distance as criteria).
+However, we found that this process oftentimes wouldn't converge, and when it did the alignments provided were of worse quality than those found by aligning the three fluke keypoints.
 
 \subsection{Histogram Matching}
 
+One early curvature comparison method that was tried was to use histograms to match instead of a sequence-based method.
+This is the usual approach for comparing curvatures \cite{kumar2012leafsnap}, %TODO cite more for this
+however we found that for our purposes even high resolution histograms did not provide enough detail to match the humpback flukes, as they were usually dominated in one area.
+
+\subsection{Embedding via Convolutional Networks}
+
+We also made an attempt at training convolutional networks to directly embed the images of flukes into a $n$ dimensional Euclidean space, much like \cite{schroff2015facenet} and \cite{parkhi2015deep}.
+However, most of the previous literature on this technique is applied to larger datasets such as LFW %TODO find citation for LFW
+, which is significantly larger than the dataset that was made available to us.
+Additionally, these larger datasets often have five to ten images per identity (if not more), whereas most of the identities in our dataset had one or two images associated.
+While this method was attempted, even a severely overfit convolutional network only achieved half the top-1 accuracy on its training set that the main method is able to achieve.
+We tried both triplet loss (a modified version of the one detailed in \cite{schroff2015facenet}) and contrastive loss %TODO find citation for this?
+to no avail.
+
+We believe that the small amount of images per identity is the main factor for the failure of these methods, and that a larger dataset would be necessary to properly train them.
 
 %%% Local Variables: 
 %%% mode: latex

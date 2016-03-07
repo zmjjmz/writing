@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.1)  4 MAR 2016 22:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.1)  7 MAR 2016 18:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -805,25 +805,25 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
  [2] (./rpithesis.toc [3
 
 
-])
+] [4])
 \tf@toc=\write4
 \openout4 = `rpithesis.toc'.
 
- [4] (./rpithesis.lot)
+ [5] (./rpithesis.lot)
 \tf@lot=\write5
 \openout5 = `rpithesis.lot'.
 
- [5
+ [6
 
 ] (./rpithesis.lof)
 \tf@lof=\write6
 \openout6 = `rpithesis.lof'.
 
-) [6
+) [7
 
-] (./rpiack.tex (./source_acknowledgements.tex)) (./rpiabs.tex [7
+] (./rpiack.tex (./source_acknowledgements.tex)) (./rpiabs.tex [8
 
-]) (./rpichap1.tex [8
+]) (./rpichap1.tex [9
 
 ]
 CHAPTER 1.
@@ -842,38 +842,38 @@ CHAPTER 2.
 CHAPTER 3.
 [8
 
-] [9] [10] [11] [12] [13] [14]) (./rpichap4.tex [15]
+] [9] [10] [11] [12] [13] [14] [15]) (./rpichap4.tex [16]
 CHAPTER 4.
-) (./rpichap5.tex [16
+[17
 
-]
+] [18] [19] [20] [21]) (./rpichap5.tex [22]
 CHAPTER 5.
-) (./rpibib.tex (./rpithesis.bbl [17
+) (./rpibib.tex (./rpithesis.bbl [23
 
-] [18
+] [24
 
-] [19
+] [25
 
 ]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
- [20] [21])) (./rpiapp.tex (./source_appendix.tex [22])) [23
+ [26] [27])) (./rpiapp.tex (./source_appendix.tex [28])) [29
 
 ] (./rpithesis.aux) ) 
 Here is how much of TeX's memory you used:
- 25034 strings out of 493054
- 506866 string characters out of 6140587
- 502846 words of memory out of 5000000
- 28162 multiletter control sequences out of 15000+600000
+ 25037 strings out of 493054
+ 506932 string characters out of 6140587
+ 503862 words of memory out of 5000000
+ 28165 multiletter control sequences out of 15000+600000
  11308 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,54p,10416b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,9n,54p,10416b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on rpithesis.pdf (31 pages, 168631 bytes).
+Output written on rpithesis.pdf (38 pages, 183354 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 103 compressed objects within 2 object streams
+ 172 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

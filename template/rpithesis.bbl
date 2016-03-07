@@ -172,6 +172,13 @@ H.~Pottmann, J.~Wallner, Q.-x. Huang, and Y.-l. Yang.
 \newblock Integral invariants for robust geometry processing.
 \newblock 2007.
 
+\bibitem{qiao2006affine}
+Y.~Qiao and M.~Yasuhara.
+\newblock Affine invariant dynamic time warping and its application to online
+  rotated handwriting recognition.
+\newblock In {\em Pattern Recognition, 2006. ICPR 2006. 18th International
+  Conference on}, volume~2, pages 905--908. IEEE, 2006.
+
 \bibitem{sakoe1978dynamic}
 H.~Sakoe and S.~Chiba.
 \newblock Dynamic programming algorithm optimization for spoken word
