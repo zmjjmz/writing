@@ -20,61 +20,62 @@
 \contentsline {subsection}{\numberline {2.3.1}Differential Curvature}{6}
 \contentsline {subsection}{\numberline {2.3.2}Integral Curvature}{7}
 \contentsline {section}{\numberline {2.4}Dynamic Time Warping}{7}
-\contentsline {chapter}{\numberline {3.}Methods}{8}
-\contentsline {section}{\numberline {3.1}Trailing Edge Extraction}{8}
-\contentsline {subsection}{\numberline {3.1.1}Basic Contour Extraction Algorithm}{8}
-\contentsline {subsection}{\numberline {3.1.2}Fluke keypoint prediction}{9}
-\contentsline {subsubsection}{\numberline {3.1.2.1}Network Design}{10}
-\contentsline {subsubsection}{\numberline {3.1.2.2}Training Details}{10}
-\contentsline {subsubsection}{\numberline {3.1.2.3}Evaluation}{11}
-\contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{11}
-\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{12}
-\contentsline {paragraph}{Simple}{12}
-\contentsline {paragraph}{Upsample}{12}
-\contentsline {paragraph}{Jet}{13}
-\contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{13}
-\contentsline {section}{\numberline {3.2}Trailing Edge Matching}{13}
-\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{14}
-\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{14}
-\contentsline {section}{\numberline {3.3}Alternative Approaches}{15}
-\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{15}
-\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{15}
-\contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{16}
-\contentsline {subsection}{\numberline {3.3.2}Histogram Matching}{16}
-\contentsline {subsection}{\numberline {3.3.3}Embedding via Convolutional Networks}{16}
-\contentsline {chapter}{\numberline {4.}Results}{17}
-\contentsline {section}{\numberline {4.1}Main method}{17}
-\contentsline {subsection}{\numberline {4.1.1}Characterization of Success cases}{17}
-\contentsline {subsection}{\numberline {4.1.2}Characterization of Failure cases}{17}
-\contentsline {section}{\numberline {4.2}Variations}{17}
-\contentsline {subsection}{\numberline {4.2.1}Keypoint Extraction}{17}
-\contentsline {subsubsection}{\numberline {4.2.1.1}Keypoint Extractor}{17}
-\contentsline {subsubsection}{\numberline {4.2.1.2}Manual versus Automatic}{17}
-\contentsline {subsubsection}{\numberline {4.2.1.3}Varying training image sizes}{17}
-\contentsline {subsubsection}{\numberline {4.2.1.4}STN}{18}
-\contentsline {subsection}{\numberline {4.2.2}Image Preprocessing}{18}
-\contentsline {subsubsection}{\numberline {4.2.2.1}Cropping and Image Width}{18}
-\contentsline {paragraph}{Cropping}{18}
-\contentsline {paragraph}{Trailing Edge Length}{18}
-\contentsline {subsubsection}{\numberline {4.2.2.2}Histogram Equalization}{19}
-\contentsline {subsection}{\numberline {4.2.3}Trailing Edge Extraction}{19}
-\contentsline {subsubsection}{\numberline {4.2.3.1}Trailing Edge Scorer}{19}
-\contentsline {subsubsection}{\numberline {4.2.3.2}Trailing Edge Scorer variations}{19}
-\contentsline {subsubsection}{\numberline {4.2.3.3}Using the notch}{20}
-\contentsline {subsubsection}{\numberline {4.2.3.4}Combining $N_y$ and $T_y$}{20}
-\contentsline {subsubsection}{\numberline {4.2.3.5}Number of neighbors in the extraction}{20}
-\contentsline {subsection}{\numberline {4.2.4}Curvature Extraction}{21}
-\contentsline {subsubsection}{\numberline {4.2.4.1}Different scales}{21}
-\contentsline {subsection}{\numberline {4.2.5}Dynamic Time Warp Matching}{21}
-\contentsline {subsubsection}{\numberline {4.2.5.1}Weighting the different scales}{21}
-\contentsline {subsubsection}{\numberline {4.2.5.2}Window size}{21}
-\contentsline {subsubsection}{\numberline {4.2.5.3}Aggregating over multiple trailing edges per identity}{22}
-\contentsline {section}{\numberline {4.3}In Combination with Hotspotter}{22}
-\contentsline {subsection}{\numberline {4.3.1}Failure cases}{22}
-\contentsline {subsection}{\numberline {4.3.2}Characterization of when to use which method}{22}
-\contentsline {chapter}{\numberline {5.}Discussion}{23}
-\contentsline {section}{\numberline {5.1}Issues with current method}{23}
-\contentsline {section}{\numberline {5.2}Future work}{23}
-\contentsline {section}{\numberline {5.3}Conclusion}{23}
-\contentsline {chapter}{REFERENCES}{24}
+\contentsline {chapter}{\numberline {3.}Methods}{9}
+\contentsline {section}{\numberline {3.1}Trailing Edge Extraction}{9}
+\contentsline {subsection}{\numberline {3.1.1}Basic Contour Extraction Algorithm}{9}
+\contentsline {subsection}{\numberline {3.1.2}Fluke keypoint prediction}{10}
+\contentsline {subsubsection}{\numberline {3.1.2.1}Network Design}{11}
+\contentsline {subsubsection}{\numberline {3.1.2.2}Training Details}{11}
+\contentsline {subsubsection}{\numberline {3.1.2.3}Evaluation}{12}
+\contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{13}
+\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{13}
+\contentsline {paragraph}{Simple}{14}
+\contentsline {paragraph}{Upsample}{14}
+\contentsline {paragraph}{Jet}{14}
+\contentsline {paragraph}{DeepRes}{14}
+\contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{15}
+\contentsline {section}{\numberline {3.2}Trailing Edge Matching}{15}
+\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{16}
+\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{16}
+\contentsline {section}{\numberline {3.3}Alternative Approaches}{17}
+\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{17}
+\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{17}
+\contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{18}
+\contentsline {subsection}{\numberline {3.3.2}Histogram Matching}{18}
+\contentsline {subsection}{\numberline {3.3.3}Embedding via Convolutional Networks}{18}
+\contentsline {chapter}{\numberline {4.}Results}{19}
+\contentsline {section}{\numberline {4.1}Main method}{19}
+\contentsline {subsection}{\numberline {4.1.1}Characterization of Success cases}{19}
+\contentsline {subsection}{\numberline {4.1.2}Characterization of Failure cases}{19}
+\contentsline {section}{\numberline {4.2}Variations}{19}
+\contentsline {subsection}{\numberline {4.2.1}Keypoint Extraction}{19}
+\contentsline {subsubsection}{\numberline {4.2.1.1}Keypoint Extractor}{19}
+\contentsline {subsubsection}{\numberline {4.2.1.2}Manual versus Automatic}{19}
+\contentsline {subsubsection}{\numberline {4.2.1.3}Varying training image sizes}{19}
+\contentsline {subsubsection}{\numberline {4.2.1.4}STN}{20}
+\contentsline {subsection}{\numberline {4.2.2}Image Preprocessing}{20}
+\contentsline {subsubsection}{\numberline {4.2.2.1}Cropping and Image Width}{20}
+\contentsline {paragraph}{Cropping}{20}
+\contentsline {paragraph}{Trailing Edge Length}{20}
+\contentsline {subsubsection}{\numberline {4.2.2.2}Histogram Equalization}{21}
+\contentsline {subsection}{\numberline {4.2.3}Trailing Edge Extraction}{21}
+\contentsline {subsubsection}{\numberline {4.2.3.1}Trailing Edge Scorer}{21}
+\contentsline {subsubsection}{\numberline {4.2.3.2}Trailing Edge Scorer variations}{21}
+\contentsline {subsubsection}{\numberline {4.2.3.3}Using the notch}{22}
+\contentsline {subsubsection}{\numberline {4.2.3.4}Combining $N_y$ and $T_y$}{22}
+\contentsline {subsubsection}{\numberline {4.2.3.5}Number of neighbors in the extraction}{22}
+\contentsline {subsection}{\numberline {4.2.4}Curvature Extraction}{23}
+\contentsline {subsubsection}{\numberline {4.2.4.1}Different scales}{23}
+\contentsline {subsection}{\numberline {4.2.5}Dynamic Time Warp Matching}{23}
+\contentsline {subsubsection}{\numberline {4.2.5.1}Weighting the different scales}{23}
+\contentsline {subsubsection}{\numberline {4.2.5.2}Window size}{23}
+\contentsline {subsubsection}{\numberline {4.2.5.3}Aggregating over multiple trailing edges per identity}{24}
+\contentsline {section}{\numberline {4.3}In Combination with Hotspotter}{24}
+\contentsline {subsection}{\numberline {4.3.1}Failure cases}{24}
+\contentsline {subsection}{\numberline {4.3.2}Characterization of when to use which method}{24}
+\contentsline {chapter}{\numberline {5.}Discussion}{25}
+\contentsline {section}{\numberline {5.1}Issues with current method}{25}
+\contentsline {section}{\numberline {5.2}Future work}{25}
+\contentsline {section}{\numberline {5.3}Conclusion}{25}
+\contentsline {chapter}{REFERENCES}{26}
 \parindent 0pt\vskip 12pt APPENDIX

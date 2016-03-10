@@ -1,4 +1,4 @@
-PWD /home/zj1992/work/thesis/writing/template
+PWD /home/zj1992/work/writing/template
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT rpithesis.tex
@@ -162,8 +162,8 @@ INPUT /usr/share/texmf-dist/tex/latex/caption/caption.sty
 INPUT /usr/share/texmf-dist/tex/latex/caption/caption.sty
 INPUT /usr/share/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/share/texmf-dist/tex/latex/caption/caption3.sty
-INPUT /usr/share/texmf-dist/tex/latex/siunitx/siunitx.sty
-INPUT /usr/share/texmf-dist/tex/latex/siunitx/siunitx.sty
+INPUT /usr/share/texmf/tex/latex/siunitx/siunitx.sty
+INPUT /usr/share/texmf/tex/latex/siunitx/siunitx.sty
 INPUT /usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
 INPUT /usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
 INPUT /usr/share/texmf-dist/tex/latex/l3kernel/expl3-code.tex
@@ -216,8 +216,8 @@ INPUT /usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 INPUT /usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 INPUT /usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dictionary/translator-basic-dictionary-English.dict
 INPUT /usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dictionary/translator-basic-dictionary-English.dict
-INPUT /usr/share/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
-INPUT /usr/share/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
+INPUT /usr/share/texmf/tex/latex/siunitx/siunitx-abbreviations.cfg
+INPUT /usr/share/texmf/tex/latex/siunitx/siunitx-abbreviations.cfg
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm

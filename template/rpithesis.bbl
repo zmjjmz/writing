@@ -70,6 +70,11 @@ N.~Friday, T.~D. Smith, P.~T. Stevick, and J.~Allen.
 d.~J. Hartog and R.~Reijns.
 \newblock {I3S} {Contour} {MANUAL}, 2013.
 
+\bibitem{he2015deep}
+K.~He, X.~Zhang, S.~Ren, and J.~Sun.
+\newblock Deep residual learning for image recognition.
+\newblock {\em arXiv preprint arXiv:1512.03385}, 2015.
+
 \bibitem{hinton2012improving}
 G.~E. Hinton, N.~Srivastava, A.~Krizhevsky, I.~Sutskever, and R.~R.
   Salakhutdinov.
@@ -97,6 +102,12 @@ S.~Ioffe and C.~Szegedy.
 \newblock Batch normalization: Accelerating deep network training by reducing
   internal covariate shift.
 \newblock {\em arXiv preprint arXiv:1502.03167}, 2015.
+
+\bibitem{jaderberg2015spatial}
+M.~Jaderberg, K.~Simonyan, A.~Zisserman, et~al.
+\newblock Spatial transformer networks.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  2008--2016, 2015.
 
 \bibitem{kniest2010fluke}
 E.~Kniest, D.~Burns, and P.~Harrison.
@@ -207,6 +218,12 @@ P.~Sermanet, D.~Eigen, X.~Zhang, M.~Mathieu, R.~Fergus, and Y.~LeCun.
 K.~Simonyan and A.~Zisserman.
 \newblock Very deep convolutional networks for large-scale image recognition.
 \newblock {\em arXiv preprint arXiv:1409.1556}, 2014.
+
+\bibitem{Sobel1968}
+I.~Sobel and G.~Feldman.
+\newblock {A 3x3 Isotropic Gradient Operator for Image Processing}.
+\newblock Never published but presented at a talk at the Stanford Artificial
+  Project, 1968.
 
 \bibitem{sun2013deep}
 Y.~Sun, X.~Wang, and X.~Tang.

@@ -12,10 +12,11 @@ In this chapter, we provide a series of sections detailing background informatio
 
 In recent years, convolutional neural networks have provided state of the art results in several challenging computer vision tasks, including general image classification \cite{krizhevsky2012imagenet}, \cite{szegedy2015going}, image segmentation \cite{long2015fully}, \cite{chen2014semantic} and individual identification (specifically for human faces) \cite{fan2014learning}, \cite{schroff2015facenet}.
 
-The essential idea of a convolutional network is that it we can use the gradient of an error signal to learn hierarchies of convolution kernels separated by nonlinear activation functions, providing a meaningful prior to neural networks when applied to data with spatial invariances (e.g. image data).
+The essential idea of a convolutional network is that it we can use the gradient of an error signal to learn hierarchies of convolution kernels separated by nonlinear activation functions.
+These networks are considered to be a form of neural network where the convolutions provide a meaningful prior to when applied to data with spatial relationships (e.g. image data).
 Convolutional networks have been around for a long time, but the current incarnation of these networks can be traced back to \cite{lecun1998gradient}.
 More recently however, convolutional networks have grown deeper and are often modeled after the architectural decisions made in \cite{simonyan2014very}, \cite{sermanet2013overfeat}, and \cite{krizhevsky2012imagenet}.
-These decisions are specifically the use of Rectified Linear Units (ReLUs) as activation functions, Dropout \cite{hinton2012improving} after fully connected layers for regularization, and small square kernels with "same" padding alternated with 2x downsampling layers (max pool).
+These decisions are specifically the use of Rectified Linear Units (ReLUs) as activation functions, Dropout \cite{hinton2012improving} after fully connected layers for regularization, and small square kernels with "same" padding alternated with $2\times$ downsampling layers (specifically max pooling layers).
 
 The convolutional networks used in this thesis use the above architectural decisions, and also use batch normalization \cite{ioffe2015batch} at every layer.
 
@@ -24,19 +25,19 @@ The convolutional networks used in this thesis use the above architectural decis
 Facial keypoints are used in a lot of identification pipelines, as well as in motion capture and expression recognition.
 There has been recent work in using convolutional networks for facial keypoint prediction \cite{sun2013deep}, \cite{nouri2014using}. 
 
-In this work, fluke keypoints are predicted using a very similar technique but with different underlying convolutional architectures.
-The essential idea is that the convolutional network predicts points (rather than classifications) in the form of $(x, y)$ coordinates, and is treated as a regression network (i.e. the RMSE loss is used). 
+In this work, fluke keypoints are predicted using essentially the same paradigm  as the above works but with different underlying convolutional architectures and a slightly different loss function.
+The essential idea is that the convolutional network predicts points (rather than classifications) in the form of $(x, y)$ coordinates, and is treated as a regression network.
 This will be explained in more detail in the next chapter.
-
 
 \subsection{Fully Convolutional Networks}
 
-Classically, convolutional networks for classification predict a single class for an image, ignoring the possibility of multiple objects of varying classes being present throughout the image.
-These classification networks usually have fully connected (or dense) layers towards the end, which forces the size of the network input to be fixed.
-However, this allows the network to make learned decisions over the entire input without any sort of spatial pooling.
-When dealing with arbitrarily sized images, it is typical to use networks that are 'fully convolutional', in which case the entire network consists of convolution kernels. 
+Classically, convolutional networks reduce a an image to a single (spatially invariant) vector, which is then used for classification (or embedding, regression, etc.)
+Additionally, these classification networks usually have fully connected (or dense) layers towards the end, which forces the size of the network input (i.e. the image) to be fixed.
+This ensures that the receptive field of the network (after the convolutional layers) covers the entire image, which is necessary for a lot of applications.
+However, when dealing with arbitrarily sized images, it is typical to use networks that are 'fully convolutional', in which case the entire network consists of convolution kernels. 
+Convolutional networks that reduce to dense layers can be cast as fully convolutional networks by replacing the dense layers with $1\times1$ kernels, using the dense units as channels.
 This technique can also be used for segmentation, as we can simply replace the dense part of the network with convolutional parts that can make class predictions on every pixel of their input.
-By upsampling and combining different stages of prediction, the authors in \cite{long2015fully} produce high quality image segmentations.
+By upsampling and combining different stages of prediction, the authors in \cite{long2015fully} produce high quality image segmentations, a technique that we replicate.
 
 In this work, fully convolutional networks are used for predicting the 'trailing edginess' of an image, which allows us to refine the trailing edge contour extraction. 
 This is explained in greater detail in the next chapter.
@@ -44,25 +45,26 @@ This is explained in greater detail in the next chapter.
 \subsection{Embedding Networks}
 
 One major difference between the way that individual identification is done with convolutional networks and the standard classification architecture technique is the way that the error to the network is represented.
-When convolutional networks are used for classification tasks, the standard approach is to use a softmax output layer and the loss function is the cross-entropy loss.
-While a individual identification task could be expressed as a classification task, it becomes a major issue when a new individual is added to the dataset (which for our task is very common).
-A better notion for the loss function is to make it teach the network to 'embed' images into some $d$-dimensional vector (usually constrained to be unit norm), and group images of the same individual closer than those of different individuals.
+When convolutional networks are used for classification tasks, the standard approach is to use a softmax output layer and learn with the cross-entropy loss.
+While an individual identification task could be expressed as a classification task, it becomes a major issue when a new individual is added to the dataset (which for our task should be very common).
+A better notion for the loss function is to make it teach the network to 'embed' images into some $d$-dimensional vector (usually constrained to be unit norm).
+This is generally done by using a loss function that encourages grouping images of the same individual closer than those of different individuals.
 The most common approach to this is to use the contrastive loss \cite{fan2014learning} \cite{chopra2005learning}, although more recently the triplet loss has risen in popularity \cite{schroff2015facenet} \cite{parkhi2015deep}.
 
-These approaches will be explained in more detail in the next chapter.
+These approaches will be explored in more detail in the next chapter.
 
 \section{Seam Carving}
 
-Seam carving is a technique that uses image saliency information to resize images without warping or distorting the objects shown in the image \cite{Avidan:2007:SCC:1276377.1276390}.
-This technique uses dynamic programming to find minimal salience paths through an image, where salience is often defined as the gradient.
+Seam carving is a technique that tries to resize images without warping or distorting the objects shown in the image \cite{Avidan:2007:SCC:1276377.1276390}.
+This technique uses a dynamic programming algorithm to find minimal salience paths through an image, where salience is often defined as the gradient.
 The motivation for this is that these minimal saliency paths are not important to the image, so they can be removed to reduce its size.
 
-While this method is not directly used in this work, the underlying algorithm for trailing edge extraction is based on a single iteration of the seam carving algorithm, using gradient information.
+While this method is not directly used in this work, the underlying algorithm for trailing edge extraction is essentially a single iteration of the seam carving algorithm, using gradient information.
 
 \section{Curvature Measures}
 
-Contour curvature allows one to characterize the overall shape of an contour by looking at its edge.
-A lot of work has been done on using curvature information for detection \cite{monroy2011beyond}, classification \cite{fischer2014image}, and identification \cite{kumar2012leafsnap}.
+Contour curvature measures are commonly used to characterize the overall shape of an contour. 
+A lot of work has been done on using curvature information for detection \cite{monroy2011beyond}, classification \cite{fischer2014image}, and species identification \cite{kumar2012leafsnap}.
 This curvature information can be broadly broken down into either integral or differential curvature, and is usually computed at multiple scales.
 
 \subsection{Differential Curvature}
@@ -74,14 +76,15 @@ While doing this directly can be fast to compute, it tends to be noise sensitive
 \subsection{Integral Curvature}
 
 Integral curvature works (conceptually) by sliding a circle of some radius $r$ along the contour \cite{pottmann2007integral}, and measuring how much of the circle is 'inside' the contour.
-This measurement is usually taken at multiple scales, and has the appealing property of being invariant to rotation and translation.
-In this work, we approximate the circular curvature with a square, which appears to perform just as well but can be computed faster.
+This measurement is usually taken at multiple scales, and has the appealing property of being invariant to rotation and translation (of the entire contour).
+In this work, we approximate the circular curvature with a square of size $r$, which appears to perform just as well but can be computed much faster.
+
 This is further explained in the next chapter.
 
 \section{Dynamic Time Warping}
 
-In deciding a sequence comparator, one criterion that is often important is ensuring that small shifts in the sequence do not balloon into large distances.
-Dynamic Time Warping (DTW) is a sequence comparison method that, roughly, finds the optimal matching between all sets of points in the two given sequences that minimizes the overall distance between the matched points, while keeping the locality of the points intact.
+In deciding a sequence comparator, one criterion that is often important is ensuring that small shifts in the sequence do not balloon into large differences.
+Dynamic Time Warping (DTW) is a sequence comparison method that, roughly, finds the optimal matching between all sets of points in the two given sequences that minimizes the overall distance (for some defined distance function) between the matched points, while keeping the locality of the points intact.
 This allows for shifts and some warps in the two sequences to be compensated for, and results in a nonlinear mapping of one sequence onto another.
 The algorithmic complexity of dynamic time warping can be limiting in large datasets, as it is quadratic in both space and time -- making a one-to-one comparison a bit daunting.
 
