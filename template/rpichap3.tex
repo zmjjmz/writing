@@ -191,54 +191,60 @@ However one of the main issues with this is that if there are any breaks in the 
 
 \section{Trailing Edge Matching}
 
-Once these trailing edges are extracted, we can use a few simple methods to compare them in search of a trailing edge that is close to the one we are finding a match for.
-The simplest way to do this is to define a comparator between any two given trailing edges.
-The best method for this that we have tried is to extract block integral curvature at several scales and then use Euclidean distance as a point-to-point distance measure in a dynamic time warping algorithm.
-Block integral curvature approximates true integral curvature while allowing for a much faster computation time.
-This approximation is made better by being taken at multiple scales.
+Given extracted trailing edges, we define a method for doing a one-to-one comparison between a given query and database trailing edge.
+%Once these trailing edges are extracted, we can use a few simple methods to compare them in search of a trailing edge that is close to the one we are finding a match for.
+The simplest way to do this is to define a (potentially non-metric) distance function between any two trailing edges.
+Once this distance function is defined, we can identify an individual by its trailing edge (referred to as the query trailing edge) by looking at the identity of the closest trailing edge in the database.
+As a distance function we propos dynamic time warping over the block curvature measurements, using a weighted Euclidean distance as a local distance function between curvatures.
 
 \subsection{Curvature Measurement}
 
-To extract the curvature, we take the trailing edge (which is a set of coordinates into an image) and a zero-image $I_0$.
-Each pixel corresponding to and below (in the vertical direction) the trailing edge in $I_0$ are set to $1$.
-Because the trailing edge extractor produces only one coordinate per column, we can do this safely.
+In order to do this, we must first extract the curvature from the trailing edge.
+Given the trailing edge as a sequence of coordinates into the original image, we construct a zero-image $I_0$ of shape similar to the original image.
+Each pixel corresponding to and below the trailing edge in $I_0$ is set to $1$.
+Because the trailing edge extractor produces only one coordinate per column, we can do this safely, however this algorithm could be easily adapted to this not being the case.
 Once this is done, we calculate a summed area table \cite{crow1984summed} $ST$ from $I_0$ as follows.
 
 \begin{equation}
 ST(x,y) = \sum_{i=0}^{i=y}\sum_{j=0}^{j=x} I_0 
 \end{equation}
 
-Conceptually, the next step is to slide a square of size $s$ centered on each point, and measure the percentage of that square that is within the filled in trailing edge.
+Conceptually, the next step is to slide a square of shape $s \times s$ centered on each point, and measure the percentage of that square that is within the filled in trailing edge.
+These values $s$ are the different scales at which we meassure curvature, and are computed as a percentage of the trailing edge width.
+
 To do this, we compute $BC_s(x, y)$ for each $(x, y)$ coordinate in the trailing edge.
 
 \begin{align}
-b_x &= x - \frac{s}{2}\\
-b_y &= y - \frac{s}{2}\\
-e_x &= x + \frac{s}{2}\\
-e_y &= y + \frac{s}{2}\\
-BC_s(x,y) &= \frac{(ST(b_x, b_y) + ST(e_x, e_y)) - (ST(b_x, e_y) + ST(e_x, b_y))}{s^2}
+b(i) &= i - \frac{s}{2}\\
+e(i) &= i + \frac{s}{2}\\
+BC_s(x,y) &= \frac{(ST(b(x), b(y)) + ST(e(x), e(y))) - (ST(b(x), e(y)) + ST(e(x), b(y)))}{s^2}
 \end{align}
 
-The set of scales to choose presents a large parameter space, however we have found that the scales $S = [5, 10, 15, 20]$ work well for our purposes.
-We then treat this curvature measurement as a $\|S\| \times x$ matrix $BC$.
+The numerator in 3.8 gives the total area within the square that is below the trailing edge, which we then normalize by dividing by the square's area.
+
+The set of scales to choose presents a large parameter space, however we have found that the scales $S = [1\%, 2\%, 3\%, 4\%]$ work well for our purposes.
+We then treat this curvature measurement as a $\|S\| \times w$ matrix $BC$, where $w$ is the length of the trailing edge.
 
 \subsection{Sequence Matching}
 
-Given two sequences of curvatures $BC_1$ and $BC_2$, we match them using dynamic time warping as follows.
-First, we create a cost matrix $C$ of size $x_1 \times x_2$ (where $x$ is the number of points in the original trailing edge).
-We initialize this cost matrix by setting the first column and row to $\infty$, and then $C(0,0) = 0$.
-Then, for each element in the cost matrix starting with $C(1,1)$, we use the following update rule
+Given two sequences of curvatures $BC_1$ and $BC_2$ (referred to as query and database curvature respectively) we match them using dynamic time warping as follows.
+First, we create a cost matrix $C$ of size $w_1 \times w_2$. 
+We initialize this cost matrix by setting the first column and row to $\infty$, and then $C(0,0) = 0$, intuitively forcing the optimal path to match align the beginning of $BC_1$ with $BC_2$.
+Then, for each cell $(i,j)$ in the cost matrix starting with $C(1,1)$, we use the following update rule
 
 \begin{align}
-CD_{cw}(c_1, c_2) &= \lVert cw \odot (\vec{c_1} - \vec{c_2}) \rVert_2\\
-C(i,j) &= CD(x_1(i,\cdot),x_2(j,\cdot)) + min(C(i-1,j), C(i,j-1), C(i-1, j-1))
+D_{s_w}(c_1, c_2) &= \lVert s_w \odot (\vec{c_1} - \vec{c_2}) \rVert_2\\
+C(i,j) &= D_{s_w}(BC_1(i,\cdot),BC_2(j,\cdot)) + min(C(i-1,j), C(i,j-1), C(i-1, j-1))
 \end{align}
 
-Where $cw$ is the weight given to each curvature scale.
+Where $s_w$ is a vector giving the weight for each curvature scale, and $\vec{c}$ is a vector of the curvatures at different scales for a point.
 
-Additionally, we impose the Sakoe-Chiba \cite{sakoe1978dynamic} locality constraint $w$ so that for each element $i$ in $BC_1$, we only consider the range over elements $j$ in $BC_2$ of $j \in [min(i - w, 0), max(i + w, x_2)]$.
+Additionally, we impose the Sakoe-Chiba \cite{sakoe1978dynamic} locality constraint $T$ so that for each element $i$ in $BC_1$, we only consider the range over elements $j$ in $BC_2$ of $j \in [min(i - T, 0), max(i + T, w_2)]$.
 
-For most of these experiments $w$ is set to $50$, which appears to minimize the time taken for each comparison while preserving the overall accuracy of the algorithm.
+We set $T$ as a percentage of $w_1$, which is the "query" trailing edge.
+For most of these experiments $T$ is set to $10\%$, which appears to minimize the time taken for each comparison while preserving the overall accuracy of the algorithm.
+
+It's worth noting that while this distance measure is not a metric distance (i.e. it doesn't satisfy the triangle inequality), it is a symmetric distance as $D_{s_w}(\cdot,\cdot)$ is symmetric\cite{muller2007information}.
 
 \section{Alternative Approaches}
 
@@ -247,36 +253,39 @@ In this section, we list and briefly describe alternative approaches that were t
 \subsection{Aligning Trailing Edges}
 
 One obvious pre-processing step that would make sense when comparing trailing edges is to make sure that they are aligned in image space.
-However, we found that doing so when comparing curvature was often unnecessary (due to the invariances to rotation and translation, scale was taken care of separately), and using the Euclidean distance between points on the (aligned) trailing edges did not give good accuracies.
+However, we found that doing so when comparing curvature was often unnecessary (due to the invariances to rotation and translation, scale was taken care of separately), and using the Euclidean distance between points on the aligned trailing edges (i.e. as $D(\cdot,\cdot)$) did not give good results.
+
+There were two approaches to alignment that we evaluated, although neither achieved top-1 accuracies above $20\%$.
 
 \subsubsection{Keypoint Alignment}
 
 As noted in the section on fluke keypoints, there are three points to predict -- left, notch and right.
-Originally the intention for recording these was to have three corresponding points with which to align images before extracting trailing edge.
-This was done by computing the inverse affine transform that maps the database image onto the query image, and then computing the curvature information.
+Originally the intention for recording (and predicting) all three, as opposed to just left and right, was to have three corresponding points with which to estimate an affine transformation from database image onto query image.
+This would be done prior to any computation of trailing edge or curvature.
 
-One major issue with aligning these trailing edges however is making the distance invariant to skew, which is unfortunately not something that can be easily fixed with an affine transformation.
+One major issue with aligning these iamges however is that if a non-affine transformation was required, the trailing edge itself would be warped in such a way that made matching difficult.
 
 \subsubsection{Dynamic Time Warping Alignment}
 
 Taking after the AI-DTW approach laid out in \cite{qiao2006affine}, we ran an iterative alignment process that used the correspondences found by DTW (using either curvature distance or Euclidean distance as criteria).
+Essentially this method would find alignments using DTW, and then use these alignments to estimate an affine transformation of the database image onto the query image -- and then repeat until convergence.
+
 However, we found that this process oftentimes wouldn't converge, and when it did the alignments provided were of worse quality than those found by aligning the three fluke keypoints.
+Additionally, the extra time taken to carry out this process was impractical.
 
 \subsection{Histogram Matching}
 
-One early curvature comparison method that was tried was to use histograms to match instead of a sequence-based method.
-This is the usual approach for comparing curvatures \cite{kumar2012leafsnap}, %TODO cite more for this
-however we found that for our purposes even high resolution histograms did not provide enough detail to match the humpback flukes, as they were usually dominated in one area.
+One early curvature comparison method that we evaluated was to use histograms to match instead of a sequence-based method.
+This is a common approach for comparing curvatures \cite{kumar2012leafsnap}, however we found that for our purposes even high resolution histograms did not provide enough detail to match the trailing edges properly, although this could potentially be explored further.
 
 \subsection{Embedding via Convolutional Networks}
 
-We also made an attempt at training convolutional networks to directly embed the images of flukes into a $n$ dimensional Euclidean space, much like \cite{schroff2015facenet} and \cite{parkhi2015deep}.
-However, most of the previous literature on this technique is applied to larger datasets such as LFW %TODO find citation for LFW
-, which is significantly larger than the dataset that was made available to us.
-Additionally, these larger datasets often have five to ten images per identity (if not more), whereas most of the identities in our dataset had one or two images associated.
-While this method was attempted, even a severely overfit convolutional network only achieved half the top-1 accuracy on its training set that the main method is able to achieve.
-We tried both triplet loss (a modified version of the one detailed in \cite{schroff2015facenet}) and contrastive loss %TODO find citation for this?
-to no avail.
+We also made an attempt at training convolutional networks to directly embed the images of flukes into a $n$ dimensional vector, much like \cite{schroff2015facenet} and \cite{parkhi2015deep}.
+However, most of the previous literature on this technique is applied to larger datasets such as LFW\cite{huang2007labeled}, which is significantly larger than the dataset that we had available.
+A major factor in this is that these larger datasets often have five to ten images per identity (if not more), whereas most of the identities in our dataset had one or two images associated.
+
+Regardless, we attempted the embedding approach (from raw images), however even a severely overfit convolutional network only achieved half the top-1 accuracy on its training set that the main method is able to achieve.
+We tried both triplet loss (a modified version of the one detailed in \cite{schroff2015facenet}) and contrastive loss \cite{hadsell2006dimensionality} to no avail.
 
 We believe that the small amount of images per identity is the main factor for the failure of these methods, and that a larger dataset would be necessary to properly train them.
 

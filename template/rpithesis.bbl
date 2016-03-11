@@ -66,6 +66,12 @@ N.~Friday, T.~D. Smith, P.~T. Stevick, and J.~Allen.
   novaeangliae.
 \newblock {\em Marine Mammal Science}, 16(2):355--374, 2000.
 
+\bibitem{hadsell2006dimensionality}
+R.~Hadsell, S.~Chopra, and Y.~LeCun.
+\newblock Dimensionality reduction by learning an invariant mapping.
+\newblock In {\em Computer vision and pattern recognition, 2006 IEEE computer
+  society conference on}, volume~2, pages 1735--1742. IEEE, 2006.
+
 \bibitem{i3scontour}
 d.~J. Hartog and R.~Reijns.
 \newblock {I3S} {Contour} {MANUAL}, 2013.
@@ -81,6 +87,13 @@ G.~E. Hinton, N.~Srivastava, A.~Krizhevsky, I.~Sutskever, and R.~R.
 \newblock Improving neural networks by preventing co-adaptation of feature
   detectors.
 \newblock {\em arXiv preprint arXiv:1207.0580}, 2012.
+
+\bibitem{huang2007labeled}
+G.~B. Huang, M.~Ramesh, T.~Berg, and E.~Learned-Miller.
+\newblock Labeled faces in the wild: A database for studying face recognition
+  in unconstrained environments.
+\newblock Technical report, Technical Report 07-49, University of
+  Massachusetts, Amherst, 2007.
 
 \bibitem{huele2000finding}
 R.~Huele, H.~U. De~Haes, J.~Ciano, and J.~Gordon.
@@ -155,6 +168,11 @@ A.~Monroy, A.~Eigenstetter, and B.~Ommer.
 \newblock Beyond straight lines—object detection using curvature.
 \newblock In {\em Image Processing (ICIP), 2011 18th IEEE International
   Conference on}, pages 3561--3564. IEEE, 2011.
+
+\bibitem{muller2007information}
+M.~M{\"u}ller.
+\newblock {\em Information retrieval for music and motion}, volume~2.
+\newblock Springer, 2007.
 
 \bibitem{munich1999continuous}
 M.~E. Munich and P.~Perona.
