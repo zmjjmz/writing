@@ -3,19 +3,25 @@
 \@writefile{toc}{\contentsline {chapter}{LIST OF FIGURES}{vii}}
 \@writefile{toc}{\contentsline {chapter}{ACKNOWLEDGMENTS}{viii}}
 \@writefile{toc}{\contentsline {chapter}{ABSTRACT}{viii}}
+\citation{breiwick1983simulated}
+\citation{reilly2008megaptera}
+\citation{blackmer2000temporal}
+\citation{katona1990population}
+\citation{crall_hotspotter_2013}
+\citation{baker1993abundant}
+\citation{branch2011humpback}
 \citation{mizroch1990computer}
 \citation{blackmer2000temporal}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1.}Introduction}{1}}
+\newlabel{sec:introduction}{{1}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Humpback Whales}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Current Identification Methods}{1}}
 \citation{mizroch1990computer}
 \citation{i3scontour}
 \citation{hughes2015automated}
 \citation{huele2000finding}
 \citation{beekmans2005comparison}
 \citation{whitehead1990computer}
-\@writefile{toc}{\contentsline {chapter}{\numberline {1.}Introduction}{1}}
-\newlabel{sec:introduction}{{1}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Humpback Whales}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Current Identification Methods}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Based on Trailing Edge}{1}}
 \citation{mizroch1990computer}
 \citation{carlson1990changes}
 \citation{blackmer2000temporal}
@@ -23,11 +29,13 @@
 \citation{kniest2010fluke}
 \citation{crall_hotspotter_2013}
 \citation{parham2015photographic}
-\citation{hughes2015automated}
+\citation{calambokidis2008splash}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Based on Trailing Edge}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Based on general Fluke appearance}{2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.2.1}Hotspotter}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}The Dataset}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}Method Overview}{2}}
+\citation{hughes2015automated}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}The Dataset}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}Method Overview}{3}}
 \citation{krizhevsky2012imagenet}
 \citation{szegedy2015going}
 \citation{long2015fully}
@@ -78,6 +86,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Fluke keypoint prediction}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2.1}Network Design}{11}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2.2}Training Details}{11}}
+\citation{kingma2014adam}
 \citation{jaderberg2015spatial}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2.3}Evaluation}{12}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{13}}
@@ -88,111 +97,124 @@
 \@writefile{toc}{\contentsline {paragraph}{Simple}{14}}
 \@writefile{toc}{\contentsline {paragraph}{Upsample}{14}}
 \@writefile{toc}{\contentsline {paragraph}{Jet}{14}}
-\@writefile{toc}{\contentsline {paragraph}{DeepRes}{14}}
-\citation{crow1984summed}
+\@writefile{toc}{\contentsline {paragraph}{Residual}{14}}
+\citation{kingma2014adam}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Trailing Edge Matching}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3.3}Training Details}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3.4}Evaluation}{16}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Table showing the precision, recall, and IoU of each of the evaluated trailing edge scorers on each section of the trailing edge dataset. For the purposes of this analysis, we use the \texttt  {argmax} over the classes to determine a positive (i.e. trailing edge) or negative pixel.\relax }}{16}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:te_score_full_analysis}{{3.1}{16}}
+\citation{crow1984summed}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Trailing Edge Matching}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{17}}
 \citation{sakoe1978dynamic}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{18}}
 \citation{muller2007information}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{17}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Alternative Approaches}{17}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Alternative Approaches}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{19}}
 \citation{qiao2006affine}
 \citation{kumar2012leafsnap}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{18}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{18}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{18}}
 \citation{schroff2015facenet}
 \citation{parkhi2015deep}
 \citation{huang2007labeled}
 \citation{schroff2015facenet}
 \citation{hadsell2006dimensionality}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Histogram Matching}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Embedding via Convolutional Networks}{19}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4.}Results}{20}}
-\newlabel{sec:results}{{4}{20}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Main method}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Characterization of Success cases}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Characterization of Failure cases}{20}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Variations}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Keypoint Extraction}{20}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.1}Keypoint Extractor}{20}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.2}Manual versus Automatic}{20}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.3}Varying training image sizes}{20}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.4}STN}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Image Preprocessing}{21}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.1}Cropping and Image Width}{21}}
-\@writefile{toc}{\contentsline {paragraph}{Cropping}{21}}
-\@writefile{toc}{\contentsline {paragraph}{Trailing Edge Length}{21}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.2}Histogram Equalization}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Trailing Edge Extraction}{22}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.1}Trailing Edge Scorer}{22}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.2}Trailing Edge Scorer variations}{22}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.3}Using the notch}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.4}Combining $N_y$ and $T_y$}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.5}Number of neighbors in the extraction}{23}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Curvature Extraction}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.1}Different scales}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Dynamic Time Warp Matching}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5.1}Weighting the different scales}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5.2}Window size}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Histogram Matching}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Embedding via Convolutional Networks}{20}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4.}Results}{22}}
+\newlabel{sec:results}{{4}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Main method}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Characterization of Success cases}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Characterization of Failure cases}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Variations}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Keypoint Extraction}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.1}Keypoint Extractor}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.2}Manual versus Automatic}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.3}Varying training image sizes}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.4}STN}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Image Preprocessing}{23}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.1}Cropping and Image Width}{23}}
+\@writefile{toc}{\contentsline {paragraph}{Cropping}{23}}
+\@writefile{toc}{\contentsline {paragraph}{Trailing Edge Length}{23}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.2}Histogram Equalization}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Trailing Edge Extraction}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.1}Trailing Edge Scorer}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.2}Trailing Edge Scorer variations}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.3}Using the notch}{25}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.4}Combining $N_y$ and $T_y$}{25}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.5}Number of neighbors in the extraction}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Curvature Extraction}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.1}Different scales}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Dynamic Time Warp Matching}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5.1}Weighting the different scales}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5.2}Window size}{26}}
 \citation{crall_hotspotter_2013}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5.3}Aggregating over multiple trailing edges per identity}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}In Combination with Hotspotter}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Failure cases}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Characterization of when to use which method}{25}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5.3}Aggregating over multiple trailing edges per identity}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}In Combination with Hotspotter}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Failure cases}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Characterization of when to use which method}{27}}
 \bibstyle{abbrv}
 \bibdata{references}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5.}Discussion}{26}}
-\newlabel{sec:discussion}{{5}{26}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Issues with current method}{26}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Future work}{26}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Conclusion}{26}}
-\@writefile{toc}{\contentsline {chapter}{REFERENCES}{27}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5.}Discussion}{28}}
+\newlabel{sec:discussion}{{5}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Issues with current method}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Future work}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Conclusion}{28}}
+\@writefile{toc}{\contentsline {chapter}{REFERENCES}{29}}
 \bibcite{Avidan:2007:SCC:1276377.1276390}{{1}{}{{}}{{}}}
-\bibcite{beekmans2005comparison}{{2}{}{{}}{{}}}
-\bibcite{blackmer2000temporal}{{3}{}{{}}{{}}}
-\bibcite{carlson1990changes}{{4}{}{{}}{{}}}
-\bibcite{chen2014semantic}{{5}{}{{}}{{}}}
-\bibcite{chopra2005learning}{{6}{}{{}}{{}}}
-\bibcite{crall_hotspotter_2013}{{7}{}{{}}{{}}}
-\bibcite{crow1984summed}{{8}{}{{}}{{}}}
-\bibcite{fan2014learning}{{9}{}{{}}{{}}}
-\bibcite{fischer2014image}{{10}{}{{}}{{}}}
-\bibcite{friday2000measurement}{{11}{}{{}}{{}}}
-\bibcite{hadsell2006dimensionality}{{12}{}{{}}{{}}}
-\bibcite{i3scontour}{{13}{}{{}}{{}}}
-\bibcite{he2015deep}{{14}{}{{}}{{}}}
-\bibcite{hinton2012improving}{{15}{}{{}}{{}}}
-\bibcite{huang2007labeled}{{16}{}{{}}{{}}}
-\bibcite{huele2000finding}{{17}{}{{}}{{}}}
-\bibcite{hughes2015automated}{{18}{}{{}}{{}}}
-\bibcite{ioffe2015batch}{{19}{}{{}}{{}}}
-\bibcite{jaderberg2015spatial}{{20}{}{{}}{{}}}
-\bibcite{kniest2010fluke}{{21}{}{{}}{{}}}
-\bibcite{krizhevsky2012imagenet}{{22}{}{{}}{{}}}
-\bibcite{kumar2012leafsnap}{{23}{}{{}}{{}}}
-\bibcite{lecun1998gradient}{{24}{}{{}}{{}}}
-\bibcite{lemire2009faster}{{25}{}{{}}{{}}}
-\bibcite{long2015fully}{{26}{}{{}}{{}}}
-\bibcite{mizroch1990computer}{{27}{}{{}}{{}}}
-\bibcite{monroy2011beyond}{{28}{}{{}}{{}}}
-\bibcite{muller2007information}{{29}{}{{}}{{}}}
-\bibcite{munich1999continuous}{{30}{}{{}}{{}}}
-\bibcite{nouri2014using}{{31}{}{{}}{{}}}
-\bibcite{parham2015photographic}{{32}{}{{}}{{}}}
-\bibcite{parkhi2015deep}{{33}{}{{}}{{}}}
-\bibcite{pottmann2007integral}{{34}{}{{}}{{}}}
-\bibcite{qiao2006affine}{{35}{}{{}}{{}}}
-\bibcite{sakoe1978dynamic}{{36}{}{{}}{{}}}
-\bibcite{salvador2007fastdtw}{{37}{}{{}}{{}}}
-\bibcite{schroff2015facenet}{{38}{}{{}}{{}}}
-\bibcite{sermanet2013overfeat}{{39}{}{{}}{{}}}
-\bibcite{simonyan2014very}{{40}{}{{}}{{}}}
-\bibcite{Sobel1968}{{41}{}{{}}{{}}}
-\bibcite{sun2013deep}{{42}{}{{}}{{}}}
-\bibcite{szegedy2015going}{{43}{}{{}}{{}}}
-\bibcite{whitehead1990computer}{{44}{}{{}}{{}}}
+\bibcite{baker1993abundant}{{2}{}{{}}{{}}}
+\bibcite{beekmans2005comparison}{{3}{}{{}}{{}}}
+\bibcite{blackmer2000temporal}{{4}{}{{}}{{}}}
+\bibcite{branch2011humpback}{{5}{}{{}}{{}}}
+\bibcite{breiwick1983simulated}{{6}{}{{}}{{}}}
+\bibcite{calambokidis2008splash}{{7}{}{{}}{{}}}
+\bibcite{carlson1990changes}{{8}{}{{}}{{}}}
+\bibcite{chen2014semantic}{{9}{}{{}}{{}}}
+\bibcite{chopra2005learning}{{10}{}{{}}{{}}}
+\bibcite{crall_hotspotter_2013}{{11}{}{{}}{{}}}
+\bibcite{crow1984summed}{{12}{}{{}}{{}}}
+\bibcite{fan2014learning}{{13}{}{{}}{{}}}
+\bibcite{fischer2014image}{{14}{}{{}}{{}}}
+\bibcite{friday2000measurement}{{15}{}{{}}{{}}}
+\bibcite{hadsell2006dimensionality}{{16}{}{{}}{{}}}
+\bibcite{i3scontour}{{17}{}{{}}{{}}}
+\bibcite{he2015deep}{{18}{}{{}}{{}}}
+\bibcite{hinton2012improving}{{19}{}{{}}{{}}}
+\bibcite{huang2007labeled}{{20}{}{{}}{{}}}
+\bibcite{huele2000finding}{{21}{}{{}}{{}}}
+\bibcite{hughes2015automated}{{22}{}{{}}{{}}}
+\bibcite{ioffe2015batch}{{23}{}{{}}{{}}}
+\bibcite{jaderberg2015spatial}{{24}{}{{}}{{}}}
+\bibcite{katona1990population}{{25}{}{{}}{{}}}
+\bibcite{kingma2014adam}{{26}{}{{}}{{}}}
+\bibcite{kniest2010fluke}{{27}{}{{}}{{}}}
+\bibcite{krizhevsky2012imagenet}{{28}{}{{}}{{}}}
+\bibcite{kumar2012leafsnap}{{29}{}{{}}{{}}}
+\bibcite{lecun1998gradient}{{30}{}{{}}{{}}}
+\bibcite{lemire2009faster}{{31}{}{{}}{{}}}
+\bibcite{long2015fully}{{32}{}{{}}{{}}}
+\bibcite{mizroch1990computer}{{33}{}{{}}{{}}}
+\bibcite{monroy2011beyond}{{34}{}{{}}{{}}}
+\bibcite{muller2007information}{{35}{}{{}}{{}}}
+\bibcite{munich1999continuous}{{36}{}{{}}{{}}}
+\bibcite{nouri2014using}{{37}{}{{}}{{}}}
+\bibcite{parham2015photographic}{{38}{}{{}}{{}}}
+\bibcite{parkhi2015deep}{{39}{}{{}}{{}}}
+\bibcite{pottmann2007integral}{{40}{}{{}}{{}}}
+\bibcite{qiao2006affine}{{41}{}{{}}{{}}}
+\bibcite{reilly2008megaptera}{{42}{}{{}}{{}}}
+\bibcite{sakoe1978dynamic}{{43}{}{{}}{{}}}
+\bibcite{salvador2007fastdtw}{{44}{}{{}}{{}}}
+\bibcite{schroff2015facenet}{{45}{}{{}}{{}}}
+\bibcite{sermanet2013overfeat}{{46}{}{{}}{{}}}
+\bibcite{simonyan2014very}{{47}{}{{}}{{}}}
+\bibcite{Sobel1968}{{48}{}{{}}{{}}}
+\bibcite{sun2013deep}{{49}{}{{}}{{}}}
+\bibcite{szegedy2015going}{{50}{}{{}}{{}}}
+\bibcite{whitehead1990computer}{{51}{}{{}}{{}}}
 \@writefile{toc}{\parindent 0pt\vskip 12pt APPENDIX}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\newlabel{sec:appendix}{{5.3}{32}}
+\newlabel{sec:appendix}{{5.3}{35}}

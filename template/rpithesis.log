@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.8)  10 MAR 2016 18:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.8)  11 MAR 2016 21:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -401,6 +401,10 @@ Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionskip
 \c@lotdepth=\count136
 \sf@top=\skip57
 \sf@bottom=\skip58
+) (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen174
+) (/usr/share/texmf-dist/tex/latex/tools/hhline.sty
+Package: hhline 2014/10/28 v2.03 Table rule package (DPC)
 ) (/usr/share/texmf/tex/latex/siunitx/siunitx.sty (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2015/11/04 v6224 L3 programming layer (loader) 
  (/usr/share/texmf-dist/tex/latex/l3kernel/expl3-code.tex
@@ -432,12 +436,12 @@ L3 Module: l3file 2015/09/23 v6037 L3 File and I/O operations
 \l__iow_current_word_int=\count146
 \l__iow_current_indentation_int=\count147
 L3 Module: l3skip 2015/09/25 v6089 L3 Dimensions and skips
-\c_zero_dim=\dimen174
-\c_max_dim=\dimen175
-\l_tmpa_dim=\dimen176
-\l_tmpb_dim=\dimen177
-\g_tmpa_dim=\dimen178
-\g_tmpb_dim=\dimen179
+\c_zero_dim=\dimen175
+\c_max_dim=\dimen176
+\l_tmpa_dim=\dimen177
+\l_tmpb_dim=\dimen178
+\g_tmpa_dim=\dimen179
+\g_tmpb_dim=\dimen180
 \c_zero_skip=\skip59
 \c_max_skip=\skip60
 \l_tmpa_skip=\skip61
@@ -471,13 +475,13 @@ L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
 \g_tmpb_box=\box45
 L3 Module: l3coffins 2015/08/06 v5789 L3 Coffin code layer
 \l__coffin_internal_box=\box46
-\l__coffin_internal_dim=\dimen180
-\l__coffin_offset_x_dim=\dimen181
-\l__coffin_offset_y_dim=\dimen182
-\l__coffin_x_dim=\dimen183
-\l__coffin_y_dim=\dimen184
-\l__coffin_x_prime_dim=\dimen185
-\l__coffin_y_prime_dim=\dimen186
+\l__coffin_internal_dim=\dimen181
+\l__coffin_offset_x_dim=\dimen182
+\l__coffin_offset_y_dim=\dimen183
+\l__coffin_x_dim=\dimen184
+\l__coffin_y_dim=\dimen185
+\l__coffin_x_prime_dim=\dimen186
+\l__coffin_y_prime_dim=\dimen187
 \c_empty_coffin=\box47
 \l__coffin_aligned_coffin=\box48
 \l__coffin_aligned_internal_coffin=\box49
@@ -486,27 +490,27 @@ L3 Module: l3coffins 2015/08/06 v5789 L3 Coffin code layer
 \l__coffin_display_coffin=\box52
 \l__coffin_display_coord_coffin=\box53
 \l__coffin_display_pole_coffin=\box54
-\l__coffin_display_offset_dim=\dimen187
-\l__coffin_display_x_dim=\dimen188
-\l__coffin_display_y_dim=\dimen189
+\l__coffin_display_offset_dim=\dimen188
+\l__coffin_display_x_dim=\dimen189
+\l__coffin_display_y_dim=\dimen190
 L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
 L3 Module: l3candidates 2015/11/01 v6216 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen190
-\l__box_bottom_dim=\dimen191
-\l__box_left_dim=\dimen192
-\l__box_right_dim=\dimen193
-\l__box_top_new_dim=\dimen194
-\l__box_bottom_new_dim=\dimen195
-\l__box_left_new_dim=\dimen196
-\l__box_right_new_dim=\dimen197
+\l__box_top_dim=\dimen191
+\l__box_bottom_dim=\dimen192
+\l__box_left_dim=\dimen193
+\l__box_right_dim=\dimen194
+\l__box_top_new_dim=\dimen195
+\l__box_bottom_new_dim=\dimen196
+\l__box_left_new_dim=\dimen197
+\l__box_right_new_dim=\dimen198
 \l__box_internal_box=\box55
-\l__coffin_bounding_shift_dim=\dimen198
-\l__coffin_left_corner_dim=\dimen199
-\l__coffin_right_corner_dim=\dimen256
-\l__coffin_bottom_corner_dim=\dimen257
-\l__coffin_top_corner_dim=\dimen258
-\l__coffin_scaled_total_height_dim=\dimen259
-\l__coffin_scaled_width_dim=\dimen260
+\l__coffin_bounding_shift_dim=\dimen199
+\l__coffin_left_corner_dim=\dimen256
+\l__coffin_right_corner_dim=\dimen257
+\l__coffin_bottom_corner_dim=\dimen258
+\l__coffin_top_corner_dim=\dimen259
+\l__coffin_scaled_total_height_dim=\dimen260
+\l__coffin_scaled_width_dim=\dimen261
 L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
 L3 Module: l3luatex 2015/09/10 v5983 L3 Experimental LuaTeX-specific functions
 ) (/usr/share/texmf-dist/tex/latex/l3kernel/l3unicode-data.def
@@ -527,7 +531,7 @@ Package: siunitx 2016/03/01 v2.6q A comprehensive (SI) units package
 Package: l3keys2e 2015/11/04 v6224 LaTeX2e option processing using LaTeX3 keys
 )
 \l__siunitx_tmp_box=\box56
-\l__siunitx_tmp_dim=\dimen261
+\l__siunitx_tmp_dim=\dimen262
 \l__siunitx_tmp_int=\count165
 \l__siunitx_number_mantissa_length_int=\count166
 \l__siunitx_number_uncert_length_int=\count167
@@ -540,8 +544,8 @@ Package: l3keys2e 2015/11/04 v6224 LaTeX2e option processing using LaTeX3 keys
 \l__siunitx_group_min_int=\count174
 \l__siunitx_angle_marker_box=\box57
 \l__siunitx_angle_unit_box=\box58
-\l__siunitx_angle_marker_dim=\dimen262
-\l__siunitx_angle_unit_dim=\dimen263
+\l__siunitx_angle_marker_dim=\dimen263
+\l__siunitx_angle_unit_dim=\dimen264
 \l__siunitx_unit_int=\count175
 \l__siunitx_unit_denominator_int=\count176
 \l__siunitx_unit_numerator_int=\count177
@@ -551,15 +555,15 @@ Package: l3keys2e 2015/11/04 v6224 LaTeX2e option processing using LaTeX3 keys
 \l__siunitx_number_product_int=\count181
 \c__siunitx_one_fill_skip=\skip65
 \l__siunitx_table_unit_align_skip=\skip66
-\l__siunitx_table_exponent_dim=\dimen264
-\l__siunitx_table_integer_dim=\dimen265
-\l__siunitx_table_mantissa_dim=\dimen266
-\l__siunitx_table_marker_dim=\dimen267
-\l__siunitx_table_result_dim=\dimen268
-\l__siunitx_table_uncert_dim=\dimen269
-\l__siunitx_table_fill_pre_dim=\dimen270
-\l__siunitx_table_fill_post_dim=\dimen271
-\l__siunitx_table_fill_mid_dim=\dimen272
+\l__siunitx_table_exponent_dim=\dimen265
+\l__siunitx_table_integer_dim=\dimen266
+\l__siunitx_table_mantissa_dim=\dimen267
+\l__siunitx_table_marker_dim=\dimen268
+\l__siunitx_table_result_dim=\dimen269
+\l__siunitx_table_uncert_dim=\dimen270
+\l__siunitx_table_fill_pre_dim=\dimen271
+\l__siunitx_table_fill_post_dim=\dimen272
+\l__siunitx_table_fill_mid_dim=\dimen273
 \l__siunitx_table_pre_box=\box59
 \l__siunitx_table_post_box=\box60
 \l__siunitx_table_mantissa_box=\box61
@@ -696,39 +700,39 @@ LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \g_MT_multlinerow_int=\count182
-\l_MT_multwidth_dim=\dimen273
+\l_MT_multwidth_dim=\dimen274
 \origjot=\skip69
-\l_MT_shortvdotswithinadjustabove_dim=\dimen274
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen275
-\l_MT_above_intertext_sep=\dimen276
-\l_MT_below_intertext_sep=\dimen277
-\l_MT_above_shortintertext_sep=\dimen278
-\l_MT_below_shortintertext_sep=\dimen279
+\l_MT_shortvdotswithinadjustabove_dim=\dimen275
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen276
+\l_MT_above_intertext_sep=\dimen277
+\l_MT_below_intertext_sep=\dimen278
+\l_MT_above_shortintertext_sep=\dimen279
+\l_MT_below_shortintertext_sep=\dimen280
 ) (./rpithesis.aux)
 \openout1 = `rpithesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
  (/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count183
-\scratchdimen=\dimen280
+\scratchdimen=\dimen281
 \scratchbox=\box63
 \nofMPsegments=\count184
 \nofMParguments=\count185
 \everyMPshowfont=\toks35
 \MPscratchCnt=\count186
-\MPscratchDim=\dimen281
+\MPscratchDim=\dimen282
 \MPnumerator=\count187
 \makeMPintoPDFobject=\count188
 \everyMPtoPDFconversion=\toks36
@@ -784,11 +788,11 @@ Dictionary: translator-basic-dictionary, Language: English
 File: siunitx-abbreviations.cfg 2016/03/01 v2.6q siunitx: Abbreviated units
 )
 \c__siunitx_mathsf_int=\count189
-LaTeX Font Info:    Try loading font information for U+msa on input line 76.
+LaTeX Font Info:    Try loading font information for U+msa on input line 78.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 76.
+LaTeX Font Info:    Try loading font information for U+msb on input line 78.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -828,7 +832,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 ]
 CHAPTER 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--21
+Underfull \hbox (badness 10000) in paragraph at lines 18--24
 
  []
 
@@ -842,56 +846,43 @@ CHAPTER 2.
 CHAPTER 3.
 [9
 
-] [10] [11] [12] [13] [14] [15] [16]
-Overfull \hbox (5.23755pt too wide) in paragraph at lines 238--238
+] [10] [11] [12] [13] [14] [15] [16] [17]
+Overfull \hbox (5.23755pt too wide) in paragraph at lines 297--297
 [] 
  []
 
-[17] [18]
-
-Package natbib Warning: Citation `hadsell2006dimensionality' on page 19 undefined on input line 288.
-
-) (./rpichap4.tex [19]
+[18] [19] [20]) (./rpichap4.tex [21]
 CHAPTER 4.
-[20
+[22
 
-] [21] [22] [23] [24]) (./rpichap5.tex [25]
+] [23] [24] [25] [26]) (./rpichap5.tex [27]
 CHAPTER 5.
-) (./rpibib.tex (./rpithesis.bbl [26
+) (./rpibib.tex (./rpithesis.bbl [28
 
-] [27
+] [29
 
-] [28
+] [30
 
-] [29]
+] [31]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
- [30])) (./rpiapp.tex (./source_appendix.tex [31]))
+ [32] [33])) (./rpiapp.tex (./source_appendix.tex [34])) [35
 
-Package natbib Warning: There were undefined citations.
-
-[32
-
-] (./rpithesis.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-) ) 
+] (./rpithesis.aux) ) 
 Here is how much of TeX's memory you used:
- 25057 strings out of 493054
- 507397 string characters out of 6140587
- 504343 words of memory out of 5000000
- 28185 multiletter control sequences out of 15000+600000
+ 25103 strings out of 493054
+ 508471 string characters out of 6140587
+ 507265 words of memory out of 5000000
+ 28225 multiletter control sequences out of 15000+600000
  11308 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,54p,10416b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on rpithesis.pdf (41 pages, 189594 bytes).
+ 55i,10n,54p,10416b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on rpithesis.pdf (44 pages, 202429 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
+ 195 PDF objects out of 1000 (max. 8388607)
+ 136 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

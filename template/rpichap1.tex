@@ -8,9 +8,12 @@
  
 \section{Humpback Whales}
 
-TODO: Put in something about the importance of identifying humpback whales, with citations and all
+Since the international ban on commercial hunting of Humpback whales in 1966, Humpback whales have grown from a population of only 5000 \cite{baker1993abundant} to over 50000 \cite{branch2011humpback}. 
+As the population grows, it becomes more and more important to be able to automatically identify individual Humpback whales in order to accurately monitor their population growth and follow their migration patterns, among other ecological conservation endeavours.
+One of the most reliable methods for photo-identifying Humpback whales is by taking pictures of their flukes as they breach the water.
 
 \section{Current Identification Methods}
+
 
 Photo-identification of Humpback whale flukes thas been attempted since the early 90s \cite{mizroch1990computer} using computational aid.
 While early efforts mostly relied on a manual description of the fluke that would then be matched, later efforts have involved matching flukes based on automated analysis of both the patterns on the ventral side of the fluke.
@@ -42,9 +45,15 @@ The primary method for identifying Humpback whale flukes is to use the ventral f
 
 Hotspotter \cite{crall_hotspotter_2013} is an automated photo-identification algorithm based on SIFT features that has been used in identifying Grevy's Zebras, Plains Zebras, Giraffes, and Elephants \cite{parham2015photographic}. This work is the first to our knowledge of Hotspotter being applied to Humpback whale flukes, and the results are presented in chapter 4.
 
+It should be noted that we used a segmenting convolutional network to aid Hotspotter's predictions, although this is not detailed in this work.
+
 \section{The Dataset}
 
-TODO: Get information from Jason (and Ted?) about how the dataset(s) I'm using were collected and sourced.
+The main dataset that is used and evaluated in this work is a subset of the dataset collected by the SPLASH project \cite{calambokidis2008splash}. 
+It consists of about 1400 identified photographs spread over about 860 identified individuals.
+Of these, only 433 individuals have more than one image associated with them, giving 942 images that can be used in a one-to-one comparison with no distractors.
+
+We also use an external dataset of unidentified Humpback flukes for training some of the models.
 
 \section{Method Overview}
 

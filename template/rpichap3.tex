@@ -101,10 +101,10 @@ Where
     \item $\vec{s}$ is the original image width and height
 \end{itemize}
 
-The networks are trained for 100 epochs with $\alpha$ set to \num{2e-2}, using Nesterov momentum with a learning rate of \num{1e-1} and $l2$ regularization on the trainable parameters with a decay of \num{1e-4}.
+The networks are trained for 100 epochs with $\alpha$ set to \num{2e-2}, the Adam optimizer\cite{kingma2014adam} (with the recommended settings) and $l2$ regularization on the trainable parameters with a decay of \num{1e-4}.
 All of these hyper parameters were tuned using the validation set, although the possible parameter space was not fully explored due to time constraints.
 
-\subsubsection{Evaluation}
+\subsubsection{Evaluation} % TODO: Maybe this should be moved to the results section?
 
 %TODO Put in a bunch of figures and talk about this
 % Problem is recreating all these experiments / networks for evaluation :/
@@ -145,7 +145,7 @@ If the receptive field is too small, it may not have enough information to accur
 However, in order to increase the receptive field without massively increasing the depth of a network, we must 
 
 \paragraph{Simple}
-This network is simply a stack of $6$ "same" convolutional layers, with no downsampling regions.
+This network is simply a stack of $6$ "same" convolutional layers (of decreasing spatial extent), with no downsampling regions.
 This has a small receptive field, but can produce detailed predictions.
 Due to the small receptive field however, at convergence it gives low precision predictions, and seems to (in many cases) produce a lot of the same mistakes that normal gradient based trailing edges do.
 % TODO include this architecture description in a table somewhere
@@ -165,7 +165,7 @@ This gives more fine-grained predictions than the upsample network while giving 
 
 % TODO same as simple
 
-\paragraph{DeepRes}
+\paragraph{Residual}
 While the receptive field of the Simple network is small, it can produce very fine trailing edges, which we found to be necessary for good trailing edge extraction.
 However with such a small receptive field it can be more prone to making mistakes.
 It is possible to create a very deep network of 'same' convolutions, however training very deep networks like this can run into problems very quickly.
@@ -186,8 +186,67 @@ S_{te} = (1 - \beta)*N_y + \beta*(1 - T_p)
 We use $1 - T_p$ in this case because we are minimizing the path through $S_{te}$.
 Once done, the trailing edge extraction algorithm procedes as described in the previous section.
 
+For most of the evaluation process, we simply set $\beta = 0.5$.
+
 Another variant on combining $T_p$ and $N_y$ that we tried was to dilate the trailing edge predictions and then forbid the trailing edge from going outside of those predictions.
 However one of the main issues with this is that if there are any breaks in the prediction (which can happen even with the Upsample architecture), the trailing edge cannot be extracted, leading to broken trailing edges.
+
+\subsubsection{Training Details}
+
+All networks were trained for 100 epochs (or until convergence) with a batch size of $32$, with $l2$ regularization using a decay of \num{1e-4}.
+We used the Adam optimizer\cite{kingma2014adam} (with the recommended settings) for calculating weight updates.
+
+One detail that turned out to be important is the class imbalance.
+The trailing edge pixels (necessarily) make up a small percentage of the total image, meaning that these networks could get a fairly high accuracy (and thus low loss) simply by predicting only background pixels.
+In order to prevent this, we only sample a negative patch once for every positive patch (as detailed above), and additionally we weight the loss for the trailing edge pixels $10\times$ higher than the loss for the background pixels.
+
+Due to the nature of the training data, we were concerned that the networks would simply learn to replicate the function that generated the trailing edges, despite human corrections.
+In order to mitigate this issue, we included some non-spatial data augmentation, namely random Gaussian blur and randomly inverting the pixel intensities.
+Unfortunately this had limited success. % TODO: Figure showing that the trailing edge finder kinda still works on gradient
+
+All of these hyper parameters were tuned using the validation set, although the possible parameter space was not fully explored due to time constraints.
+
+\subsubsection{Evaluation}
+
+% TODO: Figure out accuracies, and if the below paragraph still holds.
+
+Due to the overwhelming class imbalance, the model accuracy is rather meaningless (e.g., the accuracy of an all-background prediction is $99\%$).
+Instead, we report the intersection-over-union (IoU) score, which gives a much better idea of model performance.
+We also report the precision and recall of the model.
+
+% IOU / PRECISION / RECALL
+% TRAIN / TEST / VAL
+% SIMPLE / UPSAMPLE / JET / RES
+
+
+\begin{table*}[!htb]%
+	\centering
+	\resizebox{\linewidth}{!}
+	{
+		\begin{tabular} {l || l | l | l || l | l | l || l | l | l |}
+		& \multicolumn{3}{c||}{Training} & \multicolumn{3}{c||}{Validation} & \multicolumn{3}{c|}{Testing} \\
+		\hline
+		Architecture & Pr. & Re. & IoU & Pr. & Re. & IoU & Pr. & Re. & IoU \\
+		\hhline{=#===#===#===|}
+		Simple & 0.59 & 0.95 & 0.57 & 0.59 & 0.94 & 0.57 & 0.60 & 0.95 & 0.59 \\
+		\hline
+		Upsample & 0.17 & 0.88 & 0.17 & 0.17 & 0.86 & 0.17 & 0.17 & 0.87 & 0.17 \\
+		\hline
+		Jet & 0.62 & 0.89 & 0.57 & 0.62 & 0.88 & 0.57 & 0.63 & 0.89 & 0.58 \\
+		\hline
+		Residual & 0.57 & 0.93 & 0.54 & 0.57 & 0.92 & 0.54 & 0.58 & 0.93 & 0.56 \\
+		\hline
+		\end{tabular}
+	}
+	\caption{Table showing the precision, recall, and IoU of each of the evaluated trailing edge scorers on each section of the trailing edge dataset. For the purposes of this analysis, we use the \texttt{argmax} over the classes to determine a positive (i.e. trailing edge) or negative pixel.}
+	\label{tab:te_score_full_analysis}
+\end{table*}
+
+Initially, we thought that precision would be the most important metric for evaluating networks (which is reflected in the class weighting).
+However, we found that even a low precision classifier could give good trailing edges, and that the important measure was how detailed these trailing edges were.
+
+
+This is likely because small 'blips' of trailing edge would not be chosen by the trailing edge extractor.
 
 \section{Trailing Edge Matching}
 
