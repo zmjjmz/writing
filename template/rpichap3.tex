@@ -177,7 +177,7 @@ This performs better than the Simple network, however we do not see a marked imp
 
 Once we have 'trailing edginess' score for each pixel, we need to combine this information with the gradient in a way that causes the trailing edge extraction algorithm to follow those pixels that the scoring map marks as trailing edge.
 More formally, the trailing edge scoring map gives us an image $T_p \in [0-1]^{w \times h}$ which denotes the network's predicted probability of each pixel being part of the trailing edge.
-The most simple and obvious way to combine this information with $N_y$ from before is to combine them with some weight $\beta$.
+The most simple and obvious way to combine this information with $N_y$ from before is to combine them with a mixing parameter $\beta$.
 
 \begin{equation}
 S_{te} = (1 - \beta)*N_y + \beta*(1 - T_p)
