@@ -22,35 +22,54 @@ The internal texture is a more obvious choice for identification, as it is disin
 It is worth noting however that as shown in \cite{blackmer2000temporal}, the trailing edge changes less with age than the internal texture of the fluke, which means that it can (potentially) be a more reliable identifier over time.
 That said, the requirements for getting a good photograph of the trailing edge can be impractical --- most matching methods have issues with invariance to skew (caused by rotation of the fluke relative to the camera) and rotation. %TODO: Maybe figure out a citation for this??? We'll also see these results...
 
-% TODO: Put in examples of failures due to trailing edge issues, and the figure from blackmer showing the same whale w/entirely different textures
+% TODO: Put in examples of failures due to trailing edges not being clear, and the figure from blackmer showing the same whale w/entirely different textures
 
 \section{Current Identification Methods}
-
-% TODO: Expand a lot of this with basic descriptions of the methods here
 
 Computer-assisted photo-identification of humpback whale flukes has been attempted since the early 90s \cite{mizroch1990computer}.
 While early efforts mostly relied on a manual description of the fluke that would then be matched (against other stored descriptions), later efforts have involved matching flukes based on automated analysis of both the internal texture and trailing edge.
 \\\\
-Existing annotation methods can be broadly separated into three categories:
+Existing computer-assisted photo-identification methods can be broadly separated into three categories:
 
 \begin{itemize}
-	\item Manually annotated -- a human must manually annotate or catalogue features on the fluke
+	\item Manually annotated -- a human must manually annotate or catalogue features on each fluke image, which are then automatically matched
 	\item Semi-automated -- a human must guide an algorithm (e.g.\ by setting control points or highlighting interesting regions) that then automatically identifies the individual
 	\item Fully-automated -- the algorithm can identify individuals from raw images
 \end{itemize}
 
 \subsection{Based on Trailing Edge}
 
-In \cite{mizroch1990computer}, information about the trailing edge and fluke patterns are manually catalogued and used to match individual whales. This falls under a manual annotation approach.
-In the I3S contour system \cite{i3scontour}, the user must input start and end points on the contour, which are then extracted and checked manually, giving a semi-automated system. 
-At the time of writing no published results on this system applied to Humpback whales could be found.
-Automatically identifying Humpback whales by their entire trailing edge contour is done experimentally in \cite{hughes2015automated}, using a technique that is originally designed for Great White Sharks. 
-However the results published on that technique are for a much smaller dataset than the one worked on in this thesis.
-While trailing edge matching has seen limited use in Humpback whale identification, it is a much more common technique in Sperm whale (P. macrocephalus) identification \cite{huele2000finding}, \cite{beekmans2005comparison} \cite{whitehead1990computer}, with varying levels of manual effort.
+In the I3S contour system \cite{i3scontour}, the user must input start and end points on the query trailing edge, after which its contour is extracted.
+This trailing edge is then resized and aligned so that it can be compared with absolute difference against the database trailing edges.
+It also compares a set of possible shifts, rotations, and scales of the query trailing edge to account for these differences.
+At the time of writing no published results on this system applied to humpback whales could be found.
+
+Automatically identifying humpback whales by their entire trailing edge contour is done experimentally in Hughes et al.\ \cite{hughes2015automated}, using a technique that is originally designed for great white sharks. 
+This technique segments the trailing edge into a set of possible contours and matches them combinatorially using Difference of Gaussians.
+The authors achieve a comparable accuracy to our method, however for a much smaller dataset of humpback flukes than the one evaluated here.
+
+While trailing edge matching has seen limited use in Humpback whale identification, it is a much more common technique in sperm whale (P.\ macrocephalus) identification \cite{huele2000finding}, \cite{beekmans2005comparison} \cite{whitehead1990computer}, with varying levels of manual effort.
+We detail these methods below as the fluke trailing edge matching paradigm is similar across species.
+
+In Whitehead's work \cite{whitehead1990computer}, points of interest on the trailing edge are entered and catalogued manually along with their positions.
+In order to match these trailing edges, all of the points are compared, with a distance threshold.
+This requires significant manual effort, and achieves a low accuracy \cite{beekmans2005comparison}.
+
+To contrast, the method proposed by Huele et al.\ \cite{huele2000finding} uses a semi-automatic extraction of sperm whale trailing edge, and then applies wavelet transformations which are cross-correlated to determine a similarity measurement.
 
 \subsection{Based on general Fluke appearance}
 
-The primary method for identifying Humpback whale flukes is to use the ventral fluke pattern, as seen in \cite{mizroch1990computer}, \cite{carlson1990changes}, \cite{blackmer2000temporal}, \cite{friday2000measurement}, and (in an semi-automated fashion) \cite{kniest2010fluke}. 
+
+The primary method for computer-assisted photo-identification of humpback whale flukes is to use the internal fluke pattern, as seen in the work of Mizroch et al.\ \cite{mizroch1990computer} and Flukematcher \cite{kniest2010fluke}. 
+
+In \cite{mizroch1990computer}, information about the fluke is manually catalogued and used to match individual whales. 
+The fields that are catalogued contain information primarily about the overall coloration patterns of the fluke, as well as the shape of the central notch. 
+The matching algorithm simply ranks flukes by looking at how similar annotated patterns are, and requires significant manual effort to identify individuals.
+
+In Flukematcher \cite{kniest2010fluke}, control points (including the ones we use) are manually annotated which allow the program to automatically find pigmentation patterns in the fluke and align accordingly.
+Optionally distinctive fluke patterns can also be selected by the user.
+A variety of heuristic features are then extracted, which are matched using a variety of similarity measures.
+This is an effective method, achieving 82\% top-1 accuracy on similar data to ours, but requires significant manual effort.
 
 \section{Method Outline}
 
@@ -79,13 +98,13 @@ We also combine this with a ranking from Hotspotter \cite{crall_hotspotter_2013}
 
 The main dataset that is used and evaluated in this work is a subset of the dataset collected by the SPLASH project \cite{calambokidis2008splash}. 
 It consists of about 1400 identified photographs spread over about 860 identified individuals.
-Of these, only 433 individuals have more than one image associated with them, giving 942 images that can be used in a one-to-one comparison with no distractors.
+Of these, only 433 individuals have more than one image associated with them, giving 942 images that can be used in a one-to-one comparison.
 
-We also use an external dataset of unidentified humpback flukes for training some of the models.
+We also use an external dataset of unidentified (but annotated) humpback flukes for training models.
 
 \section{Thesis Outline}
 
-The rest of this thesis will cover the background literature on many of the methods used in this work as well as the primary method itself.
+The rest of this thesis will cover the background literature on many of the algorithms used in this work as well as the primary method itself.
 We also detail some of the more significant alternatives that we evaluated, and how changing the various parameters of the main method affects identification accuracy.
 We conclude with a discussion on the failings of the primary method, as well as ways to improve it and generalize it to identifying trailing edges in other animals.
 
