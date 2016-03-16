@@ -132,9 +132,22 @@ Additionally, this gives the most diversity in the trailing edge, as larger curv
 
 However, larger curvatures are also less sensitive to noise, and thus small trailing edge extraction failures.
 
-We find that (as shown in Figure (TODO: bc\_diversity.png) as block curvature is increased, intuitively the diversity at any given point in the curvature (if it is of a fixed size) goes down drastically. As a result, we stick to the lower end of the scale, keeping the curvature scales measured below 15\%.
 
-While we default to measuring 2 through 8 percent of the trailing edge (taking even numbers), we can see that increasing this further yields diminishing returns. % TODO: maybe. I think so.
+\begin{figure*}[t]%
+	\centering
+	\subfloat[][]{\includegraphics[width=0.5\textwidth]{../images/results/curvature_diversity_fb.png} }%
+	\subfloat[][]{\includegraphics[width=0.5\textwidth]{../images/results/interscale_diff_fb.png} }%
+	\caption[]{\textbf{Curvature Diversity}. Left panel (a) shows the average standard deviation of the (fixed length) curvature at different scales. Right panel (b) shows the average Euclidean distance between successive scales of curvature}
+    	\label{fig:curvature_diversity}
+\end{figure*}
+
+
+We find that (as shown in the left panel of Figure \ref{fig:curvature_diversity}) as block curvature scale is increased, the diversity at any given point in the curvature (if it is of a fixed size) goes down drastically. 
+As a result, we stick to the lower end of the scale, keeping the curvature scales measured below 15\%.
+
+We can also see on the right side of Figure \ref{fig:curvature_diversity} that successive curvature scales show bigger differences at lower scales than at higher scales, which reinforces this need, but that it's advantageous to make bigger jumps between scales to maximize diversity while minimizing computation time.
+
+Based on the above, we evaluate scales that run from 1\% to 15\%, with varying levels of resolution (TODO: set this up and run it).
 
 \subsubsection{Number of scales}
 

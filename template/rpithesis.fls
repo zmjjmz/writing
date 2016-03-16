@@ -282,6 +282,13 @@ INPUT rpichap3.tex
 INPUT rpichap3.tex
 INPUT rpichap4.tex
 INPUT rpichap4.tex
+INPUT ../images/results/curvature_diversity_fb.png
+INPUT ../images/results/curvature_diversity_fb.png
+INPUT ../images/results/curvature_diversity_fb.png
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT ../images/results/interscale_diff_fb.png
+INPUT ../images/results/interscale_diff_fb.png
+INPUT ../images/results/interscale_diff_fb.png
 INPUT rpichap5.tex
 INPUT rpichap5.tex
 INPUT rpibib.tex
@@ -294,6 +301,7 @@ INPUT rpiapp.tex
 INPUT source_appendix.tex
 INPUT source_appendix.tex
 INPUT rpithesis.aux
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb

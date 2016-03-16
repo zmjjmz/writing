@@ -8,23 +8,34 @@
  
 \section{Humpback Whales}
 
-Since the international ban on commercial hunting of Humpback whales in 1966, Humpback whales have grown from a population of only 5000 \cite{baker1993abundant} to over 50000 \cite{branch2011humpback}. 
-As the population grows, it becomes more and more important to be able to automatically identify individual Humpback whales in order to accurately monitor their population growth and follow their migration patterns, among other ecological conservation endeavours.
-One of the most reliable methods for photo-identifying Humpback whales is by taking pictures of their flukes as they breach the water.
+Since the international ban on commercial hunting of Humpback whales in 1966, humpback whales have grown from a population of only 5000 \cite{baker1993abundant} to over 50000 \cite{branch2011humpback}. 
+As the population grows, it becomes more and more important to be able to automatically identify individual whales in order to accurately monitor their population growth and follow their migration patterns, among other ecological conservation endeavours.
+One of the most reliable methods for photo-identifying humpback whales is by taking pictures of their flukes as they dive after breaching the surface of the water.
+
+% TODO: reorg, put in pictures of flukes
+
+\subsection{Distinguishing Individual Flukes}
+
+The primary distinguishing features of these flukes are --- for the purposes of this work --- separated into two main areas; the ``trailing edge'' of the fluke, and the internal texture.
+There are pros and cons to identification with either feature.
+The internal texture is a more obvious choice for identification, as it is disinctive even from a distance and blurred, whereas trailing edges require high quality photographs.
+It is worth noting however that as shown in \cite{blackmer2000temporal}, the trailing edge changes less with age than the internal texture of the fluke, which means that it can (potentially) be a more reliable identifier over time.
+That said, the requirements for getting a good photograph of the trailing edge can be impractical --- most matching methods have issues with invariance to skew (caused by rotation of the fluke relative to the camera) and rotation. %TODO: Maybe figure out a citation for this??? We'll also see these results...
+
+% TODO: Put in examples of failures due to trailing edge issues, and the figure from blackmer showing the same whale w/entirely different textures
 
 \section{Current Identification Methods}
 
+% TODO: Expand a lot of this with basic descriptions of the methods here
 
-Photo-identification of Humpback whale flukes thas been attempted since the early 90s \cite{mizroch1990computer} using computational aid.
-While early efforts mostly relied on a manual description of the fluke that would then be matched, later efforts have involved matching flukes based on automated analysis of both the patterns on the ventral side of the fluke.
-It is worth noting however that as shown in \cite{blackmer2000temporal}, the trailing edge changes less with age than surface patterns on the fluke, which means that it can (potentially) be a more reliable identifier over time.
-That said, trailing edges are hard to photograph well, requiring high resolution imagery and a consistent angle between fluke and photographer.
+Computer-assisted photo-identification of humpback whale flukes has been attempted since the early 90s \cite{mizroch1990computer}.
+While early efforts mostly relied on a manual description of the fluke that would then be matched (against other stored descriptions), later efforts have involved matching flukes based on automated analysis of both the internal texture and trailing edge.
 \\\\
-Each of these annotation methods can be separated into three categories:
+Existing annotation methods can be broadly separated into three categories:
 
 \begin{itemize}
-	\item Manually annotated -- a human must manually annotate or catalogue features in the fluke
-	\item Semi-automated -- a human must guide an algorithm (e.g. by setting control points or highlighting interesting regions) that then automatically identifies the individual
+	\item Manually annotated -- a human must manually annotate or catalogue features on the fluke
+	\item Semi-automated -- a human must guide an algorithm (e.g.\ by setting control points or highlighting interesting regions) that then automatically identifies the individual
 	\item Fully-automated -- the algorithm can identify individuals from raw images
 \end{itemize}
 
@@ -41,11 +52,28 @@ While trailing edge matching has seen limited use in Humpback whale identificati
 
 The primary method for identifying Humpback whale flukes is to use the ventral fluke pattern, as seen in \cite{mizroch1990computer}, \cite{carlson1990changes}, \cite{blackmer2000temporal}, \cite{friday2000measurement}, and (in an semi-automated fashion) \cite{kniest2010fluke}. 
 
-\subsubsection{Hotspotter}
+\section{Method Outline}
 
-Hotspotter \cite{crall_hotspotter_2013} is an automated photo-identification algorithm based on SIFT features that has been used in identifying Grevy's Zebras, Plains Zebras, Giraffes, and Elephants \cite{parham2015photographic}. This work is the first to our knowledge of Hotspotter being applied to Humpback whale flukes, and the results are presented in chapter 4.
+This method is, as stated before, a fully automated algorithm at test time, however in order to train the models some manual annotation is required.
+The steps are roughly as follows, taking raw images as input.
 
-It should be noted that we used a segmenting convolutional network to aid Hotspotter's predictions, although this is not detailed in this work.
+\begin{itemize}
+	\item Find the left and right tips of the fluke
+	\item Extract the trailing edge contour betweeen these points
+	\item Compute the curvature of the trailing edge contour at multiple scales
+	\item Determine a ranking of possible identities using a distance computed by dynamic time warping 
+\end{itemize}
+
+We also combine this with a ranking from Hotspotter \cite{crall_hotspotter_2013}, a generalized appearance based identification method that has been successful for several different flukes. 
+
+% TODO: Move this somewhere else?
+%\subsubsection{Hotspotter}
+
+%Hotspotter \cite{crall_hotspotter_2013} is an automated photo-identification algorithm based on SIFT features that has been used in identifying Grevy's zebras, plains zebras, giraffes, and several other species \cite{parham2015photographic}. 
+%This work is the first to our knowledge that details Hotspotters efficacy when applied to Humpback whale flukes, and the results are presented in Chapter 4.
+%That said, trailing edges are hard to photograph well, requiring high resolution imagery and a consistent angle between fluke and photographer.
+
+%It should be noted that we used a segmenting convolutional network to aid Hotspotter's predictions, although this is not detailed in this work.
 
 \section{The Dataset}
 
@@ -53,14 +81,21 @@ The main dataset that is used and evaluated in this work is a subset of the data
 It consists of about 1400 identified photographs spread over about 860 identified individuals.
 Of these, only 433 individuals have more than one image associated with them, giving 942 images that can be used in a one-to-one comparison with no distractors.
 
-We also use an external dataset of unidentified Humpback flukes for training some of the models.
+We also use an external dataset of unidentified humpback flukes for training some of the models.
 
-\section{Method Overview}
+\section{Thesis Outline}
 
-The method for trailing edge identification put forth in this thesis is very nearly fully automated, requiring no human annotation when used (although manual annotation is necessary for training the machine learning models used).
-On its own, it achieves decent results on a (relatively) large dataset, comparable with the fully automated method used in \cite{hughes2015automated}. 
-Ultimately we find that this method is best used in combination with an automated pattern matching method (e.g. Hotspotter) to provide high accuracy matches.
-We also explore alternative methods based on more recent advances in deep learning for identification, however it appears that the dataset is too small to properly train these methods.
+The rest of this thesis will cover the background literature on many of the methods used in this work as well as the primary method itself.
+We also detail some of the more significant alternatives that we evaluated, and how changing the various parameters of the main method affects identification accuracy.
+We conclude with a discussion on the failings of the primary method, as well as ways to improve it and generalize it to identifying trailing edges in other animals.
+
+
+%\section{Method Overview}
+
+%The method for trailing edge identification put forth in this thesis is very nearly fully automated, requiring no human annotation when used (although manual annotation is necessary for training the machine learning models used).
+%On its own, it achieves decent results on a (relatively) large dataset, comparable with the fully automated method used in \cite{hughes2015automated}. 
+%Ultimately we find that this method is best used in combination with an automated pattern matching method (e.g. Hotspotter) to provide high accuracy matches.
+%We also explore alternative methods based on more recent advances in deep learning for identification, however it appears that the dataset is too small to properly train these methods.
 
 
 %%% Local Variables: 
