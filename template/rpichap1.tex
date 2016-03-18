@@ -14,15 +14,25 @@ One of the most reliable methods for photo-identifying humpback whales is by tak
 
 % TODO: reorg, put in pictures of flukes
 
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1.0\textwidth]{../images/fluke_aid88_goodmatching.jpg}
+\caption[]{\textbf{Example Fluke}. Example image of a humpback whale fluke from the SPLASH \cite{calambokidis2008splash} dataset \footnote{All images of humpbacks flukes in this thesis come from this dataset}. This image has a clearly visible trailing edge and internal fluke pattern.}
+\label{fig:example_fluke}
+\end{figure*}
+
 \subsection{Distinguishing Individual Flukes}
 
 The primary distinguishing features of these flukes are --- for the purposes of this work --- separated into two main areas; the ``trailing edge'' of the fluke, and the internal texture.
 There are pros and cons to identification with either feature.
 The internal texture is a more obvious choice for identification, as it is disinctive even from a distance and blurred, whereas trailing edges require high quality photographs.
-It is worth noting however that as shown in \cite{blackmer2000temporal}, the trailing edge changes less with age than the internal texture of the fluke, which means that it can (potentially) be a more reliable identifier over time.
-That said, the requirements for getting a good photograph of the trailing edge can be impractical --- most matching methods have issues with invariance to skew (caused by rotation of the fluke relative to the camera) and rotation. %TODO: Maybe figure out a citation for this??? We'll also see these results...
+However, there are humpback flukes who have indistinct (e.g.\ all-black) internal textures, which make matching based on texture impossible.
+An example of this is shown in Figure \ref{fig:unclear_texture}.
 
-% TODO: Put in examples of failures due to trailing edges not being clear, and the figure from blackmer showing the same whale w/entirely different textures
+Additionally, the work of Blackmer et al.\ \cite{blackmer2000temporal} finds that the trailing edge changes less with age than the internal texture of the fluke, which means that it can (potentially) be a more reliable identifier over time.
+
+That said, the requirements for getting a good photograph of the trailing edge can be impractical, as the trailing edge can be obscured by out of plane rotations (an example is shown in Figure \ref{fig:unclear_te}).
+
 
 \section{Current Identification Methods}
 
@@ -36,6 +46,15 @@ Existing computer-assisted photo-identification methods can be broadly separated
 	\item Semi-automated -- a human must guide an algorithm (e.g.\ by setting control points or highlighting interesting regions) that then automatically identifies the individual
 	\item Fully-automated -- the algorithm can identify individuals from raw images
 \end{itemize}
+
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1.0\textwidth]{../images/unclear_texture.jpg}
+\caption[]{\textbf{Uniform Internal Texture}. This image of a humpback fluke shows no clear internal texture, but a distinctive trailing edge.}
+\label{fig:unclear_texture}
+\end{figure*}
+
+
 
 \subsection{Based on Trailing Edge}
 
@@ -56,6 +75,19 @@ In order to match these trailing edges, all of the points are compared, with a d
 This requires significant manual effort, and achieves a low accuracy \cite{beekmans2005comparison}.
 
 To contrast, the method proposed by Huele et al.\ \cite{huele2000finding} uses a semi-automatic extraction of sperm whale trailing edge, and then applies wavelet transformations which are cross-correlated to determine a similarity measurement.
+
+\begin{figure*}[t]%
+\centering
+\subfloat[][]{
+	\includegraphics[width=1.0\textwidth]{../images/unclear_te_q.jpg}
+}
+\newline
+\subfloat[][]{
+	\includegraphics[width=1.0\textwidth]{../images/unclear_te_gt.jpg}
+}
+\caption[]{\textbf{Change in Trailing Edge}. The above images show that out of plane rotations of the fluke can obscure it or otherwise make it hard to match. These images are both of the same individual.}
+\label{fig:unclear_te}
+\end{figure*}
 
 \subsection{Based on general Fluke appearance}
 

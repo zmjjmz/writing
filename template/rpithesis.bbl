@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{akagi2013facial}
+Y.~Akagi, R.~Furukawa, R.~Sagawa, K.~Ogawara, and H.~Kawasaki.
+\newblock A facial motion tracking and transfer method based on a key point
+  detection.
+\newblock 2013.
+
 \bibitem{Avidan:2007:SCC:1276377.1276390}
 S.~Avidan and A.~Shamir.
 \newblock Seam carving for content-aware image resizing.
@@ -39,13 +45,6 @@ J.~Calambokidis, E.~A. Falcone, T.~J. Quinn, A.~M. Burdin, P.~Clapham, J.~Ford,
   of humpback whales in the North Pacific}.
 \newblock Cascadia Research, 2008.
 
-\bibitem{carlson1990changes}
-C.~A. Carlson, C.~A. Mayo, and H.~Whitehead.
-\newblock Changes in the ventral fluke pattern of the humpback whale (megaptera
-  novaeangliae), and its effect on matching; evaluation of its significance to
-  photo-identification research.
-\newblock {\em Rep. int. Whal. Commn (special issue)}, 12:105--11, 1990.
-
 \bibitem{chen2014semantic}
 L.-C. Chen, G.~Papandreou, I.~Kokkinos, K.~Murphy, and A.~L. Yuille.
 \newblock Semantic image segmentation with deep convolutional nets and fully
@@ -74,12 +73,11 @@ P.~Fischer and T.~Brox.
 \newblock Image descriptors based on curvature histograms.
 \newblock In {\em Pattern Recognition}, pages 239--249. Springer, 2014.
 
-\bibitem{friday2000measurement}
-N.~Friday, T.~D. Smith, P.~T. Stevick, and J.~Allen.
-\newblock Measurement of photographic quality and individual distinctiveness
-  for the photographic identification of humpback whales, megaptera
-  novaeangliae.
-\newblock {\em Marine Mammal Science}, 16(2):355--374, 2000.
+\bibitem{fukushima1979neural}
+K.~Fukushima.
+\newblock Neural network model for a mechanism of pattern recognition
+  unaffected by shift in position- neocognitron.
+\newblock {\em ELECTRON. \& COMMUN. JAPAN}, 62(10):11--18, 1979.
 
 \bibitem{hadsell2006dimensionality}
 R.~Hadsell, S.~Chopra, and Y.~LeCun.
@@ -201,6 +199,11 @@ M.~E. Munich and P.~Perona.
 \newblock In {\em Computer Vision, 1999. The Proceedings of the Seventh IEEE
   International Conference on}, volume~1, pages 108--115. IEEE, 1999.
 
+\bibitem{ning2005toward}
+F.~Ning, D.~Delhomme, Y.~LeCun, F.~Piano, L.~Bottou, and P.~E. Barbano.
+\newblock Toward automatic phenotyping of developing embryos from videos.
+\newblock {\em Image Processing, IEEE Transactions on}, 14(9):1360--1371, 2005.
+
 \bibitem{nouri2014using}
 D.~Nouri.
 \newblock Using convolutional neural nets to detect facial keypoints tutorial,
@@ -270,6 +273,13 @@ C.~Szegedy, W.~Liu, Y.~Jia, P.~Sermanet, S.~Reed, D.~Anguelov, D.~Erhan,
 \newblock Going deeper with convolutions.
 \newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
   Pattern Recognition}, pages 1--9, 2015.
+
+\bibitem{taigman2014deepface}
+Y.~Taigman, M.~Yang, M.~Ranzato, and L.~Wolf.
+\newblock Deepface: Closing the gap to human-level performance in face
+  verification.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 1701--1708, 2014.
 
 \bibitem{whitehead1990computer}
 H.~Whitehead.

@@ -21,6 +21,15 @@ It would also be possible to add a detection step beforehand to ensure this assu
 
 \subsection{Fluke keypoint prediction}
 
+
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1.0\textwidth]{../images/aid88_kpoverlay.png}
+\caption[]{\textbf{Example Keypoint Prediction}. Example image showing the left tip, bottom of the notch, and right tip located by the keypoint extractor convolutional network.}
+\label{fig:example_kp}
+\end{figure*}
+
+
 One major issue with automating the above trailing edge extraction algorithm is that it requires manual annotation in the selection of the starting and ending points (i.e., the fluke keypoints), as well as any control points (specifically the bottom of the notch).
 To work around this, we propose a convolutional network that predicts these tip points as part of the identification pipeline.
 
@@ -30,10 +39,9 @@ To do this, we train a convolutional network to predict these three points.
 The convolutional network does not need full-sized images, so the first step of the keypoint extraction pipeline is to resize the image to $256 \times 256$ pixels.
 This size choice is somewhat arbitrary, but we find that it provides the best performance without using an unnecessary amount of memory.
 The network then predicts the points as values between $0$ and $1$, for both the width and height of the image. 
-This is then rescaled back up to the original image size.
+These predictions are then then rescaled back up to the original image size.
+An example prediction is shown in Figure \ref{fig:example_kp}.
 %The evaluated network architectures are detailed in Table 3.1. % TODO put this in
-
-% TODO: Figure showing an example
 
 \subsubsection{Network Design}
 
@@ -47,9 +55,7 @@ We theorize that this may be because shared units between each of the three pred
 \subsubsection{Training Details}
 
 Generating the training data for this is straightforward given a set of annotations with the associated points to learn.
-% TODO: Once we've cleared up what the datasets are, put in the details of how the training / val / test sets were made
-The dataset that we created for this purpose contains approximately $2700$ training images, $900$ validation images, and $1200$ test images.
-Despite the small size of the training set, we found that it generalizes pretty well.
+The dataset that we created for this purpose contains approximately $2100$ training images, $700$ validation images, and $900$ test images.
 
 First, each image is resized to a fixed width while maintaining the aspect ratio.
 This is done to somewhat normalize the relative scale of objects in each image on the assumption that they are constrained to contain the fluke.
@@ -68,7 +74,7 @@ Where
     \item $\vec{s}$ is the original image width and height
 \end{itemize}
 
-The networks are trained for 100 epochs with $\alpha$ set to \num{2e-2}, the Adam \cite{kingma2014adam} optimizer (with the recommended settings) and $l2$ regularization on the trainable parameters with a decay of \num{1e-4}.
+The networks are trained for 1000 epochs with $\alpha$ set to \num{2e-2} using the Adam \cite{kingma2014adam} optimizer (with recommended settings) and $l2$ regularization on the trainable parameters with a decay of \num{1e-4}.
 All of these hyper parameters were tuned using the validation set, although the possible parameter space was not fully explored due to time constraints.
 
 \subsubsection{Evaluation} % TODO: Maybe this should be moved to the results section?
@@ -82,11 +88,22 @@ While this may seem like a lot, the trailing edge extraction (and subsequent mat
 
 %Additionally, as can be seen in Figure 3.2, 
 We find that, for the vast majority of images, the network achieves a low pixel distance error, while there are a few that have a much higher error.
-Qualitative inspection of these images shows that they are of flukes which are not the singular or major object in the image, nor horizontally oriented.
+Qualitative inspection of these images shows that they are either of flukes which are not the singular or major object in the image, or horizontally oriented of flukes that are not horizontally rotated.
+An example of this is shown in Figure \ref{fig:example_kp}.
 
-% TODO: Figure showing this
+%  TODO: Figure showing this
+
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1.0\textwidth]{../images/aid1323_kpoverlay.png}
+\caption[]{\textbf{Example Keypoint Failure}. Example image showing a keypoint extraction failure case from its testing set. Note the difference in pose of the fluke from the success case shown in Figure \ref{fig:example_kp}}
+\label{fig:example_kp_failure}
+\end{figure*}
+
+
 
 We attempted to use a spatial transformer network \cite{jaderberg2015spatial} to try and handle these cases, but we were unable to get it to perform as well as the standard convolutional network, nor produce sensible transformations.
+Since these failure cases represent a small amount of the dataset
 
 \subsection{Basic Trailing Edge Extraction Algorithm}
 

@@ -14,7 +14,7 @@ In recent years, convolutional neural networks have provided state of the art re
 
 The essential idea of a convolutional network is that it we can use the gradient of an error signal to learn hierarchies of convolution kernels separated by nonlinear activation functions.
 These networks are considered to be a form of neural network where the convolutions provide a meaningful prior when applied to data with spatial relationships (e.g.\ image data).
-Convolutional networks have been around for a long time, but the current incarnation of these networks can be traced back to the seminal work of LeCun et al.\ \cite{lecun1998gradient}. % TODO: Don't make schmidhuber angry
+Convolutional networks have been around for a long time \cite{fukushima1979neural}, but the current incarnation of these networks can be traced back to the seminal work of LeCun et al.\ \cite{lecun1998gradient}.
 More modern convolutional networks follow a common framework of using Rectified Linear Units (ReLUs) as activation functions, and Dropout \cite{hinton2012improving} layers after fully connected layers for regularization. 
 Additionally, the convolutional kernels used are commonly small square kernels with ``same'' padding alternated with $2\times$ downsampling layers (specifically max pooling layers) \cite{simonyan2014very}, \cite{sermanet2013overfeat}, \cite{krizhevsky2012imagenet}. % TODO more citations for this
 
@@ -23,7 +23,7 @@ The convolutional networks used in this thesis follow the above framework, and a
 \subsection{Facial Keypoint Prediction}
 
 Facial keypoints are essentially coordinates on an image of a (human) face that detail the locations of nose, eyes, mouth, etc.
-They are commonly used in facial identification pipelines, as well as in motion capture and expression recognition. % TODO: citations for all this shit
+They are commonly used in facial identification pipelines \cite{taigman2014deepface}, as well as in motion capture \cite{akagi2013facial} and expression recognition \cite{berretti20112d}.
 
 There has been recent work in using convolutional networks for facial keypoint prediction \cite{sun2013deep}, \cite{nouri2014using}. 
 The essential idea behind these networks is that they predict points (rather than classifications) in the form of $(x, y)$ coordinates, and are trained with a regression loss.
@@ -33,13 +33,12 @@ In this work, we similarly predict fluke keypoints which are predicted using ess
 \subsection{Fully Convolutional Networks}
 
 Classically, convolutional networks reduce an image to a single (spatially invariant) vector, which is then used for classification (or embedding, regression, etc.)
-% TODO citations
-Additionally, these classification networks usually have fully connected (or dense) layers towards the end.
-This ensures that the receptive field of the network covers the entire image, which is practical for many applications where a scalar or fixed size prediction is required. % TODO: citations?
-However, when dealing with arbitrarily sized images, it is typical to use networks that are 'fully convolutional', in which case the entire network consists of convolution kernels. 
+To do this, these networks usually have fully connected (or dense) layers towards the end.
+This ensures that the receptive field of the network covers the entire image, which is practical for many applications where a scalar or fixed size prediction is required. 
+However, when dealing with arbitrarily sized images, it is useful to use networks that are ``fully convolutional'', in which case the entire network consists of convolution kernels. 
 Convolutional networks that reduce to dense layers can be cast as fully convolutional networks by replacing the dense layers with $1\times1$ kernels, using the dense units as channels.
-This technique can also be used for segmentation, as we can simply replace the dense part of the network with convolutional parts that can make class predictions on every pixel of their input.
-By upsampling and combining different stages of prediction, the authors in \cite{long2015fully} produce high quality image segmentations, a technique that we replicate.
+This technique is especially applicable in segmentation tasks \cite{ning2005toward}, as this process allows for (downsampled) predictions spatially distributed throughout the image. % TODO More citations eventually
+By then upsampling and combining different stages of prediction, the authors in \cite{long2015fully} produce high quality image segmentations, a technique that we replicate.
 
 In this work, fully convolutional networks are used for predicting the 'trailing edginess' of an image, which allows us to refine the trailing edge contour extraction. 
 
@@ -63,7 +62,7 @@ While this method is not directly used in this work, the underlying algorithm fo
 \section{Curvature Measures}
 
 Contour curvature measures are commonly used to characterize the overall shape of an contour. 
-A lot of work has been done on using curvature information for detection \cite{monroy2011beyond}, classification \cite{fischer2014image}, and species identification \cite{kumar2012leafsnap}. % Explain more?
+A lot of work has been done on using curvature information for detection \cite{monroy2011beyond}, classification \cite{fischer2014image}, and species identification \cite{kumar2012leafsnap}. % Chuck note: Explain more? Figure out what that means
 This curvature information can be broadly broken down into either integral or differential curvature, and is usually computed at multiple scales.
 
 \subsection{Differential Curvature}

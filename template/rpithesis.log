@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.8)  15 MAR 2016 22:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.8)  18 MAR 2016 10:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -831,41 +831,84 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 
 ]
 CHAPTER 1.
+<../images/fluke_aid88_goodmatching.jpg, id=41, 846.7635pt x 338.866pt>
+File: ../images/fluke_aid88_goodmatching.jpg Graphic file (type jpg)
+ <use ../images/fluke_aid88_goodmatching.jpg>
+Package pdftex.def Info: ../images/fluke_aid88_goodmatching.jpg used on input line 19.
+(pdftex.def)             Requested size: 426.39255pt x 170.63734pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--35
+Underfull \hbox (badness 10000) in paragraph at lines 39--43
 
  []
 
 [1
 
-] [2]) (./rpichap2.tex [3]
+] <../images/unclear_texture.jpg, id=45, 292.2117pt x 88.8921pt>
+File: ../images/unclear_texture.jpg Graphic file (type jpg)
+ <use ../images/unclear_texture.jpg>
+Package pdftex.def Info: ../images/unclear_texture.jpg used on input line 52.
+(pdftex.def)             Requested size: 426.39255pt x 129.72034pt.
+ [2 <../images/fluke_aid88_goodmatching.jpg>] [3 <../images/unclear_texture.jpg>] <../images/unclear_te_q.jpg, id=52, 1378.14874pt x 388.45125pt>
+File: ../images/unclear_te_q.jpg Graphic file (type jpg)
+ <use ../images/unclear_te_q.jpg>
+Package pdftex.def Info: ../images/unclear_te_q.jpg used on input line 83.
+(pdftex.def)             Requested size: 426.39255pt x 120.18155pt.
+ <../images/unclear_te_gt.jpg, id=53, 33.20807pt x 8.32912pt>
+File: ../images/unclear_te_gt.jpg Graphic file (type jpg)
+ <use ../images/unclear_te_gt.jpg>
+Package pdftex.def Info: ../images/unclear_te_gt.jpg used on input line 87.
+(pdftex.def)             Requested size: 426.39255pt x 107.0119pt.
+
+Overfull \hbox (7.83325pt too wide) in paragraph at lines 83--88
+ [][]  
+ []
+
+
+Overfull \hbox (7.83325pt too wide) in paragraph at lines 83--88
+ [] 
+ []
+
+[4 <../images/unclear_te_q.jpg> <../images/unclear_te_gt.jpg>] [5]) (./rpichap2.tex [6]
 CHAPTER 2.
-[4
 
-] [5] [6]) (./rpichap3.tex [7]
+Package natbib Warning: Citation `berretti20112d' on page 7 undefined on input line 26.
+
+[7
+
+] [8] [9]) (./rpichap3.tex [10]
 CHAPTER 3.
-[8
+<../images/aid88_kpoverlay.png, id=78, 752.8125pt x 301.125pt>
+File: ../images/aid88_kpoverlay.png Graphic file (type png)
+ <use ../images/aid88_kpoverlay.png>
+Package pdftex.def Info: ../images/aid88_kpoverlay.png used on input line 27.
+(pdftex.def)             Requested size: 426.39255pt x 170.56325pt.
+ [11
 
-] [9] [10] [11] [12] [13] [14] [15] [16] [17]
-Overfull \hbox (5.23755pt too wide) in paragraph at lines 326--326
+] [12 <../images/aid88_kpoverlay.png (PNG copy)>] [13] <../images/aid1323_kpoverlay.png, id=88, 752.8125pt x 495.8525pt>
+File: ../images/aid1323_kpoverlay.png Graphic file (type png)
+ <use ../images/aid1323_kpoverlay.png>
+Package pdftex.def Info: ../images/aid1323_kpoverlay.png used on input line 98.
+(pdftex.def)             Requested size: 426.39255pt x 280.86082pt.
+ [14 <../images/aid1323_kpoverlay.png (PNG copy)>] [15] [16] [17] [18] [19] [20] [21]
+Overfull \hbox (5.23755pt too wide) in paragraph at lines 343--343
 [] 
  []
 
-[18] [19]) (./rpichap4.tex [20]
+[22] [23]) (./rpichap4.tex [24]
 CHAPTER 4.
-[21
+[25
 
-] [22]
+] [26]
 Overfull \hbox (22.29936pt too wide) in paragraph at lines 86--88
 \OT1/cmr/m/n/12 for this dataset (of the few we eval-u-ated) is 750 pix-els. Fig-ure (TODO te[]size[]hist[]fb.png)
  []
 
-[23] [24] <../images/results/curvature_diversity_fb.png, id=120, 433.62pt x 289.08pt>
+[27] [28] <../images/results/curvature_diversity_fb.png, id=140, 433.62pt x 289.08pt>
 File: ../images/results/curvature_diversity_fb.png Graphic file (type png)
  <use ../images/results/curvature_diversity_fb.png>
 Package pdftex.def Info: ../images/results/curvature_diversity_fb.png used on input line 138.
 (pdftex.def)             Requested size: 213.19627pt x 142.13123pt.
- <../images/results/interscale_diff_fb.png, id=122, 433.62pt x 289.08pt>
+ <../images/results/interscale_diff_fb.png, id=142, 433.62pt x 289.08pt>
 File: ../images/results/interscale_diff_fb.png Graphic file (type png)
  <use ../images/results/interscale_diff_fb.png>
 Package pdftex.def Info: ../images/results/interscale_diff_fb.png used on input line 139.
@@ -875,34 +918,38 @@ Overfull \hbox (7.83325pt too wide) in paragraph at lines 138--140
  [][][] 
  []
 
-[25 <../images/results/curvature_diversity_fb.png> <../images/results/interscale_diff_fb.png>] [26]) (./rpichap5.tex [27]
+[29 <../images/results/curvature_diversity_fb.png> <../images/results/interscale_diff_fb.png>] [30]) (./rpichap5.tex [31]
 CHAPTER 5.
-) (./rpibib.tex (./rpithesis.bbl [28
+) (./rpibib.tex (./rpithesis.bbl [32
 
-] [29
+] [33
 
-] [30
+] [34
 
-] [31]
+] [35]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
- [32])) (./rpiapp.tex (./source_appendix.tex [33])) [34
+ [36])) (./rpiapp.tex (./source_appendix.tex [37]))
+
+Package natbib Warning: There were undefined citations.
+
+[38
 
 ] (./rpithesis.aux) ) 
 Here is how much of TeX's memory you used:
- 25112 strings out of 493054
- 508712 string characters out of 6140587
- 509264 words of memory out of 5000000
- 28229 multiletter control sequences out of 15000+600000
- 11616 words of font info for 44 fonts, out of 8000000 for 9000
+ 25174 strings out of 493054
+ 510128 string characters out of 6140587
+ 509349 words of memory out of 5000000
+ 28279 multiletter control sequences out of 15000+600000
+ 14724 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,14n,54p,10416b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on rpithesis.pdf (43 pages, 234940 bytes).
+Output written on rpithesis.pdf (47 pages, 2598659 bytes).
 PDF statistics:
- 201 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
+ 219 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
