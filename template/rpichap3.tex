@@ -91,23 +91,34 @@ We find that, for the vast majority of images, the network achieves a low pixel 
 Qualitative inspection of these images shows that they are either of flukes which are not the singular or major object in the image, or horizontally oriented of flukes that are not horizontally rotated.
 An example of this is shown in Figure \ref{fig:example_kp}.
 
-%  TODO: Figure showing this
-
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1.0\textwidth]{../images/aid1323_kpoverlay.png}
-\caption[]{\textbf{Example Keypoint Failure}. Example image showing a keypoint extraction failure case from its testing set. Note the difference in pose of the fluke from the success case shown in Figure \ref{fig:example_kp}}
+\caption[]{\textbf{Example Keypoint Failure}. Example image showing a keypoint extraction failure case from its testing set. Note the difference in pose of the fluke from the success case shown in Figure \ref{fig:example_kp}. Note that this is also an image that violates our assumptions.}
 \label{fig:example_kp_failure}
 \end{figure*}
 
 
 
 We attempted to use a spatial transformer network \cite{jaderberg2015spatial} to try and handle these cases, but we were unable to get it to perform as well as the standard convolutional network, nor produce sensible transformations.
-Since these failure cases represent a small amount of the dataset
+Since these failure cases represent a small amount of the dataset, it is both difficult to train a network to handle them, and simultaneously not a large issue.
+Additionally, we find that keypoint extraction failures are only a small percentage of the matching failure cases that we encounter.
 
 \subsection{Basic Trailing Edge Extraction Algorithm}
 
-% TODO: Picture of I_y
+
+\begin{figure*}[t]%
+\centering
+\subfloat[][$I_y$]{
+	\includegraphics[width=1.0\textwidth]{../images/aid88_vertgrad.png}
+}
+\newline
+\subfloat[][Extracted Trailing Edge]{
+	\includegraphics[width=1.0\textwidth]{../images/aid88_te_kp_overlay_noscorer.png}
+}
+\caption[]{\textbf{Example Trailing Edge Extraction}. Example of the baseline trailing edge extraction with $n = 2$. Note that the gradient image has a significant black area where the trailing edge is, making this an easy case.}
+\label{fig:example_te_extract_noscorer}
+\end{figure*}
 
 The base algorithm that is used for extracting the trailing edge uses the vertical gradient information of the image (denoted as $I_y$).
 We extract $I_y$ using a vertically oriented $5 \times 5$ Sobel kernel \cite{Sobel1968}.  
@@ -153,13 +164,14 @@ As $C$ is filled out, we also keep a backtrace matrix $B$, which keeps track of 
 Once the end column is reached, we work backwards from $e$ to construct the path, adding the coordinate corresponding to $B(x,y)$ at each step.
 
 % Maybe: Put in actual algorithm pseudocode
-% TODO: Put in pictures of extracted fluke, cost matrix?
 
-We can also extend this algorithm by adding extra 'control points' which the path is forced through, using the same methodology as forcing the path through the start and end points.
-Commonly, we use the bottom of the notch as a control point, although this affects accuracy negatively if it too far from the trailing edge.
+This algorithm can be extended by adding extra ``control points'' which the path is forced through, using the same methodology as forcing the path through the start and end points.
+We use the bottom of the notch as a control point, although we find that it can affect matching accuracy negatively if it is too far from the trailing edge.
+
+An example of the base algorithm is given in Figure \ref{fig:example_te_extract_noscorer}.
 
 While this algorithm has no understanding of humpback whale flukes, a lot of images that are constrained around the fluke with oceanic backgrounds (which is a large majority of the dataset at hand) provide high quality trailing edges when put through this algorithm.
-However this is not a robust algorithm for finding trailing edges, something that we will fix later on.
+Next, we outline our approach for trying to make this more robust.
 
 % TODO: Put in figure showing bad trailing edge from raw next to good one
 
@@ -180,7 +192,23 @@ The dataset was sourced from trailing edges extracted using the basic method det
 To generate the training set, we extract a $128 \times 128$ patch at $128$ pixel intervals along the trailing edge (giving a positive patch), and a corresponding patch (with no trailing edge pixels) randomly sampled from the left over space above and below the trailing edge (giving a negative patch).
 These patches are then randomly split into training, testing, and validation sets each with $3700$, $1200$, and $1600$ patches respectively.
 
-\subsubsection{Trailing Edge Scoring Architectures}
+\begin{figure*}[t]%
+\centering
+\subfloat[][]{
+	\includegraphics[width=1.0\textwidth]{../images/fluke_aid88_goodmatching.jpg}
+}
+\newline
+\subfloat[][Trailing Edge Scores]{
+	\includegraphics[width=1.0\textwidth]{../images/aid88_tescorer_annot_res.png}
+}
+\caption[]{\textbf{Example Trailing Edge Score}. Bottom image is the Residual scorer's classification of the top image. Trailing edge is class is colored black.}
+\label{fig:example_te_score_annotres}
+\end{figure*}
+
+
+
+\subsubsection{Trailing Edge Scoring Architectures} 
+\label{sec:te_arch}
 
 There are several network architectures that were tried, however here we will report only the major variants.
 One major consideration that has to be made when selecting a fully convolutional network architecture is its receptive field.
@@ -194,29 +222,48 @@ Due to the small receptive field however, at convergence it gives low precision 
 
 \paragraph{Upsample}
 To deal with the small receptive fields, convolutional networks typically downsample at various stages. 
-This downsampling usually takes the form of max pooling (instead of e.g. convolutional kernels with a stride greater than one).
-The upsample architecture is analogous to the FCN-32s architecture in \cite{long2015fully}, although we do not go down to a 1x1 spatial extent before upsampling.
-This produces blocky and nearly unusable trailing edge scores, however they tend to be more connected than the disparate (but fine-grained) predictions made by the simple network.
-
+This downsampling usually takes the form of max pooling (instead of e.g.\ convolutional kernels with a stride greater than one).
+The upsample architecture is analogous to the FCN-32s architecture in \cite{long2015fully}, although we do not go down to a $1\times1$ spatial extent before upsampling.
+This produces blocky trailing edge scores, however various non-trailing edge parts of the image are less likely to be classified as such. 
 
 \paragraph{Jet}
-Following the deep-jet architecture from \cite{long2015fully}, we combine softmax predictions from various stages throughout the network with predictions from "farther down" the network, cascading until we hit predictions from the last convolutional layer before any downsampling.
-This gives more fine-grained predictions than the upsample network while giving somewhat better predictions than the simple network.
+Following the deep-jet architecture from \cite{long2015fully}, we combine prediction layers from various stages throughout the network with predictions from ``farther down'' the network, cascading until we hit predictions from the last convolutional layer before any downsampling.
+This gives more fine-grained predictions than the Upsample network while giving somewhat better predictions than the Simple network.
 
 
 \paragraph{Residual}
 While the receptive field of the Simple network is small, it can produce very fine trailing edges, which we found to be necessary for good trailing edge extraction.
 However with such a small receptive field it can be more prone to making mistakes.
-It is possible to create a very deep network of 'same' convolutions, however training very deep networks like this can run into problems very quickly.
-Recently, there has been work on making very deep networks feasible by adding residual connections\cite{he2015deep}, showing that these very deep networks can achieve high accuracy in a challenging benchmark.
-We replicate this architecture by stacking $64$ $3\times3$ 'same' convolution kernels, and adding a residual connection every other layer.
-This performs better than the Simple network, however we do not see a marked improvement in trailing edge matching as a result.
+It is possible to create a very deep network of ``same'' convolutions, however training very deep networks like this can run into problems very quickly.
+Recently, there has been work on training very deep networks by adding residual connections \cite{he2015deep}, showing that with these connections these models can be trained effectively.
+We replicate this architecture by stacking $64$ $3\times3$ ``same'' convolution kernels, and adding a residual connection every other layer.
+This is our best performing network.
 
-% TODO: Include images showing extracted trailing edge scores for all of these networks
+Example of all of the above networks' outputs can be seen in Figure \ref{fig:example_te_scores_all}.
+
+
+\begin{figure*}[t]%
+\centering
+\subfloat[][Simple]{
+	\includegraphics[width=0.5\textwidth]{../images/aid88_tescorer_annot_simple.png}
+}
+\subfloat[][Residual]{
+	\includegraphics[width=0.5\textwidth]{../images/aid88_tescorer_annot_res.png}
+}
+\newline
+\subfloat[][Upsample]{
+	\includegraphics[width=0.5\textwidth]{../images/aid88_tescorer_annot_upsample.png}
+}
+\subfloat[][Jet]{
+	\includegraphics[width=0.5\textwidth]{../images/aid88_tescorer_annot_jet2.png}
+}
+\caption[]{\textbf{Trailing Edge Scores}. These are the trailing edge scores given by each of the networks described in section \ref{sec:te_arch} on the image used in Figure \ref{fig:example_te_score_annotres}.}
+\label{fig:example_te_scores_all}
+\end{figure*}
 
 \subsubsection{Using the trailing edge scores}
 
-Once we have 'trailing edginess' score for each pixel, we need to combine this information with the gradient in a way that causes the trailing edge extraction algorithm to follow those pixels that the scoring map marks as trailing edge.
+Once we have a ``trailing edginess'' score for each pixel in an image, we need to combine this information with the normalized gradient $N_y$ in a way that causes the trailing edge extraction algorithm to follow those pixels that the scoring map marks as trailing edge.
 More formally, the trailing edge scoring map gives us an image $T_p \in [0-1]^{w \times h}$ (where $w$ and $h$ are the width and height of the image) which denotes the network's predicted probability of each pixel being part of the trailing edge.
 The most simple and obvious way to combine this information with $N_y$ from before is to combine them with a mixing parameter $\beta$.
 
@@ -227,22 +274,24 @@ S_{te} = (1 - \beta)*N_y + \beta*(1 - T_p)
 We use $1 - T_p$ in this case because we are minimizing the path through $S_{te}$.
 Once done, the trailing edge extraction algorithm procedes as described in the previous section.
 
-For most of the evaluation process, we simply set $\beta = 0.5$.
+For most of the evaluation process, we simply set $\beta = 0.5$, and we find that this gives us the best results.
 
 Another variant on combining $T_p$ and $N_y$ that we tried was to dilate the trailing edge predictions and then forbid the trailing edge from going outside of those predictions.
 However one of the main issues with this is that if there are any breaks in the prediction (which can happen even with the Upsample architecture), the trailing edge cannot be extracted, leading to broken trailing edges.
 
+% TODO: Find a trailing edge that actually changes appreciably w/different beta
+
 \subsubsection{Training Details}
 
 All networks were trained for 100 epochs (or until convergence) with a batch size of $32$, with $l2$ regularization using a decay of \num{1e-4}.
-We used the Adam optimizer\cite{kingma2014adam} (with the recommended settings) for calculating weight updates.
+We used the Adam optimizer \cite{kingma2014adam} (with the recommended settings) for calculating weight updates.
 
 One detail that turned out to be important is the class imbalance.
 The trailing edge pixels (necessarily) make up a small percentage of the total image, meaning that these networks could get a fairly high accuracy (and thus low loss) simply by predicting only background pixels.
 In order to prevent this, we only sample a negative patch once for every positive patch (as detailed above), and additionally we weight the loss for the trailing edge pixels $10\times$ higher than the loss for the background pixels.
 
 Due to the nature of the training data, we were concerned that the networks would simply learn to replicate the function that generated the trailing edges, despite human corrections.
-In order to mitigate this issue, we included some non-spatial data augmentation, namely random Gaussian blur and randomly inverting the pixel intensities.
+In order to mitigate this issue, we included some data augmentation, namely random Gaussian blur and randomly inverting the pixel intensities with probability of $P=0.3$.
 Unfortunately this had limited success.
 
 % TODO: Show failures
@@ -286,13 +335,13 @@ We also report the precision and recall of the model.
 Initially, we thought that precision would be the most important metric for evaluating networks (which is reflected in the class weighting).
 However, we found that even a low precision classifier could give good trailing edges, and that the important measure was how detailed these trailing edges were.
 
-% TODO: Figure showing this
+% TODO: Investigate disagreements between upsample and res
 
 This is likely because small segments of predicted trailing edge would not be chosen by the trailing edge extractor if they are too disconnected from the actual trailing edge.
 
 \section{Trailing Edge Matching}
 
-Given extracted trailing edges, we define a method for doing a one-to-one comparison between a given query and database trailing edge.
+Given extracted trailing edges, we now define a method for doing a one-to-one comparison between a given query and database trailing edge.
 %Once these trailing edges are extracted, we can use a few simple methods to compare them in search of a trailing edge that is close to the one we are finding a match for.
 The simplest way to do this is to define a (potentially non-metric) distance function between any two trailing edges.
 Once this distance function is defined, we can identify an individual by its trailing edge (referred to as the query trailing edge) by looking at the identity of the closest trailing edge in the database.
@@ -328,6 +377,35 @@ The numerator in equation \eqref{eqn:sat_area} gives the total area within the s
 The set of scales to choose presents a large parameter space, however we have found that the scales $S = [2\%, 4\%, 6\%, 8\%]$ work well for our purposes.
 We then treat this curvature measurement as a $|S| \times l$ matrix $BC$, where $l$ is the length of the trailing edge.
 
+Two example curvatures (with their corresponding trailing edges) are given in Figure \ref{fig:example_curv}.
+In this case, we can see that at a high level, these curvature patterns look very similar.
+
+\begin{figure*}[t]%
+\centering
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid1034_te_overlay.png}
+}
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid1035_te_overlay.png}
+}
+\newline
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid1034_curv.png}
+}
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid1035_curv.png}
+}
+%\newline
+%\subfloat[][]{
+%	\includegraphics[width=1\textwidth]{../images/aid1034-aid1035_curvdiff.png}
+%}
+\caption[]{\textbf{Trailing Edge Curvature}. The top images are of the same individual, and the bottom images visualize the corresponding curvatures for the trailing edges that were extracted. Each row in the visualization is a curvature scale, increasing from top to bottom. Note that darker blue implies a ``valley'' in the trailing edge, whereas lighter blue implies a ``peak''.}
+\label{fig:example_curv}
+\end{figure*}
+
+
+
+
 \subsection{Sequence Matching}
 
 Given two sequences of curvatures $BC_1$ and $BC_2$ (referred to as query and database curvature respectively) we match them using dynamic time warping as follows.
@@ -349,7 +427,57 @@ Additionally, we impose the Sakoe-Chiba \cite{sakoe1978dynamic} locality constra
 We set $T$ as a percentage of $l_1$.
 For most of these experiments $T$ is set to $10\%$, which appears to minimize the time taken for each comparison while preserving the overall accuracy of the algorithm.
 
-It's worth noting that while this distance measure is not a metric distance (i.e.\ it doesn't satisfy the triangle inequality), it is a symmetric distance as \eqref{eqn:dtw_dist} is symmetric \cite{muller2007information}.
+It's worth noting that while this distance measure is not a metric distance (i.e.\ it doesn't satisfy the triangle inequality), it is a symmetric distance as the local distance function \eqref{eqn:dtw_dist} is symmetric \cite{muller2007information}.
+
+
+% BIG FIGURE SHOWING A MATCH SUCCESS AND FAILURE
+
+\begin{figure*}[t]%
+\centering
+\subfloat[][Query 1]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid612_te_kp_overlay.png}
+}
+\subfloat[][Query 2]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid509_te_kp_overlay.png}
+}
+\newline
+\subfloat[][Query 1 Curvature]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid612_curv.png}
+}
+\subfloat[][Query 2 Curvature]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid509_curv.png}
+}
+\newline
+\subfloat[][Correct ID 1: Distance $6.22$]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid613_te_kp_overlay.png}
+}
+\subfloat[][Correct ID 2: Distance $9.99$]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid508_te_kp_overlay.png}
+}
+\newline
+\subfloat[][Correct ID 1 Curvature]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid613_curv.png}
+}
+\subfloat[][Correct ID 2 Curvature]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid508_curv.png}
+}
+\newline
+\subfloat[][Incorrect ID 1: Distance $8.65$]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid1227_te_kp_overlay.png}
+}
+\subfloat[][Incorrect ID 2: Distance $8.27$]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid951_te_kp_overlay.png}
+}
+\newline
+\subfloat[][Incorrect ID 1 Curvature]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid1227_curv.png}
+}
+\subfloat[][Incorrect ID 2 Curvature]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid951_curv.png}
+}
+\caption[]{\textbf{Example Matches}. The left side shows a success case, and the right side shows a failure case.} 
+\label{fig:example_match}
+\end{figure*}
 
 \section{Alternative Approaches}
 
@@ -385,8 +513,8 @@ This is a common approach for comparing curvatures \cite{kumar2012leafsnap}, how
 
 \subsection{Embedding via Convolutional Networks}
 
-We also made an attempt at training convolutional networks to directly embed the images of flukes into a $n$ dimensional vector, much like \cite{schroff2015facenet} and \cite{parkhi2015deep}.
-However, most of the previous literature on this technique is applied to larger datasets such as LFW\cite{huang2007labeled}, which is significantly larger than the dataset that we had available.
+We also made an attempt at training convolutional networks to directly embed the images of flukes into a $n$ dimensional vector, much like the work done for face recognition in Schroff et al.\ \cite{schroff2015facenet} and Parkhi et al.\ \cite{parkhi2015deep}.
+However, most of the previous literature on this technique is applied to larger datasets such as LFW \cite{huang2007labeled}, which is significantly larger than the dataset that we had available.
 A major factor in this is that these larger datasets often have five to ten images per identity (if not more), whereas most of the identities in our dataset had one or two images associated.
 
 Regardless, we attempted the embedding approach (from raw images), however even a severely overfit convolutional network only achieved half the top-1 accuracy on its training set that the main method is able to achieve.

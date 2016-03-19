@@ -23,7 +23,7 @@ The convolutional networks used in this thesis follow the above framework, and a
 \subsection{Facial Keypoint Prediction}
 
 Facial keypoints are essentially coordinates on an image of a (human) face that detail the locations of nose, eyes, mouth, etc.
-They are commonly used in facial identification pipelines \cite{taigman2014deepface}, as well as in motion capture \cite{akagi2013facial} and expression recognition \cite{berretti20112d}.
+They are commonly used in facial identification pipelines \cite{taigman2014deepface}, as well as in motion capture \cite{akagi2013facial} and expression recognition \cite{berretti20113d}.
 
 There has been recent work in using convolutional networks for facial keypoint prediction \cite{sun2013deep}, \cite{nouri2014using}. 
 The essential idea behind these networks is that they predict points (rather than classifications) in the form of $(x, y)$ coordinates, and are trained with a regression loss.
@@ -84,7 +84,7 @@ Dynamic Time Warping (DTW) is a sequence comparison method that, roughly, finds 
 This allows for shifts and some warps in the two sequences to be compensated for, and results in a nonlinear mapping of one sequence onto another.
 The algorithmic complexity of dynamic time warping can be limiting in large datasets, as it is quadratic in both space and time -- making a one-to-one comparison a bit daunting.
 
-There are several variants on DTW that give faster speeds \cite{salvador2007fastdtw} \cite{lemire2009faster}, however we only use the Sakoe-Chiba bound \cite{sakoe1978dynamic}, which both constrains the neighborhood in which points can be matched and gives a complexity of $O(nw)$, where $w$ is a user set parameter.
+There are several variants on DTW that give faster speeds \cite{salvador2007fastdtw} \cite{lemire2009faster}, however we only use the Sakoe-Chiba bound \cite{sakoe1978dynamic}, which both constrains the neighborhood in which points can be matched and gives a complexity of $O(nT)$, where $T$ is a user set parameter constraining the neighborhood.
 
 Sequences of curvature measures have been used with DTW for signature verification \cite{munich1999continuous}, however this combination has not been used for matching trailing edges to our knowledge.
 
