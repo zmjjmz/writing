@@ -13,14 +13,20 @@
 \citation{calambokidis2008splash}
 \citation{blackmer2000temporal}
 \citation{mizroch1990computer}
+\citation{mizroch1990computer}
+\citation{whitehead1990computer}
+\citation{hughes2015automated}
+\citation{kniest2010fluke}
+\citation{i3scontour}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1.}Introduction}{1}}
 \newlabel{sec:introduction}{{1}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}Humpback Whales}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}Distinguishing Individual Flukes}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Current Identification Methods}{1}}
 \citation{i3scontour}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:example_fluke}{{1.1}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Current Identification Methods}{2}}
+\newlabel{fig:unclear_texture}{{1.2}{2}}
 \citation{hughes2015automated}
 \citation{huele2000finding}
 \citation{beekmans2005comparison}
@@ -28,14 +34,13 @@
 \citation{whitehead1990computer}
 \citation{beekmans2005comparison}
 \citation{huele2000finding}
-\newlabel{fig:unclear_texture}{{1.2}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Based on Trailing Edge}{3}}
 \citation{mizroch1990computer}
 \citation{kniest2010fluke}
 \citation{mizroch1990computer}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Based on Trailing Edge}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Based on general Fluke appearance}{3}}
 \citation{kniest2010fluke}
 \newlabel{fig:unclear_te}{{1.3}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Based on general Fluke appearance}{4}}
 \citation{crall_hotspotter_2013}
 \citation{calambokidis2008splash}
 \@writefile{toc}{\contentsline {section}{\numberline {1.3}Method Outline}{5}}
@@ -57,25 +62,24 @@
 \citation{taigman2014deepface}
 \citation{akagi2013facial}
 \citation{berretti20113d}
+\citation{sun2013deep}
+\citation{nouri2014using}
 \@writefile{toc}{\contentsline {chapter}{\numberline {2.}Background}{7}}
 \newlabel{sec:background}{{2}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Convolutional Networks}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Facial Keypoint Prediction}{7}}
-\citation{sun2013deep}
-\citation{nouri2014using}
 \citation{ning2005toward}
 \citation{long2015fully}
 \citation{Avidan:2007:SCC:1276377.1276390}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Facial Keypoint Prediction}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Fully Convolutional Networks}{8}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Seam Carving}{8}}
 \citation{monroy2011beyond}
 \citation{fischer2014image}
 \citation{kumar2012leafsnap}
 \citation{fischer2014image}
 \citation{pottmann2007integral}
+\citation{sakoe1978dynamic}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Seam Carving}{9}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}Curvature Measures}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Differential Curvature}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Integral Curvature}{9}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.4}Dynamic Time Warping}{9}}
 \citation{salvador2007fastdtw}
 \citation{lemire2009faster}
@@ -85,56 +89,57 @@
 \newlabel{sec:methods}{{3}{11}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}Trailing Edge Extraction}{11}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Fluke keypoint prediction}{11}}
+\citation{simonyan2014very}
 \newlabel{fig:example_kp}{{3.1}{12}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1.1}Network Design}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1.2}Training Details}{12}}
 \citation{kingma2014adam}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1.2}Training Details}{13}}
+\citation{jaderberg2015spatial}
 \newlabel{eqn:se_loss}{{3.1}{13}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1.3}Evaluation}{13}}
-\citation{jaderberg2015spatial}
 \citation{Sobel1968}
 \newlabel{fig:example_kp_failure}{{3.2}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Basic Trailing Edge Extraction Algorithm}{14}}
+\newlabel{eqn:norm01}{{3.2}{14}}
 \newlabel{fig:example_te_extract_noscorer}{{3.3}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Basic Trailing Edge Extraction Algorithm}{15}}
-\newlabel{eqn:norm01}{{3.2}{15}}
 \newlabel{eqn:te_setup}{{3.3}{16}}
 \newlabel{eqn:te_update}{{3.5}{16}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{17}}
-\newlabel{fig:example_te_score_annotres}{{3.4}{18}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{18}}
-\newlabel{sec:te_arch}{{3.1.3.1}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{17}}
+\newlabel{sec:te_arch}{{3.1.3.1}{17}}
 \citation{long2015fully}
+\newlabel{fig:example_te_score_annotres}{{3.4}{18}}
+\@writefile{toc}{\contentsline {paragraph}{Simple}{18}}
 \citation{long2015fully}
 \citation{he2015deep}
-\@writefile{toc}{\contentsline {paragraph}{Simple}{19}}
 \@writefile{toc}{\contentsline {paragraph}{Upsample}{19}}
 \@writefile{toc}{\contentsline {paragraph}{Jet}{19}}
 \@writefile{toc}{\contentsline {paragraph}{Residual}{19}}
-\newlabel{fig:example_te_scores_all}{{3.5}{20}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{20}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{19}}
 \citation{kingma2014adam}
+\newlabel{fig:example_te_scores_all}{{3.5}{20}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3.3}Training Details}{21}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3.4}Evaluation}{21}}
 \citation{crow1984summed}
 \@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Table showing the precision, recall, and IoU of each of the evaluated trailing edge scorers on each section of the trailing edge dataset. For the purposes of this analysis, we use the \texttt  {argmax} over the classes to determine a positive (i.e. trailing edge) or negative pixel.\relax }}{22}}
 \newlabel{tab:te_score_full_analysis}{{3.1}{22}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Trailing Edge Matching}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{23}}
-\newlabel{eqn:sat}{{3.7}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{22}}
+\newlabel{eqn:sat}{{3.7}{22}}
 \newlabel{eqn:sat_area}{{3.8}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{23}}
 \citation{sakoe1978dynamic}
+\citation{muller2007information}
 \newlabel{fig:example_curv}{{3.6}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{24}}
 \newlabel{eqn:dtw_dist}{{3.9}{24}}
 \newlabel{eqn:dtw_update}{{3.10}{24}}
-\citation{muller2007information}
-\citation{qiao2006affine}
+\newlabel{fig:example_match}{{3.7}{25}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.3}Alternative Approaches}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{25}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{25}}
-\newlabel{fig:example_match}{{3.7}{26}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{26}}
+\citation{qiao2006affine}
 \citation{kumar2012leafsnap}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{26}}
 \citation{schroff2015facenet}
 \citation{parkhi2015deep}
 \citation{huang2007labeled}

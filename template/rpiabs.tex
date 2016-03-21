@@ -8,10 +8,12 @@
 
 Photographic identification of humpback whale (Megaptera novaeangliae) flukes (i.e.\ their tail) is an important task in marine ecology, and is used in tracking migration patterns and estimating populations \cite{blackmer2000temporal} \cite{calambokidis2008splash}.
 In this thesis, we lay out a method that automates the photo-identification of humpback flukes, using the ``trailing edge'' of the fluke.
-Using this method, we achieve a fairly high top-1 ranking accuracy on a large subset of the SPLASH \cite{calambokidis2008splash} dataset consisting of about 400 identified individuals.
+The method uses convolutional networks to identify keypoints on the fluke and possible trailing edge locations.
+This information is then used to extract a detailed trailing edge and it curvature, which is then matched to other trailing edges in the database via dynamic time warping.
+Using this method, we achieve nearly 80\% top-1 ranking accuracy on a large subset of the SPLASH \cite{calambokidis2008splash} dataset consisting of about 400 identified individuals.
 We also show that in combination with a general appearance based matching algorithm, Hotspotter \cite{crall_hotspotter_2013}, we can achieve 93\% accuracy.
 
-To our knowledge, this is the first method that can achieve this level of accuracy on humpback fluke identification without much manual effort at test-time.
+To our knowledge, this is the first method that can achieve this level of accuracy on humpback fluke identification without extensive manual effort at test-time.
 
 
 

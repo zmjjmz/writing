@@ -5,43 +5,41 @@
 \contentsline {chapter}{\numberline {1.}Introduction}{1}
 \contentsline {section}{\numberline {1.1}Humpback Whales}{1}
 \contentsline {subsection}{\numberline {1.1.1}Distinguishing Individual Flukes}{1}
-\contentsline {section}{\numberline {1.2}Current Identification Methods}{2}
+\contentsline {section}{\numberline {1.2}Current Identification Methods}{1}
 \contentsline {subsection}{\numberline {1.2.1}Based on Trailing Edge}{3}
-\contentsline {subsection}{\numberline {1.2.2}Based on general Fluke appearance}{4}
+\contentsline {subsection}{\numberline {1.2.2}Based on general Fluke appearance}{3}
 \contentsline {section}{\numberline {1.3}Method Outline}{5}
 \contentsline {section}{\numberline {1.4}The Dataset}{5}
 \contentsline {section}{\numberline {1.5}Thesis Outline}{6}
 \contentsline {chapter}{\numberline {2.}Background}{7}
 \contentsline {section}{\numberline {2.1}Convolutional Networks}{7}
-\contentsline {subsection}{\numberline {2.1.1}Facial Keypoint Prediction}{7}
+\contentsline {subsection}{\numberline {2.1.1}Facial Keypoint Prediction}{8}
 \contentsline {subsection}{\numberline {2.1.2}Fully Convolutional Networks}{8}
-\contentsline {section}{\numberline {2.2}Seam Carving}{8}
+\contentsline {section}{\numberline {2.2}Seam Carving}{9}
 \contentsline {section}{\numberline {2.3}Curvature Measures}{9}
-\contentsline {subsection}{\numberline {2.3.1}Differential Curvature}{9}
-\contentsline {subsection}{\numberline {2.3.2}Integral Curvature}{9}
 \contentsline {section}{\numberline {2.4}Dynamic Time Warping}{9}
 \contentsline {chapter}{\numberline {3.}Methods}{11}
 \contentsline {section}{\numberline {3.1}Trailing Edge Extraction}{11}
 \contentsline {subsection}{\numberline {3.1.1}Fluke keypoint prediction}{11}
 \contentsline {subsubsection}{\numberline {3.1.1.1}Network Design}{12}
-\contentsline {subsubsection}{\numberline {3.1.1.2}Training Details}{13}
+\contentsline {subsubsection}{\numberline {3.1.1.2}Training Details}{12}
 \contentsline {subsubsection}{\numberline {3.1.1.3}Evaluation}{13}
-\contentsline {subsection}{\numberline {3.1.2}Basic Trailing Edge Extraction Algorithm}{15}
+\contentsline {subsection}{\numberline {3.1.2}Basic Trailing Edge Extraction Algorithm}{14}
 \contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{17}
-\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{18}
-\contentsline {paragraph}{Simple}{19}
+\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{17}
+\contentsline {paragraph}{Simple}{18}
 \contentsline {paragraph}{Upsample}{19}
 \contentsline {paragraph}{Jet}{19}
 \contentsline {paragraph}{Residual}{19}
-\contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{20}
+\contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{19}
 \contentsline {subsubsection}{\numberline {3.1.3.3}Training Details}{21}
 \contentsline {subsubsection}{\numberline {3.1.3.4}Evaluation}{21}
 \contentsline {section}{\numberline {3.2}Trailing Edge Matching}{22}
-\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{23}
-\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{24}
+\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{22}
+\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{23}
 \contentsline {section}{\numberline {3.3}Alternative Approaches}{25}
-\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{25}
-\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{25}
+\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{26}
+\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{26}
 \contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{26}
 \contentsline {subsection}{\numberline {3.3.2}Histogram Matching}{27}
 \contentsline {subsection}{\numberline {3.3.3}Embedding via Convolutional Networks}{27}

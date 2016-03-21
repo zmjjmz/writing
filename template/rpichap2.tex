@@ -7,6 +7,9 @@
 \chapter{Background} \label{sec:background}
 
 In this chapter, we provide a series of sections detailing background information on the algorithms on top of which our trailing identifier was developed.
+We describe some of the applications and variants of deep convolutional networks on top of which we build our fluke keypoint and trailing edge extractors.
+We briefly introduce the concept of seam carving as it relates to our trailing edge extraction algorithm, and provide a small overview of contour curvature measures.
+Additionally, we describe briefly the concept of dynamic time warping for sequence matching.
 
 \section{Convolutional Networks}
 
@@ -14,8 +17,9 @@ In recent years, convolutional neural networks have provided state of the art re
 
 The essential idea of a convolutional network is that it we can use the gradient of an error signal to learn hierarchies of convolution kernels separated by nonlinear activation functions.
 These networks are considered to be a form of neural network where the convolutions provide a meaningful prior when applied to data with spatial relationships (e.g.\ image data).
-Convolutional networks have been around for a long time \cite{fukushima1979neural}, but the current incarnation of these networks can be traced back to the seminal work of LeCun et al.\ \cite{lecun1998gradient}.
-More modern convolutional networks follow a common framework of using Rectified Linear Units (ReLUs) as activation functions, and Dropout \cite{hinton2012improving} layers after fully connected layers for regularization. 
+Convolutional were introduced nearly 40 years ago by Fukushima in \cite{fukushima1979neural}.
+The current incarnation of these networks can be traced back to the seminal work of LeCun et al.\ \cite{lecun1998gradient}.
+Modern convolutional networks follow a common framework of using Rectified Linear Units (ReLUs) as activation functions, and Dropout \cite{hinton2012improving} layers after fully connected layers for regularization. % TODO: Clear up w/chuck hoow much detail is needed for this 
 Additionally, the convolutional kernels used are commonly small square kernels with ``same'' padding alternated with $2\times$ downsampling layers (specifically max pooling layers) \cite{simonyan2014very}, \cite{sermanet2013overfeat}, \cite{krizhevsky2012imagenet}. % TODO more citations for this
 
 The convolutional networks used in this thesis follow the above framework, and also use batch normalization \cite{ioffe2015batch} at every layer.
@@ -24,11 +28,9 @@ The convolutional networks used in this thesis follow the above framework, and a
 
 Facial keypoints are essentially coordinates on an image of a (human) face that detail the locations of nose, eyes, mouth, etc.
 They are commonly used in facial identification pipelines \cite{taigman2014deepface}, as well as in motion capture \cite{akagi2013facial} and expression recognition \cite{berretti20113d}.
-
 There has been recent work in using convolutional networks for facial keypoint prediction \cite{sun2013deep}, \cite{nouri2014using}. 
-The essential idea behind these networks is that they predict points (rather than classifications) in the form of $(x, y)$ coordinates, and are trained with a regression loss.
-
-In this work, we similarly predict fluke keypoints which are predicted using essentially the same paradigm as the above works.
+The essential idea behind these networks is that they predict points (rather than classifications) in the form of $(x, y)$ coordinates, and are trained with a regression loss function.
+In this work, we adjust these methods to predict fluke keypoints marking the left and right tips of the trailing edge using essentially the same paradigm as the above works.
 
 \subsection{Fully Convolutional Networks}
 
@@ -38,8 +40,7 @@ This ensures that the receptive field of the network covers the entire image, wh
 However, when dealing with arbitrarily sized images, it is useful to use networks that are ``fully convolutional'', in which case the entire network consists of convolution kernels. 
 Convolutional networks that reduce to dense layers can be cast as fully convolutional networks by replacing the dense layers with $1\times1$ kernels, using the dense units as channels.
 This technique is especially applicable in segmentation tasks \cite{ning2005toward}, as this process allows for (downsampled) predictions spatially distributed throughout the image. % TODO More citations eventually
-By then upsampling and combining different stages of prediction, the authors in \cite{long2015fully} produce high quality image segmentations, a technique that we replicate.
-
+By then upsampling and combining different stages of prediction, the authors in \cite{long2015fully} produce high quality image segmentations, a technique that we replicate for classifying pixels as being part of the trailing edge.
 In this work, fully convolutional networks are used for predicting the 'trailing edginess' of an image, which allows us to refine the trailing edge contour extraction. 
 
 %\subsection{Embedding Networks}
@@ -56,22 +57,17 @@ In this work, fully convolutional networks are used for predicting the 'trailing
 Seam carving is a technique that tries to resize images without warping or distorting the objects shown in the image \cite{Avidan:2007:SCC:1276377.1276390}.
 This technique uses a dynamic programming algorithm to find minimal salience paths through an image, where salience is often defined as the gradient.
 The motivation for this is that these minimal saliency paths are not important to the image, so they can be removed to reduce its size.
-
 While this method is not directly used in this work, the underlying algorithm for trailing edge extraction is essentially a single iteration of the seam carving algorithm, using gradient information.
 
 \section{Curvature Measures}
 
 Contour curvature measures are commonly used to characterize the overall shape of an contour. 
-A lot of work has been done on using curvature information for detection \cite{monroy2011beyond}, classification \cite{fischer2014image}, and species identification \cite{kumar2012leafsnap}. % Chuck note: Explain more? Figure out what that means
+A lot of work has been done on using curvature information for detection \cite{monroy2011beyond}, classification \cite{fischer2014image} \cite{kumar2012leafsnap}. % Chuck note: Explain more? Figure out what that means
 This curvature information can be broadly broken down into either integral or differential curvature, and is usually computed at multiple scales.
-
-\subsection{Differential Curvature}
 
 Differential curvature can generally be seen as measuring the angle of the tangent normal of the gradient at each point in an image \cite{fischer2014image}.
 For our purposes, we can then take only those points that lie on the contour and use their curvature.
 While doing this directly can be fast to compute, it tends to be noise sensitive and we found that integral curvature (below) works better for our purposes.
-
-\subsection{Integral Curvature}
 
 Integral curvature works (conceptually) by sliding a circle of some radius $r$ along the contour \cite{pottmann2007integral}, and measuring how much of the circle is 'inside' the contour.
 This measurement is usually taken at multiple scales, and has the appealing property of being invariant to rotation and translation (of the entire contour).
@@ -80,7 +76,7 @@ In this work, we approximate the circular curvature with a square of size $r$, w
 \section{Dynamic Time Warping}
 
 In deciding a sequence comparator, one criterion that is often important is ensuring that small shifts in the sequence do not balloon into large differences.
-Dynamic Time Warping (DTW) is a sequence comparison method that, roughly, finds the optimal matching between all sets of points in the two given sequences that minimizes the overall distance (for some defined distance function) between the matched points, while keeping the locality of the points intact.
+Dynamic Time Warping (DTW) is a sequence comparison method that, roughly, finds the optimal matching between all sets of points in the two given sequences that minimizes the overall distance (for some defined distance function) between the matched points, while keeping the locality of the points intact \cite{sakoe1978dynamic}.
 This allows for shifts and some warps in the two sequences to be compensated for, and results in a nonlinear mapping of one sequence onto another.
 The algorithmic complexity of dynamic time warping can be limiting in large datasets, as it is quadratic in both space and time -- making a one-to-one comparison a bit daunting.
 

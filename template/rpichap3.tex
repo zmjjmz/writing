@@ -6,18 +6,20 @@
   
 \chapter{Methods} \label{sec:methods}
 
-In this chapter, we detail the finalized algorithm pipeline, as well as some alternative approaches that we found to have limited successs.
+In this chapter, we describe in detail the humpback fluke trailing edge algorithm pipeline.
+We also briefly discuss some alternative approaches that we found to have limited successs.
 
 \section{Trailing Edge Extraction}
 
 Extracting good, high quality trailing edges images is one of the primary challenges when matching Humpback whales by their trailing edge.
-In this section, we describe the steps that go into automating the extraction of high quality trailing edges, while trying to minimize human intervention.
+In this section, we describe the steps that go into automating the extraction of high quality trailing edges.
 
 One major assumption we make when extracting these trailing edges is that the humpback whale fluke is aligned such that its major axis is horizontal.
-Additionally, we generally assume that all parts of the fluke are present, however theoretically it would be possible to match a partial fluke -- although unlikely.
-
+Additionally, we generally assume that all parts of the fluke are present.
 While these assumptions do not make for an incredibly robust system, the nature of the problem (and the dataset that we had at hand) makes these assumptions reasonable.
 It would also be possible to add a detection step beforehand to ensure this assumption, however we do not explore this in this work.
+
+%TODO: Ask chuck how this is overstating
 
 \subsection{Fluke keypoint prediction}
 
@@ -29,27 +31,22 @@ It would also be possible to add a detection step beforehand to ensure this assu
 \label{fig:example_kp}
 \end{figure*}
 
-
-One major issue with automating the above trailing edge extraction algorithm is that it requires manual annotation in the selection of the starting and ending points (i.e., the fluke keypoints), as well as any control points (specifically the bottom of the notch).
-To work around this, we propose a convolutional network that predicts these tip points as part of the identification pipeline.
-
 When extracting trailing edges, one of the first steps we take is to identify the starting and ending points of the trailing edge, as well as the bottom of the central notch.
 To do this, we train a convolutional network to predict these three points.
 
 The convolutional network does not need full-sized images, so the first step of the keypoint extraction pipeline is to resize the image to $256 \times 256$ pixels.
-This size choice is somewhat arbitrary, but we find that it provides the best performance without using an unnecessary amount of memory.
-The network then predicts the points as values between $0$ and $1$, for both the width and height of the image. 
-These predictions are then then rescaled back up to the original image size.
+This size choice is somewhat arbitrary, but we find that it provides strong performance without using an unnecessary amount of memory.
+The network predicts the points as values between $0$ and $1$, essentially giving coordinates into the image as percentages of its height and width. 
+These predictions are then then rescaled back up to the original image size by multiplying with the original image height and width.
 An example prediction is shown in Figure \ref{fig:example_kp}.
 %The evaluated network architectures are detailed in Table 3.1. % TODO put this in
 
 \subsubsection{Network Design}
 
 The overall design of the network follows the pattern of alternating small ($3 \times 3$) convolutional filters with $2 \times 2$ max pooling layers, at each step doubling the number of channels (starting with $8$ channels).
-This is somewhat similar to VGG-16, although with half the trainable layers.
+This is somewhat similar to VGG-16 \cite{simonyan2014very}, although with half the trainable layers.
 After a $32\times$ downsample has been achieved, we attach a decision layer which consists of a dense layer followed by three separate dense layers with separate predictions layers after (one for each point being predicted).
 While this is not a common approach in keypoint prediction, we found that it gave better performance than having the points predicted as a single vector.
-
 We theorize that this may be because shared units between each of the three predictions leads to stronger correlations between them, reducing overall prediction flexibility.
 
 \subsubsection{Training Details}
@@ -61,18 +58,15 @@ First, each image is resized to a fixed width while maintaining the aspect ratio
 This is done to somewhat normalize the relative scale of objects in each image on the assumption that they are constrained to contain the fluke.
 Each image is rescaled to the network size, and then the corresponding targets are rescaled to the range $[0-1]$.
 The size of the original image is recorded as well.
-While it would be possible to treat this as a simple multi-variate regression and use RMSE loss, we achieved better results by averaging the Euclidean distance between the predicted points and true points.
-We also include a scalar scaling factor $\alpha$, which scales each point by a proportion of the original image size.
+The loss function that we use for each point is the Euclidean distance between the target and predicted point.
+We also include a scalar scaling factor $\alpha$, which scales each point by a proportion of the original image size $\vec{s}$.
 Thus, we have the scaled Euclidean loss $SE$
 
 \begin{equation} \label{eqn:se_loss}
 SE(\vec{t}, \vec{p}, \vec{s}, \alpha) = \lVert (\alpha * \vec{s}) \odot (\vec{t} - \vec{p}) \rVert
-\end{equation}
-Where
-\begin{itemize}
-    \item $\vec{t}$ and $\vec{p}$ are the $(x, y)$ ground truth and predicted values respectively
-    \item $\vec{s}$ is the original image width and height
-\end{itemize}
+\end{equation} 
+Where $\vec{t}$ and $\vec{p}$ are the target and predicted coordinates respectively \footnote{$\odot$ denotes elementwise multiplication}.
+We then average this loss function over each point that the network predicts.
 
 The networks are trained for 1000 epochs with $\alpha$ set to \num{2e-2} using the Adam \cite{kingma2014adam} optimizer (with recommended settings) and $l2$ regularization on the trainable parameters with a decay of \num{1e-4}.
 All of these hyper parameters were tuned using the validation set, although the possible parameter space was not fully explored due to time constraints.
@@ -88,8 +82,8 @@ While this may seem like a lot, the trailing edge extraction (and subsequent mat
 
 %Additionally, as can be seen in Figure 3.2, 
 We find that, for the vast majority of images, the network achieves a low pixel distance error, while there are a few that have a much higher error.
-Qualitative inspection of these images shows that they are either of flukes which are not the singular or major object in the image, or horizontally oriented of flukes that are not horizontally rotated.
-An example of this is shown in Figure \ref{fig:example_kp}.
+Qualitative inspection of these images shows that they are either of flukes which are not the singular or major object in the image, or flukes that are significantly rotated out-of-plane relative to the camera.
+An example of this is shown in Figure \ref{fig:example_kp_failure}.
 
 \begin{figure*}[t]%
 \centering
@@ -103,6 +97,7 @@ An example of this is shown in Figure \ref{fig:example_kp}.
 We attempted to use a spatial transformer network \cite{jaderberg2015spatial} to try and handle these cases, but we were unable to get it to perform as well as the standard convolutional network, nor produce sensible transformations.
 Since these failure cases represent a small amount of the dataset, it is both difficult to train a network to handle them, and simultaneously not a large issue.
 Additionally, we find that keypoint extraction failures are only a small percentage of the matching failure cases that we encounter.
+% TODO: Generate this figure
 
 \subsection{Basic Trailing Edge Extraction Algorithm}
 
@@ -120,7 +115,7 @@ Additionally, we find that keypoint extraction failures are only a small percent
 \label{fig:example_te_extract_noscorer}
 \end{figure*}
 
-The base algorithm that is used for extracting the trailing edge uses the vertical gradient information of the image (denoted as $I_y$).
+The base algorithm for extracting the trailing edge uses the vertical gradient information of the image (denoted as $I_y$).
 We extract $I_y$ using a vertically oriented $5 \times 5$ Sobel kernel \cite{Sobel1968}.  
 
 We then normalize $I_y$ with min-max scaling, giving $N_y$ as
