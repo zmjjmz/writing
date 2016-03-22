@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.8)  22 MAR 2016 00:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.8)  22 MAR 2016 19:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1145,55 +1145,55 @@ Package pdftex.def Info: ../images/results/vary_crop_size.png used on input line
  [34 <../images/results/vary_crop_nocrop.png>] [35 <../images/results/chip_width_hist_fb.png> <../images/results/te_size_hist_fb.png> <../images/results/vary_crop_size.png>] <../images/results/vary_te_scorer.png, id=209, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_te_scorer.png Graphic file (type png)
  <use ../images/results/vary_te_scorer.png>
-Package pdftex.def Info: ../images/results/vary_te_scorer.png used on input line 170.
+Package pdftex.def Info: ../images/results/vary_te_scorer.png used on input line 169.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
  [36 <../images/results/vary_te_scorer.png>] <../images/results/vary_te_weight.png, id=214, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_te_weight.png Graphic file (type png)
  <use ../images/results/vary_te_weight.png>
-Package pdftex.def Info: ../images/results/vary_te_weight.png used on input line 185.
+Package pdftex.def Info: ../images/results/vary_te_weight.png used on input line 184.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
  [37 <../images/results/vary_te_weight.png>] <../images/results/vary_neighbors.png, id=219, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_neighbors.png Graphic file (type png)
  <use ../images/results/vary_neighbors.png>
-Package pdftex.def Info: ../images/results/vary_neighbors.png used on input line 204.
+Package pdftex.def Info: ../images/results/vary_neighbors.png used on input line 203.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
  [38 <../images/results/vary_neighbors.png>] <../images/results/curvature_diversity_fb.png, id=224, 433.62pt x 289.08pt>
 File: ../images/results/curvature_diversity_fb.png Graphic file (type png)
  <use ../images/results/curvature_diversity_fb.png>
-Package pdftex.def Info: ../images/results/curvature_diversity_fb.png used on input line 227.
+Package pdftex.def Info: ../images/results/curvature_diversity_fb.png used on input line 226.
 (pdftex.def)             Requested size: 213.19627pt x 142.13123pt.
  <../images/results/interscale_diff_fb.png, id=225, 433.62pt x 289.08pt>
 File: ../images/results/interscale_diff_fb.png Graphic file (type png)
  <use ../images/results/interscale_diff_fb.png>
-Package pdftex.def Info: ../images/results/interscale_diff_fb.png used on input line 228.
+Package pdftex.def Info: ../images/results/interscale_diff_fb.png used on input line 227.
 (pdftex.def)             Requested size: 213.19627pt x 142.13123pt.
 
-Overfull \hbox (7.83325pt too wide) in paragraph at lines 227--229
+Overfull \hbox (7.83325pt too wide) in paragraph at lines 226--228
  [][][] 
  []
 
 
-LaTeX Warning: Reference `vary_curv_scales' on page 39 undefined on input line 241.
+LaTeX Warning: Reference `vary_curv_scales' on page 39 undefined on input line 240.
 
 <../images/results/vary_curv_scales.png, id=226, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_curv_scales.png Graphic file (type png)
  <use ../images/results/vary_curv_scales.png>
-Package pdftex.def Info: ../images/results/vary_curv_scales.png used on input line 245.
+Package pdftex.def Info: ../images/results/vary_curv_scales.png used on input line 244.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
  [39 <../images/results/curvature_diversity_fb.png> <../images/results/interscale_diff_fb.png>] <../images/results/vary_weight_import.png, id=232, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_weight_import.png Graphic file (type png)
  <use ../images/results/vary_weight_import.png>
-Package pdftex.def Info: ../images/results/vary_weight_import.png used on input line 264.
+Package pdftex.def Info: ../images/results/vary_weight_import.png used on input line 263.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
  [40 <../images/results/vary_curv_scales.png>] <../images/results/vary_window.png, id=238, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_window.png Graphic file (type png)
  <use ../images/results/vary_window.png>
-Package pdftex.def Info: ../images/results/vary_window.png used on input line 284.
+Package pdftex.def Info: ../images/results/vary_window.png used on input line 283.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
  [41 <../images/results/vary_weight_import.png>] <../images/results/vary_decision.png, id=244, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_decision.png Graphic file (type png)
  <use ../images/results/vary_decision.png>
-Package pdftex.def Info: ../images/results/vary_decision.png used on input line 302.
+Package pdftex.def Info: ../images/results/vary_decision.png used on input line 301.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
  [42 <../images/results/vary_window.png> <../images/results/vary_decision.png>]) (./rpichap5.tex [43]
 CHAPTER 5.
@@ -1207,7 +1207,7 @@ CHAPTER 5.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
- [48])) (./rpiapp.tex (./source_appendix.tex [49])) [50
+ [48] [49])) (./rpiapp.tex (./source_appendix.tex [50])) [51
 
 ] (./rpithesis.aux)
 
@@ -1215,18 +1215,18 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 25378 strings out of 493054
- 517378 string characters out of 6140587
- 508609 words of memory out of 5000000
- 28448 multiletter control sequences out of 15000+600000
+ 25384 strings out of 493054
+ 517510 string characters out of 6140587
+ 508643 words of memory out of 5000000
+ 28454 multiletter control sequences out of 15000+600000
  14724 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,14n,54p,10416b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on rpithesis.pdf (59 pages, 5240380 bytes).
+Output written on rpithesis.pdf (60 pages, 5241908 bytes).
 PDF statistics:
- 329 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
+ 332 PDF objects out of 1000 (max. 8388607)
+ 186 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  228 words of extra memory for PDF output out of 10000 (max. 10000000)
 

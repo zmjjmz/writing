@@ -53,12 +53,25 @@ In this work, fully convolutional networks are used for predicting the 'trailing
 %This is generally done by using a loss function that encourages grouping images of the same individual closer than those of different individuals.
 %The most common approach to this is to use the contrastive loss \cite{fan2014learning} \cite{chopra2005learning}, although more recently the triplet loss has risen in popularity \cite{schroff2015facenet} \cite{parkhi2015deep}.
 
-\section{Seam Carving}
+\section{Contour Extraction}
+
+\subsection{Active Contour}
+
+Automatically extracting contours from edges in images is an old technique, and one of the primary methods for getting coherent contours from image information is the active contour (or snakes) method \cite{amini1988using} \cite{kass1988snakes}.
+This technique explicitly models the contour as a function that minimizes a combination of curvature, smoothness, and image edge-ness constraints, weighted appropriately.
+Often these contours are fairly smooth, as the constraints imposed require a parameterized function.
+Additionally, this is an iterative process that is subject to local minima, meaning that it can produce different results based on the initialization in the image.
+For these reasons, we did not investigate using active contours for trailing edge extraction.
+
+\subsection{Seam Carving}
 
 Seam carving is a technique that tries to resize images without warping or distorting the objects shown in the image \cite{Avidan:2007:SCC:1276377.1276390}.
+
 This technique uses a dynamic programming algorithm to find minimal salience paths through an image, where salience is often defined as the gradient.
 The motivation for this is that these minimal saliency paths are not important to the image, so they can be removed to reduce its size.
 While this method is not directly used in this work, the underlying algorithm for trailing edge extraction is essentially a single iteration of the seam carving algorithm, using gradient information.
+
+
 
 \section{Curvature Measures}
 

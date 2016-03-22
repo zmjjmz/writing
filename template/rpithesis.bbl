@@ -6,6 +6,13 @@ Y.~Akagi, R.~Furukawa, R.~Sagawa, K.~Ogawara, and H.~Kawasaki.
   detection.
 \newblock 2013.
 
+\bibitem{amini1988using}
+A.~A. Amini, S.~Tehrani, and T.~E. Weymouth.
+\newblock Using dynamic programming for minimizing the energy of active
+  contours in the presence of hard constraints.
+\newblock In {\em Computer Vision., Second International Conference on}, pages
+  95--99. IEEE, 1988.
+
 \bibitem{Avidan:2007:SCC:1276377.1276390}
 S.~Avidan and A.~Shamir.
 \newblock Seam carving for content-aware image resizing.
@@ -140,6 +147,11 @@ M.~Jaderberg, K.~Simonyan, A.~Zisserman, et~al.
 \newblock Spatial transformer networks.
 \newblock In {\em Advances in Neural Information Processing Systems}, pages
   2008--2016, 2015.
+
+\bibitem{kass1988snakes}
+M.~Kass, A.~Witkin, and D.~Terzopoulos.
+\newblock Snakes: Active contour models.
+\newblock {\em International journal of computer vision}, 1(4):321--331, 1988.
 
 \bibitem{kingma2014adam}
 D.~Kingma and J.~Ba.

@@ -9,7 +9,7 @@
 
 \chapter{Results} \label{sec:results}
 
-In this chapter we present the results that this method achieves on the Flukebook dataset.
+In this chapter we present the results that our primary method achieves on the Flukebook dataset.
 The main results for the optimal method are given briefly, and then we discuss how different variations on the method affect accuracy.
 
 \section{Main method}
@@ -151,14 +151,13 @@ This confirms that the less the image has to be resized, the better the trailing
 
 \subsection{Trailing Edge Extraction}
 
-There are a lot of variants on trailing edge scoring networks that were attempted, often with mixed results. 
 One major result that we found was that, when using the averaging method to combine the trailing edge scores with $N_y$, having a robust trailing edge prediction wasn't as important as having a detailed trailing edge.
 
 
 \subsubsection{Trailing Edge Scorer variations}
 
 The various trailing edge scorer architectures and their results on the task they were trained for is detailed in the previous chapter.
-In Figure \ref{fig:vary_te_scorer} the actual matching accuracies that each one produced.
+In Figure \ref{fig:vary_te_scorer} we present the actual matching accuracies that each one produced.
 
 We can see that the detailed and higher quality trailing edges produced by the Residual network give a decent performance boost over the other networks.
 The only other network that beats not using the trailing edge scorer at all (i.e.\ $\beta = 0$, see the purple bar in Figure \ref{fig:vary_te_weight}) is the Simple network.
