@@ -4,51 +4,51 @@ The top-level auxiliary file: rpithesis.aux
 The style file: abbrv.bst
 Database file #1: references.bib
 Warning--entry type for "nouri2014using" isn't style-file defined
---line 510 of file references.bib
+--line 517 of file references.bib
 Warning--empty journal in akagi2013facial
 Warning--empty year in crall_hotspotter_2013
 Name 1 in "Xianghua Xie, Mark W. Jones, and Gary K. L. Tam" has a comma at the end for entry hughes2015automated
 while executing---line 1090 of file abbrv.bst
 Warning--empty journal in pottmann2007integral
-You've used 49 entries,
+You've used 50 entries,
             2118 wiz_defined-function locations,
-            770 strings with 13232 characters,
-and the built_in function-call counts, 18968 in all, are:
-= -- 1865
-> -- 1008
+            774 strings with 13416 characters,
+and the built_in function-call counts, 19239 in all, are:
+= -- 1890
+> -- 1026
 < -- 19
-+ -- 396
-- -- 346
-* -- 1337
-:= -- 3087
-add.period$ -- 153
-call.type$ -- 49
-change.case$ -- 316
++ -- 403
+- -- 352
+* -- 1354
+:= -- 3138
+add.period$ -- 156
+call.type$ -- 50
+change.case$ -- 322
 chr.to.int$ -- 0
-cite$ -- 52
-duplicate$ -- 707
-empty$ -- 1374
-format.name$ -- 346
-if$ -- 3992
+cite$ -- 53
+duplicate$ -- 717
+empty$ -- 1391
+format.name$ -- 352
+if$ -- 4045
 int.to.chr$ -- 0
-int.to.str$ -- 49
-missing$ -- 47
-newline$ -- 246
-num.names$ -- 100
-pop$ -- 342
+int.to.str$ -- 50
+missing$ -- 48
+newline$ -- 251
+num.names$ -- 102
+pop$ -- 348
 preamble$ -- 1
-purify$ -- 268
+purify$ -- 273
 quote$ -- 0
-skip$ -- 556
+skip$ -- 563
 stack$ -- 0
-substring$ -- 1135
-swap$ -- 209
+substring$ -- 1140
+swap$ -- 210
 text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 192
+type$ -- 196
 warning$ -- 3
-while$ -- 173
-width$ -- 51
-write$ -- 530
+while$ -- 175
+width$ -- 52
+write$ -- 540
 (There was 1 error message)

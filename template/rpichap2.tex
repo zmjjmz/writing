@@ -23,6 +23,7 @@ Modern convolutional networks follow a common framework of using Rectified Linea
 Additionally, the convolutional kernels used are commonly small square kernels with ``same'' padding alternated with $2\times$ downsampling layers (specifically max pooling layers) \cite{simonyan2014very}, \cite{sermanet2013overfeat}, \cite{krizhevsky2012imagenet}. % TODO more citations for this
 
 The convolutional networks used in this thesis follow the above framework, and also use batch normalization \cite{ioffe2015batch} at every layer.
+We also use orthogonal initialization \cite{saxe2013exact} at all layers to help ensure gradient flow.
 
 \subsection{Facial Keypoint Prediction}
 

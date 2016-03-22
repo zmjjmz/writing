@@ -244,6 +244,12 @@ S.~Salvador and P.~Chan.
 \newblock Fastdtw: Toward accurate dynamic time.
 \newblock {\em Warping in Linear Time and Space}, 2007.
 
+\bibitem{saxe2013exact}
+A.~M. Saxe, J.~L. McClelland, and S.~Ganguli.
+\newblock Exact solutions to the nonlinear dynamics of learning in deep linear
+  neural networks.
+\newblock {\em arXiv preprint arXiv:1312.6120}, 2013.
+
 \bibitem{schroff2015facenet}
 F.~Schroff, D.~Kalenichenko, and J.~Philbin.
 \newblock Facenet: A unified embedding for face recognition and clustering.
