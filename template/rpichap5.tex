@@ -6,11 +6,55 @@
 
 \chapter{Discussion} \label{sec:discussion}
 
-\section{Issues with current method}
+\section{Issues with the Proposed Method}
+
+The primary issue that we encountered is that the distance between a given pair of trailing edges is very unstable in terms of determining if they match or not (see Figure \ref{fig:score_overlap})).
+A side effect of this is that small changes in the trailing edge can lead to matching failures, and in the worst case ``push down'' the correct match significantly.
+This ``push down'' effect severely hampers the effectiveness of our method, as in the use case that we target a human operator verifying a match would ideally only have to look at the top-$k$ flukes for some small value $k$.
+However, we find that in many cases the correct match is far down the list, and there is no reasonably value $k$ that all matches are within. % TODO what value k gets 100% accuracy or show histogram for this
+
+%TODO: Come up with more issues when investigating failure cases
+
+There are several other issues, primarily having to do with the stability and generalization capability of the convolutional networks used for fluke keypoint predictions and trailing edge scores.
+For the former network, ideally the keypoints could be predicted regardless of our assumption on fluke position and orientation, although it is clear to us that this does not happen.
+We believe that this is primarily due to the lack of training data that defies these assumptions, although it is also possible that it is beyond the capacity of the models we trained.
+
+Having the fluke horizontally oriented and flat to the camera does not only help the keypoint extraction, but also avoids an obscured trailing edge due to out-of-plane rotations (as seen in Figures \ref{fig:example_kp_failure} and \ref{fig:unclear_te}).
+However imposing this requirement significantly complicates and restricts the actual photography of these flukes.
+
+The network that we trained for scoring trailing edges was ultimately somewhat disappointing.
+For the most part, these networks were very good at predicting a trailing edge where a strong gradient was present, however this does not significantly improve on the base trailing edge extraction algorithm.
+Part of the problem for this is similar in nature to the problem for training the fluke keypoint network, i.e.\ that a large majority of the dataset represent ``easy'' cases, making it hard to train the network to handle hard cases.
+We did use data augmentation to help rectify this bias, but found that it had limited effectiveness.
+It is possible that more sophisticated data augmentation could help, but primarily we think that spending more time annotating and creating a trailing edge scoring dataset would be ideal.
 
 \section{Future work}
 
+There is a lot of work that can be done based on this method.
+The immediate focus is to achieve the theoretical 93\% accuracy by accurately choosing to use Hotspotter or our method for any given query and result.
+This would result in a more general method that could be robust to obscured trailing edges and some out-of-plane rotations.
+
+One part of this identification pipeline that we mostly ignored is a detection and orientation step.
+While orientation is not necessarily important for the curvature measure (as it is rotation invariant), it is important for the trailing edge extraction.
+Additionally, being able to detect and crop the fluke automatically from an image would give a much more robust and flexible system.
+We did not explore this as most of the images in the Flukebook dataset came pre-cropped around the fluke, as well as rotated such that the major axis of the trailing edge was horizontal.
+These conditions both obviates the need for such a system and make it difficult to train a detection model.
+
+Extracting the trailing edge is currently done with an unsophisticated and restricted algorithm, which can be improved. 
+There are several ways to improve this algorithm, but the main drawbacks are its lack of rotation invariance and the inability to easily draw the second or third best trailing edge.
+On top of that, the trailing edge scoring networks could be better evaluated with more annotated trailing edges, the creation of which is non-trivial.
+
+There is a lot to be done with the matching algorithm itself, namely in ensuring that it is more tolerant to significant deformations in the trailing edge.
+One major paradigm that we do not explore in this work is that of extracting and matching multiple features per trailing edge, much in the same way that Hotspotter operates.
+Hughes et al.\ \cite{hughes2015automated} take this approach for a more general contour matching system.
+It would be possible to do something similar but making use of the curvature measures.
+
+
 \section{Conclusion}
+
+In this thesis we have presented a novel, fully-automated method for photo-identifying humpback flukes that achieves a high top-1 ranking accuracy on a relatively large dataset.
+This method extracts fine grained trailing edge contours from images of flukes and identifies individuals based on sequence properties of the contour curvature.
+
 
 
 %%% Local Variables: 

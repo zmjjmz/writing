@@ -1,13 +1,13 @@
 \contentsline {chapter}{LIST OF TABLES}{vi}
 \contentsline {chapter}{LIST OF FIGURES}{vii}
-\contentsline {chapter}{ACKNOWLEDGMENTS}{viii}
-\contentsline {chapter}{ABSTRACT}{viii}
+\contentsline {chapter}{ACKNOWLEDGMENTS}{x}
+\contentsline {chapter}{ABSTRACT}{x}
 \contentsline {chapter}{\numberline {1.}Introduction}{1}
 \contentsline {section}{\numberline {1.1}Humpback Whales}{1}
 \contentsline {subsection}{\numberline {1.1.1}Distinguishing Individual Flukes}{1}
 \contentsline {section}{\numberline {1.2}Current Identification Methods}{1}
-\contentsline {subsection}{\numberline {1.2.1}Based on Trailing Edge}{3}
-\contentsline {subsection}{\numberline {1.2.2}Based on general Fluke appearance}{3}
+\contentsline {subsection}{\numberline {1.2.1}Based on Trailing Edge}{2}
+\contentsline {subsection}{\numberline {1.2.2}Based on general Fluke appearance}{4}
 \contentsline {section}{\numberline {1.3}Method Outline}{5}
 \contentsline {section}{\numberline {1.4}The Dataset}{5}
 \contentsline {section}{\numberline {1.5}Thesis Outline}{6}
@@ -28,23 +28,23 @@
 \contentsline {subsubsection}{\numberline {3.1.1.3}Evaluation}{13}
 \contentsline {subsection}{\numberline {3.1.2}Basic Trailing Edge Extraction Algorithm}{14}
 \contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{17}
-\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{19}
+\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{18}
 \contentsline {paragraph}{Simple}{19}
-\contentsline {paragraph}{Upsample}{19}
-\contentsline {paragraph}{Jet}{19}
+\contentsline {paragraph}{Upsample}{20}
+\contentsline {paragraph}{Jet}{20}
 \contentsline {paragraph}{Residual}{20}
 \contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{21}
-\contentsline {subsubsection}{\numberline {3.1.3.3}Training Details}{21}
-\contentsline {subsubsection}{\numberline {3.1.3.4}Evaluation}{22}
+\contentsline {subsubsection}{\numberline {3.1.3.3}Training Details}{22}
+\contentsline {subsubsection}{\numberline {3.1.3.4}Evaluation}{23}
 \contentsline {section}{\numberline {3.2}Trailing Edge Matching}{23}
-\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{23}
+\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{24}
 \contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{25}
 \contentsline {section}{\numberline {3.3}Alternative Approaches}{26}
 \contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{26}
-\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{26}
+\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{28}
 \contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{28}
 \contentsline {subsection}{\numberline {3.3.2}Histogram Matching}{28}
-\contentsline {subsection}{\numberline {3.3.3}Embedding via Convolutional Networks}{28}
+\contentsline {subsection}{\numberline {3.3.3}Embedding via Convolutional Networks}{29}
 \contentsline {chapter}{\numberline {4.}Results}{30}
 \contentsline {section}{\numberline {4.1}Main method}{30}
 \contentsline {subsection}{\numberline {4.1.1}Characterization of Success cases}{30}
@@ -71,8 +71,8 @@
 \contentsline {subsection}{\numberline {4.3.1}Failure cases}{43}
 \contentsline {subsection}{\numberline {4.3.2}Characterization of when to use which method}{43}
 \contentsline {chapter}{\numberline {5.}Discussion}{44}
-\contentsline {section}{\numberline {5.1}Issues with current method}{44}
-\contentsline {section}{\numberline {5.2}Future work}{44}
-\contentsline {section}{\numberline {5.3}Conclusion}{44}
-\contentsline {chapter}{REFERENCES}{45}
+\contentsline {section}{\numberline {5.1}Issues with the Proposed Method}{44}
+\contentsline {section}{\numberline {5.2}Future work}{45}
+\contentsline {section}{\numberline {5.3}Conclusion}{46}
+\contentsline {chapter}{REFERENCES}{47}
 \parindent 0pt\vskip 12pt APPENDIX

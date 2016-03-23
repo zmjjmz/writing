@@ -14,15 +14,26 @@ One of the most reliable methods for photo-identifying humpback whales is by tak
 
 \begin{figure*}[t]%
 \centering
-\includegraphics[width=1.0\textwidth]{../images/fluke_aid88_goodmatching.jpg}
-% TODO: Show 4 diff pics, 2 each of one indv showing how they can be identified by texture / te
-\caption[]{\textbf{Example Fluke}. Example image of a humpback whale fluke from the SPLASH \cite{calambokidis2008splash} dataset \footnote{All images of humpbacks flukes in this thesis come from this dataset}. This image has both a clearly visible trailing edge and internal fluke texture.}
+\subfloat[][Individual ID: 420223]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid88_nid47.png}
+}
+\subfloat[][Individual ID: 470601]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid863_nid489.png}
+}
+\newline
+\subfloat[][Individual ID: 420223]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid87_nid47.png}
+}
+\subfloat[][Individual ID: 470601]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid864_nid489.png}
+}
+\caption{\textbf{Example Flukes}. Example images of humpback whale flukes from the SPLASH \cite{calambokidis2008splash} dataset. These flukes both have distinctive internal textures (more so on the left). However, the trailing edge on the left is far more distinctive than the trailing edge on the right.}
 \label{fig:example_fluke}
 \end{figure*}
 
 \subsection{Distinguishing Individual Flukes}
 
-The primary distinguishing features of these flukes are --- for the purposes of this work --- separated into two main areas; the ``trailing edge'' of the fluke, and the internal texture (see Figure \ref{example_fluke}).
+The primary distinguishing features of these flukes are --- for the purposes of this work --- separated into two main areas; the ``trailing edge'' of the fluke, and the internal texture (see Figure \ref{example_fluke}\footnote{All images of humpbacks flukes in this thesis come from this dataset}).
 %There are pros and cons to identification with either feature.
 The internal texture is a more obvious choice for identification, as it is disinctive even from a distance even when the image is blurred.
 %whereas trailing edges require high quality photographs.
@@ -45,16 +56,6 @@ There are manual methods, in which humans both identify and describe distinguish
 %	\item Semi-automated -- a human must guide an algorithm (e.g.\ by setting control points or highlighting interesting regions) that then automatically identifies the individual
 %	\item Fully-automated -- the algorithm can identify individuals from raw images
 %\end{itemize}
-
-\begin{figure*}[t]%
-\centering
-\includegraphics[width=1.0\textwidth]{../images/unclear_texture.jpg}
-\caption[]{\textbf{Uniform Internal Texture}. This image of a humpback fluke shows no clear internal texture, but a distinctive trailing edge.}
-\label{fig:unclear_texture}
-\end{figure*}
-
-
-
 \subsection{Based on Trailing Edge}
 
 In the I3S contour system \cite{i3scontour}, the user must input start and end points on the query trailing edge, after which its contour is extracted.
@@ -66,12 +67,23 @@ Automatically identifying humpback whales by their entire trailing edge contour 
 This technique segments the trailing edge into a set of possible contours and matches them combinatorially using Difference of Gaussians.
 The authors achieve a comparable accuracy to our method, however for a much smaller dataset of humpback flukes than the one evaluated here.
 
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1.0\textwidth]{../images/unclear_texture.jpg}
+\caption{\textbf{Uniform Internal Texture}. This image of a humpback fluke shows no clear internal texture, but a distinctive trailing edge.}
+\label{fig:unclear_texture}
+\end{figure*}
+
 While trailing edge matching has seen limited use in humpback whale identification, it is a much more common technique in sperm whale (P.\ macrocephalus) identification \cite{huele2000finding}, \cite{beekmans2005comparison} \cite{whitehead1990computer}, with varying levels of manual effort.
 %We detail these methods below as the fluke trailing edge matching paradigm is similar across species.
 In Whitehead's work \cite{whitehead1990computer}, points of interest on the trailing edge are entered and catalogued manually along with their positions.
 In order to match these trailing edges, all of the points are compared against points on annotated trailing edges in the database, using a distance threshold to ensure locality.
-This requires significant manual effort, and achieves a low accuracy \cite{beekmans2005comparison}.
+This is a manual method, requiring extensive annotation for matching.
+
 The method proposed by Huele et al.\ \cite{huele2000finding} uses a semi-automatic extraction of sperm whale trailing edge, and then applies wavelet transformations which are cross-correlated to determine a similarity measurement.
+
+An investigation of the above methods for sperm whale identification is carried out in \cite{beekmans2005comparison}, showing that combining these two methods yields an 80\% top-1 accuracy (meaning that the correct identity is ranked at the top of the potential matches 82\% of the time) on a slightly smaller dataset than ours.
+However on their own each method only achieves about 65\% top-1 accuracy.
 
 \begin{figure*}[t]%
 \centering
@@ -82,7 +94,7 @@ The method proposed by Huele et al.\ \cite{huele2000finding} uses a semi-automat
 \subfloat[][]{
 	\includegraphics[width=1.0\textwidth]{../images/unclear_te_gt.jpg}
 }
-\caption[]{\textbf{Change in Trailing Edge}. The above images show that out of plane rotations of the fluke can obscure it or otherwise make it hard to match. These images are both of the same individual, however in the top image the fluke is rotated slightly towards the camera.}
+\caption{\textbf{Change in Trailing Edge}. The above images show that out of plane rotations of the fluke can obscure it or otherwise make it hard to match. These images are both of the same individual, however in the top image the fluke is rotated slightly towards the camera.}
 \label{fig:unclear_te}
 \end{figure*}
 
@@ -99,7 +111,7 @@ This requires significant manual effort to identify individuals.
 In Flukematcher \cite{kniest2010fluke}, control points are manually annotated which allow the program to automatically find pigmentation patterns in the fluke and align accordingly.
 Optionally distinctive fluke patterns can also be selected by the user.
 A variety of heuristic features are then extracted, which are matched using a variety of similarity measures.
-This method has acheived a 82\% top-1 accuracy (meaning that the correct identity is ranked at the top of the potential matches 82\% of the time) on a smaller dataset than ours.
+This method has acheived a 82\% top-1 accuracy  on a smaller dataset than ours.
 However, it requires significant manual effort on the order of five minutes per fluke photograph.
 
 \section{Method Outline}
@@ -121,7 +133,7 @@ The query fluke is then identified with the identity of the database fluke with 
 
 %TODO: Reference / put in (up to chuck?) pictures showing these steps
 
-We also experimentally combine this with a ranking from Hotspotter, a generalized appearance based identification method that has proven to be successful on several species \cite{crall_hotspotter_2013}.
+We also show we can greatly improve the accuracy of this method by combining it with matches found by Hotspotter, a generalized pattern based identification method that is a powerful matching algorithm for several species \cite{crall_hotspotter_2013}.
 Hotspotter identifies multiple salient SIFT keypoints in an image that are then spatially verified and matched with other keypoints in the database to produce a ranking over possible identities. %TODO: What does Chuck want me to say about Hotspotter?
 Despite the general nature of this method, we find that it does not identify keypoints on the trailing edge and thus struggles with flukes that have no significant internal texture. 
 This work is the first to our knowledge that details Hotspotters efficacy when applied to humpback whale flukes, and the results are presented in Chapter 4.

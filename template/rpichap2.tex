@@ -40,7 +40,7 @@ To do this, these networks usually have fully connected (or dense) layers toward
 This ensures that the receptive field of the network covers the entire image, which is practical for many applications where a scalar or fixed size prediction is required. 
 However, when dealing with arbitrarily sized images, it is useful to use networks that are ``fully convolutional'', in which case the entire network consists of convolution kernels. 
 Convolutional networks that reduce to dense layers can be cast as fully convolutional networks by replacing the dense layers with $1\times1$ kernels, using the dense units as channels.
-This technique is especially applicable in segmentation tasks \cite{ning2005toward}, as this process allows for (downsampled) predictions spatially distributed throughout the image. % TODO More citations eventually
+This technique is especially applicable in segmentation tasks (e.g.\ \cite{ning2005toward} \cite{ciresan2012deep} \cite{hariharan2014simultaneous}), as this process allows for (downsampled) predictions spatially distributed throughout the image.
 By then upsampling and combining different stages of prediction, the authors in \cite{long2015fully} produce high quality image segmentations, a technique that we replicate for classifying pixels as being part of the trailing edge.
 In this work, fully convolutional networks are used for predicting the 'trailing edginess' of an image, which allows us to refine the trailing edge contour extraction. 
 

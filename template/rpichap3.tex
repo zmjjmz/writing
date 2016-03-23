@@ -27,7 +27,7 @@ It would also be possible to add a detection step beforehand to ensure this assu
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1.0\textwidth]{../images/aid88_kpoverlay.png}
-\caption[]{\textbf{Example Keypoint Prediction}. Example image showing the left tip, bottom of the notch, and right tip located by the keypoint extractor convolutional network.}
+\caption{\textbf{Example Keypoint Prediction}. Example image showing the left tip, bottom of the notch, and right tip located by the keypoint extractor convolutional network.}
 \label{fig:example_kp}
 \end{figure*}
 
@@ -73,22 +73,20 @@ All of these hyper parameters were tuned using the validation set, although the 
 
 \subsubsection{Evaluation} % TODO: Maybe this should be moved to the results section?
 
-%TODO Put in a bunch of figures and talk about this
 % Problem is recreating all these experiments / networks for evaluation :/
 % Might take a while...
 
 On average, the best network achieved a 10 pixel distance error on the validation and testing sets (in the original image scale).
 While this may seem like a lot, the trailing edge extraction (and subsequent matching accuracy) was not severely affected when only using the start and end point predictions.
 
-%Additionally, as can be seen in Figure 3.2, 
-We find that, for the vast majority of images, the network achieves a low pixel distance error, while there are a few that have a much higher error.
+We find that, for the vast majority of images, the network achieves a low pixel distance error, while there are a few that have a much higher error (see Figure \ref{fig:kp128_dist_hist}).
 Qualitative inspection of these images shows that they are either of flukes which are not the singular or major object in the image, or flukes that are significantly rotated out-of-plane relative to the camera.
 An example of this is shown in Figure \ref{fig:example_kp_failure}.
 
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1.0\textwidth]{../images/aid1323_kpoverlay.png}
-\caption[]{\textbf{Example Keypoint Failure}. Example image showing a keypoint extraction failure case from its testing set. Note the difference in pose of the fluke from the success case shown in Figure \ref{fig:example_kp}. Note that this is also an image that violates our assumptions.}
+\caption{\textbf{Example Keypoint Failure}. Example image showing a keypoint extraction failure case from its testing set. Note the difference in pose of the fluke from the success case shown in Figure \ref{fig:example_kp}. This is an example of a fluke image that violates our assumptions.}
 \label{fig:example_kp_failure}
 \end{figure*}
 
@@ -97,7 +95,15 @@ An example of this is shown in Figure \ref{fig:example_kp_failure}.
 We attempted to use a spatial transformer network \cite{jaderberg2015spatial} to try and handle these cases, but we were unable to get it to perform as well as the standard convolutional network, nor produce sensible transformations.
 Since these failure cases represent a small amount of the dataset, it is both difficult to train a network to handle them, and simultaneously not a large issue.
 Additionally, we find that keypoint extraction failures are only a small percentage of the matching failure cases that we encounter.
-% TODO: Generate this figure
+
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1.0\textwidth]{../images/results/kp128_test_dist_hist.png}
+\caption{\textbf{Histogram of Keypoint Distances}. This is a histogram of the average distance from predicted keypoints to annotated keypoints on the testing set for the keypoint extraction network. The vast majority of keypoints are predicted within 10 pixels of the true keypoints.}
+\label{fig:kp128_dist_hist}
+\end{figure*}
+
+
 
 \subsection{Basic Trailing Edge Extraction Algorithm}
 
@@ -111,7 +117,7 @@ Additionally, we find that keypoint extraction failures are only a small percent
 \subfloat[][Extracted Trailing Edge]{
 	\includegraphics[width=1.0\textwidth]{../images/aid88_te_kp_overlay_noscorer.png}
 }
-\caption[]{\textbf{Example Trailing Edge Extraction}. Example of the baseline trailing edge extraction with $n = 2$. Note that the gradient image has a significant black area where the trailing edge is, making this an easy case.}
+\caption{\textbf{Example Trailing Edge Extraction}. Example of the baseline trailing edge extraction with $n = 2$. Note that the gradient image has a significant black area where the trailing edge is, making this an easy case.}
 \label{fig:example_te_extract_noscorer}
 \end{figure*}
 
@@ -186,7 +192,7 @@ All of these networks function on the same paradigm of taking an arbitrarily siz
 The dataset was sourced from trailing edges extracted using the basic method detailed above, however with manual adjustments to fix many of the more common issues we encountered with this algorithm.
 These manual adjustments often included manually adding ``control points'', which forced the trailing edge through a specific point and often fixed major failures.
 Additionally small adjustments were made that would not be found by the gradient finding algorithm.
-Due to the extensive manual effort required to annotate and correct these images, only about $500$ images were annotated, many of which required little to no manual adjustments. % TODO: Talk about why this is a problem?
+Due to the extensive manual effort required to annotate and correct these images, only about $500$ images were annotated, many of which required little to no manual adjustments.
 With these manually corrected trailing edges, we generated the training set for trailing edge scoring by extracting a $128 \times 128$ patch at $128$ pixel intervals along the trailing edge (giving a positive patch), and a corresponding patch (with no trailing edge pixels) randomly sampled from the left over space above and below the trailing edge (giving a negative patch).
 As the images that this dataset were extracted from were generally $960$ pixels in width (with the trailing edges being only slightly smaller), on average about 15 patches were extracted from each image. 
 These patches are then randomly split into training, testing, and validation sets each with $3700$, $1200$, and $1600$ patches respectively.
@@ -201,7 +207,7 @@ These patches are then randomly split into training, testing, and validation set
 \subfloat[][Trailing Edge Scores]{
 	\includegraphics[width=1.0\textwidth]{../images/aid88_tescorer_annot_res.png}
 }
-\caption[]{\textbf{Example Trailing Edge Score}. Bottom image is the Residual scorer's classification of the top image. Trailing edge is class is colored black.}
+\caption{\textbf{Example Trailing Edge Score}. Bottom image is the Residual scorer's classification of the top image. Trailing edge is class is colored black.}
 \label{fig:example_te_score_annotres}
 \end{figure*}
 
@@ -259,7 +265,7 @@ An example of all of the above networks' outputs can be seen in Figure \ref{fig:
 \subfloat[][Jet]{
 	\includegraphics[width=0.5\textwidth]{../images/aid88_tescorer_annot_jet2.png}
 }
-\caption[]{\textbf{Trailing Edge Scores}. These are the trailing edge scores given by each of the networks described in section \ref{sec:te_arch} on the image used in Figure \ref{fig:example_te_score_annotres}.}
+\caption{\textbf{Trailing Edge Scores}. These are the trailing edge scores given by each of the networks described in section \ref{sec:te_arch} on the image used in Figure \ref{fig:example_te_score_annotres}.}
 \label{fig:example_te_scores_all}
 \end{figure*}
 
@@ -295,7 +301,8 @@ One detail that turned out to be important is the class imbalance.
 The trailing edge pixels (necessarily) make up a small percentage of the total image, meaning that these networks could get a fairly high accuracy (and thus low loss) simply by predicting only background pixels.
 In order to prevent this, we only sample a negative patch once for every positive patch (as detailed above), and additionally we weight the loss for the trailing edge pixels $10\times$ higher than the loss for the background pixels.
 
-Due to the nature of the training data, we were concerned that the networks would simply learn to replicate the function that generated the trailing edges, despite human corrections.
+As noted earlier, many of the manually annotated trailing edges did not require extra input.
+This can be an issue as it biases the network towards marking pixels as trailing edge when they would be marked as such based on just the image gradient.
 In order to mitigate this issue, we included some data augmentation, namely random Gaussian blur and randomly inverting the pixel intensities with probability of $P=0.3$.
 The inverting of pixel intensities as data augmentation is meant to try and influence the network to handle cases where the trailing edge is white against a somewhat darker background, producing an inverted gradient compared to when the trailing edge is dark.
 Unfortunately this had limited success.
@@ -408,7 +415,7 @@ In this case, we can see that at a high level, these curvature patterns look ver
 %\subfloat[][]{
 %	\includegraphics[width=1\textwidth]{../images/aid1034-aid1035_curvdiff.png}
 %}
-\caption[]{\textbf{Trailing Edge Curvature}. The top images are of the same individual, and the bottom images visualize the corresponding curvatures for the trailing edges that were extracted. Each row in the visualization is a curvature scale, increasing from top to bottom. Note that darker blue implies a ``valley'' in the trailing edge, whereas lighter blue implies a ``peak''.}
+\caption{\textbf{Trailing Edge Curvature}. The top images are of the same individual, and the bottom images visualize the corresponding curvatures for the trailing edges that were extracted. Each row in the visualization is a curvature scale, increasing from top to bottom. Note that darker blue implies a ``valley'' in the trailing edge, whereas lighter blue implies a ``peak''.}
 \label{fig:example_curv}
 \end{figure*}
 
@@ -487,7 +494,7 @@ It's worth noting that while this distance measure is not a metric distance (i.e
 \subfloat[][Incorrect ID 2 Curvature]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid951_curv.png}
 }
-\caption[]{\textbf{Example Matches}. The left side shows a success case, and the right side shows a failure case.} 
+\caption{\textbf{Example Matches}. The left side shows a success case, and the right side shows a failure case.} 
 \label{fig:example_match}
 \end{figure*}
 

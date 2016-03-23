@@ -64,6 +64,13 @@ L.-C. Chen, G.~Papandreou, I.~Kokkinos, K.~Murphy, and A.~L. Yuille.
   connected crfs.
 \newblock {\em arXiv preprint arXiv:1412.7062}, 2014.
 
+\bibitem{ciresan2012deep}
+D.~Ciresan, A.~Giusti, L.~M. Gambardella, and J.~Schmidhuber.
+\newblock Deep neural networks segment neuronal membranes in electron
+  microscopy images.
+\newblock In {\em Advances in neural information processing systems}, pages
+  2843--2851, 2012.
+
 \bibitem{crall_hotspotter_2013}
 J.~P. Crall, C.~V. Stewart, T.~Y. Berger-Wolf, D.~I. Rubenstein, and S.~R.
   Sundaresan.
@@ -97,6 +104,11 @@ R.~Hadsell, S.~Chopra, and Y.~LeCun.
 \newblock Dimensionality reduction by learning an invariant mapping.
 \newblock In {\em Computer vision and pattern recognition, 2006 IEEE computer
   society conference on}, volume~2, pages 1735--1742. IEEE, 2006.
+
+\bibitem{hariharan2014simultaneous}
+B.~Hariharan, P.~Arbel{\'a}ez, R.~Girshick, and J.~Malik.
+\newblock Simultaneous detection and segmentation.
+\newblock In {\em Computer vision--ECCV 2014}, pages 297--312. Springer, 2014.
 
 \bibitem{i3scontour}
 d.~J. Hartog and R.~Reijns.

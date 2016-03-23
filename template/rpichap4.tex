@@ -49,7 +49,7 @@ Success and failure cases are difficult to characterize due to the nature of our
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_manual_extract.png}
-\caption[]{\textbf{Varying Manual Extraction}. We can see here that the difference in using the manually annotated points (purple) provided for this dataset versus the keypoint extractor's predicted points (cyan) produces a small drop in top-1 matching accuracy.}
+\caption{\textbf{Varying Manual Extraction}. We can see here that the difference in using the manually annotated points (purple) provided for this dataset versus the keypoint extractor's predicted points (cyan) produces a small drop in top-1 matching accuracy.}
 \label{fig:vary_manual_extract}
 \end{figure*}
 
@@ -70,7 +70,7 @@ The performance of networks trained and run on different sized images is given i
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_kp_size.png}
-\caption[]{\textbf{Varying Keypoint Image Size}. While the $128 \times 128$ size network is better than the $256 \times 256$ network (green and blue respectively), we believe the difference between them to be insignificant. The $644 \times 64$ network (red) is clearly inferior however. }
+\caption{\textbf{Varying Keypoint Image Size}. While the $128 \times 128$ size network is better than the $256 \times 256$ network (green and blue respectively), we believe the difference between them to be insignificant. The $64 \times 64$ network (red) is clearly inferior however. }
 \label{fig:vary_kp_size}
 \end{figure*}
 
@@ -113,7 +113,7 @@ We can see in Figure \ref{fig:vary_crop_nocrop} that cropping and resizing is ab
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_crop_nocrop.png}
-\caption[]{\textbf{Varying Crop Strategy}. Cropping images around the trailing edge and then resizing them proves to be very important, not doing so gives a very low accuracy. We can see in Figure \ref{fig:chip_size_hist} that there is a wide distribution of image sizes, which can hamper the effectiveness of DTW.}
+\caption{\textbf{Varying Crop Strategy}. Cropping images around the trailing edge and then resizing them proves to be very important, not doing so gives a very low accuracy. We can see in Figure \ref{fig:chip_size_hist} that there is a wide distribution of image sizes, which can hamper the effectiveness of DTW.}
 \label{fig:vary_crop_nocrop}
 \end{figure*}
 
@@ -125,7 +125,7 @@ We can see in Figure \ref{fig:vary_crop_nocrop} that cropping and resizing is ab
 \subfloat[Distribution of Trailing Edge Lengths][]{
 	\includegraphics[width=0.5\textwidth]{../images/results/te_size_hist_fb.png}
 }
-\caption[]{\textbf{Distribution of Image Widths}. The image width distribution (left) is fairly wide, with most of the mass centered between 600 and 800.}
+\caption{\textbf{Distribution of Image Widths}. The image width distribution (left) is fairly wide, with most of the mass centered between 600 and 800.}
 \label{fig:width_te_dist}
 \end{figure*}
 
@@ -144,7 +144,7 @@ This confirms that the less the image has to be resized, the better the trailing
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_crop_size.png}
-\caption[]{\textbf{Varying Crop Size}. Since we crop around the start and end points of the trailing edge, this crop size effectively controls the length of the extracted trailing edge. Note that we use the manually annotated points in this analysis to control for any issues with keypoint extraction.}
+\caption{\textbf{Varying Crop Size}. Since we crop around the start and end points of the trailing edge, this crop size effectively controls the length of the extracted trailing edge. Note that we use the manually annotated points in this analysis to control for any issues with keypoint extraction.}
 \label{fig:vary_crop_size}
 \end{figure*}
 
@@ -167,7 +167,7 @@ We hypothesize that the Jet and Upsample architectures do poorly due to their in
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_te_scorer.png}
-\caption[]{\textbf{Trailing Edge Scorer Architectures}. The highest performing trailing edge scorer (Residual) is shown in red, followed by Simple, Jet, and Upsample (in descending order of accuracy).}
+\caption{\textbf{Trailing Edge Scorer Architectures}. The highest performing trailing edge scorer (Residual) is shown in red, followed by Simple, Jet, and Upsample (in descending order of accuracy).}
 \label{fig:vary_te_scorer}
 \end{figure*}
 
@@ -182,7 +182,7 @@ In Figure \ref{fig:vary_te_weight}, we can see that simply a pixel-wise average 
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_te_weight.png}
-\caption[]{\textbf{Varying $\beta$}. It's clear from this that the optimal $\beta$ is $0.5$, although it is interesting to note that using only the network's trailing edge scores provides better accuracy than not using it at all.}
+\caption{\textbf{Varying $\beta$}. It's clear from this that the optimal $\beta$ is $0.5$, although it is interesting to note that using only the network's trailing edge scores provides better accuracy than not using it at all.}
 \label{fig:vary_te_weight}
 \end{figure*}
 
@@ -201,7 +201,7 @@ Additionally, despite the trailing edges being less detailed, the extraction art
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_neighbors.png}
-\caption[]{\textbf{Varying $n$}. This shows that the optimal neighborhood constraint is $n = 1$, despite qualitatively producing worse-looking trailing edges.}
+\caption{\textbf{Varying $n$}. This shows that the optimal neighborhood constraint is $n = 1$, despite qualitatively producing worse-looking trailing edges.}
 \label{fig:vary_neighbors}
 \end{figure*}
 
@@ -225,7 +225,7 @@ However, larger curvatures are also less sensitive to noise, and thus small trai
 	\centering
 	\subfloat[][]{\includegraphics[width=0.5\textwidth]{../images/results/curvature_diversity_fb.png} }%
 	\subfloat[][]{\includegraphics[width=0.5\textwidth]{../images/results/interscale_diff_fb.png} }%
-	\caption[]{\textbf{Curvature Diversity}. Left panel (a) shows the average standard deviation of the (fixed length) curvature at different scales. Right panel (b) shows the average Euclidean distance between successive scales of curvature}
+	\caption{\textbf{Curvature Diversity}. Left panel (a) shows the average standard deviation of the (fixed length) curvature at different scales. Right panel (b) shows the average Euclidean distance between successive scales of curvature}
     	\label{fig:curvature_diversity}
 \end{figure*}
 
@@ -242,7 +242,7 @@ This is shown in Figure \ref{vary_curv_scales}
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_curv_scales.png}
-\caption[]{\textbf{Varying Curvature Scales}. The scales evaluated here are parameterized with a start, end, and step size. We always start at 2\%, and vary the step size between 1 \& 2 and the end between 8\% \& 10\%.}
+\caption{\textbf{Varying Curvature Scales}. The scales evaluated here are parameterized with a start, end, and step size. We always start at 2\%, and vary the step size between 1 \& 2 and the end between 8\% \& 10\%.}
 \label{fig:vary_curv_scales}
 \end{figure*}
 
@@ -261,7 +261,7 @@ In order to maintain this ratio without blowing up the distances, we also normal
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_weight_import.png}
-\caption[]{\textbf{Varying $s_w$}. The yellow bar shows $W = 1$, i.e.\ all curvatures weighted equally.}
+\caption{\textbf{Varying $s_w$}. The yellow bar shows $W = 1$, i.e.\ all curvatures weighted equally.}
 \label{fig:vary_weight_import}
 \end{figure*}
 
@@ -281,7 +281,7 @@ Additionally, while it's possible for gross mismatches to occur from there being
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_window.png}
-\caption[]{\textbf{Varying Sakoe-Chiba bound}}
+\caption{\textbf{Varying Sakoe-Chiba bound}}
 \label{fig:vary_window}
 \end{figure*}
 
@@ -294,18 +294,20 @@ To do so we evaluate two options given a group of distances for an individual --
 We find that the average decision does slightly better, as shown in Figure \ref{fig:vary_decision}.
 
 This is unsurprising given that most of the individuals in the dataset only have two images associated, meaning that the average is equivalent to the minimum.
-That said, the minimal distance criterion is effectively the single-feature case of LNBNN used in Hotspotter \cite{crall_hotspotter_2013} and the work of Hughes et al.\ \cite{hughes2015automated}. % TODO: lay out what this theoretical backing actually is
+That said, the minimal distance criterion is effectively the single-feature case of LNBNN used in Hotspotter \cite{crall_hotspotter_2013} and the work of Hughes et al.\ \cite{hughes2015automated}. % Maybe: prove this?
 
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_decision.png}
-\caption[]{\textbf{Varying Decision Criterion}}
+\caption{\textbf{Varying Decision Criterion}}
 \label{fig:vary_decision}
 \end{figure*}
 
 \section{In Combination with Hotspotter}
 
-By combining our method with Hotspotter --- if we were able to automatically pick out which algorithm was right for a given ranking --- we can achieve 93\% accuracy on the Flukebook dataset.
+By combining our method with Hotspotter --- if we were able to automatically pick out which algorithm was right for a given ranking --- we can achieve 93\% top-1 accuracy on the Flukebook dataset.
+This implies that these methods are complementary to each other, and should be used in combination.
+However, being able to automatically decide which method to use is non-trivial.
 
 (TODO: this)
 
@@ -318,9 +320,16 @@ By combining our method with Hotspotter --- if we were able to automatically pic
 From an intuitive standpoint, it appears that Hotspotter cannot find effective keypoints from trailing edges, which hampers its ability to handle flukes which do not have an apparent pattern.
 
 We hypothesize that this is because the trailing edge --- while a distinctive feature --- inevitably shares a region with an oceanic background.
-Since this oceanic background changes from image to image, it cannot find meaningful matches.
+Since this oceanic background changes from image to image, it cannot verify salient keypoints as matches.
+As a result, flukes which have little to no internal texture are nearly impossible for Hotspotter to match.
 
-(TODO: this)
+On the other hand, when the trailing edge is unclear or significantly distorted in the image, our method struggles to find an appropriate match.
+In these cases, Hotspotter can provide a good match, although if the fluke is additionally untextured we have an issue.
+
+(TODO: Figures showing this)
+
+We were unable to find a single heuristic that correlates with our method failing to find a match.
+Interestingly, we find that smoothness of the trailing edge, characterized by the standard deviation of the trailing edge slope, does not correlate to match failure, implying that smooth trailing edges are about as easy to match as rough, distinctive trailing edges.
 
 %%% Local Variables: 
 %%% mode: latex
