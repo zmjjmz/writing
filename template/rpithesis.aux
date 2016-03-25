@@ -120,15 +120,15 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces \textbf  {Example Trailing Edge Extraction}. Example of the baseline trailing edge extraction with $n = 2$. Note that the gradient image has a significant black area where the trailing edge is, making this an easy case.\relax }}{16}}
 \newlabel{fig:example_te_extract_noscorer}{{3.4}{16}}
 \newlabel{eqn:backtrace_update}{{3.4}{16}}
-\newlabel{eqn:te_build}{{3.5}{16}}
+\newlabel{eqn:te_build}{{3.5}{17}}
 \newlabel{eqn:te_setup}{{3.6}{17}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{17}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{18}}
 \newlabel{sec:te_arch}{{3.1.3.1}{18}}
-\citation{long2015fully}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces \textbf  {Example Trailing Edge Score}. Bottom image is the Residual scorer's classification of the top image. Trailing edge is class is colored black.\relax }}{19}}
 \newlabel{fig:example_te_score_annotres}{{3.5}{19}}
 \@writefile{toc}{\contentsline {paragraph}{Simple}{19}}
+\citation{long2015fully}
 \citation{long2015fully}
 \citation{he2015deep}
 \@writefile{toc}{\contentsline {paragraph}{Upsample}{20}}
@@ -146,94 +146,86 @@
 \citation{crow1984summed}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{24}}
 \newlabel{eqn:sat}{{3.9}{24}}
-\newlabel{eqn:sat_area}{{3.10}{24}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces \textbf  {Trailing Edge Curvature}. The top images are of the same individual, and the bottom images visualize the corresponding curvatures for the trailing edges that were extracted. Each row in the visualization is a curvature scale, increasing from top to bottom. Note that darker blue implies a ``valley'' in the trailing edge, whereas lighter blue implies a ``peak''.\relax }}{25}}
 \newlabel{fig:example_curv}{{3.7}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{25}}
+\newlabel{eqn:sat_area}{{3.10}{25}}
 \citation{sakoe1978dynamic}
 \citation{muller2007information}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{26}}
 \newlabel{eqn:dtw_dist}{{3.11}{26}}
 \newlabel{eqn:dtw_update}{{3.12}{26}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Alternative Approaches}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{26}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces \textbf  {Example Matches}. The left side shows a success case, and the right side shows a failure case.\relax }}{27}}
 \newlabel{fig:example_match}{{3.8}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Alternative Approaches}{27}}
 \citation{qiao2006affine}
 \citation{kumar2012leafsnap}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{28}}
 \citation{schroff2015facenet}
 \citation{parkhi2015deep}
 \citation{huang2007labeled}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{28}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{28}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Histogram Matching}{28}}
 \citation{schroff2015facenet}
 \citation{hadsell2006dimensionality}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Histogram Matching}{29}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Embedding via Convolutional Networks}{29}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {4.}Results}{30}}
 \newlabel{sec:results}{{4}{30}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Main method}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Characterization of Success cases}{30}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces \textbf  {Varying Manual Extraction}. We can see here that the difference in using the manually annotated points (purple) provided for this dataset versus the keypoint extractor's predicted points (cyan) produces a small drop in top-1 matching accuracy.\relax }}{31}}
-\newlabel{fig:vary_manual_extract}{{4.1}{31}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Characterization of Failure cases}{31}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Variations}{31}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Keypoint Extraction}{31}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.1}Manual versus Automatic}{31}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces \textbf  {Varying Keypoint Image Size}. While the $128 \times 128$ size network is better than the $256 \times 256$ network (green and blue respectively), we believe the difference between them to be insignificant. The $64 \times 64$ network (red) is clearly inferior however. \relax }}{32}}
-\newlabel{fig:vary_kp_size}{{4.2}{32}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.2}Varying training image sizes}{32}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.3}STN}{33}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Image Preprocessing}{33}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.1}Cropping and Image Width}{33}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces \textbf  {Varying Crop Strategy}. Cropping images around the trailing edge and then resizing them proves to be very important, not doing so gives a very low accuracy. We can see in Figure \G@refundefinedtrue \text  {\normalfont  \bfseries  ??}\GenericWarning  {               }{LaTeX Warning: Reference `fig:chip_size_hist' on page 34 undefined} that there is a wide distribution of image sizes, which can hamper the effectiveness of DTW.\relax }}{34}}
-\newlabel{fig:vary_crop_nocrop}{{4.3}{34}}
-\@writefile{toc}{\contentsline {paragraph}{Trailing Edge Length}{34}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces \textbf  {Distribution of Image Widths}. The image width distribution (left) is fairly wide, with most of the mass centered between 600 and 800.\relax }}{35}}
-\newlabel{fig:width_te_dist}{{4.4}{35}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces Distribution of Image Widths}}{35}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces Distribution of Trailing Edge Lengths}}{35}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces \textbf  {Varying Crop Size}. Since we crop around the start and end points of the trailing edge, this crop size effectively controls the length of the extracted trailing edge. Note that we use the manually annotated points in this analysis to control for any issues with keypoint extraction.\relax }}{35}}
-\newlabel{fig:vary_crop_size}{{4.5}{35}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Trailing Edge Extraction}{35}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces \textbf  {Trailing Edge Scorer Architectures}. The highest performing trailing edge scorer (Residual) is shown in red, followed by Simple, Jet, and Upsample (in descending order of accuracy).\relax }}{36}}
-\newlabel{fig:vary_te_scorer}{{4.6}{36}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.1}Trailing Edge Scorer variations}{36}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces \textbf  {Varying $\beta $}. It's clear from this that the optimal $\beta $ is $0.5$, although it is interesting to note that using only the network's trailing edge scores provides better accuracy than not using it at all.\relax }}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces \textbf  {Score Separability Histogram}. The blue bars in this figure represent true matches, and the red bars represent false matches. The line at $\text  {score} = 0.88$ represents the optimal threshold at which to accept a match, although we can see it is not perfect.\relax }}{31}}
+\newlabel{fig:score_sep}{{4.1}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Failure cases}{31}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Configuration Options}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Variability in Matching Score}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces \textbf  {Varying Manual Extraction}. There is a small difference in matching accuracy between using the manually annotated points (red) provided for this dataset versus the keypoint extractor's predicted points (cyan). The bottom of the notch keypoint is not used in either of these evaluations.\relax }}{32}}
+\newlabel{fig:vary_manual_extract}{{4.2}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Effectiveness of Keypoint Extractor}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces \textbf  {Distribution of Unresized Trailing Edge Lengths}. This shows a significant distribution of trailing edges centered around a width of 800 pixels.\relax }}{33}}
+\newlabel{fig:width_te_dist}{{4.3}{33}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Cropping Width}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces \textbf  {Varying $w$}. Note that we use the manually annotated points in this analysis to control for any issues with keypoint extraction.\relax }}{34}}
+\newlabel{fig:vary_crop_size}{{4.4}{34}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Trailing Edge Extraction}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces \textbf  {Trailing Edge Scorer Architectures}. The highest performing trailing edge scorer (Residual) is shown in red, followed by Simple, Jet, and Upsample (in descending order of accuracy).\relax }}{35}}
+\newlabel{fig:vary_te_scorer}{{4.5}{35}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.1}Trailing Edge Scorer variations}{35}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces \textbf  {Trailing Edge Scorer Architectures at $\beta = 1$}. Upsample (cyan) performs significantly worse than the other networks, which all perform comparably.\relax }}{36}}
+\newlabel{fig:vary_te_scorer_maxweight}{{4.6}{36}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.2}Using a Trailing Edge Scorer}{36}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.3}Number of neighbors in the extraction}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces \textbf  {Varying $\beta $}.\relax }}{37}}
 \newlabel{fig:vary_te_weight}{{4.7}{37}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.2}Combining $N_y$ and $T_y$}{37}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.3}Number of neighbors in the extraction}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces \textbf  {Varying $n$}. This shows that the optimal neighborhood constraint is $n = 1$, despite qualitatively producing worse-looking trailing edges.\relax }}{38}}
-\newlabel{fig:vary_neighbors}{{4.8}{38}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Curvature Extraction}{38}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.1}Different scales}{38}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces \textbf  {Curvature Diversity}. Left panel (a) shows the average standard deviation of the (fixed length) curvature at different scales. Right panel (b) shows the average Euclidean distance between successive scales of curvature\relax }}{39}}
-\newlabel{fig:curvature_diversity}{{4.9}{39}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Dynamic Time Warp Matching}{39}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces \textbf  {Varying Curvature Scales}. The scales evaluated here are parameterized with a start, end, and step size. We always start at 2\%, and vary the step size between 1 \& 2 and the end between 8\% \& 10\%.\relax }}{40}}
-\newlabel{fig:vary_curv_scales}{{4.10}{40}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5.1}Weighting the different scales}{40}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5.2}Window size}{40}}
-\citation{crall_hotspotter_2013}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.4}Using the notch}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces \textbf  {Example Use of Trailing Edge Scorer}. In (a), we have the trailing edge extracted with the Residual scorer. Compare to (b), which did not use any scorer at all, resulting in a match failure.\relax }}{38}}
+\newlabel{fig:dis_te_use}{{4.8}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Curvature Scales}{38}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces \textbf  {Varying $n$}. This shows that the optimal neighborhood constraint is $n = 3$, despite qualitatively producing worse-looking trailing edges. Beyond $n = 5$, the trailing edges can become very noisy.\relax }}{39}}
+\newlabel{fig:vary_neighbors}{{4.9}{39}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces \textbf  {Using the notch as a control point}.\relax }}{39}}
+\newlabel{fig:vary_notch}{{4.10}{39}}
+\newlabel{fig:curvature_diversity:a}{{4.11a}{40}}
+\newlabel{sub@fig:curvature_diversity:a}{{(a)}{a}}
+\newlabel{fig:curvature_diversity:b}{{4.11b}{40}}
+\newlabel{sub@fig:curvature_diversity:b}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces \textbf  {Curvature Diversity}. Left panel (a) shows the average standard deviation of the (fixed length) curvature at different scales. Right panel (b) shows the average Euclidean distance between successive scales of curvature\relax }}{40}}
+\newlabel{fig:curvature_diversity}{{4.11}{40}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Sakoe-Chiba bound}{40}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}In Combination with Hotspotter}{40}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces \textbf  {Varying Sakoe-Chiba bound}.\relax }}{41}}
+\newlabel{fig:vary_window}{{4.12}{41}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces \textbf  {Comparison between Hotspotter and our method}.\relax }}{41}}
+\newlabel{fig:vary_proot}{{4.13}{41}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Failure cases}{42}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Characterization of when to use which method}{42}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5.}Discussion}{43}}
+\newlabel{sec:discussion}{{5}{43}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Issues with the Proposed Method}{43}}
 \citation{hughes2015automated}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces \textbf  {Varying $s_w$}. The yellow bar shows $W = 1$, i.e.\ all curvatures weighted equally.\relax }}{41}}
-\newlabel{fig:vary_weight_import}{{4.11}{41}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5.3}Aggregating over multiple trailing edges per identity}{41}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces \textbf  {Varying Sakoe-Chiba bound}\relax }}{42}}
-\newlabel{fig:vary_window}{{4.12}{42}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces \textbf  {Varying Decision Criterion}\relax }}{42}}
-\newlabel{fig:vary_decision}{{4.13}{42}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}In Combination with Hotspotter}{43}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Failure cases}{43}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Characterization of when to use which method}{43}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5.}Discussion}{44}}
-\newlabel{sec:discussion}{{5}{44}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Issues with the Proposed Method}{44}}
-\citation{hughes2015automated}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Future work}{45}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Future work}{44}}
 \bibstyle{abbrv}
 \bibdata{references}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Conclusion}{46}}
-\@writefile{toc}{\contentsline {chapter}{REFERENCES}{47}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Conclusion}{45}}
+\@writefile{toc}{\contentsline {chapter}{REFERENCES}{46}}
 \bibcite{akagi2013facial}{{1}{}{{}}{{}}}
 \bibcite{amini1988using}{{2}{}{{}}{{}}}
 \bibcite{Avidan:2007:SCC:1276377.1276390}{{3}{}{{}}{{}}}
@@ -290,4 +282,4 @@
 \bibcite{whitehead1990computer}{{54}{}{{}}{{}}}
 \@writefile{toc}{\parindent 0pt\vskip 12pt APPENDIX}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\newlabel{sec:appendix}{{5.3}{53}}
+\newlabel{sec:appendix}{{5.3}{52}}

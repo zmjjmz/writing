@@ -14,155 +14,137 @@ The main results for the optimal method are given briefly, and then we discuss h
 
 \section{Main method}
 
-The main method we settled on achieves an 80\% top-1 accuracy on the dataset that we evaluated.  
+The main method we settled on achieves an 80\% top-1 accuracy --- meaning that for 80\% of the query images, the correct identity is ranked first --- on the dataset that we evaluated.  
 The figures that we show in this section give the accuracy up to top-5 cumulatively.
-In general we find that there are no surprises up to top-5, and that relative accuracies do not change significantly as we increase the rank at which we allow a match.
+In general we find that relative accuracies between configurations do not change significantly as we increase the rank at which we allow a match.
 \\\\
 The optimal configuration that we used for this method is given below.
 \begin{itemize}
-\item Crop size: 750px in width
-\item We do not use the notch for trailing edge extraction
-\item We set $n$ to $1$
-\item We use the Residual architecture for scoring trailing edge
-\item $\beta$ is set to $0.5$
-\item We use [2\%, 4\%, 6\%, 8\%] for our curvature scales
-\item We weight all curvature scales equally
+\item Every image is cropped between the predicted left and right tips, and resized to the same width ($750$ pixels) while maintaining aspect ratio. 
+\item We do not use the bottom of the notch as a control point for trailing edge extraction.
+\item We set the number of neighbors used in trailing edge extraction $n$ to $3$.
+\item We use the Residual architecture for scoring the trailing edge.
+\item $\beta$ is set to $0.5$.
+\item We use [2\%, 4\%, 6\%, 8\%] for our curvature scales.
+%\item We weight all curvature scales equally
 \end{itemize}
 
+\subsection{Failure cases}
 
 
-\subsection{Characterization of Success cases}
+\section{Configuration Options}
 
-Success and failure cases are difficult to characterize due to the nature of our dataset.  (TODO put in something real for this)
+\subsection{Variability in Matching Score}
 
-\subsection{Characterization of Failure cases}
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1\textwidth]{../images/results/score_sep_crop.png}
+\caption{\textbf{Score Separability Histogram}. The blue bars in this figure represent true matches, and the red bars represent false matches. The line at $\text{score} = 0.88$ represents the optimal threshold at which to accept a match, although we can see it is not perfect.}
+\label{fig:score_sep}
+\end{figure*}
 
-Success and failure cases are difficult to characterize due to the nature of our dataset.  (TODO put in something real for this)
+A major issue with our method is that the correlation of the distance between two trailing edges and whether or not it is a true match is not very strong.
+We can see the effect of this in Figure \ref{fig:score_sep}, which shows that the scores\footnote{The score is computed as $e^{\frac{-\text{distance}}{50}}$ for implementation reasons} between query trailing edges and the corresponding ground-truth trailing edge overlaps heavily with the distance between queries and unrelated trailing edges.
+The result of this is that small changees in the query and database trailing edges can (in some cases) cause the ranking of a ground-truth trailing edge to change significantly.
+While this effect is somewhat rare, we find that it is the cause of many discrepancies in matching accuracy between different configurations.
+With this in mind, we discuss the difference in matching accuracy only when it is a result of significant discrepancies --- meaning that the score between query and ground-truth trailing edge changes by more than $\epsilon = 0.02$. %TODO: Determine a good value for this
 
-\section{Variations}
-
-\subsection{Keypoint Extraction}
-
-\subsubsection{Manual versus Automatic}
-
-
+\subsection{Effectiveness of Keypoint Extractor}
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_manual_extract.png}
-\caption{\textbf{Varying Manual Extraction}. We can see here that the difference in using the manually annotated points (purple) provided for this dataset versus the keypoint extractor's predicted points (cyan) produces a small drop in top-1 matching accuracy.}
+\caption{\textbf{Varying Manual Extraction}. There is a small difference in matching accuracy between using the manually annotated points (red) provided for this dataset versus the keypoint extractor's predicted points (cyan). The bottom of the notch keypoint is not used in either of these evaluations.}
 \label{fig:vary_manual_extract}
 \end{figure*}
 
-One interesting note is to see how the final keypoint extractor compares with the manual annotations provided for the dataset.
-We can see in Figure \ref{fig:manual_extract} that the manual extraction is only slightly better than the keypoint network extraction.
-It is worth noting that none of the images in the keypoint network's training, validation, or even testing set came from the images evaluated here, so we believe that the keypoint extractor is very close to perfect for this task.
-While this does not mean that the keypoints predicted are perfect, it does imply that they are ``good enough'' to extract a matchable trailing edge.
+In order to test the effectiveness of the trained fluke keypoint extractor, we give a comparison of matching accuracy to using the manual annotations of these fluke keypoints provided for the Flukebook dataset in Figure \ref{fig:vary_manual_extract}.
+The manually annotated keypoints provide a slightly better accuracy than the automatically extracted keypoints, and we find that many of these matching differences do not past the significance (i.e.\ the difference in query to ground truth distance doesn't change a lot between configurations).
+While this does not mean that the keypoints predicted are perfect, it does imply that they are ``good enough'' to extract a matchable trailing edge, despite being on average $5$ and $10$ pixels off.
 
-However, using the notch as the control point actually does reduce the accuracy more significantly for the predicted points than it does for the manually extracted points, which further implies that its predictions are not perfect.
+%\subsubsection{Keypoint Extractor Image size}
 
-\subsubsection{Varying training image sizes}
+%When predicting keypoints in an image, it is intuitive that the bigger the image the better the prediction can be, but at the expense of requiring more parameters (and thus memory, performance, and model variance) to handle the input.
+%We can see in Figure \ref{fig:vary_kp_size}
 
-Intuitively, the bigger the image the better the prediction can be, but at the expense of requiring more parameters to handle the input.
-The primary difference between the networks that were trained to handle different size inputs is that, in order to ensure that all inputs to the final dense layers have the same spatial size ($2\times2$) across the different networks, an extra convolutional and pooling layer is added.
+%The primary difference between the networks that were trained to handle different size inputs is that, in order to ensure that all inputs to the final dense layers have the same spatial size ($2\times2$) across the different networks, an extra convolutional and pooling layer is added.
 
-The performance of networks trained and run on different sized images is given in Figure \ref{fig:vary_kp_size}.
+%\begin{figure*}[t]%
+%\centering
+%\includegraphics[width=1\textwidth]{../images/results/vary_kp_size.png}
+%\caption{\textbf{Varying Keypoint Image Size}. The larger keypoint image size provides a somewhat better accuracy. We did not see an improvement in accuracy beyond an image sizee of $128 \times 128$.}
+%\label{fig:vary_kp_size}
+%\end{figure*}
 
-\begin{figure*}[t]%
-\centering
-\includegraphics[width=1\textwidth]{../images/results/vary_kp_size.png}
-\caption{\textbf{Varying Keypoint Image Size}. While the $128 \times 128$ size network is better than the $256 \times 256$ network (green and blue respectively), we believe the difference between them to be insignificant. The $64 \times 64$ network (red) is clearly inferior however. }
-\label{fig:vary_kp_size}
-\end{figure*}
+%We trained each of these networks on separate splits of data, and due to the inherent stochasticity of the training it is difficult to ascertain whether or not the image size is a cause of performance issues. 
 
+%\subsubsection{STN} % Maybe?
 
-We trained each of these networks on separate splits of data, and due to the inherent stochasticity of the training it is difficult to ascertain whether or not the image size is a cause of performance issues. 
-
-
-\subsubsection{STN} % Maybe?
-
-We also briefly experimented with an Spatial Transformer Network.
-This was largely motivated by the tendency of the keypoint extractor to do a terrible job of predicting fluke keypoints on flukes that did not 'fill' the image horizontally.
-Unfortunately, we could not get the STN to converge at a better accuracy than the standard keypoint extractor, even if we held its parameters fixed for a few training epochs.
-Usually, the STN would produce nonsensical transformations of the image.
+%We also briefly experimented with an Spatial Transformer Network \cite{jaderberg2015spatial}.
+%This was largely motivated by the tendency of the keypoint extractor to poorly predict fluke keypoints on flukes that did not ``fill'' the image horizontally.
+%Unfortunately, we could not get the STN to converge at a better accuracy than the standard keypoint extractor, even if we held its parameters fixed for a few training epochs.
+%Usually, the STN would produce nonsensical transformations of the image.
 
 % TODO: Figure showing this
 
-\subsection{Image Preprocessing}
+\subsection{Cropping Width}
 
-In this part we also detail some simple image preprocessing steps that we took (given the fluke keypoints) that greatly influenced the efficacy of the method.
-Ultimately we just ended up using a combination of cropping and resizing the image so as to normalize the length of the trailing edge, as detailed below.
 
-We also note that we originally tried histogram equalization as part of the preprocessing pipeline, althoough it produced significantly worse trailing edges (and subsequently matching accuracy).
-
-\subsubsection{Cropping and Image Width}
-
-While, with dynamic time warping, we theoretically can match sequences of similar or different lengths, the distances are distorted by large differences in actual trailing edge length.
-Since we are only interested in the width of an image (assuming that the trailing edge is roughly horizontal in the image), we can get every trailing edge to have exactly some fixed length $w$ by the following process
+With dynamic time warping, we theoretically can match sequences of arbitrary lengths, however the distances are distorted by large differences in actual trailing edge length.
+For this reason we want to fix the length of the trailing edges.
+Since we are only interested in the width of an image (because of the way the trailing edge extraction algorithm works), we can get every trailing edge to have exactly some fixed length $w$ by the following process.
 
 \begin{itemize}
     \item Crop the image horizontally between the left and right columns found by the keypoint extraction process (or manually determined).
-    \item Resize the cropped image to some fixed width $w$ while preserving the aspect ratio, using Lanczos interpolation. % Maybe find citation for this
+    \item Resize the cropped image to some fixed width $w$ while preserving the aspect ratio.% using Lanczos interpolation. % Maybe find citation for this
 \end{itemize}
 
-In this way, we standardize the trailing edge length so that image scale does not affect detection accuracy too much.
-
-One major caveat with this process is of course that using the keypoint extractor's predictions can cause catastrophic failures in this process (e.g. the left and right points are nowhere near a fluke), however in practice we found that it works well enough -- far better than the alternative.
-
-We can see in Figure \ref{fig:vary_crop_nocrop} that cropping and resizing is absolutely vital to the performance of our algorithm.
-
 \begin{figure*}[t]%
 \centering
-\includegraphics[width=1\textwidth]{../images/results/vary_crop_nocrop.png}
-\caption{\textbf{Varying Crop Strategy}. Cropping images around the trailing edge and then resizing them proves to be very important, not doing so gives a very low accuracy. We can see in Figure \ref{fig:chip_size_hist} that there is a wide distribution of image sizes, which can hamper the effectiveness of DTW.}
-\label{fig:vary_crop_nocrop}
-\end{figure*}
-
-\begin{figure*}[t]%
-\centering
-\subfloat[Distribution of Image Widths][]{
-	\includegraphics[width=0.5\textwidth]{../images/results/chip_width_hist_fb.png}
-}
-\subfloat[Distribution of Trailing Edge Lengths][]{
-	\includegraphics[width=0.5\textwidth]{../images/results/te_size_hist_fb.png}
-}
-\caption{\textbf{Distribution of Image Widths}. The image width distribution (left) is fairly wide, with most of the mass centered between 600 and 800.}
+%\subfloat[Distribution of Image Widths][]{
+%	\includegraphics[width=0.5\textwidth]{../images/results/chip_width_hist_fb.png}
+%}
+\includegraphics[width=1\textwidth]{../images/results/te_size_hist_fb.png}
+\caption{\textbf{Distribution of Unresized Trailing Edge Lengths}. This shows a significant distribution of trailing edges centered around a width of 800 pixels.}
 \label{fig:width_te_dist}
 \end{figure*}
 
+In this way, we standardize the trailing edge length so that differences in image size do not affect detection accuracy.
+One major caveat with this process is of course that using the keypoint extractor's predictions can cause catastrophic failures in this process (e.g.\ the left and right points are nowhere near a fluke), however in practice we found that this is not an issue.
 
+%We can see in Figure \ref{fig:vary_crop_nocrop} that cropping and resizing is absolutely vital to the performance of our algorithm.
 
-\paragraph{Trailing Edge Length}
+%\begin{figure*}[t]%
+%\centering
+%\includegraphics[width=1\textwidth]{../images/results/vary_crop_nocrop.png}
+%\caption{\textbf{Varying Crop Strategy}. Cropping images around the trailing edge and then resizing them proves to be very important, not doing so gives a very low accuracy. We can see in Figure \ref{fig:chip_size_hist} that there is a wide distribution of image sizes, which can hamper the effectiveness of DTW.}
+%\label{fig:vary_crop_nocrop}
+%\end{figure*}
 
-Determining what $w$ should be is not super obvious.
-Ideally, one would simply look at the mode or average post-crop width, and try to keep $w$ around there, since intuitively we want to introduce as few interpolation artifacts from resizing as possible.
+%We also note that we originally tried histogram equalization as part of the preprocessing pipeline, although it produced significantly worse trailing edges (and subsequently matching accuracy).
 
-We can see in Figure \ref{fig:vary_crop_size} that the optimal post-crop $w$ for this dataset (of the few we evaluated) is 750 pixels, althout 1000 pixels is on par.
+Ideally, we would choose a $w$ that minimizes interpolation artifacts from making big changes in image size.
+Figure \ref{fig:width_te_dist:b} shows the histogram of post-crop widths (i.e\ trailing edge lengths) from unresized images in the Flukebook dataset, showing a large concentration of mass around 800 pixels. 
+Subsequently, Figure \ref{fig:vary_crop_size} shows that $w = 750$ performs well, although $w = 1000$ is on par.
 We select the former for efficiency's sake, as smaller trailing edges vastly improves the speed of the matching algorithm.
-Figure \ref{fig:width_te_dist:b} shows the histogram of post-crop widths (i.e\ trailing edge lengths), showing a large concentration of mass around 800 pixels 
-This confirms that the less the image has to be resized, the better the trailing edge.
-
-\begin{figure*}[t]%
-\centering
-\includegraphics[width=1\textwidth]{../images/results/vary_crop_size.png}
-\caption{\textbf{Varying Crop Size}. Since we crop around the start and end points of the trailing edge, this crop size effectively controls the length of the extracted trailing edge. Note that we use the manually annotated points in this analysis to control for any issues with keypoint extraction.}
-\label{fig:vary_crop_size}
-\end{figure*}
-
+This provides evidence for the hypothesis that the less the image has to be resized, the better the trailing edge.
 
 \subsection{Trailing Edge Extraction}
 
 One major result that we found was that, when using the averaging method to combine the trailing edge scores with $N_y$, having a robust trailing edge prediction wasn't as important as having a detailed trailing edge.
 
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1\textwidth]{../images/results/vary_crop_size.png}
+\caption{\textbf{Varying $w$}. Note that we use the manually annotated points in this analysis to control for any issues with keypoint extraction.}
+\label{fig:vary_crop_size}
+\end{figure*}
+
 
 \subsubsection{Trailing Edge Scorer variations}
 
 The various trailing edge scorer architectures and their results on the task they were trained for is detailed in the previous chapter.
-In Figure \ref{fig:vary_te_scorer} we present the actual matching accuracies that each one produced.
-
-We can see that the detailed and higher quality trailing edges produced by the Residual network give a decent performance boost over the other networks.
-The only other network that beats not using the trailing edge scorer at all (i.e.\ $\beta = 0$, see the purple bar in Figure \ref{fig:vary_te_weight}) is the Simple network.
-
-We hypothesize that the Jet and Upsample architectures do poorly due to their inability to produce fine-grained trailing edges. % TODO: look at discrepancies to verify this
+In Figure \ref{fig:vary_te_scorer} we present the actual matching accuracies that each one produced with the mixing parameter $\beta = 0.5$.
+We can see that the detailed and higher quality trailing edges produced by the Residual network give a decent performance boost over the other networks, however this performance boost appears to consist mostly of insignificant changes in query to ground truth distance.
 
 \begin{figure*}[t]%
 \centering
@@ -171,18 +153,33 @@ We hypothesize that the Jet and Upsample architectures do poorly due to their in
 \label{fig:vary_te_scorer}
 \end{figure*}
 
-One caveat with using the Residual network is that, with 64 layers, it consumes a lot of GPU memory.
 
-\subsubsection{Combining $N_y$ and $T_y$}
 
-We only evaluate the 'average' method here, and show that the mixing parameter $\beta$ has a significant effect on matching accuracy.
+A better evaluation of each trailing edge scoring architecture is given by setting $\beta = 1.0$, which means that only the trailing edge scores are used to extract the trailing edge (see Figure \ref{fig:vary_te_scorer_maxweight}).
+Unsurprisingly, since the Upsample network gives blocky trailing edges (see Figure \ref{fig:example_te_scores_all}), it performs very poorly.
+However in this case, no other network performs poorly, showing that the biggest issue is the low quality trailing edges that are extracted, not so much the lack of breaks in trailing edges.
 
-In Figure \ref{fig:vary_te_weight}, we can see that simply a pixel-wise average of $N_y$ and $(1-T_y)$ (i.e. $\beta = 0.5$) produces the best results for the Residual network.
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1\textwidth]{../images/results/vary_te_scorer_maxweight.png}
+\caption{\textbf{Trailing Edge Scorer Architectures at $\beta = 1$}. Upsample (cyan) performs significantly worse than the other networks, which all perform comparably.}
+\label{fig:vary_te_scorer_maxweight}
+\end{figure*}
+
+One caveat with using the Residual network is that, with 64 layers, it consumes a lot of GPU memory when running.
+This is currently an implementation issue, and the machine that carried out these experiments can handle it.
+However, given that each network performs comparably, the Simple network is a good choice in general.
+
+\subsubsection{Using a Trailing Edge Scorer}
+
+In Figure \ref{fig:vary_te_weight}, we can see that simply a pixel-wise average of $N_y$ and $(1-T_y)$ (i.e. $\beta = 0.5$) produces the best results for the Residual network, though the differences are largely insignificant.
+However, not using the trailing edge scorer (i.e.\ $\beta = 0$) performs significantly worse than using one at all (even with a low weight).
+We show some examples of cases where trailing edge scoring helped in Figure \ref{fig:dis_te_use}.
 
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_te_weight.png}
-\caption{\textbf{Varying $\beta$}. It's clear from this that the optimal $\beta$ is $0.5$, although it is interesting to note that using only the network's trailing edge scores provides better accuracy than not using it at all.}
+\caption{\textbf{Varying $\beta$}.}
 \label{fig:vary_te_weight}
 \end{figure*}
 
@@ -194,126 +191,163 @@ We limit it to an odd number for convenience.
 On the one hand, a lower $n$ can cause the trailing edge to be limited in vertical breadth, but does prevent it from going way off course.
 Despite this, with trailing edge scoring in place, it might be beneficial to increase $n$ so as to avoid parts of the trailing edge that continually ``max out'' the number of neighbors.
 
+\begin{figure*}[t]%
+\centering
+\subfloat[][$\beta = 0.5$]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid207_te_kp_overlay.png}
+}
+\subfloat[][$\beta = 0$]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid207_te_kp_overlayno_tescorer.png}
+}
+\newline
+\subfloat[][$T_p$]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid207_tescorer_annot_res.png}
+}
+\subfloat[][$I_y$]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid207_grad.png}
+}
+\caption{\textbf{Example Use of Trailing Edge Scorer}. In (a), we have the trailing edge extracted with the Residual scorer. Compare to (b), which did not use any scorer at all, resulting in a match failure.}
+\label{fig:dis_te_use}
+\end{figure*}
+
+
+
+
 Ultimately, we can see in Figure \ref{fig:vary_neighbors} that limiting the number of neighbors to the immediate neighborhood (i.e. $n = 3$) produces a significant boost over a larger neighborhood.
-While the trailing edges extracted with $n = 3$ can be somewhat less detailed, they are less likely to go completely off course.
-Additionally, despite the trailing edges being less detailed, the extraction artifacts (i.e.\ the parts of the trailing edge that ``max out'') are produced in a way that is unique to the trailing edge, which may explain the accuracy boost.
+Potentially the trailing edges extracted with $n = 3$ can be somewhat less detailed, and as a result can be more invariant to slight changes in pose of the fluke.
+%Figure \ref{fig:dis_neighbors} presents an example case where, when using a higher number of neighbors, the notch is captured more faithfully --- but this introduces differences between the query and ground truth trailing edges that impede matching.
+While this effect is only present in a small number of cases, the difference in accuracy here is significant, with 78\% of the improvements resulting in a score difference over $\epsilon$.
 
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_neighbors.png}
-\caption{\textbf{Varying $n$}. This shows that the optimal neighborhood constraint is $n = 1$, despite qualitatively producing worse-looking trailing edges.}
+\caption{\textbf{Varying $n$}. This shows that the optimal neighborhood constraint is $n = 3$, despite qualitatively producing worse-looking trailing edges. Beyond $n = 5$, the trailing edges can become very noisy.}
 \label{fig:vary_neighbors}
 \end{figure*}
 
+\subsubsection{Using the notch}
 
-
-\subsection{Curvature Extraction}
-
-Curvature extraction is one of the least parameterized part of the process, however figuring out what the optimal scales to extract are and how many is non-trivial.
-One major point is that increasing the cardinality of $S$ increases the time it takes to evaluate the dynamic time warping, and as such we try to keep it at a small value (i.e. $|S| = 4$).
-
-\subsubsection{Different scales}
-
-We can look at each scale as measuring the curvature of some percentage of the trailing edge around the given point.
-Intuitively, since the meaningful differences in trailing edge can be fairly small, it makes sense to measure a small curvature scale.
-Additionally, this gives the most diversity in the trailing edge, as larger curvatures will change less and less from one point to the next.
-
-However, larger curvatures are also less sensitive to noise, and thus small trailing edge extraction failures.
-
-
-\begin{figure*}[t]%
-	\centering
-	\subfloat[][]{\includegraphics[width=0.5\textwidth]{../images/results/curvature_diversity_fb.png} }%
-	\subfloat[][]{\includegraphics[width=0.5\textwidth]{../images/results/interscale_diff_fb.png} }%
-	\caption{\textbf{Curvature Diversity}. Left panel (a) shows the average standard deviation of the (fixed length) curvature at different scales. Right panel (b) shows the average Euclidean distance between successive scales of curvature}
-    	\label{fig:curvature_diversity}
-\end{figure*}
-
-
-We find that (as shown in the left panel of Figure \ref{fig:curvature_diversity}) as block curvature scale is increased, the diversity at any given point in the curvature (if it is of a fixed size) goes down drastically. 
-As a result, we stick to the lower end of the scale, keeping the curvature scales measured below 15\%.
-
-We can also see on the right side of Figure \ref{fig:curvature_diversity} that successive curvature scales show bigger differences at lower scales than at higher scales, which reinforces this need, but that it's advantageous to make bigger jumps between scales to maximize diversity while minimizing computation time.
-
-Based on the above, we evaluate scales that run from 1\% to 10\%, with varying levels of resolution.
-Overall we found that this does not have a major effect on accuracy, but that the scales [2\%, 4\%, 6\%, 8\%] provides marginally better accuracy than anything else that we tried.
-This is shown in Figure \ref{vary_curv_scales}
+Initially, we believed that using the notch as a control point (i.e.\ forcing the trailing edge to go through the notch) would give better trailing edges, and therefore an increase in accuracy.
+As it turns out, this is not the case --- using the notch as a control point gives overall worse accuracy, as can be seen in Figure \ref{fig:vary_notch}.
+Surprisingly, this decrease in matching accuracy holds for both manually annotated and automatically extracted keypoints.
+However, most of these discrepancies did not result in a score difference above $\epsilon$.
 
 \begin{figure*}[t]%
 \centering
-\includegraphics[width=1\textwidth]{../images/results/vary_curv_scales.png}
-\caption{\textbf{Varying Curvature Scales}. The scales evaluated here are parameterized with a start, end, and step size. We always start at 2\%, and vary the step size between 1 \& 2 and the end between 8\% \& 10\%.}
-\label{fig:vary_curv_scales}
+\includegraphics[width=1\textwidth]{../images/results/vary_ignore_notch.png}
+\caption{\textbf{Using the notch as a control point}.}
+\label{fig:vary_notch}
 \end{figure*}
 
-\subsection{Dynamic Time Warp Matching}
+\subsection{Curvature Scales}
 
-The main variants shown in this section are the different Sakoe-Chiba bound windows and the scale weighting term in the curvature distance function.
-
-\subsubsection{Weighting the different scales}
-
-There are many ways to produce the weights $s_w$ for curvatures, but intuitively there should be a monotonic relationship between curvature scale and importance.
-
-We could specify this relationship as a ratio $W$ of importance between successive pairs of curvatures (increasing in size).
-We parameterize that importance by giving each scale the weight $s_w = [W^i \forall i \in [0,|S|]$.
-In order to maintain this ratio without blowing up the distances, we also normalize so that $\sum s_w = 1$.
+Computing the curvature is one of the least parameterized parts of the process, however figuring out what the optimal scales to extract are and how many to compute is non-trivial.
+Instead of exhaustively exploring these options, we can use some heuristics to determine which curvature scales to explore.
+Each scale as measures the curvature of some percentage of the trailing edge around each point on the trailing edge.
+Therefore, in order to determine which scales to measure, we look at how much the actual curvature changes between successive scales, as well as the average variance in curvature at each scale. 
 
 \begin{figure*}[t]%
 \centering
-\includegraphics[width=1\textwidth]{../images/results/vary_weight_import.png}
-\caption{\textbf{Varying $s_w$}. The yellow bar shows $W = 1$, i.e.\ all curvatures weighted equally.}
-\label{fig:vary_weight_import}
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/curvature_diversity_fb.png} 
+	\label{fig:curvature_diversity:a}
+}
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/interscale_diff_fb.png} 
+	\label{fig:curvature_diversity:b}
+}%
+\caption{\textbf{Curvature Diversity}. Left panel (a) shows the average standard deviation of the (fixed length) curvature at different scales. Right panel (b) shows the average Euclidean distance between successive scales of curvature}
+\label{fig:curvature_diversity}
 \end{figure*}
 
+We find that (as shown in the Figure \ref{fig:curvature_diversity:b}) as block curvature scale is increased, the diversity at any given point in the curvature goes down drastically (as expected). 
+Therefore, we stick to the lower end of the scale, keeping the curvature scales measured below $10\%$.
+
+We can also see in Figure \ref{fig:curvature_diversity:a} that successive curvature scales show bigger differences at lower scales than at higher scales, which reinforces using curvatures below $10\%$, but that it's advantageous to make bigger jumps between scales to maximize diversity while minimizing computation time.
+
+Based on the above, we evaluated scales that run from $1\%$ to $10\%$, with varying levels of resolution, and found little to no significant effect on matching accuracy compared to using the default set of scales.
+
+%\begin{figure*}[t]%
+%\centering
+%\includegraphics[width=1\textwidth]{../images/results/vary_curv_scales.png}
+%\caption{\textbf{Varying Curvature Scales}. The scales evaluated here are parameterized with a start, end, and step size. We always start at 2\%, and vary the step size between 1 \& 2 and the end between 8\% \& 10\%.}
+%\label{fig:vary_curv_scales}
+%\end{figure*}
+
+\subsection{Sakoe-Chiba bound}
+
+%The main variants shown in this section are the different Sakoe-Chiba bound windows and the scale weighting term in the curvature distance function.
+
+%\subsubsection{Weighting the different scales}
+
+%There are many ways to produce the weights $s_w$ for curvatures, but intuitively there should be a monotonic relationship between curvature scale and importance.
+
+%We could specify this relationship as a ratio $W$ of importance between successive pairs of curvatures (increasing in size).
+%We parameterize that importance by giving each scale the weight $s_w = [W^i \forall i \in [0,|S|]$.
+%In order to maintain this ratio without blowing up the distances, we also normalize so that $\sum s_w = 1$.
+
+%\begin{figure*}[t]%
+%\centering
+%\includegraphics[width=1\textwidth]{../images/results/vary_weight_import.png}
+%\caption{\textbf{Varying $s_w$}. The yellow bar shows $W = 1$, i.e.\ all curvatures weighted equally.}
+%\label{fig:vary_weight_import}
+%\end{figure*}
 
 
-Figure \ref{fig:vary_weight_import} shows that despite this effort, it appears that equally weighting each curvature scale provides the best performance.
-Interestingly weighting larger scales lower (i.e.\ $W < 1$, which we evaluate with $W = 0.5$ (purple bar) in Figure \ref{fig:vary_weight_import}) provides worse performance.
 
-\subsubsection{Window size}
+%Figure \ref{fig:vary_weight_import} shows that despite this effort, it appears that equally weighting each curvature scale provides the best performance.
+%Interestingly weighting larger scales lower (i.e.\ $W < 1$, which we evaluate with $W = 0.5$ (purple bar) in Figure \ref{fig:vary_weight_import}) provides worse performance.
 
-In Figure \ref{fig:vary_window}, we can see that if we decrease the window (i.e. the Sakoe-Chiba bound) size, at around 10\% of the query trailing edge length we maintain the same accuracy as the full window (i.e. 100\%), but below this accuracy is severely affected.
+In Figure \ref{fig:vary_window}, we can see that if we decrease the window (i.e. the Sakoe-Chiba bound) size, at around 10\% of the query trailing edge length we maintain only slightly worse accuracy compared to the full window (i.e. 100\%), but below this accuracy is severely affected.
 We find that overall there is a $4\times$ slow-down in wall-clock time on our testing machine when going from a window size of 10\% to one of 100\%. 
 Thus, we use this value for the window size so as to minimize computation time while maintaining the total accuracy.
 
-Additionally, while it's possible for gross mismatches to occur from there being no window boundary, we can see from Figure \ref{fig:vary_window} that this does not pose a problem in our case.
+Additionally, while it's possible for gross mismatches to occur from there being no window boundary, we can see from Figure \ref{fig:vary_window} that this does not pose a problem.
 
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_window.png}
-\caption{\textbf{Varying Sakoe-Chiba bound}}
+\caption{\textbf{Varying Sakoe-Chiba bound}.}
 \label{fig:vary_window}
 \end{figure*}
 
-\subsubsection{Aggregating over multiple trailing edges per identity}
+%\subsubsection{Aggregating over multiple trailing edges per identity}
 
-Determining the identity of a given query image given distances to other images in the database is not entirely simple when there are multiple database images for a given individual.
-Essentially we need to transform these distances from query image to database image into distances from query to known individual.
-To do so we evaluate two options given a group of distances for an individual --- either the average distance or the minimum distance.
+%Determining the identity of a given query image given distances to other images in the database is not entirely simple when there are multiple database images for a given individual.
+%Essentially we need to transform these distances from query image to database image into distances from query to known individual.
+%To do so we evaluate two options given a group of distances for an individual --- either the average distance or the minimum distance.
 
-We find that the average decision does slightly better, as shown in Figure \ref{fig:vary_decision}.
+%We find that the average decision does slightly better, as shown in Figure \ref{fig:vary_decision}.
 
-This is unsurprising given that most of the individuals in the dataset only have two images associated, meaning that the average is equivalent to the minimum.
-That said, the minimal distance criterion is effectively the single-feature case of LNBNN used in Hotspotter \cite{crall_hotspotter_2013} and the work of Hughes et al.\ \cite{hughes2015automated}. % Maybe: prove this?
+%This is unsurprising given that most of the individuals in the dataset only have two images associated, meaning that the average is equivalent to the minimum.
+%That said, the minimal distance criterion is effectively the single-feature case of LNBNN used in Hotspotter \cite{crall_hotspotter_2013} and the work of Hughes et al.\ \cite{hughes2015automated}. % Maybe: prove this?
 
-\begin{figure*}[t]%
-\centering
-\includegraphics[width=1\textwidth]{../images/results/vary_decision.png}
-\caption{\textbf{Varying Decision Criterion}}
-\label{fig:vary_decision}
-\end{figure*}
+%\begin{figure*}[t]%
+%\centering
+%\includegraphics[width=1\textwidth]{../images/results/vary_decision.png}
+%\caption{\textbf{Varying Decision Criterion}}
+%\label{fig:vary_decision}
+%\end{figure*}
 
 \section{In Combination with Hotspotter}
 
+In a straight comparison, our method gets a slightly better top-1 accuracy than Hotspotter (see Figure \ref{fig:vary_proot})
+
 By combining our method with Hotspotter --- if we were able to automatically pick out which algorithm was right for a given ranking --- we can achieve 93\% top-1 accuracy on the Flukebook dataset.
 This implies that these methods are complementary to each other, and should be used in combination.
-However, being able to automatically decide which method to use is non-trivial.
 
-(TODO: this)
+% TODO: Cases where hotspotter > bc_dtw, vv
+
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1\textwidth]{../images/results/vary_proot.png}
+\caption{\textbf{Comparison between Hotspotter and our method}.}
+\label{fig:vary_proot}
+\end{figure*}
 
 \subsection{Failure cases}
 
-(TODO: this)
+(TODO: cases where both fail, hs fails, bcdtw fails)
 
 \subsection{Characterization of when to use which method}
 
@@ -326,7 +360,7 @@ As a result, flukes which have little to no internal texture are nearly impossib
 On the other hand, when the trailing edge is unclear or significantly distorted in the image, our method struggles to find an appropriate match.
 In these cases, Hotspotter can provide a good match, although if the fluke is additionally untextured we have an issue.
 
-(TODO: Figures showing this)
+%TODO reference figures from prev section showing where each method fails
 
 We were unable to find a single heuristic that correlates with our method failing to find a match.
 Interestingly, we find that smoothness of the trailing edge, characterized by the standard deviation of the trailing edge slope, does not correlate to match failure, implying that smooth trailing edges are about as easy to match as rough, distinctive trailing edges.

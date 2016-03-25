@@ -138,12 +138,12 @@ C(x,y) =
 \begin{cases}
 	0 & x < 0 \\
 	\infty & y < 0 \text{ or } y > h \\
-	\min_{y - n \leq y_c \leq y + n}C(x-1, y_c) + N_y(x,y) & \text{else} \\
+	\min_{y - \frac{n}{2} \leq y_c \leq y + \frac{n}{2}}C(x-1, y_c) + N_y(x,y) & \text{else} \\
 \end{cases}
 \end{equation}
 
 Where $n$ is a neighborhood constraint and $h$ is the height of $N_y$.  
-We default $n$ to $1$, meaning that each pixel considers $3$ ``neighbors'' $y_c$ from the previous column.
+We default $n$ to $3$, meaning that each pixel considers its immediate ``neighbors'' from the previous column.
 
 As $C$ is filled out, we also keep a backtrace matrix $B$, which keeps track of the index of the minimal candidate neighbor chosen in equation \eqref{eqn:te_update}.
 
@@ -345,7 +345,7 @@ We also report the precision and recall of the model.
 	\label{tab:te_score_full_analysis}
 \end{table*}
 
-Initially, we thought that precision would be the most important metric for evaluating networks (which is reflected in the class weighting).
+Initially, we thought that recall would be the most important metric for evaluating networks (which is reflected in the class weighting).
 However, we found that even a low precision classifier could give good trailing edges, and that the important measure was how detailed these trailing edges were.
 This is likely because small segments of predicted trailing edge would not be chosen by the trailing edge extractor if they are too disconnected from the actual trailing edge.
 
@@ -419,9 +419,6 @@ In this case, we can see that at a high level, these curvature patterns look ver
 \label{fig:example_curv}
 \end{figure*}
 
-
-
-
 \subsection{Sequence Matching}
 
 Given two sequences of curvatures $BC_1$ and $BC_2$ (referred to as query and database curvature respectively) we match them using dynamic time warping as follows.
@@ -431,13 +428,14 @@ Then, for each cell $(i,j)$ in the cost matrix starting with $C(1,1)$, we use th
 
 \begin{align} 
 \label{eqn:dtw_dist}
-D_{\vec{s_w}}(c_1, c_2) &= \lVert \vec{s_w} \odot (\vec{c_1} - \vec{c_2}) \rVert_2\\
+D(c_1, c_2) &= \lVert \vec{c_1} - \vec{c_2} \rVert_2\\
 \label{eqn:dtw_update}
-C(i,j) &= D_{s_w}(BC_1(i,\cdot),BC_2(j,\cdot)) + min(C(i-1,j), C(i,j-1), C(i-1, j-1))
+C(i,j) &= D(BC_1(i,\cdot),BC_2(j,\cdot)) + min(C(i-1,j), C(i,j-1), C(i-1, j-1))
 \end{align}
 
-Where $\vec{s_w}$ is a vector giving the weight for each curvature scale, and $\vec{c}$ is a vector of the curvatures at different scales for a point.
-We then take the value of $C(l_1-1, l_2-1)$ as the distance between the two curvatures.
+Where $\vec{c}$ is a vector of the curvatures at different scales for a point.
+Initially there was also a weighting term that would weight each curvature scale differently, however we found that weighting each curvature equally was the best option.
+We then take the value of $C(l_1-1, l_2-1)$ as the distance between the two curvatures\footnote{Similarly to making $C(0,0) = 0$, this enforces that the end of each trailing edge aligns}.
 
 Additionally, we impose the Sakoe-Chiba \cite{sakoe1978dynamic} locality constraint $T$ so that for each element $i$ in $BC_1$, we only consider the range over elements $j$ in $BC_2$ of $j \in [min(i - T, 0), max(i + T, l_2)]$.
 This essentially provides a bound over the possible matches between points on the trailing edge, preventing (for example) the first element of $BC_1$ from matching with the last element of $BC_2$.
@@ -534,7 +532,7 @@ We found that for our task even high resolution histograms did not provide enoug
 
 \subsection{Embedding via Convolutional Networks}
 
-We also made an attempt at training convolutional networks to directly embed the images of flukes into a $n$ dimensional vector, much like the work done for face recognition in Schroff et al.\ \cite{schroff2015facenet} and Parkhi et al.\ \cite{parkhi2015deep}.
+We also made an attempt at training convolutional networks to directly embed the images of flukes into a $k$-dimensional vector, much like the work done for face recognition in Schroff et al.\ \cite{schroff2015facenet} and Parkhi et al.\ \cite{parkhi2015deep}.
 However, most of the previous literature on this technique is applied to larger datasets such as LFW \cite{huang2007labeled}, which is significantly larger than the dataset that we had available.
 A major factor in this is that these larger datasets often have five to ten images per identity (if not more), whereas most of the identities in our dataset had one or two images associated.
 
