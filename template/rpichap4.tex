@@ -29,9 +29,6 @@ The optimal configuration that we used for this method is given below.
 %\item We weight all curvature scales equally
 \end{itemize}
 
-\subsection{Failure cases}
-
-
 \section{Configuration Options}
 
 \subsection{Variability in Matching Score}
@@ -84,8 +81,6 @@ While this does not mean that the keypoints predicted are perfect, it does imply
 %Unfortunately, we could not get the STN to converge at a better accuracy than the standard keypoint extractor, even if we held its parameters fixed for a few training epochs.
 %Usually, the STN would produce nonsensical transformations of the image.
 
-% TODO: Figure showing this
-
 \subsection{Cropping Width}
 
 
@@ -123,7 +118,7 @@ One major caveat with this process is of course that using the keypoint extracto
 %We also note that we originally tried histogram equalization as part of the preprocessing pipeline, although it produced significantly worse trailing edges (and subsequently matching accuracy).
 
 Ideally, we would choose a $w$ that minimizes interpolation artifacts from making big changes in image size.
-Figure \ref{fig:width_te_dist:b} shows the histogram of post-crop widths (i.e\ trailing edge lengths) from unresized images in the Flukebook dataset, showing a large concentration of mass around 800 pixels. 
+Figure \ref{fig:width_te_dist} shows the histogram of post-crop widths (i.e\ trailing edge lengths) from unresized images in the Flukebook dataset, showing a large concentration of mass around 800 pixels. 
 Subsequently, Figure \ref{fig:vary_crop_size} shows that $w = 750$ performs well, although $w = 1000$ is on par.
 We select the former for efficiency's sake, as smaller trailing edges vastly improves the speed of the matching algorithm.
 This provides evidence for the hypothesis that the less the image has to be resized, the better the trailing edge.
@@ -210,9 +205,6 @@ Despite this, with trailing edge scoring in place, it might be beneficial to inc
 \label{fig:dis_te_use}
 \end{figure*}
 
-
-
-
 Ultimately, we can see in Figure \ref{fig:vary_neighbors} that limiting the number of neighbors to the immediate neighborhood (i.e. $n = 3$) produces a significant boost over a larger neighborhood.
 Potentially the trailing edges extracted with $n = 3$ can be somewhat less detailed, and as a result can be more invariant to slight changes in pose of the fluke.
 %Figure \ref{fig:dis_neighbors} presents an example case where, when using a higher number of neighbors, the notch is captured more faithfully --- but this introduces differences between the query and ground truth trailing edges that impede matching.
@@ -231,6 +223,7 @@ Initially, we believed that using the notch as a control point (i.e.\ forcing th
 As it turns out, this is not the case --- using the notch as a control point gives overall worse accuracy, as can be seen in Figure \ref{fig:vary_notch}.
 Surprisingly, this decrease in matching accuracy holds for both manually annotated and automatically extracted keypoints.
 However, most of these discrepancies did not result in a score difference above $\epsilon$.
+This could be because of the small difference in trailing edge between those with a notch and those without, which leads to matching failure but not a large difference in score.
 
 \begin{figure*}[t]%
 \centering
@@ -298,18 +291,20 @@ Based on the above, we evaluated scales that run from $1\%$ to $10\%$, with vary
 %Figure \ref{fig:vary_weight_import} shows that despite this effort, it appears that equally weighting each curvature scale provides the best performance.
 %Interestingly weighting larger scales lower (i.e.\ $W < 1$, which we evaluate with $W = 0.5$ (purple bar) in Figure \ref{fig:vary_weight_import}) provides worse performance.
 
-In Figure \ref{fig:vary_window}, we can see that if we decrease the window (i.e. the Sakoe-Chiba bound) size, at around 10\% of the query trailing edge length we maintain only slightly worse accuracy compared to the full window (i.e. 100\%), but below this accuracy is severely affected.
-We find that overall there is a $4\times$ slow-down in wall-clock time on our testing machine when going from a window size of 10\% to one of 100\%. 
-Thus, we use this value for the window size so as to minimize computation time while maintaining the total accuracy.
-
-Additionally, while it's possible for gross mismatches to occur from there being no window boundary, we can see from Figure \ref{fig:vary_window} that this does not pose a problem.
-
 \begin{figure*}[t]%
 \centering
 \includegraphics[width=1\textwidth]{../images/results/vary_window.png}
 \caption{\textbf{Varying Sakoe-Chiba bound}.}
 \label{fig:vary_window}
 \end{figure*}
+
+
+
+In Figure \ref{fig:vary_window}, we can see that if we decrease the window (i.e. the Sakoe-Chiba bound) size, at around 10\% of the query trailing edge length we maintain only slightly worse accuracy compared to the full window (i.e. 100\%), but below this accuracy is severely affected.
+We find that overall there is a $4\times$ slow-down in wall-clock time on our testing machine when going from a window size of 10\% to one of 100\%. 
+Thus, we use this value for the window size so as to minimize computation time while maintaining the total accuracy.
+
+Additionally, while it's possible for gross mismatches to occur from there being no window boundary, we can see from Figure \ref{fig:vary_window} that this does not pose a problem.
 
 %\subsubsection{Aggregating over multiple trailing edges per identity}
 
@@ -331,23 +326,34 @@ Additionally, while it's possible for gross mismatches to occur from there being
 
 \section{In Combination with Hotspotter}
 
-In a straight comparison, our method gets a slightly better top-1 accuracy than Hotspotter (see Figure \ref{fig:vary_proot})
-
-By combining our method with Hotspotter --- if we were able to automatically pick out which algorithm was right for a given ranking --- we can achieve 93\% top-1 accuracy on the Flukebook dataset.
-This implies that these methods are complementary to each other, and should be used in combination.
-
-% TODO: Cases where hotspotter > bc_dtw, vv
-
 \begin{figure*}[t]%
 \centering
-\includegraphics[width=1\textwidth]{../images/results/vary_proot.png}
-\caption{\textbf{Comparison between Hotspotter and our method}.}
-\label{fig:vary_proot}
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid493_te_kp_overlay.png}
+}
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid147_te_kp_overlay.png}
+}
+\newline
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid494_te_kp_overlay.png}
+}
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid148_te_kp_overlay.png}
+}
+\caption{\textbf{Example Disagreements Between Hotspotter and our method}. On the left side, (a) was matched correctly to (c) by our method, whereas Hotspotter could not find any matches for (a). On the right hand side however, Hotspotter was able to match two flukes with a large variance in pose and lighting, while our method did not rank (d) in the top 5 matches for (b).}
+\label{fig:dis_proot}
 \end{figure*}
 
-\subsection{Failure cases}
 
-(TODO: cases where both fail, hs fails, bcdtw fails)
+
+In a straight comparison, our method gets a slightly better top-1 accuracy than Hotspotter (see Figure \ref{fig:vary_proot})
+However, our method targets a specific part of the fluke whereas Hotspotter recognizes general patterns, and thus works on the internal texture of the fluke.
+Therefore, by combining our method with Hotspotter --- if we were able to automatically pick out which algorithm was right for a given ranking --- we would expect to see a significant increase in accuracy.
+We find that in this ideal scenario, we can achieve a 93\% top-1 accuracy on the Flukebook dataset.
+However, automatically deciding which algorithm to use for matching is non-trivial, and we are still exploring it.
+
+See Figure \ref{fig:dis_proot} for an example where Hotspotter correctly finds a match where our method fails, and vice-versa.
 
 \subsection{Characterization of when to use which method}
 
@@ -357,13 +363,21 @@ We hypothesize that this is because the trailing edge --- while a distinctive fe
 Since this oceanic background changes from image to image, it cannot verify salient keypoints as matches.
 As a result, flukes which have little to no internal texture are nearly impossible for Hotspotter to match.
 
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1\textwidth]{../images/results/vary_proot.png}
+\caption{\textbf{Comparison between Hotspotter and our method}.}
+\label{fig:vary_proot}
+\end{figure*}
+
+
+
 On the other hand, when the trailing edge is unclear or significantly distorted in the image, our method struggles to find an appropriate match.
 In these cases, Hotspotter can provide a good match, although if the fluke is additionally untextured we have an issue.
-
-%TODO reference figures from prev section showing where each method fails
-
 We were unable to find a single heuristic that correlates with our method failing to find a match.
 Interestingly, we find that smoothness of the trailing edge, characterized by the standard deviation of the trailing edge slope, does not correlate to match failure, implying that smooth trailing edges are about as easy to match as rough, distinctive trailing edges.
+However, since the dataset we use consists primarily of individuals with only two images, there can be a lot of variance in rank that is not necessarily explained by a single property.
+
 
 %%% Local Variables: 
 %%% mode: latex

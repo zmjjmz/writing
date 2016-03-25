@@ -16,10 +16,8 @@ In this section, we describe the steps that go into automating the extraction of
 
 One major assumption we make when extracting these trailing edges is that the humpback whale fluke is aligned such that its major axis is horizontal.
 Additionally, we generally assume that all parts of the fluke are present.
-While these assumptions do not make for an incredibly robust system, the nature of the problem (and the dataset that we had at hand) makes these assumptions reasonable.
+The nature of the problem (and the dataset that we had at hand) makes these assumptions reasonable.
 It would also be possible to add a detection step beforehand to ensure this assumption, however we do not explore this in this work.
-
-%TODO: Ask chuck how this is overstating
 
 \subsection{Fluke keypoint prediction}
 
@@ -39,7 +37,6 @@ This size choice is somewhat arbitrary, but we find that it provides strong perf
 The network predicts the points as values between $0$ and $1$, essentially giving coordinates into the image as percentages of its height and width. 
 These predictions are then then rescaled back up to the original image size by multiplying with the original image height and width.
 An example prediction is shown in Figure \ref{fig:example_kp}.
-%The evaluated network architectures are detailed in Table 3.1. % TODO put this in
 
 \subsubsection{Network Design}
 
@@ -71,7 +68,7 @@ We then average this loss function over each point that the network predicts.
 The networks are trained for 1000 epochs with $\alpha$ set to \num{2e-2} using the Adam \cite{kingma2014adam} optimizer (with recommended settings) and $l2$ regularization on the trainable parameters with a decay of \num{1e-4}.
 All of these hyper parameters were tuned using the validation set, although the possible parameter space was not fully explored due to time constraints.
 
-\subsubsection{Evaluation} % TODO: Maybe this should be moved to the results section?
+\subsubsection{Evaluation} 
 
 % Problem is recreating all these experiments / networks for evaluation :/
 % Might take a while...
@@ -172,19 +169,18 @@ An example of the base algorithm's output is given in Figure \ref{fig:example_te
 While this algorithm has no understanding of humpback whale flukes, it generally finds high quality trailing edges in images that are constrained around the fluke with oceanic backgrounds (which is a large majority of the dataset at hand).
 In the next section, we outline our approach for trying to make this more robust.
 
-% TODO: Put in figure showing bad trailing edge from raw next to good one
 
 \subsection{Trailing Edge Scoring}
 
 As mentioned in the beginning of this section, using only the gradient information for extracting the trailing edge works in many cases, but is not a robust method.
 
 If we had a score of each pixel's ``trailing edginess'' in an image, the trailing edge extractor could make use of this information to make better choices in trailing edge extraction.
+An example of this at work is shown in Figure \ref{fig:dis_te_use}.
 To do this, we need a prediction of whether or not each pixel belongs to the trailing edge of a fluke --- a task that is best suited to a fully convolutional network.
 
 In the fully convolutional networks that we use, we learn ``same'' convolutional kernels at each layer so as to maintain spatial shape from one layer to the next, except at explicit downsampling layers.
 In order to construct a ``same'' kernel, we use square kernels of size $k \times k$ such that $k$ is odd, and apply them with a stride of $1$ in each direction.
 Then, in order to ensure that the size of the output is the same as the size of the input, we add a zero-padding of size $\lfloor \frac{k}{2} \rfloor$ pixels to each side (filling in the corners).
-%TODO: Should I go more into why this produces the same size output?
 In the networks used for trailing edge scoring, all convolutions (aside from the downsampling, i.e.\ max pooling layers) are ``same'' convolutions,
 The four major variants on trailing edge scoring networks that we evaluated are detailed below.
 All of these networks function on the same paradigm of taking an arbitrarily sized image and producing an image of the same size but with a class score for each pixel.
@@ -222,7 +218,6 @@ If the receptive field is too small, it may not have enough information to accur
 However, in order to increase the receptive field without massively increasing the depth of a network, we must downsample, which makes the output less fine-grained.
 
 \paragraph{Simple}
-%TODO: Put in exact receptive fields?
 This network is simply a stack of $6$ ``same'' convolutional layers (of decreasing spatial extent), with no downsampling regions.
 This has a small receptive field, but can produce detailed predictions.
 Due to the small receptive field however, at convergence it gives low precision predictions, and seems to (in many cases) produces many of the same mistakes that normal gradient based trailing edges do.
@@ -290,8 +285,6 @@ If there are such gaps, then the trailing edge will not be extractable.
 It is difficult if not impossible to guarantee that this will not happen, although with more data the risk can be mitigated.
 In our experience, these breaks were common enough that this approach was abandoned.
 
-% TODO: Find a trailing edge that actually changes appreciably w/different beta
-
 \subsubsection{Training Details}
 
 All networks were trained for 100 epochs (or until convergence) with a batch size of $32$, with $l2$ regularization using a decay of \num{1e-4}.
@@ -300,6 +293,7 @@ We used the Adam optimizer \cite{kingma2014adam} (with the recommended settings)
 One detail that turned out to be important is the class imbalance.
 The trailing edge pixels (necessarily) make up a small percentage of the total image, meaning that these networks could get a fairly high accuracy (and thus low loss) simply by predicting only background pixels.
 In order to prevent this, we only sample a negative patch once for every positive patch (as detailed above), and additionally we weight the loss for the trailing edge pixels $10\times$ higher than the loss for the background pixels.
+This provides a much better trailing edge extraction even if it can reduce precision.
 
 As noted earlier, many of the manually annotated trailing edges did not require extra input.
 This can be an issue as it biases the network towards marking pixels as trailing edge when they would be marked as such based on just the image gradient.
@@ -307,9 +301,21 @@ In order to mitigate this issue, we included some data augmentation, namely rand
 The inverting of pixel intensities as data augmentation is meant to try and influence the network to handle cases where the trailing edge is white against a somewhat darker background, producing an inverted gradient compared to when the trailing edge is dark.
 Unfortunately this had limited success.
 
-% TODO: Show failures
-
 All of these hyper parameters were tuned using the validation set, although the possible parameter space was not fully explored due to time constraints.
+
+\begin{figure*}[t]%
+\centering
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid960_tescorer_annot_res.png}
+}
+\subfloat[][]{
+	\includegraphics[width=0.5\textwidth]{../images/results/aid960_te_kp_overlay_annot_res.png}
+}
+\caption{\textbf{Trailing Edge Scoring Failure}. Unfortunately even the Residual architecture is still imperfect, and can lead to catastrophic trailing edge failures like this one. However this is a rare case.}
+\label{fig:example_te_res_failure}
+\end{figure*}
+
+
 
 \subsubsection{Evaluation}
 
@@ -345,11 +351,10 @@ We also report the precision and recall of the model.
 	\label{tab:te_score_full_analysis}
 \end{table*}
 
-Initially, we thought that recall would be the most important metric for evaluating networks (which is reflected in the class weighting).
-However, we found that even a low precision classifier could give good trailing edges, and that the important measure was how detailed these trailing edges were.
-This is likely because small segments of predicted trailing edge would not be chosen by the trailing edge extractor if they are too disconnected from the actual trailing edge.
+The poor performance of the Upsample architecture is also reflected in the match accuracy of trailing edges extracted from its scores (see Figure \ref{fig:vary_te_scorer_maxweight}).
+With the exception of the Upsample architecture, the performance differences of the other architectures are insignificant, and we find that they all perform comparably.
 
-% TODO: Investigate disagreements between upsample and res
+These models are of course not perfect, as can be seen in \ref{fig:example_te_res_failure}
 
 \section{Trailing Edge Matching}
 

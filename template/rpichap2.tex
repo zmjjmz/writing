@@ -19,8 +19,8 @@ The essential idea of a convolutional network is that it we can use the gradient
 These networks are considered to be a form of neural network where the convolutions provide a meaningful prior when applied to data with spatial relationships (e.g.\ image data).
 Convolutional were introduced nearly 40 years ago by Fukushima in \cite{fukushima1979neural}.
 The current incarnation of these networks can be traced back to the seminal work of LeCun et al.\ \cite{lecun1998gradient}.
-Modern convolutional networks follow a common framework of using Rectified Linear Units (ReLUs) as activation functions, and Dropout \cite{hinton2012improving} layers after fully connected layers for regularization. % TODO: Clear up w/chuck hoow much detail is needed for this 
-Additionally, the convolutional kernels used are commonly small square kernels with ``same'' padding alternated with $2\times$ downsampling layers (specifically max pooling layers) \cite{simonyan2014very}, \cite{sermanet2013overfeat}, \cite{krizhevsky2012imagenet}. % TODO more citations for this
+Modern convolutional networks follow a common framework of using Rectified Linear Units (ReLUs) as activation functions, and Dropout \cite{hinton2012improving} layers after fully connected layers for regularization.
+Additionally, the convolutional kernels used are commonly small square kernels with ``same'' padding\footnote{Essentially zero-padding such that the output image has the same shape as the input image} alternated with $2\times$ downsampling layers (specifically max pooling layers) \cite{simonyan2014very}, \cite{sermanet2013overfeat}, \cite{krizhevsky2012imagenet}.
 
 The convolutional networks used in this thesis follow the above framework, and also use batch normalization \cite{ioffe2015batch} at every layer.
 We also use orthogonal initialization \cite{saxe2013exact} at all layers to help ensure gradient flow.

@@ -8,12 +8,17 @@
 
 \section{Issues with the Proposed Method}
 
-The primary issue that we encountered is that the distance between a given pair of trailing edges is very unstable in terms of determining if they match or not (see Figure \ref{fig:score_overlap})).
+\begin{figure*}[t]%
+\centering
+\includegraphics[width=1\textwidth]{../images/results/bc_dtw_gtrank_hist.png}
+\caption{\textbf{Histogram of Ground-Truth Ranks}. Note that the histogram ranges are uneven to better show the lower end of the range. In order to have all matches found within the top-$k$ matches we would have to set $k = 414$.}
+\label{fig:gtrank_hist}
+\end{figure*}
+
+The primary issue that we encountered is that the distance between a given pair of trailing edges is very unstable in terms of determining if they match or not (see Figure \ref{fig:score_sep})).
 A side effect of this is that small changes in the trailing edge can lead to matching failures, and in the worst case ``push down'' the correct match significantly.
 This ``push down'' effect severely hampers the effectiveness of our method, as in the use case that we target a human operator verifying a match would ideally only have to look at the top-$k$ flukes for some small value $k$.
-However, we find that in many cases the correct match is far down the list, and there is no reasonably value $k$ that all matches are within. % TODO what value k gets 100% accuracy or show histogram for this
-
-%TODO: Come up with more issues when investigating failure cases
+However, we find that in many cases the correct match is far down the list, and there is no reasonable value $k$ (i.e.\ that a human operator would want to find a match in) that all matches are within (see Figure \ref{fig:gtrank_hist}). 
 
 There are several other issues, primarily having to do with the stability and generalization capability of the convolutional networks used for fluke keypoint predictions and trailing edge scores.
 For the former network, ideally the keypoints could be predicted regardless of our assumption on fluke position and orientation, although it is clear to us that this does not happen.
@@ -54,8 +59,6 @@ It would be possible to do something similar but making use of the curvature mea
 
 In this thesis we have presented a novel, fully-automated method for photo-identifying humpback flukes that achieves a high top-1 ranking accuracy on a relatively large dataset.
 This method extracts fine grained trailing edge contours from images of flukes and identifies individuals based on sequence properties of the contour curvature.
-
-
 
 %%% Local Variables: 
 %%% mode: latex

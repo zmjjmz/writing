@@ -7,64 +7,62 @@
 \contentsline {subsection}{\numberline {1.1.1}Distinguishing Individual Flukes}{1}
 \contentsline {section}{\numberline {1.2}Current Identification Methods}{1}
 \contentsline {subsection}{\numberline {1.2.1}Based on Trailing Edge}{2}
-\contentsline {subsection}{\numberline {1.2.2}Based on general Fluke appearance}{4}
+\contentsline {subsection}{\numberline {1.2.2}Based on General Fluke Appearance}{4}
 \contentsline {section}{\numberline {1.3}Method Outline}{5}
-\contentsline {section}{\numberline {1.4}The Dataset}{5}
+\contentsline {section}{\numberline {1.4}The Dataset}{6}
 \contentsline {section}{\numberline {1.5}Thesis Outline}{6}
-\contentsline {chapter}{\numberline {2.}Background}{7}
-\contentsline {section}{\numberline {2.1}Convolutional Networks}{7}
-\contentsline {subsection}{\numberline {2.1.1}Facial Keypoint Prediction}{8}
-\contentsline {subsection}{\numberline {2.1.2}Fully Convolutional Networks}{8}
-\contentsline {section}{\numberline {2.2}Contour Extraction}{9}
-\contentsline {subsection}{\numberline {2.2.1}Active Contour}{9}
-\contentsline {subsection}{\numberline {2.2.2}Seam Carving}{9}
-\contentsline {section}{\numberline {2.3}Curvature Measures}{9}
-\contentsline {section}{\numberline {2.4}Dynamic Time Warping}{10}
-\contentsline {chapter}{\numberline {3.}Methods}{11}
-\contentsline {section}{\numberline {3.1}Trailing Edge Extraction}{11}
-\contentsline {subsection}{\numberline {3.1.1}Fluke keypoint prediction}{11}
-\contentsline {subsubsection}{\numberline {3.1.1.1}Network Design}{12}
-\contentsline {subsubsection}{\numberline {3.1.1.2}Training Details}{12}
-\contentsline {subsubsection}{\numberline {3.1.1.3}Evaluation}{13}
-\contentsline {subsection}{\numberline {3.1.2}Basic Trailing Edge Extraction Algorithm}{14}
-\contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{17}
-\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{18}
-\contentsline {paragraph}{Simple}{19}
-\contentsline {paragraph}{Upsample}{20}
-\contentsline {paragraph}{Jet}{20}
-\contentsline {paragraph}{Residual}{20}
-\contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{21}
-\contentsline {subsubsection}{\numberline {3.1.3.3}Training Details}{22}
-\contentsline {subsubsection}{\numberline {3.1.3.4}Evaluation}{23}
-\contentsline {section}{\numberline {3.2}Trailing Edge Matching}{23}
-\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{24}
-\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{26}
-\contentsline {section}{\numberline {3.3}Alternative Approaches}{27}
-\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{28}
-\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{28}
-\contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{28}
-\contentsline {subsection}{\numberline {3.3.2}Histogram Matching}{29}
-\contentsline {subsection}{\numberline {3.3.3}Embedding via Convolutional Networks}{29}
-\contentsline {chapter}{\numberline {4.}Results}{30}
-\contentsline {section}{\numberline {4.1}Main method}{30}
-\contentsline {subsection}{\numberline {4.1.1}Failure cases}{31}
+\contentsline {chapter}{\numberline {2.}Background}{8}
+\contentsline {section}{\numberline {2.1}Convolutional Networks}{8}
+\contentsline {subsection}{\numberline {2.1.1}Facial Keypoint Prediction}{9}
+\contentsline {subsection}{\numberline {2.1.2}Fully Convolutional Networks}{9}
+\contentsline {section}{\numberline {2.2}Contour Extraction}{10}
+\contentsline {subsection}{\numberline {2.2.1}Active Contour}{10}
+\contentsline {subsection}{\numberline {2.2.2}Seam Carving}{10}
+\contentsline {section}{\numberline {2.3}Curvature Measures}{10}
+\contentsline {section}{\numberline {2.4}Dynamic Time Warping}{11}
+\contentsline {chapter}{\numberline {3.}Methods}{12}
+\contentsline {section}{\numberline {3.1}Trailing Edge Extraction}{12}
+\contentsline {subsection}{\numberline {3.1.1}Fluke keypoint prediction}{12}
+\contentsline {subsubsection}{\numberline {3.1.1.1}Network Design}{13}
+\contentsline {subsubsection}{\numberline {3.1.1.2}Training Details}{13}
+\contentsline {subsubsection}{\numberline {3.1.1.3}Evaluation}{14}
+\contentsline {subsection}{\numberline {3.1.2}Basic Trailing Edge Extraction Algorithm}{15}
+\contentsline {subsection}{\numberline {3.1.3}Trailing Edge Scoring}{18}
+\contentsline {subsubsection}{\numberline {3.1.3.1}Trailing Edge Scoring Architectures}{19}
+\contentsline {paragraph}{Simple}{20}
+\contentsline {paragraph}{Upsample}{21}
+\contentsline {paragraph}{Jet}{21}
+\contentsline {paragraph}{Residual}{21}
+\contentsline {subsubsection}{\numberline {3.1.3.2}Using the trailing edge scores}{22}
+\contentsline {subsubsection}{\numberline {3.1.3.3}Training Details}{23}
+\contentsline {subsubsection}{\numberline {3.1.3.4}Evaluation}{24}
+\contentsline {section}{\numberline {3.2}Trailing Edge Matching}{25}
+\contentsline {subsection}{\numberline {3.2.1}Curvature Measurement}{25}
+\contentsline {subsection}{\numberline {3.2.2}Sequence Matching}{27}
+\contentsline {section}{\numberline {3.3}Alternative Approaches}{28}
+\contentsline {subsection}{\numberline {3.3.1}Aligning Trailing Edges}{29}
+\contentsline {subsubsection}{\numberline {3.3.1.1}Keypoint Alignment}{29}
+\contentsline {subsubsection}{\numberline {3.3.1.2}Dynamic Time Warping Alignment}{29}
+\contentsline {subsection}{\numberline {3.3.2}Histogram Matching}{30}
+\contentsline {subsection}{\numberline {3.3.3}Embedding via Convolutional Networks}{30}
+\contentsline {chapter}{\numberline {4.}Results}{31}
+\contentsline {section}{\numberline {4.1}Main method}{31}
 \contentsline {section}{\numberline {4.2}Configuration Options}{31}
 \contentsline {subsection}{\numberline {4.2.1}Variability in Matching Score}{31}
-\contentsline {subsection}{\numberline {4.2.2}Effectiveness of Keypoint Extractor}{32}
+\contentsline {subsection}{\numberline {4.2.2}Effectiveness of Keypoint Extractor}{33}
 \contentsline {subsection}{\numberline {4.2.3}Cropping Width}{33}
-\contentsline {subsection}{\numberline {4.2.4}Trailing Edge Extraction}{34}
+\contentsline {subsection}{\numberline {4.2.4}Trailing Edge Extraction}{35}
 \contentsline {subsubsection}{\numberline {4.2.4.1}Trailing Edge Scorer variations}{35}
 \contentsline {subsubsection}{\numberline {4.2.4.2}Using a Trailing Edge Scorer}{36}
-\contentsline {subsubsection}{\numberline {4.2.4.3}Number of neighbors in the extraction}{36}
-\contentsline {subsubsection}{\numberline {4.2.4.4}Using the notch}{37}
-\contentsline {subsection}{\numberline {4.2.5}Curvature Scales}{38}
-\contentsline {subsection}{\numberline {4.2.6}Sakoe-Chiba bound}{40}
-\contentsline {section}{\numberline {4.3}In Combination with Hotspotter}{40}
-\contentsline {subsection}{\numberline {4.3.1}Failure cases}{42}
-\contentsline {subsection}{\numberline {4.3.2}Characterization of when to use which method}{42}
-\contentsline {chapter}{\numberline {5.}Discussion}{43}
-\contentsline {section}{\numberline {5.1}Issues with the Proposed Method}{43}
-\contentsline {section}{\numberline {5.2}Future work}{44}
-\contentsline {section}{\numberline {5.3}Conclusion}{45}
-\contentsline {chapter}{REFERENCES}{46}
+\contentsline {subsubsection}{\numberline {4.2.4.3}Number of neighbors in the extraction}{38}
+\contentsline {subsubsection}{\numberline {4.2.4.4}Using the notch}{39}
+\contentsline {subsection}{\numberline {4.2.5}Curvature Scales}{39}
+\contentsline {subsection}{\numberline {4.2.6}Sakoe-Chiba bound}{41}
+\contentsline {section}{\numberline {4.3}In Combination with Hotspotter}{42}
+\contentsline {subsection}{\numberline {4.3.1}Characterization of when to use which method}{43}
+\contentsline {chapter}{\numberline {5.}Discussion}{45}
+\contentsline {section}{\numberline {5.1}Issues with the Proposed Method}{45}
+\contentsline {section}{\numberline {5.2}Future work}{46}
+\contentsline {section}{\numberline {5.3}Conclusion}{47}
+\contentsline {chapter}{REFERENCES}{48}
 \parindent 0pt\vskip 12pt APPENDIX
