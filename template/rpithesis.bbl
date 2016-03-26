@@ -83,6 +83,11 @@ F.~C. Crow.
 \newblock Summed-area tables for texture mapping.
 \newblock {\em ACM SIGGRAPH computer graphics}, 18(3):207--212, 1984.
 
+\bibitem{dumoulin2016guide}
+V.~Dumoulin and F.~Visin.
+\newblock A guide to convolution arithmetic for deep learning.
+\newblock {\em arXiv preprint arXiv:1603.07285}, 2016.
+
 \bibitem{fan2014learning}
 H.~Fan, Z.~Cao, Y.~Jiang, Q.~Yin, and C.~Doudou.
 \newblock Learning deep face representation.
