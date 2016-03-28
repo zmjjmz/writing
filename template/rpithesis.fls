@@ -442,9 +442,6 @@ INPUT ../images/results/aid207_grad.png
 INPUT ../images/results/vary_neighbors.png
 INPUT ../images/results/vary_neighbors.png
 INPUT ../images/results/vary_neighbors.png
-INPUT ../images/results/vary_ignore_notch.png
-INPUT ../images/results/vary_ignore_notch.png
-INPUT ../images/results/vary_ignore_notch.png
 INPUT ../images/results/curvature_diversity_fb.png
 INPUT ../images/results/curvature_diversity_fb.png
 INPUT ../images/results/curvature_diversity_fb.png
@@ -474,6 +471,12 @@ INPUT rpichap5.tex
 INPUT ../images/results/bc_dtw_gtrank_hist.png
 INPUT ../images/results/bc_dtw_gtrank_hist.png
 INPUT ../images/results/bc_dtw_gtrank_hist.png
+INPUT ../images/results/score_diff_fail_hist.png
+INPUT ../images/results/score_diff_fail_hist.png
+INPUT ../images/results/score_diff_fail_hist.png
+INPUT ../images/results/score_diff_succ_hist.png
+INPUT ../images/results/score_diff_succ_hist.png
+INPUT ../images/results/score_diff_succ_hist.png
 INPUT rpibib.tex
 INPUT rpibib.tex
 INPUT rpithesis.bbl
