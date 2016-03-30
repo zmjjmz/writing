@@ -21,7 +21,7 @@ A side effect of this is that small changes in the trailing edge can lead to mat
 This affects the usability of our method, as ideally a human operator verifying a match would only have to look at the top-$k$ flukes for some small value $k$.
 However, we find that in many failure cases the correct match is far down the list, and there is no reasonable value $k$ (i.e.\ that a human operator would want to find a match in) that all matches are within (see Figure \ref{fig:gtrank_hist}). 
 
-While this handling of failure cases is suboptimal, Figure \ref{fig:score_diff1st2nd} shows that by thresholding the difference in scores between the first and second ranked flukes for a given query, we can determine with high confidence whether or not a given query is matched correctly.
+While this handling of failure cases is sub-optimal, Figure \ref{fig:score_diff1st2nd} shows that by thresholding the difference in scores between the first and second ranked flukes for a given query, we can determine with high confidence whether or not a given query is matched correctly.
 However, we cannot easily ascertain a failure case from this, as there are many success cases that overlap with score differences that characterize failure cases.
 
 
@@ -63,12 +63,19 @@ Additionally, being able to detect and crop the fluke automatically from an imag
 We did not explore this as most of the images in the Flukebook dataset came pre-cropped around the fluke, as well as rotated such that the major axis of the trailing edge was horizontal.
 These conditions both obviate the need for such a system and make it difficult to train a detection and orientation model.
 
-Extracting the trailing edge is currently done with an unsophisticated and restricted algorithm, which can be improved. 
-There are several ways to improve this algorithm, but the main drawbacks are its lack of rotation invariance and the inability to easily determine the second or third best trailing edge.
-On top of that, the trailing edge scoring networks could be better evaluated with more annotated trailing edges, the creation of which is non-trivial.
+Extracting the trailing edge is currently done with an unsophisticated and restricted algorithm, and improving it is a viable avenue for future work. 
+There are several drawbacks, but its inability to handle larger ``slopes'' in the trailing edge without introducing noise is one of the main issues.
+Additionally, it is currently non-trivial to efficiently determine the second or third best trailing edge given the completed cost matrix.
+This would give us the ability to evaluate candidate trailing edges and choose the best one for matching.
+On top of that, the trailing edge scoring networks could be better trained with more annotated trailing edges, the creation of which requires significant manual effort.
 
 There is a lot to be done with the matching algorithm itself, namely in ensuring that it is more tolerant to insignificant deformations in the trailing edge.
 One major paradigm that we do not explore in this work is that of extracting and matching multiple features per trailing edge, much in the same way that Hotspotter and Hughes et al.\ \cite{hughes2015automated} operate.
+Another avenue of exploration is speeding up our method, either by pruning completely unlikely candidates for a query or by developing an indexing algorithm for an efficient (i.e.\ sub-linear) search of possible matches.
+The latter is a difficult task as our distance function is non-metric.
+This was beyond the scope of this work, however it would certainly be helpful as the size of datasets on which this method is evaluated increases.
+
+We also believe that the embedding network approach that was briefly described in section \ref{sec:embedding} showed promise and is worth re-evaluating on a larger dataset.
 
 \section{Conclusion}
 

@@ -26,11 +26,26 @@ C.~Baker, A.~Perry, J.~Bannister, M.~Weinrich, R.~B. Abernethy,
 \newblock {\em Proceedings of the National Academy of Sciences},
   90(17):8239--8243, 1993.
 
+\bibitem{Bastien-Theano-2012}
+F.~Bastien, P.~Lamblin, R.~Pascanu, J.~Bergstra, I.~J. Goodfellow, A.~Bergeron,
+  N.~Bouchard, and Y.~Bengio.
+\newblock Theano: new features and speed improvements.
+\newblock Deep Learning and Unsupervised Feature Learning NIPS 2012 Workshop,
+  2012.
+
 \bibitem{beekmans2005comparison}
 B.~Beekmans, H.~Whitehead, R.~Huele, L.~Steiner, and A.~G. Steenbeek.
 \newblock Comparison of two computer-assisted photo-identification methods
   applied to sperm whales (physeter macrocephalus).
 \newblock {\em Aquatic Mammals}, 31(2):243, 2005.
+
+\bibitem{bergstra+al:2010-scipy}
+J.~Bergstra, O.~Breuleux, F.~Bastien, P.~Lamblin, R.~Pascanu, G.~Desjardins,
+  J.~Turian, D.~Warde-Farley, and Y.~Bengio.
+\newblock Theano: a {CPU} and {GPU} math expression compiler.
+\newblock In {\em Proceedings of the Python for Scientific Computing Conference
+  ({SciPy})}, June 2010.
+\newblock Oral Presentation.
 
 \bibitem{berretti20113d}
 S.~Berretti, B.~B. Amor, M.~Daoudi, and A.~Del~Bimbo.
@@ -83,6 +98,13 @@ F.~C. Crow.
 \newblock Summed-area tables for texture mapping.
 \newblock {\em ACM SIGGRAPH computer graphics}, 18(3):207--212, 1984.
 
+\bibitem{sander_dieleman_2015_27878}
+S.~Dieleman, J.~Schl\"{u}ter, C.~Raffel, E.~Olson, S.~K. Sønderby, D.~Nouri,
+  D.~Maturana, M.~Thoma, E.~Battenberg, J.~Kelly, J.~D. Fauw, M.~Heilman,
+  diogo149, B.~McFee, H.~Weideman, takacsg84, peterderivaz, Jon, instagibbs,
+  D.~K. Rasul, CongLiu, Britefury, and J.~Degrave.
+\newblock Lasagne: First release., Aug. 2015.
+
 \bibitem{dumoulin2016guide}
 V.~Dumoulin and F.~Visin.
 \newblock A guide to convolution arithmetic for deep learning.
@@ -103,6 +125,11 @@ K.~Fukushima.
 \newblock Neural network model for a mechanism of pattern recognition
   unaffected by shift in position- neocognitron.
 \newblock {\em ELECTRON. \& COMMUN. JAPAN}, 62(10):11--18, 1979.
+
+\bibitem{eigenweb}
+G.~Guennebaud, B.~Jacob, et~al.
+\newblock Eigen v3.
+\newblock http://eigen.tuxfamily.org, 2010.
 
 \bibitem{hadsell2006dimensionality}
 R.~Hadsell, S.~Chopra, and Y.~LeCun.
@@ -210,6 +237,11 @@ J.~Long, E.~Shelhamer, and T.~Darrell.
 \newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
   Pattern Recognition}, pages 3431--3440, 2015.
 
+\bibitem{lowe2004distinctive}
+D.~G. Lowe.
+\newblock Distinctive image features from scale-invariant keypoints.
+\newblock {\em International journal of computer vision}, 60(2):91--110, 2004.
+
 \bibitem{mizroch1990computer}
 S.~A. Mizroch, J.~A. Beard, and M.~Lynde.
 \newblock Computer assisted photo-identification of humpback whales.
@@ -260,6 +292,14 @@ Y.~Qiao and M.~Yasuhara.
   rotated handwriting recognition.
 \newblock In {\em Pattern Recognition, 2006. ICPR 2006. 18th International
   Conference on}, volume~2, pages 905--908. IEEE, 2006.
+
+\bibitem{rakthanmanon2012searching}
+T.~Rakthanmanon, B.~Campana, A.~Mueen, G.~Batista, B.~Westover, Q.~Zhu,
+  J.~Zakaria, and E.~Keogh.
+\newblock Searching and mining trillions of time series subsequences under
+  dynamic time warping.
+\newblock In {\em Proceedings of the 18th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 262--270. ACM, 2012.
 
 \bibitem{sakoe1978dynamic}
 H.~Sakoe and S.~Chiba.
@@ -321,6 +361,11 @@ Y.~Taigman, M.~Yang, M.~Ranzato, and L.~Wolf.
   verification.
 \newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
   Pattern Recognition}, pages 1701--1708, 2014.
+
+\bibitem{van2011numpy}
+S.~Van Der~Walt, S.~C. Colbert, and G.~Varoquaux.
+\newblock The numpy array: a structure for efficient numerical computation.
+\newblock {\em Computing in Science \& Engineering}, 13(2):22--30, 2011.
 
 \bibitem{whitehead1990computer}
 H.~Whitehead.

@@ -9,7 +9,7 @@
 \section{Humpback Whales}
 
 Since the international ban on commercial hunting of Humpback whales in 1966, humpback whales have grown from a population of only 5000 \cite{baker1993abundant} to over 50000 \cite{branch2011humpback}. 
-As the population grows, it becomes more and more important to be able to automatically identify individual whales in order to accurately monitor their population growth and follow their migration patterns, among other ecological conservation endeavours.
+As the population grows, it becomes more and more important to be able to automatically identify individual whales in order to accurately monitor their population growth and follow their migration patterns, among other ecological conservation endeavors.
 One of the most reliable methods for photo-identifying humpback whales is by taking pictures of their flukes as they dive after breaching the surface of the water.
 
 \begin{figure*}[t]%
@@ -33,9 +33,9 @@ One of the most reliable methods for photo-identifying humpback whales is by tak
 
 \subsection{Distinguishing Individual Flukes}
 
-The primary distinguishing features of these flukes are --- for the purposes of this work --- separated into two main areas; the ``trailing edge'' of the fluke, and the internal texture (see Figure \ref{fig:example_fluke}).
+The primary distinguishing features of these flukes are --- for the purposes of this work --- separated into two main areas: the ``trailing edge'' of the fluke, and the internal texture (see Figure \ref{fig:example_fluke}).
 %There are pros and cons to identification with either feature.
-The internal texture is a more obvious choice for identification, as it is disinctive even from a distance even when the image is blurred.
+The internal texture is a more obvious choice for identification, as it is distinctive even from a distance even when the image is blurred.
 %whereas trailing edges require high quality photographs.
 Unfortunately, some humpback flukes have indistinct (e.g.\ all-black) internal textures, which make matching based on texture impossible (see Figure \ref{fig:unclear_texture}).
 Additionally, the work of Blackmer et al.\ \cite{blackmer2000temporal} finds that the trailing edge changes less with age than the internal texture of the fluke, which means that it can (potentially) be a more reliable identifier over time.
@@ -63,9 +63,10 @@ This trailing edge is then resized and aligned so that it can be compared with a
 It also compares a set of possible shifts, rotations, and scales of the query trailing edge to account for these differences.
 At the time of writing no published results on this system applied to humpback whales could be found.
 
-Automatically identifying humpback whales by their entire trailing edge contour is done experimentally in Hughes et al.\ \cite{hughes2015automated}, using a technique that is originally designed for great white sharks. 
+Automatically identifying humpback whales by their entire trailing edge contour is done experimentally in Hughes et al.\ \cite{hughes2015automated}, using a technique originally designed for great white sharks. 
 This technique segments the trailing edge into a set of possible contours and matches them combinatorially using Difference of Gaussians.
-The authors achieve a comparable accuracy to our method, however for a much smaller dataset of humpback flukes than the one evaluated here.
+The authors achieve a comparable accuracy to our method for a much smaller dataset of humpback flukes than the one evaluated here.
+A more detailed comparison to this method is beyond the scope of this thesis, but a possible avenue for future work.
 
 \begin{figure*}[t]%
 \centering
@@ -111,7 +112,7 @@ This requires significant manual effort to identify individuals.
 In Flukematcher \cite{kniest2010fluke}, control points are manually annotated which allow the program to automatically find pigmentation patterns in the fluke and align accordingly.
 Optionally, distinctive fluke patterns can also be selected and annotated by the user.
 A variety of heuristic features are then extracted, which are matched using a variety of similarity measures.
-This method has acheived a 82\% top-1 accuracy on a smaller dataset than ours.
+This method has achieved a 82\% top-1 accuracy on a smaller dataset than ours.
 However, it requires significant manual effort on the order of five minutes per fluke photograph.
 
 \section{Method Outline}
@@ -122,6 +123,8 @@ In this thesis, we develop and present an efficient fully-automated\footnote{Wit
 For each fluke, the algorithm first determines the left and right tip points of the fluke (as well as the bottom of the central notch). 
 The trailing edge contour is then extracted between the left and right tip points (see Figure \ref{fig:example_overlay}), and for each point on this contour curvature is measured at multiple scales.
 Once these curvatures are extracted for each fluke photograph, the algorithm computes the distance between a query fluke and possible identities by aligning its contour curvature against contour curvatures in the database and computing distance with dynamic time warping.
+This distance is used to give a ranking over possible matching images and subsequently their identities.  
+For identities with multiple images, we use the smallest distance.
 The query fluke is then given the identity of the database fluke with the lowest distance.
 This method is based on both traditional edge detection and curvature techniques, modern machine learning, and classical fast sequence comparison.
 
@@ -140,14 +143,14 @@ This method is based on both traditional edge detection and curvature techniques
 \end{figure*}
 
 We also show we can greatly improve the accuracy of this method by combining it with matches found by Hotspotter, a generalized pattern based identification method that is a powerful matching algorithm for several species \cite{crall_hotspotter_2013}.
-Hotspotter extracts keypoints with SIFT descriptors in an image that are then spatially verified and matched with other keypoints in the database to produce a ranking over possible identities. 
+Hotspotter extracts keypoints with SIFT descriptors \cite{lowe2004distinctive} in an image that are then spatially verified and matched with other keypoints in the database to produce a ranking over possible identities. 
 Despite the general nature of this method, we find that it does not identify keypoints on the trailing edge and thus struggles with flukes that have no significant internal texture. 
-This work is the first to our knowledge that details Hotspotters efficacy when applied to humpback whale flukes, and the results are presented in Chapter 4.
+This work is the first to our knowledge that details Hotspotter's efficacy when applied to humpback whale flukes, and the results are presented in Chapter 4.
 %It should be noted that we used a segmenting convolutional network to aid Hotspotter's predictions, although this is not detailed in this work.
 
 \section{The Dataset}
 
-The main dataset that is used and evaluated in this work is a subset of the dataset collected by the SPLASH project \cite{calambokidis2008splash}. 
+The main dataset used and evaluated in this work is a subset of the dataset collected by the SPLASH project \cite{calambokidis2008splash}. 
 It consists of about 1400 identified photographs spread over about 860 identified individuals.
 Of these, only 433 individuals have more than one image associated with them, giving 942 images that can be used in a one-to-one comparison.
 We refer to this dataset as the Flukebook dataset, which is the team from which it originates.
@@ -164,13 +167,13 @@ Additionally, an external dataset of unidentified (but annotated) humpback fluke
 % Discussion and future work presented in chapter 5
 
 The rest of this thesis starts by giving a background on the algorithms that our method is based on in Chapter \ref{sec:background}.
-Afterwards, the main method is detailed in Chapter \ref{sec:methods}, along with a description of some alternate methods that failed to work as well.
-Chapter \ref{sec:results} goes into the results of the primary algorithm as well as various configuration changes and how they affect the results.
-We also describe the effectiveness of this identification method in combination with Hotspotter.
+Afterwards, the main method is described in Chapter \ref{sec:methods}, which also includes a brief description of some alternate methods that did not work as well.
+Chapter \ref{sec:results} presents the results, showing overall algorithm performance and examining the effect of a number of configuration changes.
+Chapter \ref{sec:results} also describes the effectiveness of this identification method in combination with Hotspotter.
 This thesis concludes with a discussion on the failings of the primary method, as well as ways to improve it and generalize it to extracting and matching edge characteristics in other animals.
 
-The primary contributions of this work are the individual components of the main method for extracting trailing edges and fluke keypoints, as well as the combination of all the components into a coherent identification pipeline.
-We also contribute an evaluation of dynamic time warping on curvature measures as a method for matching humpback flukes, as well as an evaluation of Hotspotter for this task.
+We contribute an evaluation of dynamic time warping on curvature measures as a method for matching humpback flukes, as well as an evaluation of Hotspotter for this task.
+The primary contributions of this work are both the individual algorithms for extracting fluke keypoints and trailing edges, and more importantly the combination of all the components into an effective overall algorithm.
 
 
 
