@@ -54,7 +54,7 @@ While most of the implementation is done in Python, we use C++ with Eigen \cite{
 		\hline
 		\end{tabular}
 	}
-	\caption{This table provides the average time taken for each operation that constitutes our algorithm on a single image. All computations were done on the subset of Flukebook that we used for evaluation (942 images).}
+	\caption{\textbf{Itemized Running Time}. This table provides the average time taken for each operation that constitutes our algorithm on a single image. All computations were done on the subset of Flukebook that we used for evaluation (942 images).}
 	\label{tab:extract_te_times}
 \end{table*}
 
@@ -303,11 +303,11 @@ Therefore, in order to determine which scales to measure, we look at how much th
 
 \begin{figure*}[t]%
 \centering
-\subfloat[][]{
+\subfloat[][Curvature Diversity]{
 	\includegraphics[width=0.5\textwidth]{../images/results/curvature_diversity_fb.png} 
 	\label{fig:curvature_diversity:a}
 }
-\subfloat[][]{
+\subfloat[][Inter-scale difference]{
 	\includegraphics[width=0.5\textwidth]{../images/results/interscale_diff_fb.png} 
 	\label{fig:curvature_diversity:b}
 }%
@@ -388,17 +388,17 @@ Additionally, while it is possible for gross mismatches to occur from there bein
 
 \begin{figure*}[t]%
 \centering
-\subfloat[][]{
+\subfloat[][Query Image 1]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid493_te_kp_overlay.png}
 }
-\subfloat[][]{
+\subfloat[][Correct Match 1]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid147_te_kp_overlay.png}
 }
 \newline
-\subfloat[][]{
+\subfloat[][Query Image 2]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid494_te_kp_overlay.png}
 }
-\subfloat[][]{
+\subfloat[][Correct Match 2]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid148_te_kp_overlay.png}
 }
 \caption{\textbf{Example Disagreements Between Hotspotter and our method}. On the left side, (a) was matched correctly to (c) by our method, whereas Hotspotter could not find any matches for (a). On the right hand side however, Hotspotter gave (d) as the top match for (b) despite a large variance in pose and lighting, while our method failed to rank (d) in the top 5 matches for (b).}
@@ -433,7 +433,7 @@ As a result, flukes which have little to no internal texture are nearly impossib
 		\hline
 		\end{tabular}
 	}
-	\caption{This table provides a comparison between our method and Hotspotter in terms of top-1 ranking accuracy on the Flukebook dataset.}
+	\caption{\textbf{Comparison with Hotspotter}. This table provides a comparison between our method and Hotspotter in terms of top-1 ranking accuracy on the Flukebook dataset.}
 	\label{tab:vary_proot}
 \end{table*}
 

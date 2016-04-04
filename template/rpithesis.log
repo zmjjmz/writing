@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.8)  4 APR 2016 12:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.8)  4 APR 2016 14:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -934,22 +934,22 @@ Overfull \hbox (3.05197pt too wide) in paragraph at lines 26--26
 
 ]
 CHAPTER 1.
-<../images/results/aid88_nid47.png, id=542, 702.625pt x 281.05pt>
+<../images/results/aid88_nid47.png, id=546, 702.625pt x 281.05pt>
 File: ../images/results/aid88_nid47.png Graphic file (type png)
  <use ../images/results/aid88_nid47.png>
 Package pdftex.def Info: ../images/results/aid88_nid47.png used on input line 19.
 (pdftex.def)             Requested size: 213.19627pt x 85.27626pt.
- <../images/results/aid863_nid489.png, id=543, 702.625pt x 164.615pt>
+ <../images/results/aid863_nid489.png, id=547, 702.625pt x 164.615pt>
 File: ../images/results/aid863_nid489.png Graphic file (type png)
  <use ../images/results/aid863_nid489.png>
 Package pdftex.def Info: ../images/results/aid863_nid489.png used on input line 22.
 (pdftex.def)             Requested size: 213.19627pt x 49.94753pt.
- <../images/results/aid87_nid47.png, id=544, 702.625pt x 207.77625pt>
+ <../images/results/aid87_nid47.png, id=548, 702.625pt x 207.77625pt>
 File: ../images/results/aid87_nid47.png Graphic file (type png)
  <use ../images/results/aid87_nid47.png>
 Package pdftex.def Info: ../images/results/aid87_nid47.png used on input line 26.
 (pdftex.def)             Requested size: 213.19627pt x 63.04352pt.
- <../images/results/aid864_nid489.png, id=545, 702.625pt x 193.72375pt>
+ <../images/results/aid864_nid489.png, id=549, 702.625pt x 193.72375pt>
 File: ../images/results/aid864_nid489.png Graphic file (type png)
  <use ../images/results/aid864_nid489.png>
 Package pdftex.def Info: ../images/results/aid864_nid489.png used on input line 29.
@@ -971,17 +971,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--52
 
 [1
 
-] [2 <../images/results/aid88_nid47.png (PNG copy)> <../images/results/aid863_nid489.png (PNG copy)> <../images/results/aid87_nid47.png (PNG copy)> <../images/results/aid864_nid489.png (PNG copy)>] <../images/unclear_texture.jpg, id=582, 292.2117pt x 88.8921pt>
+] [2 <../images/results/aid88_nid47.png (PNG copy)> <../images/results/aid863_nid489.png (PNG copy)> <../images/results/aid87_nid47.png (PNG copy)> <../images/results/aid864_nid489.png (PNG copy)>] <../images/unclear_texture.jpg, id=586, 292.2117pt x 88.8921pt>
 File: ../images/unclear_texture.jpg Graphic file (type jpg)
  <use ../images/unclear_texture.jpg>
 Package pdftex.def Info: ../images/unclear_texture.jpg used on input line 73.
 (pdftex.def)             Requested size: 426.39255pt x 129.72034pt.
- [3 <../images/unclear_texture.jpg>] <../images/unclear_te_q.jpg, id=595, 1378.14874pt x 388.45125pt>
+ [3 <../images/unclear_texture.jpg>] <../images/unclear_te_q.jpg, id=599, 1378.14874pt x 388.45125pt>
 File: ../images/unclear_te_q.jpg Graphic file (type jpg)
  <use ../images/unclear_te_q.jpg>
 Package pdftex.def Info: ../images/unclear_te_q.jpg used on input line 93.
 (pdftex.def)             Requested size: 426.39255pt x 120.18155pt.
- <../images/unclear_te_gt.jpg, id=596, 33.20807pt x 8.32912pt>
+ <../images/unclear_te_gt.jpg, id=600, 33.20807pt x 8.32912pt>
 File: ../images/unclear_te_gt.jpg Graphic file (type jpg)
  <use ../images/unclear_te_gt.jpg>
 Package pdftex.def Info: ../images/unclear_te_gt.jpg used on input line 97.
@@ -996,7 +996,7 @@ Overfull \hbox (7.83325pt too wide) in paragraph at lines 93--98
  [][] 
  []
 
-[4 <../images/unclear_te_q.jpg> <../images/unclear_te_gt.jpg>] <../images/results/aid951_te_kp_overlay.png, id=612, 752.8125pt x 197.73875pt>
+[4 <../images/unclear_te_q.jpg> <../images/unclear_te_gt.jpg>] <../images/results/aid951_te_kp_overlay.png, id=616, 752.8125pt x 197.73875pt>
 File: ../images/results/aid951_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid951_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid951_te_kp_overlay.png used on input line 140.
@@ -1007,29 +1007,29 @@ CHAPTER 2.
 
 ] [9] [10]) (./rpichap3.tex [11]
 CHAPTER 3.
-<../images/aid88_kpoverlay.png, id=723, 752.8125pt x 301.125pt>
+<../images/aid88_kpoverlay.png, id=727, 752.8125pt x 301.125pt>
 File: ../images/aid88_kpoverlay.png Graphic file (type png)
  <use ../images/aid88_kpoverlay.png>
 Package pdftex.def Info: ../images/aid88_kpoverlay.png used on input line 27.
 (pdftex.def)             Requested size: 426.39255pt x 170.56325pt.
  [12
 
-] [13 <../images/aid88_kpoverlay.png (PNG copy)>] <../images/aid1323_kpoverlay.png, id=740, 752.8125pt x 495.8525pt>
+] [13 <../images/aid88_kpoverlay.png (PNG copy)>] <../images/aid1323_kpoverlay.png, id=744, 752.8125pt x 495.8525pt>
 File: ../images/aid1323_kpoverlay.png Graphic file (type png)
  <use ../images/aid1323_kpoverlay.png>
 Package pdftex.def Info: ../images/aid1323_kpoverlay.png used on input line 81.
 (pdftex.def)             Requested size: 426.39255pt x 280.86082pt.
- [14] <../images/results/kp128_test_dist_hist.png, id=754, 934.49126pt x 578.16pt>
+ [14] <../images/results/kp128_test_dist_hist.png, id=758, 934.49126pt x 578.16pt>
 File: ../images/results/kp128_test_dist_hist.png Graphic file (type png)
  <use ../images/results/kp128_test_dist_hist.png>
 Package pdftex.def Info: ../images/results/kp128_test_dist_hist.png used on input line 94.
 (pdftex.def)             Requested size: 426.39255pt x 263.80426pt.
- [15 <../images/aid1323_kpoverlay.png (PNG copy)>] [16 <../images/results/kp128_test_dist_hist.png>] [17] <../images/aid88_vertgrad.png, id=784, 752.8125pt x 301.125pt>
+ [15 <../images/aid1323_kpoverlay.png (PNG copy)>] [16 <../images/results/kp128_test_dist_hist.png>] [17] <../images/aid88_vertgrad.png, id=788, 752.8125pt x 301.125pt>
 File: ../images/aid88_vertgrad.png Graphic file (type png)
  <use ../images/aid88_vertgrad.png>
 Package pdftex.def Info: ../images/aid88_vertgrad.png used on input line 163.
 (pdftex.def)             Requested size: 213.19627pt x 85.27933pt.
- <../images/aid88_te_kp_overlay_noscorer.png, id=785, 752.8125pt x 301.125pt>
+ <../images/aid88_te_kp_overlay_noscorer.png, id=789, 752.8125pt x 301.125pt>
 File: ../images/aid88_te_kp_overlay_noscorer.png Graphic file (type png)
  <use ../images/aid88_te_kp_overlay_noscorer.png>
 Package pdftex.def Info: ../images/aid88_te_kp_overlay_noscorer.png used on input line 167.
@@ -1039,12 +1039,12 @@ Overfull \hbox (15.6665pt too wide) in paragraph at lines 163--168
  [][][][] 
  []
 
-[18 <../images/aid88_vertgrad.png (PNG copy)> <../images/aid88_te_kp_overlay_noscorer.png (PNG copy)>] <../images/fluke_aid88_goodmatching.jpg, id=796, 846.7635pt x 338.866pt>
+[18 <../images/aid88_vertgrad.png (PNG copy)> <../images/aid88_te_kp_overlay_noscorer.png (PNG copy)>] <../images/fluke_aid88_goodmatching.jpg, id=800, 846.7635pt x 338.866pt>
 File: ../images/fluke_aid88_goodmatching.jpg Graphic file (type jpg)
  <use ../images/fluke_aid88_goodmatching.jpg>
 Package pdftex.def Info: ../images/fluke_aid88_goodmatching.jpg used on input line 207.
 (pdftex.def)             Requested size: 426.39255pt x 170.63734pt.
- <../images/aid88_tescorer_annot_res.png, id=797, 752.8125pt x 301.125pt>
+ <../images/aid88_tescorer_annot_res.png, id=801, 752.8125pt x 301.125pt>
 File: ../images/aid88_tescorer_annot_res.png Graphic file (type png)
  <use ../images/aid88_tescorer_annot_res.png>
 Package pdftex.def Info: ../images/aid88_tescorer_annot_res.png used on input line 211.
@@ -1059,7 +1059,7 @@ Overfull \hbox (7.83325pt too wide) in paragraph at lines 207--212
  [][] 
  []
 
-[19] [20 <../images/fluke_aid88_goodmatching.jpg> <../images/aid88_tescorer_annot_res.png (PNG copy)>] [21] <../images/aid88_tescorer_annot_simple.png, id=825, 752.8125pt x 301.125pt>
+[19] [20 <../images/fluke_aid88_goodmatching.jpg> <../images/aid88_tescorer_annot_res.png (PNG copy)>] [21] <../images/aid88_tescorer_annot_simple.png, id=829, 752.8125pt x 301.125pt>
 File: ../images/aid88_tescorer_annot_simple.png Graphic file (type png)
  <use ../images/aid88_tescorer_annot_simple.png>
 Package pdftex.def Info: ../images/aid88_tescorer_annot_simple.png used on input line 261.
@@ -1068,12 +1068,12 @@ File: ../images/aid88_tescorer_annot_res.png Graphic file (type png)
  <use ../images/aid88_tescorer_annot_res.png>
 Package pdftex.def Info: ../images/aid88_tescorer_annot_res.png used on input line 265.
 (pdftex.def)             Requested size: 213.19627pt x 85.27933pt.
- <../images/aid88_tescorer_annot_upsample.png, id=826, 752.8125pt x 301.125pt>
+ <../images/aid88_tescorer_annot_upsample.png, id=830, 752.8125pt x 301.125pt>
 File: ../images/aid88_tescorer_annot_upsample.png Graphic file (type png)
  <use ../images/aid88_tescorer_annot_upsample.png>
 Package pdftex.def Info: ../images/aid88_tescorer_annot_upsample.png used on input line 270.
 (pdftex.def)             Requested size: 213.19627pt x 85.27933pt.
- <../images/aid88_tescorer_annot_jet2.png, id=827, 752.8125pt x 301.125pt>
+ <../images/aid88_tescorer_annot_jet2.png, id=831, 752.8125pt x 301.125pt>
 File: ../images/aid88_tescorer_annot_jet2.png Graphic file (type png)
  <use ../images/aid88_tescorer_annot_jet2.png>
 Package pdftex.def Info: ../images/aid88_tescorer_annot_jet2.png used on input line 274.
@@ -1088,12 +1088,12 @@ Overfull \hbox (15.6665pt too wide) in paragraph at lines 261--275
  [][][][] 
  []
 
-[22 <../images/aid88_tescorer_annot_simple.png (PNG copy)> <../images/aid88_tescorer_annot_upsample.png (PNG copy)> <../images/aid88_tescorer_annot_jet2.png (PNG copy)>] [23] <../images/results/aid960_tescorer_annot_res.png, id=846, 752.8125pt x 352.31625pt>
+[22 <../images/aid88_tescorer_annot_simple.png (PNG copy)> <../images/aid88_tescorer_annot_upsample.png (PNG copy)> <../images/aid88_tescorer_annot_jet2.png (PNG copy)>] [23] <../images/results/aid960_tescorer_annot_res.png, id=850, 752.8125pt x 352.31625pt>
 File: ../images/results/aid960_tescorer_annot_res.png Graphic file (type png)
  <use ../images/results/aid960_tescorer_annot_res.png>
 Package pdftex.def Info: ../images/results/aid960_tescorer_annot_res.png used on input line 320.
 (pdftex.def)             Requested size: 213.19627pt x 99.77681pt.
- <../images/results/aid960_te_kp_overlay_annot_res.png, id=847, 752.8125pt x 352.31625pt>
+ <../images/results/aid960_te_kp_overlay_annot_res.png, id=851, 752.8125pt x 352.31625pt>
 File: ../images/results/aid960_te_kp_overlay_annot_res.png Graphic file (type png)
  <use ../images/results/aid960_te_kp_overlay_annot_res.png>
 Package pdftex.def Info: ../images/results/aid960_te_kp_overlay_annot_res.png used on input line 323.
@@ -1103,22 +1103,22 @@ Overfull \hbox (15.6665pt too wide) in paragraph at lines 320--324
  [][][][] 
  []
 
-[24 <../images/results/aid960_tescorer_annot_res.png (PNG copy)> <../images/results/aid960_te_kp_overlay_annot_res.png (PNG copy)>] [25] <../images/results/aid1034_te_overlay.png, id=869, 752.8125pt x 253.94875pt>
+[24 <../images/results/aid960_tescorer_annot_res.png (PNG copy)> <../images/results/aid960_te_kp_overlay_annot_res.png (PNG copy)>] [25] [26] <../images/results/aid1034_te_overlay.png, id=881, 752.8125pt x 253.94875pt>
 File: ../images/results/aid1034_te_overlay.png Graphic file (type png)
  <use ../images/results/aid1034_te_overlay.png>
 Package pdftex.def Info: ../images/results/aid1034_te_overlay.png used on input line 413.
 (pdftex.def)             Requested size: 213.19627pt x 71.9189pt.
- <../images/results/aid1035_te_overlay.png, id=870, 752.8125pt x 282.05376pt>
+ <../images/results/aid1035_te_overlay.png, id=882, 752.8125pt x 282.05376pt>
 File: ../images/results/aid1035_te_overlay.png Graphic file (type png)
  <use ../images/results/aid1035_te_overlay.png>
 Package pdftex.def Info: ../images/results/aid1035_te_overlay.png used on input line 416.
 (pdftex.def)             Requested size: 213.19627pt x 79.8783pt.
- <../images/results/aid1034_curv.png, id=871, 3754.025pt x 160.6pt>
+ <../images/results/aid1034_curv.png, id=883, 3754.025pt x 160.6pt>
 File: ../images/results/aid1034_curv.png Graphic file (type png)
  <use ../images/results/aid1034_curv.png>
 Package pdftex.def Info: ../images/results/aid1034_curv.png used on input line 420.
 (pdftex.def)             Requested size: 213.19627pt x 9.11852pt.
- <../images/results/aid1035_curv.png, id=872, 3754.025pt x 160.6pt>
+ <../images/results/aid1035_curv.png, id=884, 3754.025pt x 160.6pt>
 File: ../images/results/aid1035_curv.png Graphic file (type png)
  <use ../images/results/aid1035_curv.png>
 Package pdftex.def Info: ../images/results/aid1035_curv.png used on input line 423.
@@ -1133,47 +1133,47 @@ Overfull \hbox (15.6665pt too wide) in paragraph at lines 413--428
  [][][][] 
  []
 
-[26] [27 <../images/results/aid1034_te_overlay.png (PNG copy)> <../images/results/aid1035_te_overlay.png (PNG copy)> <../images/results/aid1034_curv.png> <../images/results/aid1035_curv.png>] <../images/results/aid612_te_kp_overlay.png, id=898, 752.8125pt x 300.12125pt>
+[27 <../images/results/aid1034_te_overlay.png (PNG copy)> <../images/results/aid1035_te_overlay.png (PNG copy)> <../images/results/aid1034_curv.png> <../images/results/aid1035_curv.png>] <../images/results/aid612_te_kp_overlay.png, id=902, 752.8125pt x 300.12125pt>
 File: ../images/results/aid612_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid612_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid612_te_kp_overlay.png used on input line 466.
 (pdftex.def)             Requested size: 213.19627pt x 84.99506pt.
- <../images/results/aid509_te_kp_overlay.png, id=899, 752.8125pt x 333.245pt>
+ <../images/results/aid509_te_kp_overlay.png, id=903, 752.8125pt x 333.245pt>
 File: ../images/results/aid509_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid509_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid509_te_kp_overlay.png used on input line 469.
 (pdftex.def)             Requested size: 213.19627pt x 94.37578pt.
- <../images/results/aid612_curv.png, id=900, 3754.025pt x 160.6pt>
+ <../images/results/aid612_curv.png, id=904, 3754.025pt x 160.6pt>
 File: ../images/results/aid612_curv.png Graphic file (type png)
  <use ../images/results/aid612_curv.png>
 Package pdftex.def Info: ../images/results/aid612_curv.png used on input line 473.
 (pdftex.def)             Requested size: 213.19627pt x 9.11852pt.
- <../images/results/aid509_curv.png, id=901, 3754.025pt x 160.6pt>
+ <../images/results/aid509_curv.png, id=905, 3754.025pt x 160.6pt>
 File: ../images/results/aid509_curv.png Graphic file (type png)
  <use ../images/results/aid509_curv.png>
 Package pdftex.def Info: ../images/results/aid509_curv.png used on input line 476.
 (pdftex.def)             Requested size: 213.19627pt x 9.11852pt.
- <../images/results/aid613_te_kp_overlay.png, id=902, 752.8125pt x 213.79875pt>
+ <../images/results/aid613_te_kp_overlay.png, id=906, 752.8125pt x 213.79875pt>
 File: ../images/results/aid613_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid613_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid613_te_kp_overlay.png used on input line 480.
 (pdftex.def)             Requested size: 213.19627pt x 60.54831pt.
- <../images/results/aid508_te_kp_overlay.png, id=903, 752.8125pt x 389.455pt>
+ <../images/results/aid508_te_kp_overlay.png, id=907, 752.8125pt x 389.455pt>
 File: ../images/results/aid508_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid508_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid508_te_kp_overlay.png used on input line 483.
 (pdftex.def)             Requested size: 213.19627pt x 110.29459pt.
- <../images/results/aid613_curv.png, id=904, 3754.025pt x 160.6pt>
+ <../images/results/aid613_curv.png, id=908, 3754.025pt x 160.6pt>
 File: ../images/results/aid613_curv.png Graphic file (type png)
  <use ../images/results/aid613_curv.png>
 Package pdftex.def Info: ../images/results/aid613_curv.png used on input line 487.
 (pdftex.def)             Requested size: 213.19627pt x 9.11852pt.
- <../images/results/aid508_curv.png, id=905, 3754.025pt x 160.6pt>
+ <../images/results/aid508_curv.png, id=909, 3754.025pt x 160.6pt>
 File: ../images/results/aid508_curv.png Graphic file (type png)
  <use ../images/results/aid508_curv.png>
 Package pdftex.def Info: ../images/results/aid508_curv.png used on input line 490.
 (pdftex.def)             Requested size: 213.19627pt x 9.11852pt.
- <../images/results/aid1227_te_kp_overlay.png, id=906, 752.8125pt x 271.0125pt>
+ <../images/results/aid1227_te_kp_overlay.png, id=910, 752.8125pt x 271.0125pt>
 File: ../images/results/aid1227_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid1227_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid1227_te_kp_overlay.png used on input line 494.
@@ -1182,12 +1182,12 @@ File: ../images/results/aid951_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid951_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid951_te_kp_overlay.png used on input line 497.
 (pdftex.def)             Requested size: 213.19627pt x 56.00009pt.
- <../images/results/aid1227_curv.png, id=907, 3754.025pt x 160.6pt>
+ <../images/results/aid1227_curv.png, id=911, 3754.025pt x 160.6pt>
 File: ../images/results/aid1227_curv.png Graphic file (type png)
  <use ../images/results/aid1227_curv.png>
 Package pdftex.def Info: ../images/results/aid1227_curv.png used on input line 501.
 (pdftex.def)             Requested size: 213.19627pt x 9.11852pt.
- <../images/results/aid951_curv.png, id=908, 3754.025pt x 160.6pt>
+ <../images/results/aid951_curv.png, id=912, 3754.025pt x 160.6pt>
 File: ../images/results/aid951_curv.png Graphic file (type png)
  <use ../images/results/aid951_curv.png>
 Package pdftex.def Info: ../images/results/aid951_curv.png used on input line 504.
@@ -1231,57 +1231,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--23
 
 [32
 
-] [33] <../images/results/score_sep_crop.png, id=982, 909.3975pt x 622.325pt>
+] [33] <../images/results/score_sep_crop.png, id=986, 909.3975pt x 622.325pt>
 File: ../images/results/score_sep_crop.png Graphic file (type png)
  <use ../images/results/score_sep_crop.png>
 Package pdftex.def Info: ../images/results/score_sep_crop.png used on input line 99.
 (pdftex.def)             Requested size: 426.39255pt x 291.79008pt.
- [34] <../images/results/vary_manual_extract.png, id=994, 986.68625pt x 528.97626pt>
+ [34] <../images/results/vary_manual_extract.png, id=998, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_manual_extract.png Graphic file (type png)
  <use ../images/results/vary_manual_extract.png>
 Package pdftex.def Info: ../images/results/vary_manual_extract.png used on input line 114.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
- [35 <../images/results/score_sep_crop.png>] <../images/results/te_size_hist_fb.png, id=1003, 934.49126pt x 578.16pt>
+ [35 <../images/results/score_sep_crop.png>] <../images/results/te_size_hist_fb.png, id=1007, 934.49126pt x 578.16pt>
 File: ../images/results/te_size_hist_fb.png Graphic file (type png)
  <use ../images/results/te_size_hist_fb.png>
 Package pdftex.def Info: ../images/results/te_size_hist_fb.png used on input line 163.
 (pdftex.def)             Requested size: 426.39255pt x 263.80426pt.
- [36 <../images/results/vary_manual_extract.png>] <../images/results/vary_crop_size.png, id=1011, 986.68625pt x 528.97626pt>
+ [36 <../images/results/vary_manual_extract.png>] <../images/results/vary_crop_size.png, id=1015, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_crop_size.png Graphic file (type png)
  <use ../images/results/vary_crop_size.png>
 Package pdftex.def Info: ../images/results/vary_crop_size.png used on input line 194.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
- [37 <../images/results/te_size_hist_fb.png>] <../images/results/vary_te_scorer.png, id=1019, 986.68625pt x 528.97626pt>
+ [37 <../images/results/te_size_hist_fb.png>] <../images/results/vary_te_scorer.png, id=1023, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_te_scorer.png Graphic file (type png)
  <use ../images/results/vary_te_scorer.png>
 Package pdftex.def Info: ../images/results/vary_te_scorer.png used on input line 207.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
- <../images/results/vary_te_scorer_maxweight.png, id=1022, 986.68625pt x 528.97626pt>
+ <../images/results/vary_te_scorer_maxweight.png, id=1026, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_te_scorer_maxweight.png Graphic file (type png)
  <use ../images/results/vary_te_scorer_maxweight.png>
 Package pdftex.def Info: ../images/results/vary_te_scorer_maxweight.png used on input line 219.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
- [38 <../images/results/vary_crop_size.png>] [39 <../images/results/vary_te_scorer.png> <../images/results/vary_te_scorer_maxweight.png>] <../images/results/vary_te_weight.png, id=1037, 986.68625pt x 528.97626pt>
+ [38 <../images/results/vary_crop_size.png>] [39 <../images/results/vary_te_scorer.png> <../images/results/vary_te_scorer_maxweight.png>] <../images/results/vary_te_weight.png, id=1041, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_te_weight.png Graphic file (type png)
  <use ../images/results/vary_te_weight.png>
 Package pdftex.def Info: ../images/results/vary_te_weight.png used on input line 236.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
- <../images/results/aid207_te_kp_overlay.png, id=1038, 752.8125pt x 431.6125pt>
+ <../images/results/aid207_te_kp_overlay.png, id=1042, 752.8125pt x 431.6125pt>
 File: ../images/results/aid207_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid207_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid207_te_kp_overlay.png used on input line 253.
 (pdftex.def)             Requested size: 213.19627pt x 122.2337pt.
- <../images/results/aid207_te_kp_overlayno_tescorer.png, id=1039, 752.8125pt x 431.6125pt>
+ <../images/results/aid207_te_kp_overlayno_tescorer.png, id=1043, 752.8125pt x 431.6125pt>
 File: ../images/results/aid207_te_kp_overlayno_tescorer.png Graphic file (type png)
  <use ../images/results/aid207_te_kp_overlayno_tescorer.png>
 Package pdftex.def Info: ../images/results/aid207_te_kp_overlayno_tescorer.png used on input line 256.
 (pdftex.def)             Requested size: 213.19627pt x 122.2337pt.
- <../images/results/aid207_tescorer_annot_res.png, id=1040, 752.8125pt x 431.6125pt>
+ <../images/results/aid207_tescorer_annot_res.png, id=1044, 752.8125pt x 431.6125pt>
 File: ../images/results/aid207_tescorer_annot_res.png Graphic file (type png)
  <use ../images/results/aid207_tescorer_annot_res.png>
 Package pdftex.def Info: ../images/results/aid207_tescorer_annot_res.png used on input line 260.
 (pdftex.def)             Requested size: 213.19627pt x 122.2337pt.
- <../images/results/aid207_grad.png, id=1041, 752.8125pt x 431.6125pt>
+ <../images/results/aid207_grad.png, id=1045, 752.8125pt x 431.6125pt>
 File: ../images/results/aid207_grad.png Graphic file (type png)
  <use ../images/results/aid207_grad.png>
 Package pdftex.def Info: ../images/results/aid207_grad.png used on input line 263.
@@ -1296,17 +1296,17 @@ Overfull \hbox (15.6665pt too wide) in paragraph at lines 253--264
  [][][][] 
  []
 
-<../images/results/vary_neighbors.png, id=1043, 986.68625pt x 528.97626pt>
+<../images/results/vary_neighbors.png, id=1047, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_neighbors.png Graphic file (type png)
  <use ../images/results/vary_neighbors.png>
 Package pdftex.def Info: ../images/results/vary_neighbors.png used on input line 275.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
- [40 <../images/results/vary_te_weight.png>] [41 <../images/results/aid207_te_kp_overlay.png (PNG copy)> <../images/results/aid207_te_kp_overlayno_tescorer.png (PNG copy)> <../images/results/aid207_tescorer_annot_res.png (PNG copy)> <../images/results/aid207_grad.png (PNG copy)>] <../images/results/curvature_diversity_fb.png, id=1057, 433.62pt x 289.08pt>
+ [40 <../images/results/vary_te_weight.png>] [41 <../images/results/aid207_te_kp_overlay.png (PNG copy)> <../images/results/aid207_te_kp_overlayno_tescorer.png (PNG copy)> <../images/results/aid207_tescorer_annot_res.png (PNG copy)> <../images/results/aid207_grad.png (PNG copy)>] <../images/results/curvature_diversity_fb.png, id=1061, 433.62pt x 289.08pt>
 File: ../images/results/curvature_diversity_fb.png Graphic file (type png)
  <use ../images/results/curvature_diversity_fb.png>
 Package pdftex.def Info: ../images/results/curvature_diversity_fb.png used on input line 309.
 (pdftex.def)             Requested size: 213.19627pt x 142.13123pt.
- <../images/results/interscale_diff_fb.png, id=1058, 433.62pt x 289.08pt>
+ <../images/results/interscale_diff_fb.png, id=1062, 433.62pt x 289.08pt>
 File: ../images/results/interscale_diff_fb.png Graphic file (type png)
  <use ../images/results/interscale_diff_fb.png>
 Package pdftex.def Info: ../images/results/interscale_diff_fb.png used on input line 313.
@@ -1316,27 +1316,27 @@ Overfull \hbox (15.6665pt too wide) in paragraph at lines 309--314
  [][][][] 
  []
 
-[42 <../images/results/vary_neighbors.png>] <../images/results/vary_window.png, id=1068, 986.68625pt x 528.97626pt>
+[42 <../images/results/vary_neighbors.png>] <../images/results/vary_window.png, id=1072, 986.68625pt x 528.97626pt>
 File: ../images/results/vary_window.png Graphic file (type png)
  <use ../images/results/vary_window.png>
 Package pdftex.def Info: ../images/results/vary_window.png used on input line 356.
 (pdftex.def)             Requested size: 426.39255pt x 228.59343pt.
- <../images/results/aid493_te_kp_overlay.png, id=1071, 752.8125pt x 204.765pt>
+ <../images/results/aid493_te_kp_overlay.png, id=1075, 752.8125pt x 204.765pt>
 File: ../images/results/aid493_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid493_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid493_te_kp_overlay.png used on input line 393.
 (pdftex.def)             Requested size: 213.19627pt x 57.98993pt.
- <../images/results/aid147_te_kp_overlay.png, id=1072, 752.8125pt x 273.02pt>
+ <../images/results/aid147_te_kp_overlay.png, id=1076, 752.8125pt x 273.02pt>
 File: ../images/results/aid147_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid147_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid147_te_kp_overlay.png used on input line 396.
 (pdftex.def)             Requested size: 213.19627pt x 77.31992pt.
- <../images/results/aid494_te_kp_overlay.png, id=1073, 752.8125pt x 315.1775pt>
+ <../images/results/aid494_te_kp_overlay.png, id=1077, 752.8125pt x 315.1775pt>
 File: ../images/results/aid494_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid494_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid494_te_kp_overlay.png used on input line 400.
 (pdftex.def)             Requested size: 213.19627pt x 89.25903pt.
- <../images/results/aid148_te_kp_overlay.png, id=1074, 752.8125pt x 185.69376pt>
+ <../images/results/aid148_te_kp_overlay.png, id=1078, 752.8125pt x 185.69376pt>
 File: ../images/results/aid148_te_kp_overlay.png Graphic file (type png)
  <use ../images/results/aid148_te_kp_overlay.png>
 Package pdftex.def Info: ../images/results/aid148_te_kp_overlay.png used on input line 403.
@@ -1357,23 +1357,23 @@ LaTeX Warning: Text page 44 contains only floats.
 
 [44 <../images/results/vary_window.png> <../images/results/aid493_te_kp_overlay.png (PNG copy)> <../images/results/aid147_te_kp_overlay.png (PNG copy)> <../images/results/aid494_te_kp_overlay.png (PNG copy)> <../images/results/aid148_te_kp_overlay.png (PNG copy)>] [45]) (./rpichap5.tex [46]
 CHAPTER 5.
-<../images/results/bc_dtw_gtrank_hist.png, id=1101, 934.49126pt x 578.16pt>
+<../images/results/bc_dtw_gtrank_hist.png, id=1105, 934.49126pt x 578.16pt>
 File: ../images/results/bc_dtw_gtrank_hist.png Graphic file (type png)
  <use ../images/results/bc_dtw_gtrank_hist.png>
 Package pdftex.def Info: ../images/results/bc_dtw_gtrank_hist.png used on input line 13.
 (pdftex.def)             Requested size: 426.39255pt x 263.80426pt.
  [47
 
-] <../images/results/score_diff_fail_hist.png, id=1112, 433.62pt x 216.81pt>
+] <../images/results/score_diff_fail_hist.png, id=1117, 433.62pt x 289.08pt>
 File: ../images/results/score_diff_fail_hist.png Graphic file (type png)
  <use ../images/results/score_diff_fail_hist.png>
 Package pdftex.def Info: ../images/results/score_diff_fail_hist.png used on input line 45.
-(pdftex.def)             Requested size: 213.19627pt x 106.59842pt.
- <../images/results/score_diff_succ_hist.png, id=1113, 433.62pt x 216.81pt>
+(pdftex.def)             Requested size: 213.19627pt x 142.13123pt.
+ <../images/results/score_diff_succ_hist.png, id=1118, 433.62pt x 289.08pt>
 File: ../images/results/score_diff_succ_hist.png Graphic file (type png)
  <use ../images/results/score_diff_succ_hist.png>
 Package pdftex.def Info: ../images/results/score_diff_succ_hist.png used on input line 48.
-(pdftex.def)             Requested size: 213.19627pt x 106.59842pt.
+(pdftex.def)             Requested size: 213.19627pt x 142.13123pt.
 
 Overfull \hbox (15.6665pt too wide) in paragraph at lines 45--49
  [][][][] 
@@ -1404,16 +1404,16 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 106.
 Here is how much of TeX's memory you used:
  29163 strings out of 493054
  577530 string characters out of 6140587
- 599043 words of memory out of 5000000
+ 599245 words of memory out of 5000000
  31896 multiletter control sequences out of 15000+600000
  14724 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,14n,54p,10416b,1120s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on rpithesis.pdf (68 pages, 7595897 bytes).
+Output written on rpithesis.pdf (68 pages, 7594499 bytes).
 PDF statistics:
- 1297 PDF objects out of 1440 (max. 8388607)
- 1112 compressed objects within 12 object streams
+ 1301 PDF objects out of 1440 (max. 8388607)
+ 1116 compressed objects within 12 object streams
  305 named destinations out of 1000 (max. 500000)
  826 words of extra memory for PDF output out of 10000 (max. 10000000)
 

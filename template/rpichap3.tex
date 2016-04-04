@@ -202,14 +202,14 @@ These patches are then randomly split into training, testing, and validation set
 
 \begin{figure*}[t]%
 \centering
-\subfloat[][]{
+\subfloat[][Original Image]{
 	\includegraphics[width=1.0\textwidth]{../images/fluke_aid88_goodmatching.jpg}
 }
 \newline
-\subfloat[][Trailing Edge Scores]{
+\subfloat[][Trailing Edge Score]{
 	\includegraphics[width=1.0\textwidth]{../images/aid88_tescorer_annot_res.png}
 }
-\caption{\textbf{Example Trailing Edge Score}. Bottom image is the Residual scorer's classification of the top image. Trailing edge is class is colored black.}
+\caption{\textbf{Example Trailing Edge Score}. This trailing edge score was produced by the Residual architecture. A darker pixel means that it is more likely to be part of the trailing edge.}
 \label{fig:example_te_score_annotres}
 \end{figure*}
 
@@ -272,7 +272,7 @@ An example of all of the above networks' outputs can be seen in Figure \ref{fig:
 	\includegraphics[width=0.5\textwidth]{../images/aid88_tescorer_annot_jet2.png}
 	\label{fig:te_jet}
 }
-\caption{\textbf{Trailing Edge Scores}. These are the trailing edge scores given by each of the networks described in section \ref{sec:te_arch} on the image used in Figure \ref{fig:example_te_score_annotres}. A darker pixel is predicted to be part of the trailing edge by the network.}
+\caption{\textbf{Trailing Edge Scores}. These are the trailing edge scores given by each of the networks described in Section \ref{sec:te_arch} on the image used in Figure \ref{fig:example_te_score_annotres}. A darker pixel is predicted to be part of the trailing edge by the network.}
 \label{fig:example_te_scores_all}
 \end{figure*}
 
@@ -315,10 +315,10 @@ All of these hyper parameters were tuned using the validation set, although the 
 
 \begin{figure*}[t]%
 \centering
-\subfloat[][]{
+\subfloat[][Trailing Edge Score]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid960_tescorer_annot_res.png}
 }
-\subfloat[][]{
+\subfloat[][Extracted Trailing Edge]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid960_te_kp_overlay_annot_res.png}
 }
 \caption{\textbf{Trailing Edge Scoring Failure}. Unfortunately even the Residual architecture is still imperfect, and can lead to catastrophic trailing edge failures like this one. However this is a rare case.}
@@ -352,7 +352,7 @@ Instead we report the precision and recall of each network, as well as the inter
 		\hline
 		\end{tabular}
 	}
-	\caption{Table showing the precision, recall, and IoU of each of the evaluated trailing edge scorers on each section of the trailing edge dataset. For the purposes of this analysis, we use the \texttt{argmax} over the classes to determine a positive (i.e. trailing edge) or negative pixel.}
+	\caption{\textbf{Evaluating Trailing Edge Scoring Architectures}. Table showing the precision, recall, and IoU of each of the evaluated trailing edge scorers on each section of the trailing edge dataset. For the purposes of this analysis, we use the \texttt{argmax} over the classes to determine a positive (i.e. trailing edge) or negative pixel.}
 	\label{tab:te_score_full_analysis}
 \end{table*}
 
@@ -408,24 +408,24 @@ In this case, we can see that at a high level, these curvature patterns look ver
 
 \begin{figure*}[t]%
 \centering
-\subfloat[][]{
+\subfloat[][Extracted Trailing Edge 1]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid1034_te_overlay.png}
 }
-\subfloat[][]{
+\subfloat[][Extracted Trailing Edge 2]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid1035_te_overlay.png}
 }
 \newline
-\subfloat[][]{
+\subfloat[][Trailing Edge Curvature 1]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid1034_curv.png}
 }
-\subfloat[][]{
+\subfloat[][Trailing Edge Curvature 2]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid1035_curv.png}
 }
 %\newline
 %\subfloat[][]{
 %	\includegraphics[width=1\textwidth]{../images/aid1034-aid1035_curvdiff.png}
 %}
-\caption{\textbf{Trailing Edge Curvature}. The top images are of the same individual, and the bottom images visualize the corresponding curvatures for the trailing edges that were extracted. Each row in the visualization is a curvature scale, increasing from top to bottom. Note that darker blue implies a ``valley'' in the trailing edge, whereas lighter blue implies a ``peak''.}
+\caption{\textbf{Trailing Edge Curvature}. The top images are of the same individual, and the bottom visualizations show the corresponding curvatures for their extracted trailing edges. Each row in the curvature visualization is a curvature scale, increasing from top to bottom. A darker blue implies a ``valley'' in the trailing edge (i.e.\ a higher curvature value), whereas lighter blue implies a ``peak'' (resp.\ a lower curvature value).}
 \label{fig:example_curv}
 \end{figure*}
 

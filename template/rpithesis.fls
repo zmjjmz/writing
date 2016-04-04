@@ -282,10 +282,10 @@ INPUT rpithesis.toc
 OUTPUT rpithesis.toc
 INPUT rpithesis.lot
 INPUT rpithesis.lot
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 OUTPUT rpithesis.lot
 INPUT rpithesis.lof
 INPUT rpithesis.lof
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 OUTPUT rpithesis.lof
 INPUT rpiack.tex
 INPUT rpiack.tex
