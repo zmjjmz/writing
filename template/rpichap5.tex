@@ -31,7 +31,6 @@ We believe that this is primarily due to the lack of training data that defies t
 That said, having the fluke horizontally oriented and flat to the camera does not only help the keypoint extraction, but also avoids an obscured trailing edge due to out-of-plane rotations (as seen in Figures \ref{fig:example_kp_failure} and \ref{fig:unclear_te}) --- so these assumptions that we make help get a good trailing edge.
 However, imposing this requirement complicates and restricts the actual photography of these flukes by requiring the photographer to be in a very specific position with respect to the subject fluke.
 
-
 We noted that for the trailing edge extractor, it would often use the gradient information to define a trailing edge rather than some deeper semantic image properties (see Figure \ref{fig:example_te_res_failure}).
 Part of the reason for this is similar in nature to the problem for training the fluke keypoint network, i.e.\ that a large majority of the dataset represent ``easy'' cases (where the gradient signal correlates with the trailing edge), making it hard to train the network to handle hard cases.
 We did use data augmentation to help rectify this bias, but it was not completely effective.
@@ -68,6 +67,9 @@ There are several drawbacks, but its inability to handle larger ``slopes'' in th
 Additionally, it is currently non-trivial to efficiently determine the second or third best trailing edge given the completed cost matrix.
 This would give us the ability to evaluate candidate trailing edges and choose the best one for matching.
 On top of that, the trailing edge scoring networks could be better trained with more annotated trailing edges, the creation of which requires significant manual effort.
+
+It is worth noting however that the more images that are annotated (and can subsequently be used for training), the better our method gets.
+This means that crowd-sourced annotations could improve our method, both in fluke keypoint extraction and trailing edge scoring.
 
 There is a lot to be done with the matching algorithm itself, namely in ensuring that it is more tolerant to insignificant deformations in the trailing edge.
 One major paradigm that we do not explore in this work is that of extracting and matching multiple features per trailing edge, much in the same way that Hotspotter and Hughes et al.\ \cite{hughes2015automated} operate.

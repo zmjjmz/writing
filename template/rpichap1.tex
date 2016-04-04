@@ -37,10 +37,10 @@ The primary distinguishing features of these flukes are --- for the purposes of 
 %There are pros and cons to identification with either feature.
 The internal texture is a more obvious choice for identification, as it is distinctive even from a distance even when the image is blurred.
 %whereas trailing edges require high quality photographs.
-Unfortunately, some humpback flukes have indistinct (e.g.\ all-black) internal textures, which make matching based on texture impossible (see Figure \ref{fig:unclear_texture}).
+Unfortunately, some humpback flukes have indistinct (e.g.\ all-black) internal textures, which make matching based on texture impossible (see Figure \ref{fig:unclear_texture}), and in some cases when the fluke is backlit, the constrast of the internal texture is affected.
 Additionally, the work of Blackmer et al.\ \cite{blackmer2000temporal} finds that the trailing edge changes less with age than the internal texture of the fluke, which means that it can (potentially) be a more reliable identifier over time.
 That said, the requirements for getting a good photograph of the trailing edge can be impractical, as the trailing edge is vulnerable to being obscured by out of plane rotations (see Figure \ref{fig:unclear_te}), and as such are optimally photographed when the fluke is ``flat'' to the photographer.
-
+This also generally means that crowd-sourcing fluke pictures for their trailing edge can be difficult, although if their quality is measurable then it might be possible to extract a quality picture from a ``burst'' series of pictures.
 
 \section{Current Identification Methods}
 
@@ -152,11 +152,16 @@ This work is the first to our knowledge that details Hotspotter's efficacy when 
 
 The main dataset used and evaluated in this work is a subset of the dataset collected by the SPLASH project \cite{calambokidis2008splash}. 
 It consists of about 1400 identified photographs spread over about 860 identified individuals.
+The identities of these flukes were determined by experts.
 Of these, only 433 individuals have more than one image associated with them, giving 942 images that can be used in a one-to-one comparison.
 We refer to this dataset as the Flukebook dataset, which is the team from which it originates.
 All images shown in this thesis come from this dataset.
+This dataset additionally provides fluke keypoint annotations for each image.
 
-Additionally, an external dataset of unidentified (but annotated) humpback flukes is used for training individual components of the method.
+%TODO: Put in something about how perfect this dataset is
+%TODO: Put in something about the image sizes
+
+Additionally, an external dataset of unidentified (but similarly annotated) humpback flukes is used for training individual components of the method.
 
 
 \section{Thesis Outline}

@@ -35,7 +35,7 @@ The optimal configuration that we used for this method is given below.
 \section{Implementation}
 
 All experiments in this thesis were carried out on a custom-built machine with a 6-core Intel i7 clocked at 3.5GHz, 64GB of RAM, and two nVidia GeForce GTX Titan X GPUs (each with 12GB of RAM). 
-We make heavy use of numpy \cite{van2011numpy}, Theano \cite{bergstra+al:2010-scipy, Bastien-Theano-2012}, and Lasagne \cite{sander_dieleman_2015_27878} for implementing our convolutional networks.
+We make heavy use of numpy \cite{van2011numpy}, Theano\footnote{This allows for seamless switching between GPU and CPU computation} \cite{bergstra+al:2010-scipy, Bastien-Theano-2012}, and Lasagne \cite{sander_dieleman_2015_27878} for implementing our convolutional networks.
 While most of the implementation is done in Python, we use C++ with Eigen \cite{eigenweb} for some of the core algorithms, namely trailing edge extraction, block curvature computation, and dynamic time warping.  
 
 \section{Running Time}
@@ -80,7 +80,7 @@ Trailing edge extraction and block curvature computation take considerably less 
 
 Notably these computations were performed on our machine which has a considerably powerful GPU for its day.
 As such, we would not expect the convolutional networks (particularly the trailing edge scorer) to perform similarly on a less powerful GPU.
-These steps are of course be cached and reused for every image, so there is no 
+These steps are of course be cached and reused for every image, so our matching algorithm's speed is independent of these times.
 
 
 \subsection{Matching Trailing Edges}
@@ -360,11 +360,11 @@ Based on the above, we evaluated scales that run from $1\%$ to $10\%$, with vary
 
 
 
-In Figure \ref{fig:vary_window}, we show the effects of varying the window (i.e.\ the Sakoe-Chiba bound) size in the dynamic time warping distance computation.
-At around 10\% of the query trailing edge length we maintain only slightly worse accuracy compared to the full window (i.e.\ 100\%), but below this accuracy is severely affected.
-We find that overall there is a $4\times$ slow-down in wall-clock time on our testing machine when going from a window size of 10\% to one of 100\%. 
+In Figure \ref{fig:vary_window}, we show the effects of varying the window (i.e.\ the Sakoe-Chiba bound $T$) in the dynamic time warping distance computation.
+At around 10\% of the query trailing edge length we maintain only slightly worse accuracy compared to the full window (i.e.\ 50\%), but below this accuracy is severely affected.
+We find that overall there is a $4\times$ slow-down in wall-clock time on our testing machine when going from a window size of 10\% to one of 50\%. 
 Thus, we use this value for the window size so as to minimize computation time while maintaining the total accuracy.
-Additionally, while it's possible for gross mismatches to occur from there being no window boundary, we can see from Figure \ref{fig:vary_window} that this does not pose a problem.
+Additionally, while it is possible for gross mismatches to occur from there being no window boundary, we can see from Figure \ref{fig:vary_window} that this does not pose a problem.
 
 %\subsubsection{Aggregating over multiple trailing edges per identity}
 

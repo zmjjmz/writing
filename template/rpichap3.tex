@@ -53,7 +53,7 @@ The dataset that we created for this purpose contains approximately $2100$ train
 
 First, each image and its corresponding points are resized to a fixed width while maintaining the aspect ratio, and the resultant size is recorded as $\vec{s}$.
 This is done to somewhat normalize the scale of objects in the image, so that large differences in original image size don't produce large differences in training loss magnitude.
-Each image is then further re-scaled to the network size ($128 \times 128$), and then the corresponding targets are re-scaled to the range $[0-1]$.
+Each image is then further re-scaled to the network size ($128 \times 128$)\footnote{While this is oftentimes a $10\times$ downsample for the image, we found this size input to give the best accuracy for memory tradeoff}, and then the corresponding targets are re-scaled to the range $[0-1]$.
 The loss function that we use for each fluke keypoint is the Euclidean distance between the target and predicted point.
 We also include a scalar scaling factor $\alpha$, which scales each point by a proportion of $\vec{s}$.
 Thus, we have the scaled Euclidean loss function $SE$
