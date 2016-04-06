@@ -11,7 +11,7 @@
 
 In this chapter we present the results that our primary method achieves on the Flukebook dataset.
 The main results for the optimal method are given briefly, and then we discuss how different variations on the method affect accuracy.
-We go on to discuss the performance of our method when used in combination with Hotspotter.
+We go on to discuss the performance of our method when used in combination with HotSpotter.
 
 \section{Main method}
 
@@ -375,7 +375,7 @@ Additionally, while it is possible for gross mismatches to occur from there bein
 %We find that the average decision does slightly better, as shown in Figure \ref{fig:vary_decision}.
 
 %This is unsurprising given that most of the individuals in the dataset only have two images associated, meaning that the average is equivalent to the minimum.
-%That said, the minimal distance criterion is effectively the single-feature case of LNBNN used in Hotspotter \cite{crall_hotspotter_2013} and the work of Hughes et al.\ \cite{hughes2015automated}. % Maybe: prove this?
+%That said, the minimal distance criterion is effectively the single-feature case of LNBNN used in HotSpotter \cite{crall_hotspotter_2013} and the work of Hughes et al.\ \cite{hughes2015automated}. % Maybe: prove this?
 
 %\begin{figure*}[t]%
 %\centering
@@ -384,7 +384,7 @@ Additionally, while it is possible for gross mismatches to occur from there bein
 %\label{fig:vary_decision}
 %\end{figure*}
 
-\section{In Combination with Hotspotter}
+\section{In Combination with HotSpotter}
 
 \begin{figure*}[t]%
 \centering
@@ -401,34 +401,34 @@ Additionally, while it is possible for gross mismatches to occur from there bein
 \subfloat[][Correct Match 2]{
 	\includegraphics[width=0.5\textwidth]{../images/results/aid148_te_kp_overlay.png}
 }
-\caption{\textbf{Example Disagreements Between Hotspotter and our method}. On the left side, (a) was matched correctly to (c) by our method, whereas Hotspotter could not find any matches for (a). On the right hand side however, Hotspotter gave (d) as the top match for (b) despite a large variance in pose and lighting, while our method failed to rank (d) in the top 5 matches for (b).}
+\caption{\textbf{Example Disagreements Between HotSpotter and our method}. On the left side, (a) was matched correctly to (c) by our method, whereas HotSpotter could not find any matches for (a). On the right hand side however, HotSpotter gave (d) as the top match for (b) despite a large variance in pose and lighting, while our method failed to rank (d) in the top 5 matches for (b).}
 \label{fig:dis_proot}
 \end{figure*}
 
-Comparatively, our method gets a slightly better top-1 accuracy than Hotspotter (see Table \ref{tab:vary_proot}).
-However, our method targets a specific part of the fluke whereas Hotspotter recognizes general patterns, and thus can make use of the internal texture of the fluke.
-Therefore, by combining our method with Hotspotter --- if we were able to automatically pick out which algorithm was right for a given ranking --- we would expect to see a significant increase in accuracy.
+Comparatively, our method gets a slightly better top-1 accuracy than HotSpotter (see Table \ref{tab:vary_proot}).
+However, our method targets a specific part of the fluke whereas HotSpotter recognizes general patterns, and thus can make use of the internal texture of the fluke.
+Therefore, by combining our method with HotSpotter --- if we were able to automatically pick out which algorithm was right for a given ranking --- we would expect to see a significant increase in accuracy.
 We find that in this ideal scenario, we can achieve a 93\% top-1 accuracy on the Flukebook dataset.
 However, automatically deciding which algorithm to use for matching is non-trivial, and we are still exploring it.
 
-See Figure \ref{fig:dis_proot} for an example where Hotspotter correctly finds a match where our method fails, and vice-versa.
+See Figure \ref{fig:dis_proot} for an example where HotSpotter correctly finds a match where our method fails, and vice-versa.
 
 \subsection{Characterization of Cases which each Method can Handle}
 
-From an intuitive standpoint, it appears that Hotspotter cannot find effective keypoints from trailing edges, which hampers its ability to handle flukes which do not have an apparent pattern.
+From an intuitive standpoint, it appears that HotSpotter cannot find effective keypoints from trailing edges, which hampers its ability to handle flukes which do not have an apparent pattern.
 
 We hypothesize that this is because the trailing edge --- while a distinctive feature --- inevitably shares a region with an oceanic background.
 Since this oceanic background changes from image to image, it cannot verify salient keypoints as matches.
-As a result, flukes which have little to no internal texture are nearly impossible for Hotspotter to match.
+As a result, flukes which have little to no internal texture are nearly impossible for HotSpotter to match.
 
 \begin{table*}[t]%
-	\caption{\textbf{Comparison with Hotspotter}. This table provides a comparison between our method and Hotspotter in terms of top-1 ranking accuracy on the Flukebook dataset.}
+	\caption{\textbf{Comparison with HotSpotter}. This table provides a comparison between our method and HotSpotter in terms of top-1 ranking accuracy on the Flukebook dataset.}
 	\centering
 	\resizebox{\linewidth}{!}
 	{
 		\begin{tabular} {| l || l | l | l |}
 		\hline
-		Method & Hotspotter & Our Method & Hotspotter $\cup$ Our Method \\
+		Method & HotSpotter & Our Method & HotSpotter $\cup$ Our Method \\
 		\hhline{|=#===|}
 		Top-1 Accuracy  & 77.81\% & 79.83\% & 93.52\% \\
 		\hline
@@ -443,14 +443,14 @@ As a result, flukes which have little to no internal texture are nearly impossib
 %\begin{figure*}[t]%
 %\centering
 %\includegraphics[width=1\textwidth]{../images/results/vary_proot.png}
-%\caption{\textbf{Comparison between Hotspotter and our method}. Hotspotter's accuracy (cyan) is slightly worse than our method's (red), however we find that they are fairly complementary. Note that Hotspotter's accuracy does not increase much with allowed matching rank.}
+%\caption{\textbf{Comparison between HotSpotter and our method}. HotSpotter's accuracy (cyan) is slightly worse than our method's (red), however we find that they are fairly complementary. Note that HotSpotter's accuracy does not increase much with allowed matching rank.}
 %\label{fig:vary_proot}
 %\end{figure*}
 
 
 
 On the other hand, when the trailing edge is unclear or significantly distorted in the image, our method struggles to find an appropriate match.
-In these cases, Hotspotter can provide a good match, although if the fluke is additionally untextured we have an issue.
+In these cases, HotSpotter can provide a good match, although if the fluke is additionally untextured we have an issue.
 We were unable to find a single heuristic that correlates with our method failing to find a match.
 Particularly we find that smoothness of the trailing edge, characterized by the standard deviation of the trailing edge slope, does not correlate to match failure.
 This implies that smooth trailing edges are about as easy to match for our method as rough, distinctive trailing edges.

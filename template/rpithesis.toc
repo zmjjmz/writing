@@ -61,7 +61,7 @@
 \contentsline {subsection}{\numberline {4.4.7}Using the Notch Keypoint}{41}{subsection.4.4.7}
 \contentsline {subsection}{\numberline {4.4.8}Curvature Scales}{42}{subsection.4.4.8}
 \contentsline {subsection}{\numberline {4.4.9}Sakoe-Chiba bound}{43}{subsection.4.4.9}
-\contentsline {section}{\numberline {4.5}In Combination with Hotspotter}{45}{section.4.5}
+\contentsline {section}{\numberline {4.5}In Combination with HotSpotter}{45}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Characterization of Cases which each Method can Handle}{45}{subsection.4.5.1}
 \contentsline {chapter}{\numberline {5.}Discussion}{47}{chapter.5}
 \contentsline {section}{\numberline {5.1}Issues with the Proposed Method}{47}{section.5.1}

@@ -28,14 +28,15 @@ J.~Calambokidis \emph{et~al.}, \emph{SPLASH: Structure of populations, levels
 
 \bibitem{blackmer2000temporal}
 A.~L. Blackmer, S.~K. Anderson, and M.~T. Weinrich, ``Temporal variability in
-  features used to photo-identify humpback whales (megaptera novaeangliae),''
+  features used to photo-identify humpback whales ({Megaptera} novaeangliae),''
   \emph{Marine Mammal Science}, vol.~16, no.~2, pp. 338--354, Apr. 2000.
 
 \bibitem{crall_hotspotter_2013}
 J.~P. Crall, C.~V. Stewart, T.~Y. Berger-Wolf, D.~I. Rubenstein, and S.~R.
   Sundaresan, ``{HotSpotter} - patterned species instance recognition,'' in
-  \emph{Applications of Computer Vision ({WACV}), 2013 {IEEE} Workshop
-  on}.\hskip 1em plus 0.5em minus 0.4em\relax {IEEE}, pp. 230--237.
+  \emph{Proceedings of the 2013 {IEEE} Workshop on Applications of Computer
+  Vision}.\hskip 1em plus 0.5em minus 0.4em\relax Clearwater {Beach}, {FL}:
+  {IEEE}, pp. 230--237.
 
 \bibitem{baker1993abundant}
 C.~Baker \emph{et~al.}, ``Abundant mitochondrial {DNA} variation and world-wide
@@ -61,8 +62,8 @@ H.~Whitehead, ``Computer assisted individual identification of sperm whale
 B.~Hughes and T.~Burghardt, ``Automated identification of individual great
   white sharks from unrestricted fin imagery,'' in \emph{Proceedings of the
   2015 British Machine Vision Conference}, M.~W.~J. Xianghua~Xie and G.~K.~L.
-  Tam, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Swansea, {UK}: BMVA Press,
-  September 2015, pp. 92.1--92.14.
+  Tam, Eds., vol.~92.\hskip 1em plus 0.5em minus 0.4em\relax Swansea, {Wales},
+  {UK}: BMVA Press, Sep. 2015, pp. 1--14.
 
 \bibitem{kniest2010fluke}
 E.~Kniest, D.~Burns, and P.~Harrison, ``Fluke {Matcher}: A computer-aided
@@ -93,11 +94,10 @@ D.~G. Lowe, ``Distinctive image features from scale-invariant keypoints,''
   Nov. 2004.
 
 \bibitem{krizhevsky2012imagenet}
-A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton, ``{ImageNet Classification with
-  Deep Convolutional Neural Networks},'' in \emph{Advances in Neural
-  Information Processing Systems 25}, F.~Pereira, C.~J.~C. Burges, L.~Bottou,
-  and K.~Q. Weinberger, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Lake Tahoe,
-  {NV}: Curran Associates, Inc., Dec. 2012, pp. 1097--1105.
+A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton, ``{ImageNet} classification with
+  deep convolutional neural networks,'' in \emph{Advances in Neural Information
+  Processing Systems 25}, F.~Pereira, C.~J.~C. Burges, L.~Bottou, and K.~Q.
+  Weinberger, Eds., Lake Tahoe, {NV}, Dec. 2012, pp. 1097--1105.
 
 \bibitem{szegedy2015going}
 C.~Szegedy \emph{et~al.}, ``Going deeper with convolutions,'' in
@@ -138,7 +138,7 @@ Y.~LeCun, L.~Bottou, Y.~Bengio, and P.~Haffner, ``Gradient-based learning
 \bibitem{hinton2012improving}
 G.~E. Hinton, N.~Srivastava, A.~Krizhevsky, I.~Sutskever, and R.~R.
   Salakhutdinov, ``Improving neural networks by preventing co-adaptation of
-  feature detectors,'' \emph{{CoRR}}, vol. abs/1207.0580, 2012.
+  feature detectors,'' \emph{{CoRR}}, vol. abs/1207.0580, Jul. 2012.
 
 \bibitem{dumoulin2016guide}
 V.~Dumoulin and F.~Visin, ``A guide to convolution arithmetic for deep
@@ -173,8 +173,7 @@ Y.~Taigman, M.~Yang, M.~Ranzato, and L.~Wolf, ``Deepface: Closing the gap to
 \bibitem{akagi2013facial}
 Y.~Akagi, R.~Furukawa, R.~Sagawa, K.~Ogawara, and H.~Kawasaki, ``{A Facial
   Tracking and Transfer Method with a Key Point Refinement},'' in \emph{ACM
-  SIGGRAPH 2013 Posters},  SIGGRAPH '13.\hskip 1em plus 0.5em minus 0.4em\relax
-  Anaheim, {CA}: ACM, 2013, pp. 79--79.
+  SIGGRAPH 2013 Posters},  SIGGRAPH '13, Anaheim, {CA}, Jul. 2013, pp. 79--79.
 
 \bibitem{berretti20113d}
 S.~Berretti, B.~B. Amor, M.~Daoudi, and A.~Del~Bimbo, ``{3D} facial expression
@@ -212,7 +211,8 @@ D.~Ciresan, A.~Giusti, L.~M. Gambardella, and J.~Schmidhuber, ``{Deep Neural
 B.~Hariharan, P.~Arbel{\'a}ez, R.~Girshick, and J.~Malik, ``Simultaneous
   detection and segmentation,'' in \emph{Proceedings of the 2014 European
   Conference on Computer Vision}.\hskip 1em plus 0.5em minus 0.4em\relax
-  Zurich, {CH}: Springer, Sep. 2014, pp. 297--312.
+  Z{\"u}rich, {Z{\"u}rich Canton}, {Switzerland}: Springer, Sep. 2014, pp.
+  297--312.
 
 \bibitem{amini1988using}
 A.~A. Amini, S.~Tehrani, and T.~E. Weymouth, ``Using dynamic programming for
@@ -234,14 +234,15 @@ S.~Avidan and A.~Shamir, ``Seam carving for content-aware image resizing,''
 A.~Monroy, A.~Eigenstetter, and B.~Ommer, ``Beyond straight lines -- object
   detection using curvature,'' in \emph{Proceedings of the 18th IEEE
   International Conference on Image Processing}.\hskip 1em plus 0.5em minus
-  0.4em\relax Brussels, {BE}: IEEE, Sep. 2011, pp. 3561--3564.
+  0.4em\relax City of {Brussels}, {Brussels}, {Belgium}: IEEE, Sep. 2011, pp.
+  3561--3564.
 
 \bibitem{fischer2014image}
 P.~Fischer and T.~Brox, ``{Image Descriptors Based on Curvature Histograms},''
   in \emph{{Proceedings of the 36th German Conference on Pattern Recognition}},
   X.~Jiang, J.~Hornegger, and R.~Koch, Eds.\hskip 1em plus 0.5em minus
-  0.4em\relax M{\"u}nster, {DE}: {Springer International Publishing}, Sep.
-  2014, pp. 239--249.
+  0.4em\relax M{\"u}nster, {North-Rhine Westphalia}, {Germany}: {Springer
+  International Publishing}, Sep. 2014, pp. 239--249.
 
 \bibitem{kumar2012leafsnap}
 N.~Kumar \emph{et~al.}, ``Leafsnap: A computer vision system for automatic
@@ -273,8 +274,8 @@ D.~Lemire, ``Faster retrieval with a two-pass dynamic-time-warping lower
 M.~E. Munich and P.~Perona, ``Continuous dynamic time warping for
   translation-invariant curve alignment with applications to signature
   verification,'' in \emph{The Proceedings of the Seventh IEEE International
-  Conference on Computer Vision, 1999.}, vol.~1, Corfu, {GR}, Sep. 1999, pp.
-  108--115.
+  Conference on Computer Vision, 1999.}, vol.~1, Corfu, {Greece}, Sep. 1999,
+  pp. 108--115.
 
 \bibitem{kingma2014adam}
 D.~Kingma and J.~Ba, ``Adam: A method for stochastic optimization,''
@@ -283,12 +284,13 @@ D.~Kingma and J.~Ba, ``Adam: A method for stochastic optimization,''
 \bibitem{jaderberg2015spatial}
 M.~Jaderberg, K.~Simonyan, A.~Zisserman \emph{et~al.}, ``Spatial transformer
   networks,'' in \emph{Advances in Neural Information Processing Systems 28},
-  Montreal, {CAN}, Dec. 2015, pp. 2008--2016.
+  Montr{\'e}al, {Qu{\'e}bec}, {Canada}, Dec. 2015, pp. 2008--2016.
 
 \bibitem{Sobel1968}
-I.~Sobel and G.~Feldman, ``{A 3x3 Isotropic Gradient Operator for Image
-  Processing},'' 1968, never published but presented at a talk at the Stanford
-  Artificial Project.
+P.-E. Danielsson and O.~Seger, ``Generalized and separable sobel operators,''
+  in \emph{Machine Vision for Three-Dimensional Scenes}, H.~Freeman, Ed.\hskip
+  1em plus 0.5em minus 0.4em\relax San Diego, {CA}: Academic Press, 1990, pp.
+  347 -- 379.
 
 \bibitem{he2015deep}
 K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image
@@ -298,7 +300,7 @@ K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image
 T.~Rakthanmanon \emph{et~al.}, ``Searching and mining trillions of time series
   subsequences under dynamic time warping,'' in \emph{Proceedings of the 18th
   ACM SIGKDD international conference on Knowledge discovery and data
-  mining}.\hskip 1em plus 0.5em minus 0.4em\relax Beijing, {CN}: ACM, Aug.
+  mining}.\hskip 1em plus 0.5em minus 0.4em\relax Beijing, {China}: ACM, Aug.
   2012, pp. 262--270.
 
 \bibitem{crow1984summed}
@@ -307,26 +309,26 @@ F.~C. Crow, ``Summed-area tables for texture mapping,'' \emph{ACM SIGGRAPH
 
 \bibitem{muller2007information}
 M.~M{\"{u}}ller, \emph{Information retrieval for music and motion},
-  M.~M{\"{u}}ller, Ed.\hskip 1em plus 0.5em minus 0.4em\relax Berlin, {DE}:
-  Springer, 2007, vol.~2.
+  M.~M{\"{u}}ller, Ed.\hskip 1em plus 0.5em minus 0.4em\relax Berlin,
+  {Germany}: Springer, 2007, vol.~2.
 
 \bibitem{qiao2006affine}
 Y.~Qiao and M.~Yasuhara, ``Affine invariant dynamic time warping and its
   application to online rotated handwriting recognition,'' in \emph{Proceedings
   of the 18th International Conference on Pattern Recognition}, vol.~2.\hskip
-  1em plus 0.5em minus 0.4em\relax Hong Kong, {HK}: IEEE, Aug. 2006, pp.
+  1em plus 0.5em minus 0.4em\relax Hong Kong, {Hong Kong}: IEEE, Aug. 2006, pp.
   905--908.
 
 \bibitem{parkhi2015deep}
 O.~M. Parkhi, A.~Vedaldi, and A.~Zisserman, ``Deep face recognition,'' in
-  \emph{Proceedings of the 2015 British Machine Vision Conference (BMVC)},
-  M.~W.~J. Xianghua~Xie and G.~K.~L. Tam, Eds.\hskip 1em plus 0.5em minus
-  0.4em\relax BMVA Press, Sep. 2015, pp. 41.1--41.12.
+  \emph{Proceedings of the 2015 British Machine Vision Conference}, M.~W.~J.
+  Xianghua~Xie and G.~K.~L. Tam, Eds., vol.~41, Swansea, {Wales}, {UK}, Sep.
+  2015, pp. 1--12.
 
 \bibitem{huang2007labeled}
 G.~B. Huang, M.~Ramesh, T.~Berg, and E.~Learned-Miller, ``Labeled faces in the
   wild: A database for studying face recognition in unconstrained
-  environments,'' University of Massachusetts, Amherst, Amherst, {MA}, Tech.
+  environments,'' University of Massachusetts Amherst, Amherst, {MA}, Tech.
   Rep., 2007.
 
 \bibitem{hadsell2006dimensionality}
@@ -337,13 +339,14 @@ R.~Hadsell, S.~Chopra, and Y.~LeCun, ``Dimensionality reduction by learning an
 
 \bibitem{van2011numpy}
 S.~van~der Walt, S.~Colbert, and G.~Varoquaux, ``{The} {NumPy} array: {A}
-  structure for efficient numerical computation,'' \emph{Comput. in Sci. Eng.},
-  vol.~13, no.~2, pp. 22--30, Mar. 2011.
+  structure for efficient numerical computation,'' \emph{Computing in Science
+  \& Engineering}, vol.~13, no.~2, pp. 22--30, Mar. 2011.
 
 \bibitem{bergstra+al:2010-scipy}
 J.~Bergstra \emph{et~al.}, ``{Theano:} a {CPU} and {GPU} math expression
-  compiler,'' in \emph{{Proc.} {Python} for {Scientific} {Comput.} {Conf.}},
-  {SciPy} '10, vol.~4, Austin, {TX}, Jun. 2010, pp. 3--10.
+  compiler,'' in \emph{{Proceedings} of the 2010 {Conference} on {Python} for
+  {Scientific} {Computing}},  {SciPy}, vol.~4, Austin, {TX}, Jun. 2010, pp.
+  3--10.
 
 \bibitem{Bastien-Theano-2012}
 F.~Bastien \emph{et~al.}, ``{Theano:} new features and speed improvements,''
@@ -352,7 +355,7 @@ F.~Bastien \emph{et~al.}, ``{Theano:} new features and speed improvements,''
 \bibitem{sander_dieleman_2015_27878}
 \BIBentryALTinterwordspacing
 S.~Dieleman \emph{et~al.} (2015, Aug.) {Lasagne:} {First} release. [Online].
-  Available: \url{http://github.com/Lasagne/Lasagne} [Accessed: 1 Nov. 2015].
+  Available: \url{http://github.com/Lasagne/Lasagne} [Accessed: 4 Apr. 2015].
 \BIBentrySTDinterwordspacing
 
 \bibitem{eigenweb}

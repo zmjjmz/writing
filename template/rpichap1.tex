@@ -142,11 +142,11 @@ This method is based on both traditional edge detection and curvature techniques
 \label{fig:example_overlay}
 \end{figure*}
 
-We also show we can greatly improve the accuracy of this method by combining it with matches found by Hotspotter, a generalized pattern based identification method that is a powerful matching algorithm for several species \cite{crall_hotspotter_2013}.
-Hotspotter extracts keypoints with SIFT descriptors \cite{lowe2004distinctive} in an image that are then spatially verified and matched with other keypoints in the database to produce a ranking over possible identities. 
+We also show we can greatly improve the accuracy of this method by combining it with matches found by HotSpotter, a generalized pattern based identification method that is a powerful matching algorithm for several species \cite{crall_hotspotter_2013}.
+HotSpotter extracts keypoints with SIFT descriptors \cite{lowe2004distinctive} in an image that are then spatially verified and matched with other keypoints in the database to produce a ranking over possible identities. 
 Despite the general nature of this method, we find that it does not identify keypoints on the trailing edge and thus struggles with flukes that have no significant internal texture. 
-This work is the first to our knowledge that details Hotspotter's efficacy when applied to humpback whale flukes, and the results are presented in Chapter 4.
-%It should be noted that we used a segmenting convolutional network to aid Hotspotter's predictions, although this is not detailed in this work.
+This work is the first to our knowledge that details HotSpotter's efficacy when applied to humpback whale flukes, and the results are presented in Chapter 4.
+%It should be noted that we used a segmenting convolutional network to aid HotSpotter's predictions, although this is not detailed in this work.
 
 \section{The Dataset}
 
@@ -174,10 +174,10 @@ Additionally, an external dataset of unidentified (but similarly annotated) hump
 The rest of this thesis starts by giving a background on the algorithms that our method is based on in Chapter \ref{sec:background}.
 Afterwards, the main method is described in Chapter \ref{sec:methods}, which also includes a brief description of some alternate methods that did not work as well.
 Chapter \ref{sec:results} presents the results, showing overall algorithm performance and examining the effect of a number of configuration changes.
-Chapter \ref{sec:results} also describes the effectiveness of this identification method in combination with Hotspotter.
+Chapter \ref{sec:results} also describes the effectiveness of this identification method in combination with HotSpotter.
 This thesis concludes with a discussion on the failings of the primary method, as well as ways to improve it and generalize it to extracting and matching edge characteristics in other animals.
 
-We contribute an evaluation of dynamic time warping on curvature measures as a method for matching humpback flukes, as well as an evaluation of Hotspotter for this task.
+We contribute an evaluation of dynamic time warping on curvature measures as a method for matching humpback flukes, as well as an evaluation of HotSpotter for this task.
 The primary contributions of this work are both the individual algorithms for extracting fluke keypoints and trailing edges, and more importantly the combination of all the components into an effective overall algorithm.
 
 
@@ -194,7 +194,7 @@ The primary contributions of this work are both the individual algorithms for ex
 
 %The method for trailing edge identification put forth in this thesis is very nearly fully automated, requiring no human annotation when used (although manual annotation is necessary for training the machine learning models used).
 %On its own, it achieves decent results on a (relatively) large dataset, comparable with the fully automated method used in \cite{hughes2015automated}. 
-%Ultimately we find that this method is best used in combination with an automated pattern matching method (e.g. Hotspotter) to provide high accuracy matches.
+%Ultimately we find that this method is best used in combination with an automated pattern matching method (e.g. HotSpotter) to provide high accuracy matches.
 %We also explore alternative methods based on more recent advances in deep learning for identification, however it appears that the dataset is too small to properly train these methods.
 
 
