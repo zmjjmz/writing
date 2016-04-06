@@ -19,7 +19,7 @@ Additionally, we generally assume that all parts of the fluke are present.
 The nature of the problem (and the Flukebook dataset) makes these assumptions reasonable.
 It would also be possible to add a detection and orientation prediction step beforehand to ensure this assumption, however we do not explore this in this work.
 
-\subsection{Fluke keypoint prediction}
+\subsection{Fluke Keypoint Prediction}
 
 
 \begin{figure*}[t]%
@@ -276,7 +276,7 @@ An example of all of the above networks' outputs can be seen in Figure \ref{fig:
 \label{fig:example_te_scores_all}
 \end{figure*}
 
-\subsubsection{Using the trailing edge scores}
+\subsubsection{Using the Trailing Edge Scores}
 
 Once we have a ``trailing edginess'' score for each pixel in an image, we need to combine this information with the normalized gradient $N_y$ in a way that causes the trailing edge extraction algorithm to follow those pixels that the scoring map marks as trailing edge.
 More formally, the trailing edge scoring network gives us an image $T_p \in [0-1]^{w \times h}$ (where $w$ and $h$ are the width and height of the image) which denotes the network's predicted probability of each pixel being part of the trailing edge.
@@ -334,6 +334,7 @@ Due to the overwhelming class imbalance, the model accuracy is rather meaningles
 Instead we report the precision and recall of each network, as well as the intersection over union (IoU) score commonly used for evaluating segmentation methods \cite{long2015fully}.
 
 \begin{table*}[!htb]%
+\caption{\textbf{Evaluating Trailing Edge Scoring Architectures}. Table showing the precision, recall, and IoU of each of the evaluated trailing edge scorers on each section of the trailing edge dataset. For the purposes of this analysis, we use the \texttt{argmax} over the classes to determine a positive (i.e. trailing edge) or negative pixel.}
 	\centering
 	\resizebox{\linewidth}{!}
 	{
@@ -352,7 +353,6 @@ Instead we report the precision and recall of each network, as well as the inter
 		\hline
 		\end{tabular}
 	}
-	\caption{\textbf{Evaluating Trailing Edge Scoring Architectures}. Table showing the precision, recall, and IoU of each of the evaluated trailing edge scorers on each section of the trailing edge dataset. For the purposes of this analysis, we use the \texttt{argmax} over the classes to determine a positive (i.e. trailing edge) or negative pixel.}
 	\label{tab:te_score_full_analysis}
 \end{table*}
 

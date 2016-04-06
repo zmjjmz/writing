@@ -1,54 +1,132 @@
 This is BibTeX, Version 0.99d (TeX Live 2015/Arch Linux)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: rpithesis.aux
-The style file: abbrv.bst
+The style file: IEEEtran_custom.bst
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: references.bib
-Warning--entry type for "nouri2014using" isn't style-file defined
---line 665 of file references.bib
-Warning--empty journal in akagi2013facial
+You're missing a field name---line 11 of file references.bib
+ : 
+ : %  title={The NumPy array: a structure for efficient numerical computation},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 35 of file references.bib
+ : 
+ : %     author = {Bergstra, James and Breuleux, Olivier and Bastien, Fr{\'{e}}d{\'{e}}ric and Lamblin, Pascal and Pascanu, Razvan and Desjardins, Guillaume and Turian, Joseph and Warde-Farley, David and Bengio, Yoshua},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 60 of file references.bib
+ : 
+ : %        author = {Bastien, Fr{\'{e}}d{\'{e}}ric and Lamblin, Pascal and Pascanu, Razvan and Bergstra, James and Goodfellow, Ian J. and Bergeron, Arnaud and Bouchard, Nicolas and Bengio, Yoshua},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 87 of file references.bib
+ : 
+ : %  author       = {Sander Dieleman and
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 133 of file references.bib
+ :  
+ :  month = {March},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 459 of file references.bib
+ : 
+ : %  title={Image descriptors based on curvature histograms},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 487 of file references.bib
+ : 
+ : %  title={Integral invariants for robust geometry processing},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 533 of file references.bib
+ : 
+ : %  title={Information retrieval for music and motion},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 600 of file references.bib
+ :   
+ :   organization={IEEE}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 618 of file references.bib
+ : 
+ : %  title={Deep neural networks segment neuronal membranes in electron microscopy images},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 670 of file references.bib
+ : 
+ : %  title={Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position- Neocognitron},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 717 of file references.bib
+ : 
+ : %  title={A facial motion tracking and transfer method based on a key point detection},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 787 of file references.bib
+ : 
+ : %  title={Imagenet classification with deep convolutional neural networks},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 937 of file references.bib
+ : 
+ : %  title={Deep face recognition},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty year in crall_hotspotter_2013
 Name 1 in "Xianghua Xie, Mark W. Jones, and Gary K. L. Tam" has a comma at the end for entry hughes2015automated
-while executing---line 1090 of file abbrv.bst
-Warning--empty journal in pottmann2007integral
+while executing---line 2403 of file IEEEtran_custom.bst
+Name 1 in "Xianghua Xie, Mark W. Jones, and Gary K. L. Tam" has a comma at the end for entry parkhi2015deep
+while executing---line 2403 of file IEEEtran_custom.bst
+
+Done.
 You've used 62 entries,
-            2118 wiz_defined-function locations,
-            834 strings with 16192 characters,
-and the built_in function-call counts, 24757 in all, are:
-= -- 2402
-> -- 1416
-< -- 23
-+ -- 559
-- -- 494
-* -- 1784
-:= -- 4048
-add.period$ -- 195
+            4087 wiz_defined-function locations,
+            1193 strings with 20617 characters,
+and the built_in function-call counts, 50073 in all, are:
+= -- 4072
+> -- 1140
+< -- 455
++ -- 626
+- -- 185
+* -- 2460
+:= -- 7388
+add.period$ -- 143
 call.type$ -- 62
-change.case$ -- 428
-chr.to.int$ -- 0
-cite$ -- 65
-duplicate$ -- 888
-empty$ -- 1744
-format.name$ -- 494
-if$ -- 5180
+change.case$ -- 77
+chr.to.int$ -- 1059
+cite$ -- 63
+duplicate$ -- 3594
+empty$ -- 4018
+format.name$ -- 244
+if$ -- 11695
 int.to.chr$ -- 0
 int.to.str$ -- 62
-missing$ -- 57
-newline$ -- 311
-num.names$ -- 126
-pop$ -- 476
+missing$ -- 614
+newline$ -- 217
+num.names$ -- 74
+pop$ -- 1237
 preamble$ -- 1
-purify$ -- 367
-quote$ -- 0
-skip$ -- 696
+purify$ -- 0
+quote$ -- 2
+skip$ -- 3854
 stack$ -- 0
-substring$ -- 1396
-swap$ -- 262
-text.length$ -- 23
+substring$ -- 2531
+swap$ -- 3085
+text.length$ -- 102
 text.prefix$ -- 0
-top$ -- 0
-type$ -- 244
-warning$ -- 3
-while$ -- 217
+top$ -- 5
+type$ -- 62
+warning$ -- 1
+while$ -- 241
 width$ -- 64
-write$ -- 670
-(There was 1 error message)
+write$ -- 640
+(There were 16 error messages)

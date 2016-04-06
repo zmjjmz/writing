@@ -1,112 +1,174 @@
+%% OGE PASSING NOTES FROM JASON
+%% FOUR CATEGORIES: BOOKS, CONF, JOURNAL, MISC
+%% BOOKS: AUTHORS, EDITORS, LOCATION, YEAR
+%% CONF: LOCATION, MONTH, YEAR, CONFERENCE VERSION
+%% JOURNAL: TITLE, VOLUME, ISSUE, MONTH, YEAR, PAGES
+
 %% IMPLEMENTATION %%
 
+% journal complete
+%@article{van2011numpyold,
+%  title={The NumPy array: a structure for efficient numerical computation},
+%  author={Van Der Walt, Stefan and Colbert, S Chris and Varoquaux, Gael},
+%  journal={Computing in Science \& Engineering},
+%  volume={13},
+%  number={2},
+%  pages={22--30},
+%  year={2011},
+%  publisher={AIP Publishing}
+%}
+
 @article{van2011numpy,
-  title={The NumPy array: a structure for efficient numerical computation},
-  author={Van Der Walt, Stefan and Colbert, S Chris and Varoquaux, Gael},
-  journal={Computing in Science \& Engineering},
-  volume={13},
-  number={2},
-  pages={22--30},
-  year={2011},
-  publisher={AIP Publishing}
+    title = {{The} {NumPy} array: {A} structure for efficient numerical computation},
+	volume = {13},
+	doi = {10.1109/MCSE.2011.37},
+	pages = {22--30},
+	number = {2},
+	journal = {Comput. in Sci. Eng.},
+	author = {van der Walt, S. and Colbert, S.C. and Varoquaux, G.},
+    year = {2011},
+    month = {Mar.},
 }
+
+% conf conference version??
+%@inproceedings{bergstra+al:2010-scipyold,
+%     author = {Bergstra, James and Breuleux, Olivier and Bastien, Fr{\'{e}}d{\'{e}}ric and Lamblin, Pascal and Pascanu, Razvan and Desjardins, Guillaume and Turian, Joseph and Warde-Farley, David and Bengio, Yoshua},
+%      month = jun,
+%      title = {Theano: a {CPU} and {GPU} Math Expression Compiler},
+%  booktitle = {Proceedings of the Python for Scientific Computing Conference ({SciPy})},
+%       year = {2010},
+%   location = {Austin, TX},
+%       note = {Oral Presentation},
+%}
+
 
 @inproceedings{bergstra+al:2010-scipy,
-     author = {Bergstra, James and Breuleux, Olivier and Bastien, Fr{\'{e}}d{\'{e}}ric and Lamblin, Pascal and Pascanu, Razvan and Desjardins, Guillaume and Turian, Joseph and Warde-Farley, David and Bengio, Yoshua},
-      month = jun,
-      title = {Theano: a {CPU} and {GPU} Math Expression Compiler},
-  booktitle = {Proceedings of the Python for Scientific Computing Conference ({SciPy})},
-       year = {2010},
-   location = {Austin, TX},
-       note = {Oral Presentation},
-   abstract = {Theano is a compiler for mathematical expressions in Python that combines the convenience of NumPy’s syntax with the speed of optimized native machine language. The user composes mathematical expressions in a high-level description that mimics NumPy’s syntax and semantics, while being statically typed and
-functional (as opposed to imperative). These expressions allow Theano to provide symbolic differentiation. Before performing computation, Theano optimizes the choice of expressions, translates
-them into C++ (or CUDA for GPU), compiles them into dynamically loaded Python modules, all automatically. Common machine learning algorithms implemented with Theano are from 1.6× to 7.5× faster than competitive alternatives (including those implemented with C/C++, NumPy/SciPy and MATLAB) when compiled for the
-CPU and between 6.5× and 44× faster when compiled for the GPU. This paper illustrates how to use Theano, outlines the scope of the compiler, provides benchmarks on both CPU and GPU processors, and explains its overall design.}
+	address = {Austin, {TX}},
+    title = {{Theano:} a {CPU} and {GPU} math expression compiler},
+	volume = {4},
+	series = {{SciPy} '10},
+	pages = {3--10},
+    booktitle = {{Proc.} {Python} for {Scientific} {Comput.} {Conf.}},
+	author = {Bergstra, James and Breuleux, Olivier and Bastien, Fr{\'u}d{\'u}ric and Lamblin, Pascal and Pascanu, Razvan and Desjardins, Guillaume and Turian, Joseph and Warde-Farley, David and Bengio, Yoshua},
+    year = {2010},
+    month = {Jun.},
 }
 
-@misc{Bastien-Theano-2012,
-        author = {Bastien, Fr{\'{e}}d{\'{e}}ric and Lamblin, Pascal and Pascanu, Razvan and Bergstra, James and Goodfellow, Ian J. and Bergeron, Arnaud and Bouchard, Nicolas and Bengio, Yoshua},
-         title = {Theano: new features and speed improvements},
-          year = {2012},
-  howpublished = {Deep Learning and Unsupervised Feature Learning NIPS 2012 Workshop},
-      abstract = {Theano is a linear algebra compiler that optimizes a user’s symbolically-speciﬁed
-mathematical computations to produce efﬁcient low-level implementations. In
-this paper, we present new features and efﬁciency improvements to Theano, and
-benchmarks demonstrating Theano’s performance relative to Torch7, a recently
-introduced machine learning library, and to RNNLM, a C++ library targeted at
-recurrent neural networks.}
+
+% conf location month version
+%@misc{Bastien-Theano-2012old,
+%        author = {Bastien, Fr{\'{e}}d{\'{e}}ric and Lamblin, Pascal and Pascanu, Razvan and Bergstra, James and Goodfellow, Ian J. and Bergeron, Arnaud and Bouchard, Nicolas and Bengio, Yoshua},
+%         title = {Theano: new features and speed improvements},
+%          year = {2012},
+%  howpublished = {Deep Learning and Unsupervised Feature Learning NIPS 2012 Workshop},
+%      abstract = {Theano is a linear algebra compiler that optimizes a user’s symbolically-speciﬁed
+%mathematical computations to produce efﬁcient low-level implementations. In
+%this paper, we present new features and efﬁciency improvements to Theano, and
+%benchmarks demonstrating Theano’s performance relative to Torch7, a recently
+%introduced machine learning library, and to RNNLM, a C++ library targeted at
+%recurrent neural networks.}
+%}
+
+
+@article{Bastien-Theano-2012,
+    title = {{Theano:} new features and speed improvements},
+	volume = {abs/1211.5590},
+	pages = {1--10},
+	journal = {{CoRR}},
+	author = {Bastien, Fr{\'u}d{\'u}ric and Lamblin, Pascal and Pascanu, Razvan and Bergstra, James and Goodfellow, Ian J. and Bergeron, Arnaud and Bouchard, Nicolas and Warde-Farley, David and Bengio, Yoshua},
+    year = {2012},
+    month = {Nov.},
 }
 
-@misc{sander_dieleman_2015_27878,
-  author       = {Sander Dieleman and
-                  Jan Schl\"{u}ter and
-                  Colin Raffel and
-                  Eben Olson and
-                  Søren Kaae Sønderby and
-                  Daniel Nouri and
-                  Daniel Maturana and
-                  Martin Thoma and
-                  Eric Battenberg and
-                  Jack Kelly and
-                  Jeffrey De Fauw and
-                  Michael Heilman and
-                  diogo149 and
-                  Brian McFee and
-                  Hendrik Weideman and
-                  takacsg84 and
-                  peterderivaz and
-                  Jon and
-                  instagibbs and
-                  Dr. Kashif Rasul and
-                  CongLiu and
-                  Britefury and
-                  Jonas Degrave},
-  title        = {Lasagne: First release.},
-  month        = aug,
-  year         = 2015,
-  doi          = {10.5281/zenodo.27878},
-  url          = {http://dx.doi.org/10.5281/zenodo.27878}
+
+
+% misc
+%@misc{sander_dieleman_2015_27878old,
+%  author       = {Sander Dieleman and
+%                  Jan Schl\"{u}ter and
+%                  Colin Raffel and
+%                  Eben Olson and
+%                  Søren Kaae Sønderby and
+%                  Daniel Nouri and
+%                  Daniel Maturana and
+%                  Martin Thoma and
+%                  Eric Battenberg and
+%                  Jack Kelly and
+%                  Jeffrey De Fauw and
+%                  Michael Heilman and
+%                  diogo149 and
+%                  Brian McFee and
+%                  Hendrik Weideman and
+%                  takacsg84 and
+%                  peterderivaz and
+%                  Jon and
+%                  instagibbs and
+%                  Dr. Kashif Rasul and
+%                  CongLiu and
+%                  Britefury and
+%                  Jonas Degrave},
+%  title        = {Lasagne: First release.},
+%  month        = aug,
+%  year         = 2015,
+%  doi          = {10.5281/zenodo.27878},
+%  url          = {http://dx.doi.org/10.5281/zenodo.27878}
+%}
+
+@electronic{sander_dieleman_2015_27878,
+    title = {{Lasagne:} {First} release.},
+	url = {http://github.com/Lasagne/Lasagne},
+	note = {[Accessed: 1 Nov. 2015].},
+	author = {Dieleman, Sander and Schl{\"u}ter, Jan and Raffel, Colin and Olson, Eben and S{\o}nderby, S{\o}ren Kaae and Nouri, Daniel and Maturana, Daniel and Thoma, Martin and Battenberg, Eric and Kelly, Jack and Fauw, Jeffrey De and Heilman, Michael and diogo149 and {McFee}, Brian and Weideman, Hendrik and takacsg84 and peterderivaz and Jon and instagibbs and Rasul, Dr Kashif and {CongLiu} and Britefury and Degrave, Jonas},
+    year = {2015},
+    month = {Aug.},
 }
 
-@MISC{eigenweb,
+% misc
+@electronic{eigenweb,
  author = {Ga\"{e}l Guennebaud and Beno\^{i}t Jacob and others},
  title = {Eigen v3},
- howpublished = {http://eigen.tuxfamily.org},
+ note = {[Accessed: 4 Apr. 2016].},
+ url = {http://eigen.tuxfamily.org},
  year = {2010}
+ month = {March},
 }
-
-
 
 %% PREVIOUS WORK ON HUMPBACK ID %%
 
+% book editor location
 @book{calambokidis2008splash,
   title={SPLASH: Structure of populations, levels of abundance and status of humpback whales in the North Pacific},
   author={Calambokidis, John and Falcone, Erin A and Quinn, Terrance J and Burdin, Alexander M and Clapham, PJ and Ford, JKB and Gabriele, CM and LeDuc, R and Mattila, D and Rojas-Bracho, L and others},
   year={2008},
-  publisher={Cascadia Research}
+  publisher={Cascadia Research},
+  address={Olympia, {WA}}
 }
 
+% journal
 @article{baker1993abundant,
-  title={Abundant mitochondrial DNA variation and world-wide population structure in humpback whales},
+  title={Abundant mitochondrial {DNA} variation and world-wide population structure in humpback whales},
   author={Baker, CS and Perry, A and Bannister, JL and Weinrich, MT and Abernethy, Robert B and Calambokidis, J and Lien, J and Lambertsen, RH and Ramirez, J Urban and Vasquez, O},
   journal={Proceedings of the National Academy of Sciences},
   volume={90},
   number={17},
   pages={8239--8243},
+  month={Sep.},
   year={1993},
   publisher={National Acad Sciences}
 }
 
 @article{branch2011humpback,
-  title={Humpback whale abundance south of 60 S from three complete circumpolar sets of surveys},
+  title={Humpback whale abundance south of 60 {S} from three complete circumpolar sets of surveys},
   author={Branch, TA},
-  journal={Journal of Cetacean Research and Management (special issue)},
+  journal={Journal of Cetacean Research and Management},
+  number={{Special 3}},
   volume={3},
   pages={53--69},
   year={2011}
 }
+% no month found
 
+%unused
 @inproceedings{breiwick1983simulated,
   title={Simulated population trajectories for northwest Atlantic humpback whales, 1865-1980},
   author={Breiwick, JM and Mitchell, E and Reeves, RR},
@@ -114,6 +176,7 @@ recurrent neural networks.}
   year={1983}
 }
 
+%unused
 @article{reilly2008megaptera,
   title={Megaptera novaeangliae},
   author={Reilly, SB and Bannister, JL and Best, PB and Brown, M and Brownell Jr, RL and Butterworth, DS and Clapham, PJ and Cooke, J and Donovan, GP and Urb{\'a}n, J and others},
@@ -121,6 +184,7 @@ recurrent neural networks.}
   year={2008}
 }
 
+%unused
 @article{arzoumanian2005astronomical,
   title={An astronomical pattern-matching algorithm for computer-aided identification of whale sharks Rhincodon typus},
   author={Arzoumanian, Z and Holmberg, J and Norman, B},
@@ -134,47 +198,57 @@ recurrent neural networks.}
 @article{mizroch1990computer,
   title={Computer assisted photo-identification of humpback whales},
   author={Mizroch, Sally A and Beard, Judith A and Lynde, Macgill},
+  editor={Hammond, Phillip S and Mizroch, Sally A and Donovan, Gregory P},
   journal={Report of the International Whaling Commission},
   volume={12},
+  number={{Special 12}},
   pages={63--70},
+  month={May.},
   year={1990}
 }
 
 @article{katona1990population,
   title={Population size, migrations and feeding aggregations of the humpback whale (Megaptera novaeangliae) in the western North Atlantic Ocean},
   author={Katona, Steven K and Beard, Judith A},
-  journal={Report of the International Whaling Commission (Special Issue 12)},
+  editor={Hammond, Phillip S and Mizroch, Sally A and Donovan, Gregory P},
+  journal={Report of the International Whaling Commission},
+  volume={12},
+  number={{Special 12}},
   pages={295--306},
+  month={May.},
   year={1990}
 }
 
+%unused
 @article{carlson1990changes,
   title={Changes in the ventral fluke pattern of the humpback whale (Megaptera novaeangliae), and its effect on matching; evaluation of its significance to photo-identification research},
   author={Carlson, Carole A and Mayo, Charles A and Whitehead, Hal},
-  journal={Rep. int. Whal. Commn (special issue)},
+  journal={Report of the International Whaling Commission},
   volume={12},
   pages={105--11},
   year={1990}
 }
 
 @article{beekmans2005comparison,
-  title={Comparison of two computer-assisted photo-identification methods applied to sperm whales (Physeter macrocephalus)},
+  title={Comparison of two computer-assisted photo-identification methods applied to sperm whales ({Physeter} macrocephalus)},
   author={Beekmans, BWPM and Whitehead, Hal and Huele, Ruben and Steiner, Lisa and Steenbeek, Adri G},
   journal={Aquatic Mammals},
   volume={31},
   number={2},
-  pages={243},
+  pages={243--247},
   year={2005},
+  month={Sep.},
   publisher={European Association for Aquatic Mammals}
 }
 
 @article{kniest2010fluke,
-  title={Fluke Matcher: A computer-aided matching system for humpback whale (Megaptera novaeangliae) flukes},
+  title={Fluke {Matcher}: A computer-aided matching system for humpback whale ({Megaptera} novaeangliae) flukes},
   author={Kniest, Eric and Burns, Daniel and Harrison, Peter},
   journal={Marine Mammal Science},
   volume={26},
   number={3},
   pages={744--756},
+  month={Jul.},
   year={2010},
   publisher={Wiley Online Library}
 }
@@ -182,20 +256,25 @@ recurrent neural networks.}
 @article{whitehead1990computer,
   title={Computer assisted individual identification of sperm whale flukes},
   author={Whitehead, Hal},
-  journal={Reports of the International Whaling Commission},
+  editor={Hammond, Phillip S and Mizroch, Sally A and Donovan, Gregory P},
+  journal={Report of the International Whaling Commission},
   volume={12},
+  number={{Special 12}},
   pages={71--77},
+  month={May.},
   year={1990}
 }
 
 @article{huele2000finding,
   title={Finding similar trailing edges in large collections of photographs of sperm whales},
   author={Huele, R and De Haes, HA Udo and Ciano, JN and Gordon, J},
+  editor={Donovan, Gregory P},
   journal={Journal of Cetacean Research and Management},
   volume={2},
   number={3},
   pages={173--176},
   year={2000},
+  month={Dec.},
   publisher={INTERNATIONAL WHALING COMMISSION}
 }
 
@@ -204,16 +283,17 @@ recurrent neural networks.}
 	author={Benjamin Hughes and Tilo Burghardt},
 	year={2015},
 	month={September},
+	address={Swansea, {UK}},
 	pages={92.1-92.14},
 	articleno={92},
 	numpages={14},
-	booktitle={Proceedings of the British Machine Vision Conference (BMVC)},
+	booktitle={Proceedings of the 2015 British Machine Vision Conference},
 	publisher={BMVA Press},
 	editor={Xianghua Xie, Mark W. Jones, and Gary K. L. Tam},
 	doi={10.5244/C.29.92},
 	isbn={1-901725-53-7},
-	url={https://dx.doi.org/10.5244/C.29.92}
 }
+%url={https://dx.doi.org/10.5244/C.29.92}
 
 @article{blackmer2000temporal,
   title={Temporal Variability in Features used to Photo-Identify Humpback Whales (Megaptera novaeangliae)},
@@ -223,9 +303,11 @@ recurrent neural networks.}
   number={2},
   pages={338--354},
   year={2000},
+  month={Apr.},
   publisher={Wiley Online Library}
 }
 
+%unused
 @article{friday2000measurement,
   title={Measurement of photographic quality and individual distinctiveness for the photographic identification of humpback whales, Megaptera novaeangliae},
   author={Friday, Nancy and Smith, Tim D and Stevick, Peter T and Allen, Judy},
@@ -237,6 +319,7 @@ recurrent neural networks.}
   publisher={Wiley Online Library}
 }
 
+%unused
 @article{araabi2000string,
   title={A string matching computer-assisted system for dolphin photoidentification},
   author={Araabi, BN and Kehtarnavaz, N and McKinney, T and Hillman, G and W{\"u}rsig, B},
@@ -248,6 +331,7 @@ recurrent neural networks.}
   publisher={Springer}
 }
 
+%unused
 @thesis{parham2015photographic,
 	title = {Photographic Censusing of Zebra and Giraffe in the Nairobi National Park},
 	institution = {Rensselaer Polytechnic Institute},
@@ -256,10 +340,12 @@ recurrent neural networks.}
 	date = {2015},
 }
 
-@misc{i3scontour,
+
+@electronic{i3scontour,
 	title= {{I3S} {Contour} {MANUAL}},
 	url= {http://www.reijns.com/i3s/download/I3SC.pdf},
 	author = {Hartog, den Jurgen and Reijns, Renate},
+    note = {[Accessed: 4 Apr. 2016].},
 	edition = {v3.0},
 	type= {Online},
 	year= {2013},
@@ -269,7 +355,6 @@ recurrent neural networks.}
 
 @inproceedings{crall_hotspotter_2013,
 	title = {{HotSpotter} - Patterned species instance recognition},
-	url = {http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6475023},
 	pages = {230--237},
 	booktitle = {Applications of Computer Vision ({WACV}), 2013 {IEEE} Workshop on},
 	publisher = {{IEEE}},
@@ -278,6 +363,7 @@ recurrent neural networks.}
 	date = {2013},
 	file = {Snapshot:/Users/bluemellophone/Library/Application Support/Zotero/Profiles/s3agt73i.default/zotero/storage/SEJ9G6NK/cookiedetectresponse.html:text/html}
 }
+%url = {http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6475023},
 
 %% TRAILING EDGE EXTRACTION %%
 
@@ -294,7 +380,7 @@ recurrent neural networks.}
 @article{Avidan:2007:SCC:1276377.1276390,
 	author = {Avidan, Shai and Shamir, Ariel},
 	title = {Seam Carving for Content-aware Image Resizing},
-	journal = {ACM Trans. Graph.},
+	journal = {ACM Transactions on Graphics},
 	issue_date = {July 2007},
 	volume = {26},
 	number = {3},
@@ -302,42 +388,46 @@ recurrent neural networks.}
 	year = {2007},
 	issn = {0730-0301},
 	articleno = {10},
-	url = {http://doi.acm.org/10.1145/1276377.1276390},
 	doi = {10.1145/1276377.1276390},
 	acmid = {1276390},
 	publisher = {ACM},
-	address = {New York, NY, USA},
+	address = {New York, {NY}},
 	keywords = {content-aware image manipulation, display devices, image resizing, image retargeting, image seams},
 } 
+%url = {http://doi.acm.org/10.1145/1276377.1276390},
 
 @inproceedings{amini1988using,
   title={Using dynamic programming for minimizing the energy of active contours in the presence of hard constraints},
   author={Amini, Amir A and Tehrani, Saeid and Weymouth, Terry E},
-  booktitle={Computer Vision., Second International Conference on},
+  booktitle={Proceedings of the Second International Conference on Computer Vision},
   pages={95--99},
   year={1988},
+  month=dec,
+  address={Tampa, {FL}},
   organization={IEEE}
 }
 
 @article{kass1988snakes,
   title={Snakes: Active contour models},
   author={Kass, Michael and Witkin, Andrew and Terzopoulos, Demetri},
-  journal={International journal of computer vision},
+  journal={International Journal of Computer Vision},
   volume={1},
   number={4},
   pages={321--331},
   year={1988},
+  month=jan,
   publisher={Springer}
 }
 
 @article{lowe2004distinctive,
   title={Distinctive image features from scale-invariant keypoints},
   author={Lowe, David G},
-  journal={International journal of computer vision},
+  journal={International Journal of Computer Vision},
   volume={60},
   number={2},
   pages={91--110},
   year={2004},
+  month=nov,
   publisher={Springer}
 }
 
@@ -346,48 +436,85 @@ recurrent neural networks.}
 @incollection{kumar2012leafsnap,
   title={Leafsnap: A computer vision system for automatic plant species identification},
   author={Kumar, Neeraj and Belhumeur, Peter N and Biswas, Arijit and Jacobs, David W and Kress, W John and Lopez, Ida C and Soares, Jo{\~a}o VB},
-  booktitle={Computer Vision--ECCV 2012},
+  booktitle={Proceedings of the 2012 European Conference on Computer Vision},
   pages={502--516},
   year={2012},
+  month=oct,
+  address={Firenze, {IT}},
   publisher={Springer}
 }
 
 @inproceedings{monroy2011beyond,
-  title={Beyond straight lines—object detection using curvature},
+  title={Beyond straight lines -- object detection using curvature},
   author={Monroy, Antonio and Eigenstetter, Angela and Ommer, Bj{\"o}rn},
-  booktitle={Image Processing (ICIP), 2011 18th IEEE International Conference on},
+  booktitle={Proceedings of the 18th IEEE International Conference on Image Processing},
   pages={3561--3564},
   year={2011},
+  month=sep,
+  address={Brussels, {BE}},
   organization={IEEE}
 }
 
-@incollection{fischer2014image,
-  title={Image descriptors based on curvature histograms},
-  author={Fischer, Philipp and Brox, Thomas},
-  booktitle={Pattern Recognition},
-  pages={239--249},
+%@incollection{fischer2014imageold,
+%  title={Image descriptors based on curvature histograms},
+%  author={Fischer, Philipp and Brox, Thomas},
+%  booktitle={Pattern Recognition},
+%  pages={239--249},
+%  year={2014},
+%  publisher={Springer}
+%}
+
+@inproceedings{fischer2014image,
+  author={Fischer, Philipp
+  and Brox, Thomas},
+  editor={Jiang, Xiaoyi
+  and Hornegger, Joachim
+  and Koch, Reinhard},
+  title={{Image Descriptors Based on Curvature Histograms}},
+  booktitle={{Proceedings of the 36th German Conference on Pattern Recognition}},
+  month=sep,
   year={2014},
-  publisher={Springer}
+  publisher={{Springer International Publishing}},
+  address={M{\"u}nster, {DE}},
+  pages={239--249},
+  isbn={978-3-319-11752-2},
+  doi={10.1007/978-3-319-11752-2_19},
 }
+%url="http://dx.doi.org/10.1007/978-3-319-11752-2_19"
+
+
+%@article{pottmann2007integralold,
+%  title={Integral invariants for robust geometry processing},
+%  author={Pottmann, Helmut and Wallner, Johannes and Huang, Qi-xing and Yang, Yong-liang},
+%  year={2007},
+%  publisher={Citeseer}
+%}
 
 @article{pottmann2007integral,
-  title={Integral invariants for robust geometry processing},
-  author={Pottmann, Helmut and Wallner, Johannes and Huang, Qi-xing and Yang, Yong-liang},
-  year={2007},
-  publisher={Citeseer}
+  title = "Integral invariants for robust geometry processing ",
+  journal = "Computer Aided Geometric Design ",
+  volume = "26",
+  number = "1",
+  pages = "37 - 60",
+  month=jan,
+  year = "2009",
+  issn = "0167-8396",
+  doi = "http://dx.doi.org/10.1016/j.cagd.2008.01.002",
+  author = "Helmut Pottmann and Johannes Wallner and Qi-Xing Huang and Yong-Liang Yang",
 }
+%url = "http://www.sciencedirect.com/science/article/pii/S0167839608000095",
 
 @article{crow1984summed,
   title={Summed-area tables for texture mapping},
   author={Crow, Franklin C},
-  journal={ACM SIGGRAPH computer graphics},
+  journal={ACM SIGGRAPH Computer Graphics},
   volume={18},
   number={3},
   pages={207--212},
+  month=jul,
   year={1984},
   publisher={ACM}
 }
-
 
 %% DTW %%
 
@@ -397,35 +524,56 @@ recurrent neural networks.}
   booktitle={Proceedings of the 18th ACM SIGKDD international conference on Knowledge discovery and data mining},
   pages={262--270},
   year={2012},
+  month=aug,
+  address={Beijing, {CN}},
   organization={ACM}
 }
 
+%@book{muller2007informationold,
+%  title={Information retrieval for music and motion},
+%  author={M{\"u}ller, Meinard},
+%  volume={2},
+%  year={2007},
+%  publisher={Springer}
+%}
 
 @book{muller2007information,
-  title={Information retrieval for music and motion},
-  author={M{\"u}ller, Meinard},
-  volume={2},
-  year={2007},
-  publisher={Springer}
+  author    = {Meinard M{\"{u}}ller},
+  editor	= {Meinard M{\"{u}}ller},
+  title     = {Information retrieval for music and motion},
+  publisher = {Springer},
+  year      = {2007},
+  volume 	= {2},
+  chapter	= {2},
+  address	= {Berlin, {DE}},
+  doi       = {10.1007/978-3-540-74048-3},
+  timestamp = {Wed, 23 Mar 2011 08:32:36 +0100},
+  biburl    = {http://dblp2.uni-trier.de/rec/bib/books/daglib/0019158},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
+%url       = {http://dx.doi.org/10.1007/978-3-540-74048-3},
 
 @article{sakoe1978dynamic,
   title={Dynamic programming algorithm optimization for spoken word recognition},
   author={Sakoe, Hiroaki and Chiba, Seibi},
-  journal={Acoustics, Speech and Signal Processing, IEEE Transactions on},
+  journal={IEEE Transactions on Acoustics, Speech and Signal Processing},
   volume={26},
   number={1},
   pages={43--49},
   year={1978},
+  month=feb,
   publisher={IEEE}
 }
 
 @article{salvador2007fastdtw,
-  title={FastDTW: Toward Accurate Dynamic Time},
+  title={{Toward Accurate Dynamic Time Warping in Linear Time and Space}},
   author={Salvador, S and Chan, P},
-  journal={Warping in Linear Time and Space},
   year={2007},
-  publisher={Intelligent Data Analysis}
+  month=oct,
+  journal={Intelligent Data Analysis},
+  volume={11},
+  number={5},
+  pages={561--580},
 }
 
 @article{lemire2009faster,
@@ -435,6 +583,7 @@ recurrent neural networks.}
   volume={42},
   number={9},
   pages={2169--2180},
+  month=sep,
   year={2009},
   publisher={Elsevier}
 }
@@ -442,40 +591,58 @@ recurrent neural networks.}
 @inproceedings{munich1999continuous,
   title={Continuous dynamic time warping for translation-invariant curve alignment with applications to signature verification},
   author={Munich, Mario E and Perona, Pietro},
-  booktitle={Computer Vision, 1999. The Proceedings of the Seventh IEEE International Conference on},
+  booktitle={The Proceedings of the Seventh IEEE International Conference on Computer Vision, 1999.},
   volume={1},
   pages={108--115},
+  month=sep,
   year={1999},
+  address={Corfu, {GR}}
   organization={IEEE}
 }
 
 @inproceedings{qiao2006affine,
   title={Affine invariant dynamic time warping and its application to online rotated handwriting recognition},
   author={Qiao, Yu and Yasuhara, Makoto},
-  booktitle={Pattern Recognition, 2006. ICPR 2006. 18th International Conference on},
+  booktitle={Proceedings of the 18th International Conference on Pattern Recognition},
   volume={2},
   pages={905--908},
+  month=aug,
   year={2006},
+  address={Hong Kong, {HK}},
   organization={IEEE}
 }
 
-
 %% CONVNETS %%
 
-@inproceedings{ciresan2012deep,
-  title={Deep neural networks segment neuronal membranes in electron microscopy images},
-  author={Ciresan, Dan and Giusti, Alessandro and Gambardella, Luca M and Schmidhuber, J{\"u}rgen},
-  booktitle={Advances in neural information processing systems},
-  pages={2843--2851},
-  year={2012}
+%@inproceedings{ciresan2012deepold,
+%  title={Deep neural networks segment neuronal membranes in electron microscopy images},
+%  author={Ciresan, Dan and Giusti, Alessandro and Gambardella, Luca M and Schmidhuber, J{\"u}rgen},
+%  booktitle={Advances in neural information processing systems},
+%  pages={2843--2851},
+%  year={2012}
+%}
+
+@incollection{ciresan2012deep,
+  title = {{Deep Neural Networks Segment Neuronal Membranes in Electron Microscopy Images}},
+  author = {Dan Ciresan and Alessandro Giusti and Luca M. Gambardella and Schmidhuber, Juergen},
+  booktitle = {Advances in Neural Information Processing Systems 25},
+  editor = {F. Pereira and C. J. C. Burges and L. Bottou and K. Q. Weinberger},
+  pages = {2843--2851},
+  year = {2012},
+  month = dec,
+  address = {Lake Tahoe, {NV}},
+  publisher = {Curran Associates, Inc.},
 }
+%url = {http://papers.nips.cc/paper/4741-deep-neural-networks-segment-neuronal-membranes-in-electron-microscopy-images.pdf}
 
 @incollection{hariharan2014simultaneous,
   title={Simultaneous detection and segmentation},
   author={Hariharan, Bharath and Arbel{\'a}ez, Pablo and Girshick, Ross and Malik, Jitendra},
-  booktitle={Computer vision--ECCV 2014},
+  booktitle={Proceedings of the 2014 European Conference on Computer Vision},
   pages={297--312},
   year={2014},
+  month=sep,
+  address={Zurich, {CH}},
   publisher={Springer}
 }
 
@@ -483,135 +650,206 @@ recurrent neural networks.}
 @article{dumoulin2016guide,
     title={A guide to convolution arithmetic for deep learning},
 	author={Dumoulin, Vincent and Visin, Francesco},
-	journal={arXiv preprint arXiv:1603.07285},
+	journal = {{CoRR}},
+	volume = {abs/1603.07285},
+	pages={1--28},
+	month=mar,
 	year={2016}
 }
-
-
 
 @article{saxe2013exact,
     title={Exact solutions to the nonlinear dynamics of learning in deep linear neural networks},
 	author={Saxe, Andrew M and McClelland, James L and Ganguli, Surya},
-	journal={arXiv preprint arXiv:1312.6120},
+	journal = {{CoRR}},
+	volume={abs/1312.6120},
+	month = dec,
 	year={2013}
 }
 
-@article{fukushima1979neural,
-  title={Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position- Neocognitron},
-  author={Fukushima, Kunihiko},
-  journal={ELECTRON. \& COMMUN. JAPAN},
-  volume={62},
-  number={10},
-  pages={11--18},
-  year={1979}
-}
+%@article{fukushima1979neuralold,
+%  title={Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position- Neocognitron},
+%  author={Fukushima, Kunihiko},
+%  journal={ELECTRON. \& COMMUN. JAPAN},
+%  volume={62},
+%  number={10},
+%  pages={11--18},
+%  year={1979}
+%}
 
-@inproceedings{taigman2014deepface,
+@article{fukushima1979neural,
+ author="Fukushima, Kunihiko",
+ title="Neocognitron: A self-organizing neural network model for a mechanism of pattern recognition unaffected by shift in position",
+ journal="Biological Cybernetics",
+ year={1980},
+ month=apr,
+ volume="36",
+ number="4",
+ pages="193--202",
+ issn="1432-0770",
+ doi="10.1007/BF00344251",
+}
+%url="http://dx.doi.org/10.1007/BF00344251"
+
+@incollection{taigman2014deepface,
   title={Deepface: Closing the gap to human-level performance in face verification},
   author={Taigman, Yaniv and Yang, Ming and Ranzato, Marc'Aurelio and Wolf, Lior},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  booktitle={Proceedings of the 2014 IEEE Conference on Computer Vision and Pattern Recognition},
   pages={1701--1708},
-  year={2014}
+  year={2014},
+  month=jun,
+  address={Columbus, {OH}},
+  publisher={IEEE}
 }
 
 @article{berretti20113d,
-  title={3D facial expression recognition using SIFT descriptors of automatically detected keypoints},
+  title={{3D} facial expression recognition using {SIFT} descriptors of automatically detected keypoints},
   author={Berretti, Stefano and Amor, Boulbaba Ben and Daoudi, Mohamed and Del Bimbo, Alberto},
   journal={The Visual Computer},
   volume={27},
   number={11},
   pages={1021--1036},
   year={2011},
+  month=nov,
   publisher={Springer}
 }
 
-@article{akagi2013facial,
-  title={A facial motion tracking and transfer method based on a key point detection},
-  author={Akagi, Yasuhiro and Furukawa, Ryo and Sagawa, Ryusuke and Ogawara, Koichi and Kawasaki, Hiroshi},
-  year={2013},
-  publisher={V{\'a}clav Skala-UNION Agency}
-}
+%@inproceedings{akagi2013facialold,
+%  title={A facial motion tracking and transfer method based on a key point detection},
+%  author={Akagi, Yasuhiro and Furukawa, Ryo and Sagawa, Ryusuke and Ogawara, Koichi and Kawasaki, Hiroshi},
+%  booktitle={Proceedings of the 21st International Conference in Central Europe on Computer Graphics, Visualization and Computer Vision}
+%  year={2013},
+%  month=
+%  publisher={V{\'a}clav Skala-UNION Agency}
+%}
+
+@incollection{akagi2013facial,
+  author = {Akagi, Yasuhiro and Furukawa, Ryo and Sagawa, Ryusuke and Ogawara, Koichi and Kawasaki, Hiroshi},
+  title = {{A Facial Tracking and Transfer Method with a Key Point Refinement}},
+  booktitle = {ACM SIGGRAPH 2013 Posters},
+  series = {SIGGRAPH '13},
+  year = {2013},
+  isbn = {978-1-4503-2342-0},
+  address = {Anaheim, {CA}},
+  pages = {79--79},
+  articleno = {79},
+  numpages = {1},
+  doi = {10.1145/2503385.2503472},
+  acmid = {2503472},
+  publisher = {ACM},
+} 
+%url = {http://doi.acm.org/10.1145/2503385.2503472},
 
 @article{ning2005toward,
   title={Toward automatic phenotyping of developing embryos from videos},
   author={Ning, Feng and Delhomme, Damien and LeCun, Yann and Piano, Fabio and Bottou, L{\'e}on and Barbano, Paolo Emilio},
-  journal={Image Processing, IEEE Transactions on},
+  journal={IEEE Transactions on Image Processing},
   volume={14},
   number={9},
   pages={1360--1371},
+  month=sep,
   year={2005},
   publisher={IEEE}
 }
 
-
-
 @article{kingma2014adam,
   title={Adam: A method for stochastic optimization},
   author={Kingma, Diederik and Ba, Jimmy},
-  journal={arXiv preprint arXiv:1412.6980},
+  volume={abs/1412.6980},
+  journal={{CoRR}},
+  month=dec,
   year={2014}
 }
 
+%TODO
 @techreport{huang2007labeled,
   title={Labeled faces in the wild: A database for studying face recognition in unconstrained environments},
   author={Huang, Gary B and Ramesh, Manu and Berg, Tamara and Learned-Miller, Erik},
   year={2007},
-  institution={Technical Report 07-49, University of Massachusetts, Amherst}
+  institution={University of Massachusetts, Amherst},
+  address={Amherst, {MA}},
 }
+%Technical Report 07-49
 
 @inproceedings{hadsell2006dimensionality,
   title={Dimensionality reduction by learning an invariant mapping},
   author={Hadsell, Raia and Chopra, Sumit and LeCun, Yann},
-  booktitle={Computer vision and pattern recognition, 2006 IEEE computer society conference on},
+  booktitle={Proceedings of the 2006 IEEE Conference on Computer Vision and Pattern Recognition},
   volume={2},
   pages={1735--1742},
+  month=jun,
   year={2006},
+  address={New York, {NY}},
   organization={IEEE}
 }
 
 
-@inproceedings{krizhevsky2012imagenet,
-  title={Imagenet classification with deep convolutional neural networks},
-  author={Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E},
-  booktitle={Advances in neural information processing systems},
-  pages={1097--1105},
-  year={2012}
+%@inproceedings{krizhevsky2012imagenetold,
+%  title={Imagenet classification with deep convolutional neural networks},
+%  author={Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E},
+%  booktitle={Advances in neural information processing systems 25},
+%  pages={1097--1105},
+%  year={2012}
+%  address={Lake Tahoe, {NV}}
+%}
+
+@incollection{krizhevsky2012imagenet,
+  title = {{ImageNet Classification with Deep Convolutional Neural Networks}},
+  author = {Alex Krizhevsky and Sutskever, Ilya and Geoffrey E. Hinton},
+  booktitle = {Advances in Neural Information Processing Systems 25},
+  editor = {F. Pereira and C. J. C. Burges and L. Bottou and K. Q. Weinberger},
+  pages = {1097--1105},
+  year = {2012},
+  month=dec,
+  publisher = {Curran Associates, Inc.},
+  address={Lake Tahoe, {NV}}
 }
+%url = {http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf}
 
 @inproceedings{szegedy2015going,
   title={Going deeper with convolutions},
   author={Szegedy, Christian and Liu, Wei and Jia, Yangqing and Sermanet, Pierre and Reed, Scott and Anguelov, Dragomir and Erhan, Dumitru and Vanhoucke, Vincent and Rabinovich, Andrew},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  booktitle={Proceedings of the 2015 IEEE Conference on Computer Vision and Pattern Recognition},
+  month=jun,
   pages={1--9},
+  address={Boston, {MA}},
   year={2015}
 }
 
 @inproceedings{long2015fully,
   title={Fully convolutional networks for semantic segmentation},
   author={Long, Jonathan and Shelhamer, Evan and Darrell, Trevor},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  booktitle={Proceedings of the 2015 IEEE Conference on Computer Vision and Pattern Recognition},
   pages={3431--3440},
+  month=jun,
+  address={Boston, {MA}},
   year={2015}
 }
+
 @article{chen2014semantic,
   title={Semantic image segmentation with deep convolutional nets and fully connected crfs},
   author={Chen, Liang-Chieh and Papandreou, George and Kokkinos, Iasonas and Murphy, Kevin and Yuille, Alan L},
-  journal={arXiv preprint arXiv:1412.7062},
-  year={2014}
+  volume={abs/1412.7062},
+  journal={{CoRR}},
+  year={2014},
+  month=dec
 }
 
 @article{fan2014learning,
   title={Learning deep face representation},
   author={Fan, Haoqiang and Cao, Zhimin and Jiang, Yuning and Yin, Qi and Doudou, Chinchilla},
-  journal={arXiv preprint arXiv:1403.2802},
-  year={2014}
+  volume={abs/1403.2802},
+  journal={{CoRR}},
+  year={2014},
+  month=mar
 }
 
 @inproceedings{schroff2015facenet,
   title={Facenet: A unified embedding for face recognition and clustering},
   author={Schroff, Florian and Kalenichenko, Dmitry and Philbin, James},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  booktitle={Proceedings of the 2015 IEEE Conference on Computer Vision and Pattern Recognition},
   pages={815--823},
+  month=jun,
+  address={Boston, {MA}},
   year={2015}
 }
 
@@ -623,87 +861,121 @@ recurrent neural networks.}
   number={11},
   pages={2278--2324},
   year={1998},
+  month=nov,
   publisher={IEEE}
 }
 
 @article{simonyan2014very,
   title={Very deep convolutional networks for large-scale image recognition},
   author={Simonyan, Karen and Zisserman, Andrew},
-  journal={arXiv preprint arXiv:1409.1556},
+  volume={abs/1409.1556},
+  journal={{CoRR}},
+  month=sep,
   year={2014}
 }
 
 @article{hinton2012improving,
   title={Improving neural networks by preventing co-adaptation of feature detectors},
   author={Hinton, Geoffrey E and Srivastava, Nitish and Krizhevsky, Alex and Sutskever, Ilya and Salakhutdinov, Ruslan R},
-  journal={arXiv preprint arXiv:1207.0580},
+  volume={abs/1207.0580},
+  journal={{CoRR}},
   year={2012}
 }
 
 @article{ioffe2015batch,
   title={Batch normalization: Accelerating deep network training by reducing internal covariate shift},
   author={Ioffe, Sergey and Szegedy, Christian},
-  journal={arXiv preprint arXiv:1502.03167},
+  volume={abs/1502.03167},
+  journal={{CoRR}},
+  month=feb,
   year={2015}
 }
 
 @article{sermanet2013overfeat,
   title={Overfeat: Integrated recognition, localization and detection using convolutional networks},
   author={Sermanet, Pierre and Eigen, David and Zhang, Xiang and Mathieu, Micha{\"e}l and Fergus, Rob and LeCun, Yann},
-  journal={arXiv preprint arXiv:1312.6229},
+  volume={abs/1312.6229},
+  journal={{CoRR}},
+  month=dec,
   year={2013}
 }
 
 @inproceedings{sun2013deep,
   title={Deep convolutional network cascade for facial point detection},
   author={Sun, Yi and Wang, Xiaogang and Tang, Xiaoou},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  booktitle={Proceedings of the 2013 IEEE Conference on Computer Vision and Pattern Recognition},
   pages={3476--3483},
+  address={Portland, {OR}},
+  month=jun,
   year={2013}
 }
 
-@online{nouri2014using,
+@electronic{nouri2014using,
 	title={Using convolutional neural nets to detect facial keypoints tutorial},
 	url= {http://danielnouri.org/notes/2014/12/17/using-convolutional-neural-nets-to-detect-facial-keypoints-tutorial/},
 	author = {Nouri, Daniel},
-	edition = {1st ed},
+	note = {[Accessed: 4 Apr. 2016].},
 	type= {Online},
 	year={2014},
+	month=dec,
 	available={http://www.danielnouri.org},
 }
 
 @inproceedings{chopra2005learning,
   title={Learning a similarity metric discriminatively, with application to face verification},
   author={Chopra, Sumit and Hadsell, Raia and LeCun, Yann},
-  booktitle={Computer Vision and Pattern Recognition, 2005. CVPR 2005. IEEE Computer Society Conference on},
+  booktitle={Proceedings of the 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition},
   volume={1},
   pages={539--546},
+  address={San {Diego}, {CA}},
+  month=jun,
   year={2005},
   organization={IEEE}
 }
 
-@article{parkhi2015deep,
-  title={Deep face recognition},
-  author={Parkhi, Omkar M and Vedaldi, Andrea and Zisserman, Andrew},
-  journal={Proceedings of the British Machine Vision},
-  volume={1},
-  number={3},
-  pages={6},
-  year={2015}
+%@article{parkhi2015deepold,
+%  title={Deep face recognition},
+%  author={Parkhi, Omkar M and Vedaldi, Andrea and Zisserman, Andrew},
+%  journal={Proceedings of the 2015 British Machine Vision Conference},
+%  volume={1},
+%  number={3},
+%  pages={6},
+%  month=sep,
+%  year={2015}
+%}
+
+@inproceedings{parkhi2015deep,
+	title={Deep Face Recognition},
+	author={Omkar M. Parkhi and Andrea Vedaldi and Andrew Zisserman},
+	year={2015},
+	month=sep,
+	pages={41.1-41.12},
+	articleno={41},
+	numpages={12},
+	booktitle={Proceedings of the 2015 British Machine Vision Conference (BMVC)},
+	publisher={BMVA Press},
+	editor={Xianghua Xie, Mark W. Jones, and Gary K. L. Tam},
+	doi={10.5244/C.29.41},
+	isbn={1-901725-53-7},
 }
+%url={https://dx.doi.org/10.5244/C.29.41}
 
 @inproceedings{jaderberg2015spatial,
   title={Spatial transformer networks},
   author={Jaderberg, Max and Simonyan, Karen and Zisserman, Andrew and others},
-  booktitle={Advances in Neural Information Processing Systems},
+  booktitle={Advances in Neural Information Processing Systems 28},
   pages={2008--2016},
+  address={Montreal, {CAN}},
+  month=dec,
   year={2015}
 }
 
 @article{he2015deep,
   title={Deep Residual Learning for Image Recognition},
   author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
-  journal={arXiv preprint arXiv:1512.03385},
+  volume={abs/1512.03385},
+  journal={{CoRR}},
+  month=dec,
   year={2015}
 }
 

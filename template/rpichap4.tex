@@ -43,6 +43,7 @@ While most of the implementation is done in Python, we use C++ with Eigen \cite{
 %In this section, we discuss the wall-clock time of our method, as well as opportunities to improve it.
 
 \begin{table*}[t]%
+	\caption{\textbf{Itemized Running Time}. This table provides the average time taken for each operation that constitutes our algorithm on a single image. All computations were done on the subset of Flukebook that we used for evaluation (942 images).}
 	\centering
 	\resizebox{\linewidth}{!}
 	{
@@ -54,7 +55,6 @@ While most of the implementation is done in Python, we use C++ with Eigen \cite{
 		\hline
 		\end{tabular}
 	}
-	\caption{\textbf{Itemized Running Time}. This table provides the average time taken for each operation that constitutes our algorithm on a single image. All computations were done on the subset of Flukebook that we used for evaluation (942 images).}
 	\label{tab:extract_te_times}
 \end{table*}
 
@@ -239,7 +239,7 @@ We show an example case where trailing edge scoring helps in Figure \ref{fig:dis
 \end{figure*}
 
 
-\subsection{Number of neighbors in the extraction}
+\subsection{Setting $n$}
 
 The number of neighbors $n$ effectively limits the slope of the trailing edge.
 We limit it to an odd number for convenience.
@@ -277,7 +277,7 @@ While this effect is only present in a small number of cases, the difference in 
 \label{fig:vary_neighbors}
 \end{figure*}
 
-\subsection{Using the notch}
+\subsection{Using the Notch Keypoint}
 
 Initially, we believed that using the notch as a control point (i.e.\ forcing the trailing edge to go through the notch) would give better trailing edges, and therefore an increase in accuracy.
 As it turns out, this is not the case --- using the notch as a control point gives somewhat worse accuracy.
@@ -413,7 +413,7 @@ However, automatically deciding which algorithm to use for matching is non-trivi
 
 See Figure \ref{fig:dis_proot} for an example where Hotspotter correctly finds a match where our method fails, and vice-versa.
 
-\subsection{Characterization of when to use which method}
+\subsection{Characterization of Cases which each Method can Handle}
 
 From an intuitive standpoint, it appears that Hotspotter cannot find effective keypoints from trailing edges, which hampers its ability to handle flukes which do not have an apparent pattern.
 
@@ -422,6 +422,7 @@ Since this oceanic background changes from image to image, it cannot verify sali
 As a result, flukes which have little to no internal texture are nearly impossible for Hotspotter to match.
 
 \begin{table*}[t]%
+	\caption{\textbf{Comparison with Hotspotter}. This table provides a comparison between our method and Hotspotter in terms of top-1 ranking accuracy on the Flukebook dataset.}
 	\centering
 	\resizebox{\linewidth}{!}
 	{
@@ -433,7 +434,6 @@ As a result, flukes which have little to no internal texture are nearly impossib
 		\hline
 		\end{tabular}
 	}
-	\caption{\textbf{Comparison with Hotspotter}. This table provides a comparison between our method and Hotspotter in terms of top-1 ranking accuracy on the Flukebook dataset.}
 	\label{tab:vary_proot}
 \end{table*}
 
